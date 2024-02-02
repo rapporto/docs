@@ -1,0 +1,623 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-family: 'Segoe UI', Helvetica, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+
+/*скрываем кнопки темной темы*/
+
+.theme-switch-button {
+  display: none;
+}
+
+
+/*меняем базовые цвета в соответствии с дизайном для светлой темы*/
+
+html[data-theme=light] {
+  --pst-color-secondary: #726CFF;
+  --pst-color-primary: #726CFF ;
+  --pst-color-accent: #726CFF;
+  --pst-color-h1: black;
+}
+
+
+/*аналогично можно задавать цвета для темной темы*/
+html[data-theme=dark] {
+  --pst-color-secondary: red;
+  --pst-color-primary-left: #E2E1FF;
+  --pst-color-h1: red;
+}
+
+
+
+
+
+ 
+
+
+/*задаем цвета и размеры шрифта в соответствии с дизайном
+с дизайнером согласовано, что оставляем системный шрифт, 
+настройки шрифта тоже оставили базовые, так как результат при применении не соовтетствует макету*/
+
+body {
+
+  font-family: 'Segoe UI', Helvetica, sans-serif;  color: #000;
+  font-size: 16px;
+}
+
+
+
+.bd-article-container h1,
+.bd-article-container h2,
+.bd-article-container h3,
+.bd-article-container h4,
+.bd-article-container h5,
+.bd-article-container p.caption {
+  font-family: 'Segoe UI', Helvetica, sans-serif,'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-style: normal;
+}
+
+
+
+h1,
+h2,
+h3,
+h4,
+h5{
+  font-family: 'Segoe UI', Helvetica, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-style: normal;
+}
+
+
+h1 {
+  color: #000;
+  font-size: 36px;
+}
+
+
+h2,
+h3 {
+  color: #000;
+  font-size: 28px;
+}
+
+h4 {
+  color: #000;
+  line-height: 26px; 
+}
+
+
+/*шрифт для бокового меню*/
+
+.bd-sidebar-primary {
+  color: #000
+  font-size: 14px;
+ }
+
+
+.bd-header-article .btn {
+  color: #98A2B3;
+  font-size: 14px;
+}
+
+
+
+code, kbd, pre, samp {
+  font-family: "SFMono-Regular",Menlo,Consolas,Monaco,Liberation Mono,Lucida Console,monospace;
+  font-size: 14px;
+
+
+
+}
+
+
+
+
+
+
+
+/*Кастомизация основных элементов*/
+
+
+/*Изображение*/
+
+/*изображение, добавляем небольшую рамку, чтобы не сливалось с текстом*/
+
+img {
+  border: 1px solid #a0b3bf82;;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 15px auto;
+}
+
+
+
+/*для лого rapporto не нужно рамок, no limits )
+*/
+img.logo__image {
+  border: 0;
+  width: 147.879px;
+  vertical-align: left;
+}
+
+
+/*выравнивание лого rapporto по левому краю и указание размеров logo */
+
+.navbar-brand {
+  width: 147.879px;
+}
+
+
+/*Выравниваем лого на один уровень с верхнем меню (нужно будет более гибкий вариант поискать)*/
+
+div.sidebar-primary-item, .logo__image {
+
+  margin-top: -12px;
+  margin-bottom: 15px;
+}
+
+
+
+
+
+/*Таблица*/
+
+/*Делаем для таблицы полные границы, так как бывают большие таблицы и без явных границ ухудшается читабельность*/
+
+
+tbody, td, tfoot, th, thead, tr {
+  border: 1px solid #a0b3bf82;
+  padding: 10px 20px;
+}
+
+tfoot {
+  background-color: grey;
+}
+
+
+
+/*Вкладки*/
+/*Переделываем вкладки в соответствии с дизайном*/
+
+.sphinx-tabs-tab {
+   color: #1D2939;
+ }
+
+
+
+.sphinx-tabs-tab[aria-selected="true"] {
+  border: 0 solid white;
+  color: var(--pst-color-primary);;
+  border-bottom: 2px solid var(--pst-color-primary);
+  margin: -1px;
+  background-color: white;
+}
+
+
+[role="tablist"] {
+  border-bottom: 1px solid white;
+}
+
+.sphinx-tabs-panel {
+  position: relative;
+  padding: 1rem;
+  border: 0;
+  border-top: 1px solid #a0b3bf82;;
+  background: white;
+}
+
+
+
+
+
+/*Меню навигации*/
+
+
+.bd-sidebar-primary {
+  padding-top: 40px;
+}
+
+
+
+.bd-header-article .header-article-items{
+  margin-top: 24px;
+}
+
+
+.bd-sidebar-secondary .onthispage{
+  margin-top: 24px;
+}
+
+
+
+
+/*выделение активного пункта левого меню заливкой цветом #E2E1FF*/
+
+/*Задается цвет шрифта для выделенного пункта левого меню и подсветки box-shadow */
+
+
+nav.bd-links li > a:active, nav.bd-links li > a:hover {
+  color: black;
+}
+
+
+/*выделение выбранного пункта левого меню заливкой цветом #E2E1FF*/
+li.toctree-l1.current.active {
+  color: #1D2939;
+  font-weight: normal;
+}
+
+
+
+
+
+
+/*Задается цвет шрифта для пункта левого меню и подсветки box-shadow при наведении */
+nav.bd-links .current > a:hover {
+
+  color: black;
+  font-weight: normal; 
+}
+
+
+nav.bd-links .current > a {
+  
+  box-shadow: inset max(3px,.1875rem,.12em) 0 0 #E2E1FF;
+  color: black;
+  background-color: #E2E1FF;
+  font-weight: normal; 
+  box-shadow: inset max(3px,.1875rem,.12em) 0 0 #E2E1FF;
+  color: black;
+
+}
+
+
+/*выделение цветом левого меню при наведении*/
+nav.bd-links li > a:hover {
+  text-decoration-skip: none;
+  background-color: #ededf2d1;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: max(3px,.1875rem,.12em);
+  box-shadow: inset max(3px,.1875rem,.12em) 0 0 #ededf2d1;
+}
+
+
+
+/*Задается цвет шрифта для выделенного пункта правого меню и подсветки box-shadow */
+.toc-entry a.nav-link.active {
+  .box-shadow: inset max(3px,.1875rem,.12em) 0 0 #726CFF;
+  color: #726CFF;
+}
+
+
+/*задаем отступ от Содержания и правого меню*/
+
+.bd-sidebar-secondary .onthispage {
+  margin-bottom: 30px;
+}
+
+
+/*Задается цвет шрифта для выделенного пункта правого меню и подсветки box-shadow*/
+
+.toc-entry a.nav-link.active:hover {
+  box-shadow: inset max(3px,.1875rem,.12em) 0 0 #726CFF;
+  color: #726CFF;
+
+}
+
+
+/*убираем жирное выделение и подчеркивание для ссылок, при наведении ссылка толькопочеркивается*/
+
+nav.bd-links li > a:hover {
+  box-shadow: none;
+  text-decoration: none;
+}
+
+.toc-entry a.nav-link:hover {
+  box-shadow: none;
+  text-decoration: none;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+/*навигация в нижней части, которая позволяет переходить вперед и назад по статьям
+убираем жирность и оставляем стандартно как для других ссылок - подчеркивание при наведении*/
+
+
+.prev-next-area a p.prev-next-title {
+  word-wrap: break-word;
+  font-size: 16px;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+
+.prev-next-area a:hover p.prev-next-title:hover {
+  text-decoration-skip: none;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+
+.sidebar-primary-items__end {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+
+
+
+/*Кастомизация иконок*/
+
+
+
+/*добавляем левый отступ для иконок, которые будут отображаться в выпадающем меню, чтобы в выпадющем списке не сливались с текстом*/
+.btn__text-container {
+  margin-left: 10px;
+}
+
+
+/*убираем подстветку для кнопок и выпадающего меню, по дизайну ее нет*/
+
+.bd-header-article .btn.show, .bd-header-article .btn:hover {
+  color: #98A2B3;
+}
+
+.bd-header-article .dropdown-menu .dropdown-item:hover {
+  color: #98A2B3;
+}
+
+
+
+
+/*Замена иконки, которая сворачивает левое меню
+!Нужно будет доработать так, чтобы она менялась в зависимости от состояния меню, если левое меню развернуто, то rotate(180deg), 
+если свернуто, то не нужно, чтобы она показывала в сторону сворачивания/разворачивания*/
+
+
+.fa-bars path {
+  fill: transparent; 
+}
+
+.fa-bars, .fa-navicon {
+  background-image: url(../Content.svg);
+  transform: rotate(180deg);
+  width: 24px; 
+  background-size: cover; 
+  display: flex;
+  height: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px; 
+}
+
+
+/*переделываем иконку, которая находится слева от содержания правого меню*/
+
+.fa-list-squares, .fa-list path {
+  fill: transparent; 
+}
+
+ 
+
+
+.fa-list-squares, .fa-list {
+  background-image: url(../menu-01.svg);
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0; 
+  background-size: cover; 
+  margin-right: 3px; 
+}
+
+
+div.page-toc {
+  margin-top: 30px;
+}
+
+
+
+
+
+/*Заменяем логотип Github на котенка*/
+.fa-github path {
+  fill: transparent; /* изменение цвета иконки */
+}
+
+.fa-github {
+  background-image: url(../github.svg);
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0; 
+  background-size: cover; 
+}
+
+
+
+
+
+/*Заменяем иконку загрузки статьи со страницы*/
+.fa-download path  {
+  fill: transparent; /* изменение цвета иконки */
+}
+
+.fa-download {
+  background-image: url(../file-download.svg);
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0; 
+  background-size: cover; 
+}
+
+
+
+/*Заменяем иконку поиска*/
+
+.search-button path {
+  fill: transparent; /* изменение цвета иконки */
+}
+
+
+.search-button {
+  background-image: url(../search-md.svg);
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0; 
+  margin-top: 2px; 
+  margin-left: 3px; 
+}
+
+
+
+
+
+/*выделенные блоки текста с заметками, предупреждением, советом и важным выделением*/
+
+/*не получилось заменить старые иконки, поэтому просто их убираем таким непрямым способом, чтобы поверх задать нужное изображение
+возможно их можно еще сделать прозрачными, но и этот вариант работает*/
+
+html {
+  --pst-icon-info-circle: '';
+  --pst-icon-exclamation-triangle: '';
+  --pst-icon-admonition-tip: '';
+  --pst-icon-admonition-important: '';
+}
+
+
+
+/*увеличиваем внутренние отступы и задаем расстояние между значком и заголовком выделенного блока текста*/
+
+/*.admonition :last-child, div.admonition :last-child {
+  padding-left: 16px;
+
+}
+*/
+.admonition-title {
+  text-indent: 16px; 
+}
+
+
+.admonition, div.admonition {
+  padding: 20px;
+  padding-left: 20px;
+}
+
+
+/*Переделываем блок с Предупреждением(error) в соответствии с дизайном - задаем новую иконку и цвет*/
+
+
+.admonition.warning > .admonition-title::after, div.admonition.warning > .admonition-title::after {
+  background-image: url(../CloseCircleFilled.svg);
+  width: 24px; 
+  height: 24px;
+  background-size: cover; 
+  margin-top: 1px;
+}
+
+
+.admonition.warning, div.admonition.warning {
+  border-color:#FFF1F0;
+  background-color: #FFF1F0;
+}
+
+
+.admonition.warning > .admonition-title::before, div.admonition.warning > .admonition-title::before {
+  background-color: #FFF1F0;
+}
+
+
+
+
+
+/*Переделываем блок с Советом ( success) в соответствии с дизайном - задаем новую иконку и цвет*/
+
+.admonition.tip > .admonition-title::after, div.admonition.tip > .admonition-title::after {
+  background-image: url(../CheckCircleFilled.svg);
+  width: 24px; 
+  height: 24px;
+  background-size: cover; 
+  margin-top: 1px;
+}
+
+
+.admonition.tip, div.admonition.tip {
+  border-color: #F6FFED;
+  background-color: #F6FFED;
+}
+
+
+.admonition.tip > .admonition-title::before, div.admonition.tip > .admonition-title::before {
+  background-color: #F6FFED;
+}
+
+
+
+/*Переделываем блок с Важно(warning) в соответствии с дизайном - задаем новую иконку и цвет*/
+
+.admonition.important > .admonition-title::after, div.admonition.important > .admonition-title::after {
+
+  background-image: url(../ExclamationCircleFilled.svg);
+  width: 24px; 
+  height: 24px;
+  background-size: cover; 
+  margin-top: 1px;
+
+}
+
+
+.admonition.important, div.admonition.important {
+  border-color: #FFFBE6;
+  background-color: #FFFBE6;
+}
+
+
+.admonition.important > .admonition-title::before, div.admonition.important > .admonition-title::before {
+  background-color: #FFFBE6;
+}
+
+
+/*Переделываем блок с Заметками(note, info) в соответствии с дизайном - задаем новую иконку и цвет*/
+
+.admonition.note > .admonition-title::after, div.admonition.note > .admonition-title::after {
+  background-image: url(../InfoCircleFilled.svg);
+  width: 24px; 
+  height: 24px;
+  background-size: cover; 
+  margin-top: 1px;
+}
+
+
+.admonition.note, div.admonition.note {
+  border-color: #F8F7FF;
+  background-color: #F8F7FF;
+}
+
+
+.admonition.note > .admonition-title::before, div.admonition.note > .admonition-title::before {
+  background-color: #F8F7FF;
+
+}
+
+
+
+
+
+
+
