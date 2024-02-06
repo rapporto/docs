@@ -1,14 +1,20 @@
 
 
-Начало работы
-=============
+Личный кабинет
+==============
  
 .. toctree::
    :maxdepth: 1 
    :hidden:
 
    new
-   
+   sms_sender
+   viber_sender
+   cascade
+   substitutions
+   relax_sender
+   finish
+   schedule
 
 Создавайте SMS- и Viber-рассылки с индивидуальным контентом и расписанием.
  
@@ -34,32 +40,32 @@
                     </svg>
                     <span>Что нового?</span>
                 </div>
-                <div><a href='#' class='view'>Посмотреть</a></div>
+                <div><a href='new.html' class='view'>Посмотреть</a></div>
             </div>
             <div class="row-table">
                 <section class="section">
                     <h4 class="item-header">Рассылки</h4>
-                    <ul>
-                        <li class="item-nav"><a href="lk/doc_lk.html">Создание и запуск рассылки</a></li>
-                        <li class="item-nav"><a href="#">Просмотр статистики</a></li>
-                    </ul>
-                </section>
-                <section class="section">
-                    <h4 class="item-header">Статистика</h4>
                     <input type="checkbox" id="statistica"/>
                     <ul>
-                        <li class="item-nav"><a href="#">Создание и запуск рассылки</a></li>
-                        <li class="item-nav"><a href="#">Просмотр статистики</a></li>
-                        <li class="item-nav"><a href="#">Детализация</a></li>
-                        <li class="item-nav"><a href="#">Детализация</a></li>
-                        <li class="item-nav"><a href="#">Детализация</a></li>
-                        <li class="item-nav"><a href="#">Детализация</a></li>
-                        <li class="item-nav"><a href="#">Детализация</a></li>
+                        <li class="item-nav"><a href="sms_sender.html">Как отправить SMS-рассылку</a></li>
+                        <li class="item-nav"><a href="viber_sender.html">Как отправить Viber-рассылку</a></li>
+                        <li class="item-nav"><a href="cascade.html">Как настроить и отправить каскадную рассылку</a></li>
+                        <li class="item-nav"><a href="substitutions.html">Как создать сообщение с подстановками</a></li>
+                        <li class="item-nav"><a href="relax_sender.html">Как отправить отложенную рассылку</a></li>
+                        <li class="item-nav"><a href="finish.html">Как поставить дату окончания рассылки</a></li>
+                        <li class="item-nav"><a href="schedule.html">Как установить расписание отправки</a></li>
                     </ul>
                     <label class="wrap-btn" for="statistica">
                         <span class="wrap">Смотреть все</span>
                         <span class="unwrap">Свернуть</span>
                      </label>
+                </section>
+                <section class="section">
+                    <h4 class="item-header">Статистика</h4>
+                    <ul>
+                        <li class="item-nav"><a href="lk/doc_lk.html">Создание и запуск рассылки</a></li>
+                        <li class="item-nav"><a href="#">Просмотр статистики</a></li>
+                    </ul>
                 </section>
             </div>
             <div class="row-table">
