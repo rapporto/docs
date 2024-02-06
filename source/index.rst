@@ -14,8 +14,8 @@ Rapporto Documentation
    :maxdepth: 1
    :caption: Личный кабинет Rapporto
 
-
-..   lk/sms_sender
-
+   lk/start
+   lk/sms_sender
+   lk/relax_sender
 
 
