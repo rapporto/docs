@@ -621,3 +621,167 @@ html {
 
 
 
+a {
+  text-decoration: none;
+  color: #1d2939;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #1d2939;
+}
+
+.content {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  max-width: 800px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.news {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 16px;
+  align-items: center;
+  gap: 12px;
+  border-radius: 8px;
+  background: var(--colorPrimaryBg, #f8f7ff);
+}
+
+.block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.row-table {
+  width: 100%;
+  display: flex;
+  gap: 64px;
+}
+
+.section {
+  position: relative;
+  flex-grow: 1;
+  width: 50%;
+}
+
+.section ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.section ul:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.section ul li:nth-child(1n + 4) {
+  max-height: 0;
+  display: none;
+  transition: 0.1s ease-in;
+}
+
+.section .wrap-btn {
+  border: none;
+  background: transparent;
+  color: #726cff;
+  cursor: pointer;
+  margin-top: 12px;
+  padding-left: 8px;
+}
+
+.section #statistica {
+  display: none;
+}
+
+.section .wrap-btn .unwrap {
+  display: none;
+}
+
+.section #statistica:checked ~ ul li:nth-child(1n + 4) {
+  max-height: 999px;
+  display: block;
+  transition: 0.2s ease-in;
+}
+
+.section #statistica:checked ~ .wrap-btn .unwrap {
+  display: block;
+}
+
+.section #statistica:checked ~ .wrap-btn .wrap {
+  display: none;
+}
+
+.section #report {
+  display: none;
+}
+
+.section #report:checked ~ ul li:nth-child(1n + 4) {
+  max-height: 999px;
+  display: block;
+  transition: 0.2s ease-in;
+}
+
+.section #report:checked ~ .wrap-btn .unwrap {
+  display: block;
+}
+
+.section #report:checked ~ .wrap-btn .wrap {
+  display: none;
+}
+
+
+.item-nav {
+  padding: 12px 8px;
+  border-bottom: 1px solid var(--colorSplit, #eaecf0);
+}
+
+.item-header {
+  margin: 0px;
+  padding: 12px 8px;
+  font-size: 22px;
+  border-bottom: 1px solid var(--colorSplit, #eaecf0);
+}
+
+.item-button {
+  padding: 12px 8px;
+}
+
+.view {
+  color: #726cff;
+}
+
+.view:visited {
+  color: #726cff;
+}
+
+@media (max-width: 481px) {
+  .content {
+    
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 40px;
+      flex-shrink: 0;
+      align-self: stretch;
+  }
+  .news {
+      width: 100%;
+  }
+  .row-table {
+      flex-direction: column;
+      gap: 40px;
+  }
+  .section {
+    width: 100%;
+  }
+}
