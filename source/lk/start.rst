@@ -61,10 +61,10 @@
                      </label>
                 </section>
                 <section class="section">
-                    <h4 class="item-header">Статистика</h4>
+                    <h4 class="item-header">Результаты рассылок и статистика</h4>
                     <ul>
-                        <li class="item-nav"><a href="lk/doc_lk.html">Создание и запуск рассылки</a></li>
-                        <li class="item-nav"><a href="#">Просмотр статистики</a></li>
+                        <li class="item-nav"><a href="lk/doc_lk.html">Статистика конкретной рассылки</a></li>
+                        <li class="item-nav"><a href="#">Поиск сообщений</a></li>
                     </ul>
                 </section>
             </div>
@@ -73,10 +73,10 @@
                     <h4 class="item-header">Отчеты</h4>
                     <input type="checkbox" id="report"/>
                     <ul>
-                        <li class="item-nav"><a href="#">Хронологический отчет</a></li>
-                        <li class="item-nav"><a href="#">Сводный отчет</a></li>
-                        <li class="item-nav"><a href="#">Сводный отчет</a></li>
-                        <li class="item-nav"><a href="#">Сводный отчет</a></li>
+                        <li class="item-nav"><a href="#">Администрирование</a></li>
+                        <li class="item-nav"><a href="#">Как добавить пользователя</a></li>
+                        <li class="item-nav"><a href="#">Как дать права пользователю</a></li>
+                        <li class="item-nav"><a href="#">Что такое команды</a></li>
                     </ul>
                     <label class="wrap-btn" for="report">
                         <span class="wrap">Смотреть все</span>
@@ -86,8 +86,8 @@
                 <section class="section">
                     <h4 class="item-header">Примеры</h4>
                     <ul>
-                        <li class="item-nav"><a href="#">Примеры использования элементов для RST-файла</a></li>
-                        <li class="item-nav"><a href="#">Примеры использования MD-файла</a></li>
+                        <li class="item-nav"><a href="#">Примеры</a></li>
+                        <li class="item-nav"><a href="#">Примеры</a></li>
                     </ul>
                 </section>
             </div>
