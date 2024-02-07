@@ -25,8 +25,8 @@
                 <section class="section">
                     <h4 class="item-header"></h4>
                     <ul>
-                        <li class="item-nav"><a href="lk/doc_lk.html">Статистика конкретной рассылки</a></li>
-                        <li class="item-nav"><a href="#">Поиск сообщений</a></li>
+                        <li class="item-nav"><a href="pr1.html">Статистика конкретной рассылки</a></li>
+                        <li class="item-nav"><a href="pr2.html">Поиск сообщений</a></li>
                     </ul>
                 </section>
             </div>

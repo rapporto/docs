@@ -12,6 +12,7 @@
    stat
    admin
    
+   
 
 Создавайте SMS- и Viber-рассылки с индивидуальным контентом и расписанием.
  
@@ -60,8 +61,8 @@
                 <section class="section">
                     <h4 class="item-header">Результаты рассылок и статистика</h4>
                     <ul>
-                        <li class="item-nav"><a href="lk/doc_lk.html">Статистика конкретной рассылки</a></li>
-                        <li class="item-nav"><a href="#">Поиск сообщений</a></li>
+                        <li class="item-nav"><a href="pr1.html">Статистика конкретной рассылки</a></li>
+                        <li class="item-nav"><a href="pr2.html">Поиск сообщений</a></li>
                     </ul>
                 </section>
             </div>
@@ -70,9 +71,9 @@
                     <h4 class="item-header">Администрирование</h4>
                     <input type="checkbox" id="report"/>
                     <ul>
-                        <li class="item-nav"><a href="#">Как добавить пользователя</a></li>
-                        <li class="item-nav"><a href="#">Как дать права пользователю</a></li>
-                        <li class="item-nav"><a href="#">Что такое команды</a></li>
+                        <li class="item-nav"><a href="pr3.html">Как добавить пользователя</a></li>
+                        <li class="item-nav"><a href="pr4.html">Как дать права пользователю</a></li>
+                        <li class="item-nav"><a href="pr5.html">Что такое команды</a></li>
                         <li class="item-nav"><a href="#">Пример</a></li>
                     </ul>
                     <label class="wrap-btn" for="report">
