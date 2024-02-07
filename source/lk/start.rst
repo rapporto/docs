@@ -4,17 +4,14 @@
 ==============
  
 .. toctree::
-   :maxdepth: 1 
+   :maxdepth: 2 
    :hidden:
 
    new
-   sms_sender
-   viber_sender
-   cascade
-   substitutions
-   relax_sender
-   finish
-   schedule
+   spam
+   stat
+   admin
+   
 
 Создавайте SMS- и Viber-рассылки с индивидуальным контентом и расписанием.
  
@@ -70,13 +67,13 @@
             </div>
             <div class="row-table">
                 <section class="section">
-                    <h4 class="item-header">Отчеты</h4>
+                    <h4 class="item-header">Администрирование</h4>
                     <input type="checkbox" id="report"/>
                     <ul>
-                        <li class="item-nav"><a href="#">Администрирование</a></li>
                         <li class="item-nav"><a href="#">Как добавить пользователя</a></li>
                         <li class="item-nav"><a href="#">Как дать права пользователю</a></li>
                         <li class="item-nav"><a href="#">Что такое команды</a></li>
+                        <li class="item-nav"><a href="#">Пример</a></li>
                     </ul>
                     <label class="wrap-btn" for="report">
                         <span class="wrap">Смотреть все</span>
