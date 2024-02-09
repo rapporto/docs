@@ -785,3 +785,17 @@ a:visited {
     width: 100%;
   }
 }
+.bd-container__inner {
+  justify-content: center !important;
+}
+.bd-article {
+  min-width: 800px !important;
+  flex-direction: column !important;
+  justify-content: start !important;
+  display: flex !important;
+  height: 100% !important;
+}
+.prev-next-footer {
+  display: flex !important;
+  flex-wrap: wrap !important;
+}
