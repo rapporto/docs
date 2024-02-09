@@ -787,5 +787,6 @@ a:visited {
 }
 
 .bd-article {
-  min-width: 800px !important;
+  min-width: 896px !important;
+  max-width: 896px !important;
 }
