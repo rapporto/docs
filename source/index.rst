@@ -16,7 +16,6 @@ Rapporto Documentation
    :caption: Личный кабинет Rapporto
 
    lk/start
-   lk/sms_sender
    lk/relax_sender
 
 
