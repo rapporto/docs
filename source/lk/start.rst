@@ -1,13 +1,17 @@
 
 
-Начало работы
-=============
+Личный кабинет
+==============
  
 .. toctree::
-   :maxdepth: 1 
+   :maxdepth: 2 
    :hidden:
 
    new
+   spam
+   stat
+   admin
+   
    
 
 Создавайте SMS- и Viber-рассылки с индивидуальным контентом и расписанием.
@@ -34,43 +38,43 @@
                     </svg>
                     <span>Что нового?</span>
                 </div>
-                <div><a href='#' class='view'>Посмотреть</a></div>
+                <div><a href='new.html' class='view'>Посмотреть</a></div>
             </div>
             <div class="row-table">
                 <section class="section">
                     <h4 class="item-header">Рассылки</h4>
-                    <ul>
-                        <li class="item-nav"><a href="lk/doc_lk.html">Создание и запуск рассылки</a></li>
-                        <li class="item-nav"><a href="#">Просмотр статистики</a></li>
-                    </ul>
-                </section>
-                <section class="section">
-                    <h4 class="item-header">Статистика</h4>
                     <input type="checkbox" id="statistica"/>
                     <ul>
-                        <li class="item-nav"><a href="#">Создание и запуск рассылки</a></li>
-                        <li class="item-nav"><a href="#">Просмотр статистики</a></li>
-                        <li class="item-nav"><a href="#">Детализация</a></li>
-                        <li class="item-nav"><a href="#">Детализация</a></li>
-                        <li class="item-nav"><a href="#">Детализация</a></li>
-                        <li class="item-nav"><a href="#">Детализация</a></li>
-                        <li class="item-nav"><a href="#">Детализация</a></li>
+                        <li class="item-nav"><a href="sms_sender.html">Как отправить SMS-рассылку</a></li>
+                        <li class="item-nav"><a href="viber_sender.html">Как отправить Viber-рассылку</a></li>
+                        <li class="item-nav"><a href="cascade.html">Как настроить и отправить каскадную рассылку</a></li>
+                        <li class="item-nav"><a href="substitutions.html">Как создать сообщение с подстановками</a></li>
+                        <li class="item-nav"><a href="relax_sender.html">Как отправить отложенную рассылку</a></li>
+                        <li class="item-nav"><a href="finish.html">Как поставить дату окончания рассылки</a></li>
+                        <li class="item-nav"><a href="schedule.html">Как установить расписание отправки</a></li>
                     </ul>
                     <label class="wrap-btn" for="statistica">
                         <span class="wrap">Смотреть все</span>
                         <span class="unwrap">Свернуть</span>
                      </label>
                 </section>
+                <section class="section">
+                    <h4 class="item-header">Результаты рассылок и статистика</h4>
+                    <ul>
+                        <li class="item-nav"><a href="pr1.html">Статистика конкретной рассылки</a></li>
+                        <li class="item-nav"><a href="pr2.html">Поиск сообщений</a></li>
+                    </ul>
+                </section>
             </div>
             <div class="row-table">
                 <section class="section">
-                    <h4 class="item-header">Отчеты</h4>
+                    <h4 class="item-header">Администрирование</h4>
                     <input type="checkbox" id="report"/>
                     <ul>
-                        <li class="item-nav"><a href="#">Хронологический отчет</a></li>
-                        <li class="item-nav"><a href="#">Сводный отчет</a></li>
-                        <li class="item-nav"><a href="#">Сводный отчет</a></li>
-                        <li class="item-nav"><a href="#">Сводный отчет</a></li>
+                        <li class="item-nav"><a href="pr3.html">Как добавить пользователя</a></li>
+                        <li class="item-nav"><a href="pr4.html">Как дать права пользователю</a></li>
+                        <li class="item-nav"><a href="pr5.html">Что такое команды</a></li>
+                        <li class="item-nav"><a href="#">Пример</a></li>
                     </ul>
                     <label class="wrap-btn" for="report">
                         <span class="wrap">Смотреть все</span>
@@ -80,8 +84,8 @@
                 <section class="section">
                     <h4 class="item-header">Примеры</h4>
                     <ul>
-                        <li class="item-nav"><a href="#">Примеры использования элементов для RST-файла</a></li>
-                        <li class="item-nav"><a href="#">Примеры использования MD-файла</a></li>
+                        <li class="item-nav"><a href="#">Примеры</a></li>
+                        <li class="item-nav"><a href="#">Примеры</a></li>
                     </ul>
                 </section>
             </div>
