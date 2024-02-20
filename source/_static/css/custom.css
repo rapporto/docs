@@ -63,6 +63,32 @@ body {
 }
 
 
+/*Задаем фиксированную ширину для статей, в соответствии с дизайном*/
+
+
+.bd-article {
+  max-width: 800px;
+  min-width: 800px;
+}
+
+
+/*задаем ширину статей и изображений для экранов смартфонов*/
+
+@media (max-width: 768px) {
+  .bd-article {
+    max-width: 400px;
+    min-width: 300px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .bd-article {
+    max-width: 700px;
+    min-width: 600px;
+  }
+}
+
+
 
 h1,
 h2,
@@ -129,12 +155,14 @@ code, kbd, pre, samp {
 /*изображение, добавляем небольшую рамку, чтобы не сливалось с текстом*/
 
 img {
-  border: 1px solid #a0b3bf82;;
+  border: 1px solid #a0b3bf82;
   max-width: 100%;
   height: auto;
   display: block;
   margin: 15px auto;
 }
+
+
 
 
 
