@@ -68,7 +68,7 @@ html_title = "Сайт документации Раппорто"
 # so a file named "default.css" will overwrite the builtin "default.css".
 
 html_static_path = ["_static"]
-html_css_files = ["css/custom.css"]
+html_css_files = ["css/custom.css", "css/custom_dark.css"]
 source_suffix = ['.rst', '.md']
 
 
@@ -82,7 +82,13 @@ html_theme_options = {
     "use_repository_button": True,
     "toc_title": "Содержание",
     "use_fullscreen_button":False,
-    "use_sidenotes": True
+    "use_sidenotes": True,
+    "logo": {
+      "image_light": "_static/logo-light.svg",
+      "image_dark": "_static/logo-dark.svg"
+    },
+   
+    
 }
 
 

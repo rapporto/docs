@@ -9,11 +9,11 @@
 }
 
 
-/*скрываем кнопки темной темы*/
+/*скрываем кнопки темной темы
 
 .theme-switch-button {
   display: none;
-}
+}*/
 
 
 /*меняем базовые цвета в соответствии с дизайном для светлой темы*/
@@ -26,18 +26,7 @@ html[data-theme=light] {
 }
 
 
-/*аналогично можно задавать цвета для темной темы*/
-html[data-theme=dark] {
-  --pst-color-secondary: red;
-  --pst-color-primary-left: #E2E1FF;
-  --pst-color-h1: red;
-}
 
-
-
-
-
- 
 
 
 /*задаем цвета и размеры шрифта в соответствии с дизайном
@@ -284,12 +273,9 @@ li.toctree-l1.current.active {
 
 
 
-
-
 /*Задается цвет шрифта для пункта левого меню и подсветки box-shadow при наведении */
 nav.bd-links .current > a:hover {
-
-  color: black;
+  color: #1D2939;
   font-weight: normal; 
 }
 
@@ -300,9 +286,6 @@ nav.bd-links .current > a {
   color: black;
   background-color: #E2E1FF;
   font-weight: normal; 
-  box-shadow: inset max(3px,.1875rem,.12em) 0 0 #E2E1FF;
-  color: black;
-
 }
 
 
@@ -310,7 +293,6 @@ nav.bd-links .current > a {
 nav.bd-links li > a:hover {
   text-decoration-skip: none;
   background-color: #ededf2d1;
-  text-decoration: underline;
   text-decoration-skip-ink: none;
   text-decoration-thickness: max(3px,.1875rem,.12em);
   box-shadow: inset max(3px,.1875rem,.12em) 0 0 #ededf2d1;
@@ -320,7 +302,6 @@ nav.bd-links li > a:hover {
 
 /*Задается цвет шрифта для выделенного пункта правого меню и подсветки box-shadow */
 .toc-entry a.nav-link.active {
-  .box-shadow: inset max(3px,.1875rem,.12em) 0 0 #726CFF;
   color: #726CFF;
 }
 
@@ -508,12 +489,50 @@ div.page-toc {
   width: 25px;
   height: 25px;
   flex-shrink: 0; 
-  margin-top: 2px; 
+  margin-top: 1px; 
   margin-left: 3px; 
 }
 
 
+/*Заменяем иконку для переключения светлой/темной темы */
 
+.fa-sun path {
+  fill: transparent; /* изменение цвета иконки */
+}
+
+
+
+
+.fa-sun {
+  background-image: url(../sun.svg);
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat; 
+  margin: -8px -6px 0 -6px;
+}
+
+
+
+.fa-moon path {
+  fill: transparent; /* изменение цвета иконки */
+}
+
+
+
+.fa-moon {
+  background-image: url(../moon.svg);
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat; 
+  margin: -8px -6px 0 -6px;
+}
+
+
+
+.theme-switch-button span:hover {
+  box-shadow: none;
+
+}
 
 
 /*выделенные блоки текста с заметками, предупреждением, советом и важным выделением*/
