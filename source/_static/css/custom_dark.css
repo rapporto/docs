@@ -108,3 +108,14 @@ html[data-theme="dark"] .bd-container {
 }
 
 
+@media (max-width: 768px) {
+  html[data-theme="dark"] .bd-container { 
+      background: #26282C;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  html[data-theme="dark"] .bd-container { 
+      background: #26282C;
+  }
+}
