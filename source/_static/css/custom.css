@@ -9,12 +9,6 @@
 }
 
 
-/*скрываем кнопки темной темы
-
-.theme-switch-button {
-  display: none;
-}*/
-
 
 /*меняем базовые цвета в соответствии с дизайном для светлой темы*/
 
@@ -25,6 +19,12 @@ html[data-theme=light] {
   --pst-color-h1: black;
 }
 
+/*меняем базовые цвета для темной темы*/
+html[data-theme=dark] {
+  --pst-color-secondary: #938EFF;
+  --pst-color-primary: #938EFF;
+  --pst-color-background: #26282C
+}
 
 
 
@@ -39,6 +39,10 @@ body {
   font-size: 16px;
 }
 
+
+html[data-theme=dark] body {
+  color: #F9FAFB;
+}
 
 
 .bd-article-container h1,
@@ -131,8 +135,10 @@ code, kbd, pre, samp {
 }
 
 
-
-
+html[data-theme="dark"] a {
+  text-decoration: none;
+  color: #F9FAFB;
+}
 
 
 
@@ -229,7 +235,31 @@ tfoot {
   background: white;
 }
 
+html[data-theme="dark"] .sphinx-tabs-tab {
+   color: #F9FAFB;
+ }
 
+
+html[data-theme="dark"] .sphinx-tabs-tab[aria-selected="true"] {
+  border: 0 solid white;
+  color: var(--pst-color-primary);;
+  border-bottom: 2px solid var(--pst-color-primary);
+  margin: -1px;
+  background-color: #26282C;
+}
+
+
+html[data-theme="dark"] [role="tablist"] {
+  border-bottom: 1px solid #26282C;
+}
+
+html[data-theme="dark"] .sphinx-tabs-panel {
+  position: relative;
+  padding: 1rem;
+  border: 0;
+  border-top: 1px solid #a0b3bf82;
+  background: #26282C;
+}
 
 
 
@@ -371,16 +401,114 @@ a:hover {
 
 
 
+/*левое меню - темная тема*/
+
+
+html[data-theme="dark"] nav.bd-links .current > a {
+  
+  box-shadow: inset max(3px,.1875rem,.12em) 0 0 #363298;
+  background-color: #363298;
+  font-weight: normal; 
+  color:#F9FAFB;
+
+}
+
+
+
+
+
+html[data-theme="dark"] nav.bd-links li > a:hover {
+  text-decoration-skip: none;
+  background-color: #475467;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: max(3px,.1875rem,.12em);
+  box-shadow: inset max(3px,.1875rem,.12em) 0 0 #475467;
+  color: #F9FAFB;
+}
+
+html[data-theme="dark"] .bd-sidebar-primary label.toctree-toggle:hover {
+  background: #475467;
+}
+
+html[data-theme="dark"] .fa-chevron-down path {
+  color: var(--pst-color-text-muted);
+}
+
+
+
+
+/*правое меню- темная тема*/
+
+html[data-theme="dark"] .toc-entry a.nav-link.active:hover {
+  box-shadow: inset max(3px,.1875rem,.12em) 0 0 #938EFF;
+  color: #938EFF;
+}
+
+
+html[data-theme="dark"] .toc-entry a.nav-link.active {
+  box-shadow: inset max(3px,.1875rem,.12em) 0 0 #938EFF;
+  color: #938EFF;
+}
+
+
+/*цвет границы для блоков*/
+
+html[data-theme="dark"] .bd-sidebar-primary {
+  border-right: 1px solid #475467;
+}
+
+
+html[data-theme="dark"] footer.bd-footer-content {
+  border-top: 1px solid #475467;  
+}
+
+
+
+/*плашка "Что нового"- темная тема*/
+
+html[data-theme="dark"] .news {
+  background: var(--colorPrimaryBg, #475467);
+  color: #F9FAFB;
+}
+
+
+html[data-theme="dark"] section .wrap-btn:hover {
+  color: var(--pst-color-link-hover);
+}
+
+
+
+/*фон для темной темы*/
+
+html[data-theme="dark"] .bd-sidebar-primary {
+  background: #26282C;
+}
+
+
+
+@media (max-width: 768px) {
+  html[data-theme="dark"] .bd-container { 
+      background: #26282C;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  html[data-theme="dark"] .bd-container { 
+      background: #26282C;
+  }
+}
+
+
+
 
 /*Кастомизация иконок*/
 
 
-
 /*добавляем левый отступ для иконок, которые будут отображаться в выпадающем меню, чтобы в выпадющем списке не сливались с текстом*/
-.btn__text-container {
+/*.btn__text-container {
   margin-left: 10px;
 }
-
+*/
 
 /*убираем подстветку для кнопок и выпадающего меню, по дизайну ее нет*/
 
@@ -444,10 +572,12 @@ div.page-toc {
 
 
 
-
 /*Заменяем логотип Github на котенка*/
+
+
+ 
 .fa-github path {
-  fill: transparent; /* изменение цвета иконки */
+  fill: transparent; 
 }
 
 .fa-github {
@@ -464,7 +594,7 @@ div.page-toc {
 
 /*Заменяем иконку загрузки статьи со страницы*/
 .fa-download path  {
-  fill: transparent; /* изменение цвета иконки */
+  fill: transparent; 
 }
 
 .fa-download {
@@ -480,7 +610,7 @@ div.page-toc {
 /*Заменяем иконку поиска*/
 
 .search-button path {
-  fill: transparent; /* изменение цвета иконки */
+  fill: transparent; 
 }
 
 
@@ -497,7 +627,7 @@ div.page-toc {
 /*Заменяем иконку для переключения светлой/темной темы */
 
 .fa-sun path {
-  fill: transparent; /* изменение цвета иконки */
+  fill: transparent; 
 }
 
 
@@ -514,7 +644,7 @@ div.page-toc {
 
 
 .fa-moon path {
-  fill: transparent; /* изменение цвета иконки */
+  fill: transparent; 
 }
 
 
@@ -524,6 +654,7 @@ div.page-toc {
   width: 40px;
   height: 40px;
   background-repeat: no-repeat; 
+  background-size: cover; 
   margin: -8px -6px 0 -6px;
 }
 
@@ -533,6 +664,22 @@ div.page-toc {
   box-shadow: none;
 
 }
+
+
+.fa-circle-half-stroke path {
+  fill: transparent; 
+}
+
+
+.fa-circle-half-stroke {
+  background-image: url(../auto.svg);
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0; 
+  background-size: cover; 
+  margin-top: -3px; 
+}
+
 
 
 /*выделенные блоки текста с заметками, предупреждением, советом и важным выделением*/
@@ -590,8 +737,15 @@ html {
 }
 
 
+html[data-theme="dark"] .admonition.warning, div.admonition.warning {
+  border-color:#4F4040;
+  background-color: #4F4040;
+}
 
 
+html[data-theme="dark"] .admonition.warning > .admonition-title::before, div.admonition.warning > .admonition-title::before {
+  background-color: #4F4040;
+}
 
 /*Переделываем блок с Советом ( success) в соответствии с дизайном - задаем новую иконку и цвет*/
 
@@ -614,6 +768,16 @@ html {
   background-color: #F6FFED;
 }
 
+
+html[data-theme="dark"] .admonition.tip, div.admonition.tip {
+  border-color: #434D42;
+  background-color: #434D42;
+}
+
+
+html[data-theme="dark"] .admonition.tip > .admonition-title::before, div.admonition.tip > .admonition-title::before {
+  background-color: #434D42;
+}
 
 
 /*Переделываем блок с Важно(warning) в соответствии с дизайном - задаем новую иконку и цвет*/
@@ -640,6 +804,16 @@ html {
 }
 
 
+html[data-theme="dark"] .admonition.important, div.admonition.important {
+  border-color: #59553A;
+  background-color: #59553A;
+}
+
+
+html[data-theme="dark"] .admonition.important > .admonition-title::before, div.admonition.important > .admonition-title::before {
+  background-color: #59553A;
+}
+
 /*Переделываем блок с Заметками(note, info) в соответствии с дизайном - задаем новую иконку и цвет*/
 
 .admonition.note > .admonition-title::after, div.admonition.note > .admonition-title::after {
@@ -663,7 +837,16 @@ html {
 }
 
 
+html[data-theme="dark"] .admonition.note, div.admonition.note {
+  border-color: #403F5A;
+  background-color: #403F5A;
+}
 
+
+html[data-theme="dark"] .admonition.note > .admonition-title::before, div.admonition.note > .admonition-title::before {
+  background-color: #403F5A;
+
+}
 
 
 
