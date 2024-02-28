@@ -8,7 +8,9 @@
   font-family: 'Segoe UI', Helvetica, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 }
 
-
+button.theme-switch-button {
+    display: none !important;
+}
 
 /*меняем базовые цвета в соответствии с дизайном для светлой темы*/
 

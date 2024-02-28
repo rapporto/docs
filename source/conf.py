@@ -75,7 +75,9 @@ templates_path = ["_templates"]
 
 source_suffix = ['.rst', '.md']
 
-
+html_context = {
+   "default_mode": "light"
+}
 
 html_theme_options = {
 
