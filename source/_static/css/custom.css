@@ -186,6 +186,23 @@ tfoot {
   background-color: grey;
 }
 
+/*таблица без видмиых границ, пример использования .. cssclass:: no-border-table*/
+
+.no-border-table {
+  border-collapse: collapse;
+}
+
+
+.no-border-table tbody,
+.no-border-table thead,
+.no-border-table tfoot,
+.no-border-table th, 
+.no-border-table td, 
+.no-border-table tr {
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+}
 
 
 /*Вкладки*/
