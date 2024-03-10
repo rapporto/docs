@@ -69,7 +69,7 @@ html_title = "Сайт документации Раппорто"
 
 html_static_path = ["_static"]
 
-html_css_files = ["css/custom.css", "css/custom_dark.css"]
+html_css_files = ["css/custom.css"]
 
 templates_path = ["_templates"]
 
