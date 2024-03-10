@@ -75,8 +75,13 @@ templates_path = ["_templates"]
 
 source_suffix = ['.rst', '.md']
 
+html_js_files = [
+    'js/custom.js',
+]
+
 html_context = {
-   "default_mode": "light"
+   "default_mode": "light",
+   "default_theme": "light"
 }
 
 html_theme_options = {
