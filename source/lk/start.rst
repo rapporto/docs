@@ -40,32 +40,34 @@
             <div class="row-table">
                 <section class="section">
                     <h4 class="item-header">SMS</h4>
-                    <input type="checkbox" id="sms"/>
+                    <input type="checkbox" id="statistica"/>
                     <ul>
-                        <li class="item-nav"><a href="sms_sender.html">Как создать  SMS-рассылку</a></li>
-                        <li class="item-nav"><a href="file_sender.html">Как создать файл для SMS-рассылки</a></li>
-                        <li class="item-nav"><a href="substitutions.html">Как отправить рассылку с подстановками</a></li>
-                        <li class="item-nav"><a href="schedule.html">Как добавить расписание рассылки</a></li>
-                        <li class="item-nav"><a href="delayed_sender.html">Как отложить отправку рассылки</a></li>
-                        <li class="item-nav"><a href="date_of_end.html">Как поставить дату окончания рассылки</a></li>
+                        <li class="item-nav"><a href="#">Создание и запуск рассылки</a></li>
+                        <li class="item-nav"><a href="#">Просмотр статистики</a></li>
+                        <li class="item-nav"><a href="#">Детализация</a></li>
+                        <li class="item-nav"><a href="#">Детализация</a></li>
+                        <li class="item-nav"><a href="#">Детализация</a></li>
+                        <li class="item-nav"><a href="#">Детализация</a></li>
+                        <li class="item-nav"><a href="#">Детализация</a></li>
                     </ul>
-                    <label class="wrap-btn" for="sms">
+                    <label class="wrap-btn" for="statistica">
                         <span class="wrap">Смотреть все</span>
                         <span class="unwrap">Свернуть</span>
                      </label>
                 </section>
                 <section class="section">
                     <h4 class="item-header">Viber</h4>
-                    <input type="checkbox" id="viber"/>
+                    <input type="checkbox" id="statistica"/>
                     <ul>
-                        <li class="item-nav"><a href="viber_sender.html">Как создать Viber-рассылку</a></li>
-                        <li class="item-nav"><a href="file_sender.html">Как создать файл для Viber-рассылки</a></li>
-                        <li class="item-nav"><a href="substitutions.html">Как отправить рассылку с подстановками</a></li>
-                        <li class="item-nav"><a href="schedule.html">Как добавить расписание рассылки</a></li>
-                        <li class="item-nav"><a href="delayed_sender.html">Как отложить отправку рассылки</a></li>
-                        <li class="item-nav"><a href="date_of_end.html">Как поставить дату окончания рассылки</a></li>
+                        <li class="item-nav"><a href="#">Создание и запуск рассылки</a></li>
+                        <li class="item-nav"><a href="#">Просмотр статистики</a></li>
+                        <li class="item-nav"><a href="#">Детализация</a></li>
+                        <li class="item-nav"><a href="#">Детализация</a></li>
+                        <li class="item-nav"><a href="#">Детализация</a></li>
+                        <li class="item-nav"><a href="#">Детализация</a></li>
+                        <li class="item-nav"><a href="#">Детализация</a></li>
                     </ul>
-                    <label class="wrap-btn" for="viber">
+                    <label class="wrap-btn" for="statistica">
                         <span class="wrap">Смотреть все</span>
                         <span class="unwrap">Свернуть</span>
                      </label>
@@ -74,16 +76,14 @@
             <div class="row-table">
                 <section class="section">
                     <h4 class="item-header">Каскады</h4>
-                    <input type="checkbox" id="cascade"/>
+                    <input type="checkbox" id="report"/>
                     <ul>
-                        <li class="item-nav"><a href="cascade_sender.html">Как создать каскадную рассылку</a></li>
-                        <li class="item-nav"><a href="file_sender.html">Как создать файл для рассылки</a></li>
-                        <li class="item-nav"><a href="substitutions.html">Как отправить рассылку с подстановками</a></li>
-                        <li class="item-nav"><a href="schedule.html">Как добавить расписание рассылки</a></li>
-                        <li class="item-nav"><a href="delayed_sender.html">Как отложить отправку рассылки</a></li>
-                        <li class="item-nav"><a href="date_of_end.html">Как поставить дату окончания рассылки</a></li>
+                        <li class="item-nav"><a href="#">Хронологический отчет</a></li>
+                        <li class="item-nav"><a href="#">Сводный отчет</a></li>
+                        <li class="item-nav"><a href="#">Сводный отчет</a></li>
+                        <li class="item-nav"><a href="#">Сводный отчет</a></li>
                     </ul>
-                    <label class="wrap-btn" for="cascade">
+                    <label class="wrap-btn" for="report">
                         <span class="wrap">Смотреть все</span>
                         <span class="unwrap">Свернуть</span>
                      </label>
@@ -91,19 +91,27 @@
                 <section class="section">
                     <h4 class="item-header">Аналитика</h4>
                     <ul>
-                        <li class="item-nav"><a href="spam.html">Как посмотреть статистику конкретной рассылки</a></li>
-                        <li class="item-nav"><a href="report.html">Как построить отчет</a></li>
+                        <li class="item-nav"><a href="#">Примеры использования элементов для RST-файла</a></li>
+                        <li class="item-nav"><a href="#">Примеры использования MD-файла</a></li>
                     </ul>
                 </section>
             </div>
             <div class="row-table">
                 <section class="section">
-                    <h4 class="item-header">Администрирование</h4>
+                    <h4 class="item-header">Каскады</h4>
+                    <input type="checkbox" id="report"/>
                     <ul>
-                        <li class="item-nav"><a href="newuser.html">Как добавить пользователя</a></li>
-                        <li class="item-nav"><a href="#">Что такое команды</a></li>
+                        <li class="item-nav"><a href="#">Хронологический отчет</a></li>
+                        <li class="item-nav"><a href="#">Сводный отчет</a></li>
+                        <li class="item-nav"><a href="#">Сводный отчет</a></li>
+                        <li class="item-nav"><a href="#">Сводный отчет</a></li>
                     </ul>
+                    <label class="wrap-btn" for="report">
+                        <span class="wrap">Смотреть все</span>
+                        <span class="unwrap">Свернуть</span>
+                     </label>
                 </section>
+                
             </div>
         </section>
  
