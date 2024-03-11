@@ -789,6 +789,7 @@ a:visited {
   display: none;
 }
 
+/* Выпадающее меню для стартовой страницы блока Отчеты */
 .section #report {
   display: none;
 }
@@ -807,6 +808,24 @@ a:visited {
   display: none;
 }
 
+/* Выпадающее меню для стартовой страницы блока SMS */
+.section #sms {
+  display: none;
+}
+
+.section #sms:checked ~ ul li:nth-child(1n + 4) {
+  max-height: 999px;
+  display: block;
+  transition: 0.2s ease-in;
+}
+
+.section #sms:checked ~ .wrap-btn .unwrap {
+  display: block;
+}
+
+.section #sms:checked ~ .wrap-btn .wrap {
+  display: none;
+}
 
 .item-nav {
   padding: 12px 8px;
