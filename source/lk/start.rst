@@ -40,7 +40,7 @@
             <div class="row-table">
                 <section class="section">
                     <h4 class="item-header">SMS</h4>
-                    <input type="checkbox" id="statistica"/>
+                    <input type="checkbox" id="sms"/>
                     <ul>
                         <li class="item-nav"><a href="sms_sender.html">Как создать  SMS-рассылку</a></li>
                         <li class="item-nav"><a href="file_sender.html">Как создать файл для SMS-рассылки</a></li>
@@ -49,14 +49,14 @@
                         <li class="item-nav"><a href="delayed_sender.html">Как отложить отправку рассылки</a></li>
                         <li class="item-nav"><a href="date_of_end.html">Как поставить дату окончания рассылки</a></li>
                     </ul>
-                    <label class="wrap-btn" for="statistica">
+                    <label class="wrap-btn" for="sms">
                         <span class="wrap">Смотреть все</span>
                         <span class="unwrap">Свернуть</span>
                      </label>
                 </section>
                 <section class="section">
                     <h4 class="item-header">Viber</h4>
-                    <input type="checkbox" id="statistica"/>
+                    <input type="checkbox" id="viber"/>
                     <ul>
                         <li class="item-nav"><a href="viber_sender.html">Как создать Viber-рассылку</a></li>
                         <li class="item-nav"><a href="file_sender.html">Как создать файл для Viber-рассылки</a></li>
@@ -65,7 +65,7 @@
                         <li class="item-nav"><a href="delayed_sender.html">Как отложить отправку рассылки</a></li>
                         <li class="item-nav"><a href="date_of_end.html">Как поставить дату окончания рассылки</a></li>
                     </ul>
-                    <label class="wrap-btn" for="statistica">
+                    <label class="wrap-btn" for="viber">
                         <span class="wrap">Смотреть все</span>
                         <span class="unwrap">Свернуть</span>
                      </label>
@@ -74,7 +74,7 @@
             <div class="row-table">
                 <section class="section">
                     <h4 class="item-header">Каскады</h4>
-                    <input type="checkbox" id="report"/>
+                    <input type="checkbox" id="cascade"/>
                     <ul>
                         <li class="item-nav"><a href="cascade_sender.html">Как создать каскадную рассылку</a></li>
                         <li class="item-nav"><a href="file_sender.html">Как создать файл для рассылки</a></li>
@@ -83,7 +83,7 @@
                         <li class="item-nav"><a href="delayed_sender.html">Как отложить отправку рассылки</a></li>
                         <li class="item-nav"><a href="date_of_end.html">Как поставить дату окончания рассылки</a></li>
                     </ul>
-                    <label class="wrap-btn" for="report">
+                    <label class="wrap-btn" for="cascade">
                         <span class="wrap">Смотреть все</span>
                         <span class="unwrap">Свернуть</span>
                      </label>
