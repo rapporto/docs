@@ -23,8 +23,8 @@
                 <section class="section">
                     <h4 class="item-header"></h4>
                     <ul>
-                        <li class="item-nav"><a href="pr1.html">Статистика конкретной рассылки</a></li>
-                        <li class="item-nav"><a href="pr2.html">Поиск сообщений</a></li>
+                        <li class="item-nav"><a href="spam.html">Как посмотреть статистику конкретной рассылки</a></li>
+                        <li class="item-nav"><a href="report.html">Как построить отчет</a></li>
                     </ul>
                 </section>
             </div>
