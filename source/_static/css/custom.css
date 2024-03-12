@@ -286,14 +286,21 @@ nav.bd-links .current > a:hover {
 }
 
 
-nav.bd-links .current > a {
-  
+nav.bd-links a.current.reference.internal:first-of-type{
   box-shadow: inset max(3px,.1875rem,.12em) 0 0 #E2E1FF;
   color: black;
   background-color: #E2E1FF;
   font-weight: normal; 
 }
 
+
+nav.bd-links .current > a {
+  color: inherit;       
+  text-decoration: none; 
+  background: none;      
+  box-shadow: none;
+  font-weight: 400;
+}
 
 /*выделение цветом левого меню при наведении*/
 nav.bd-links li > a:hover {
