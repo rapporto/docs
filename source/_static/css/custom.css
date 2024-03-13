@@ -51,7 +51,11 @@ body {
 .bd-article {
   max-width: 800px;
   min-width: 800px;
-  min-height: 800px;
+  flex-grow: 1;
+}
+
+.bd-main .bd-content .bd-article-container {
+  padding-bottom: 20px;
 }
 
 
@@ -458,12 +462,12 @@ div.page-toc {
 
 
 
-/*Заменяем логотип Github на котенка*/
+/*Заменяем логотип Github*/
 
 
  
 .fa-github path {
-  fill: transparent; 
+  display: none;
 }
 
 .fa-github {
@@ -480,7 +484,7 @@ div.page-toc {
 
 /*Заменяем иконку загрузки статьи со страницы*/
 .fa-download path  {
-  fill: transparent; 
+  display: none;
 }
 
 .fa-download {
@@ -492,11 +496,50 @@ div.page-toc {
 }
 
 
+.bd-sidebar-primary label.toctree-toggle:hover {
+  background-color: transparent;
+}
+
+
+.fa-github:hover {
+  background-image: url(../github-hov.svg);
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  background-size: cover;
+}
+
+
+.dropdown-toggle:hover .fa-download {
+  background-image: url(../file-download-hov.svg);
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  background-size: cover;
+}
+
+
+
+.search-button:hover {
+  background-image: url(../search-md-hov.svg);
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  background-size: cover;
+  box-shadow: none;
+}
+
+/*задаем цвет для элементов, которые сворачивают левое меню*/
+.fa-chevron-down path{
+  fill: #98A2B3;
+}
+
+
 
 /*Заменяем иконку поиска*/
 
 .search-button path {
-  fill: transparent; 
+  display: none;
 }
 
 
