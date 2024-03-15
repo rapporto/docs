@@ -8,11 +8,14 @@
    :hidden:
 
    sms_sender
+   viber_sender
+   cascade_sender
    file_sender
    substitutions
    schedule
    delayed_sender
    date_of_end
+   sender
 
    
 
