@@ -44,12 +44,12 @@
                     <h4 class="item-header">Каскады</h4>
                     <input type="checkbox" id="sms"/>
                     <ul>
-                        <li class="item-nav"><a href="sms_sender.html">Как создать  SMS-рассылку</a></li>
-                        <li class="item-nav"><a href="file_sender.html">Как создать файл для SMS-рассылки</a></li>
-                        <li class="item-nav"><a href="substitutions.html">Как отправить рассылку с подстановками</a></li>
-                        <li class="item-nav"><a href="schedule.html">Как добавить расписание рассылки</a></li>
-                        <li class="item-nav"><a href="delayed_sender.html">Как отложить отправку рассылки</a></li>
-                        <li class="item-nav"><a href="date_of_end.html">Как поставить дату окончания рассылки</a></li>
+                        <li class="item-nav"><a href="lk/sms_sender.html">Как создать  SMS-рассылку</a></li>
+                        <li class="item-nav"><a href="lk/file_sender.html">Как создать файл для SMS-рассылки</a></li>
+                        <li class="item-nav"><a href="lk/substitutions.html">Как отправить рассылку с подстановками</a></li>
+                        <li class="item-nav"><a href="lk/schedule.html">Как добавить расписание рассылки</a></li>
+                        <li class="item-nav"><a href="lk/delayed_sender.html">Как отложить отправку рассылки</a></li>
+                        <li class="item-nav"><a href="lk/date_of_end.html">Как поставить дату окончания рассылки</a></li>
                     </ul>
                     <label class="wrap-btn" for="sms">
                         <span class="wrap">Смотреть все</span>
@@ -59,8 +59,8 @@
                 <section class="section">
                     <h4 class="item-header">Аналитика</h4>
                     <ul>
-                        <li class="item-nav"><a href="spam.html">Как посмотреть статистику конкретной рассылки</a></li>
-                        <li class="item-nav"><a href="report.html">Как построить отчет</a></li>
+                        <li class="item-nav"><a href="lk/spam.html">Как посмотреть статистику конкретной рассылки</a></li>
+                        <li class="item-nav"><a href="lk/report.html">Как построить отчет</a></li>
                     </ul>
                 </section> 
             </div>
@@ -68,8 +68,9 @@
                 <section class="section">
                     <h4 class="item-header">Администрирование</h4>
                     <ul>
-                        <li class="item-nav"><a href="newuser.html">Как добавить пользователя</a></li>
-                        <li class="item-nav"><a href="#">Что такое команды</a></li>
+                        <li class="item-nav"><a href="lk/newuser.html">Как добавить пользователя</a></li>
+                        <li class="item-nav"><a href="lk/rights.html">Как настроить права пользователя</a></li>
+                        <li class="item-nav"><a href="lk/teams.html">Что такое команды</a></li>
                     </ul>
                 </section>
             </div>
