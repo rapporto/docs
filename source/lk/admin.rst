@@ -18,22 +18,15 @@
 
          <section class="content">
            
-            
-            <div class="row-table">
+        <div class="row-table">
                 <section class="section">
-                    <h4 class="item-header"></h4>
-                    <input type="checkbox" id="report"/>
+                    <h4 class="item-header">Администрирование</h4>
                     <ul>
-                        <li class="item-nav"><a href="newuser.html">Как добавить пользователя</a></li>
-                        <li class="item-nav"><a href="rights.html">Как настроить права пользователя</a></li>
-                        <li class="item-nav"><a href="teams.html">Что такое команды</a></li>
+                        <li class="item-nav"><a href="lk/newuser.html">Как добавить пользователя</a></li>
+                        <li class="item-nav"><a href="lk/rights.html">Как настроить права пользователя</a></li>
+                        <li class="item-nav"><a href="lk/teams.html">Что такое команды</a></li>
                     </ul>
-                    <label class="wrap-btn" for="report">
-                        <span class="wrap">Смотреть все</span>
-                        <span class="unwrap">Свернуть</span>
-                     </label>
                 </section>
-                
             </div>
         </section>
  
