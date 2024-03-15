@@ -42,7 +42,7 @@
             <div class="row-table">
                 <section class="section">
                     <h4 class="item-header">Рассылки</h4>
-                    <input type="checkbox" id="sms"/>
+                    <input type="checkbox" id="spam"/>
                     <ul>
                         <li class="item-nav"><a href="lk/sms_sender.html">Как создать  SMS-рассылку</a></li>
                         <li class="item-nav"><a href="lk/viber_sender.html">Как создать  Viber-рассылку</a></li>
@@ -56,7 +56,7 @@
 
 
                     </ul>
-                    <label class="wrap-btn" for="sms">
+                    <label class="wrap-btn" for="spam">
                         <span class="wrap">Смотреть все</span>
                         <span class="unwrap">Свернуть</span>
                      </label>
@@ -74,7 +74,7 @@
                     <h4 class="item-header">Администрирование</h4>
                     <ul>
                         <li class="item-nav"><a href="lk/newuser.html">Как добавить пользователя</a></li>
-                        <li class="item-nav"><a href="lk/rights.html">Как настроить права пользователя</a></li>
+                        <li class="item-nav"><a href="lk/rights.html">Как настроить права пользователю</a></li>
                         <li class="item-nav"><a href="lk/teams.html">Что такое команды</a></li>
                     </ul>
                 </section>
