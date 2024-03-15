@@ -64,7 +64,7 @@
                 <section class="section">
                     <h4 class="item-header">Аналитика</h4>
                     <ul>
-                        <li class="item-nav"><a href="lk/spam.html">Как посмотреть статистику конкретной рассылки</a></li>
+                        <li class="item-nav"><a href="lk/sender_ statistics.html">Как посмотреть статистику конкретной рассылки</a></li>
                         <li class="item-nav"><a href="lk/report.html">Как построить отчет</a></li>
                     </ul>
                 </section> 
