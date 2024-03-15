@@ -36,8 +36,8 @@
                         <li class="item-nav"><a href="substitutions.html">Как отправить рассылку с подстановками</a></li>
                         <li class="item-nav"><a href="schedule.html">Как добавить расписание рассылки</a></li>
                         <li class="item-nav"><a href="delayed_sender.html">Как отложить отправку рассылки</a></li>
-                        <li class="item-nav"><a href="date_of_end.html"></a>Как поставить дату окончания рассылки</li>
-                        <li class="item-nav"><a href="sender.html"></a>Как работать с разделом "Рассылки"</li>
+                        <li class="item-nav"><a href="date_of_end.html">Как поставить дату окончания рассылки</a></li>
+                        <li class="item-nav"><a href="sender.html">Как работать с разделом "Рассылки"</a></li>
                     </ul>
                     <label class="wrap-btn" for="spam">
                         <span class="wrap">Смотреть все</span>
