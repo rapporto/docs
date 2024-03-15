@@ -8,6 +8,8 @@
    :hidden:
 
    newuser
+   rights
+   teams
   
  
 Администрируйте личный кабинет -- добавляйте пользователей и назначайте им права.
@@ -22,10 +24,9 @@
                     <h4 class="item-header"></h4>
                     <input type="checkbox" id="report"/>
                     <ul>
-                        <li class="item-nav"><a href="pr3.html">Как добавить пользователя</a></li>
-                        <li class="item-nav"><a href="pr4.html">Как дать права пользователю</a></li>
-                        <li class="item-nav"><a href="pr5.html">Что такое команды</a></li>
-                        <li class="item-nav"><a href="#">Пример</a></li>
+                        <li class="item-nav"><a href="newuser.html">Как добавить пользователя</a></li>
+                        <li class="item-nav"><a href="rights.html">Как настроить права пользователя</a></li>
+                        <li class="item-nav"><a href="teams.html">Что такое команды</a></li>
                     </ul>
                     <label class="wrap-btn" for="report">
                         <span class="wrap">Смотреть все</span>
