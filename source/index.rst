@@ -45,11 +45,16 @@
                     <input type="checkbox" id="sms"/>
                     <ul>
                         <li class="item-nav"><a href="lk/sms_sender.html">Как создать  SMS-рассылку</a></li>
-                        <li class="item-nav"><a href="lk/file_sender.html">Как создать файл для SMS-рассылки</a></li>
+                        <li class="item-nav"><a href="lk/viber_sender.html">Как создать  Viber-рассылку</a></li>
+                        <li class="item-nav"><a href="lk/cascade_sender.html">Как отправить каскадную рассылку</a></li>
+                        <li class="item-nav"><a href="lk/file_sender.html">Как создать файл для рассылки</a></li>
                         <li class="item-nav"><a href="lk/substitutions.html">Как отправить рассылку с подстановками</a></li>
                         <li class="item-nav"><a href="lk/schedule.html">Как добавить расписание рассылки</a></li>
                         <li class="item-nav"><a href="lk/delayed_sender.html">Как отложить отправку рассылки</a></li>
-                        <li class="item-nav"><a href="lk/date_of_end.html">Как поставить дату окончания рассылки</a></li>
+                        <li class="item-nav"><a href="lk/date_of_end.html"></a>Как поставить дату окончания рассылки</li>
+                        <li class="item-nav"><a href="lk/sender.html"></a>Как работать с разделом "Рассылки"</li>
+
+
                     </ul>
                     <label class="wrap-btn" for="sms">
                         <span class="wrap">Смотреть все</span>
