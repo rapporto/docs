@@ -859,22 +859,22 @@ a:visited {
   display: none;
 }
 
-/* Выпадающее меню для стартовой страницы блока SMS */
-.section #sms {
+/* Выпадающее меню для стартовой страницы блока рассылки */
+.section #spam {
   display: none;
 }
 
-.section #sms:checked ~ ul li:nth-child(1n + 4) {
+.section #spam:checked ~ ul li:nth-child(1n + 4) {
   max-height: 999px;
   display: block;
   transition: 0.2s ease-in;
 }
 
-.section #sms:checked ~ .wrap-btn .unwrap {
+.section #spam:checked ~ .wrap-btn .unwrap {
   display: block;
 }
 
-.section #sms:checked ~ .wrap-btn .wrap {
+.section #spam:checked ~ .wrap-btn .wrap {
   display: none;
 }
 
