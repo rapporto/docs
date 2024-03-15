@@ -37,11 +37,11 @@
                     </svg>
                     <span>Что нового?</span>
                 </div>
-                <div><a href='new.html' class='view'>Посмотреть</a></div>
+                <div><a href='lk/new.html' class='view'>Посмотреть</a></div>
             </div>
             <div class="row-table">
                 <section class="section">
-                    <h4 class="item-header">Каскады</h4>
+                    <h4 class="item-header">Рассылки</h4>
                     <input type="checkbox" id="sms"/>
                     <ul>
                         <li class="item-nav"><a href="lk/sms_sender.html">Как создать  SMS-рассылку</a></li>
