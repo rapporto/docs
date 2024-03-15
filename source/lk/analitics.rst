@@ -9,7 +9,7 @@
    :maxdepth: 2 
    :hidden:
 
-   spam_results
+   sender_ statistics
    report
    
  
@@ -23,7 +23,7 @@
                 <section class="section">
                     <h4 class="item-header"></h4>
                     <ul>
-                        <li class="item-nav"><a href="spam_results.html">Как посмотреть статистику конкретной рассылки</a></li>
+                        <li class="item-nav"><a href="sender_ statistics.html">Как посмотреть статистику конкретной рассылки</a></li>
                         <li class="item-nav"><a href="report.html">Как построить отчет</a></li>
                     </ul>
                 </section>
