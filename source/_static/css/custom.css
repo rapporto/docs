@@ -255,6 +255,7 @@ tfoot {
 
 .bd-header-article .header-article-items{
   margin-top: 24px;
+  padding-right: 2rem;
 }
 
 
@@ -640,6 +641,7 @@ html {
 .admonition, div.admonition {
   padding: 20px;
   padding-left: 20px;
+  box-shadow: none !important;
 }
 
 
