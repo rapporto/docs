@@ -311,7 +311,7 @@ nav.bd-links .current > a {
 /*выделение цветом левого меню при наведении*/
 nav.bd-links li > a:hover {
   text-decoration-skip: none;
-  background-color: #ededf2d1;
+  background-color: #f8f7ff;
   text-decoration-skip-ink: none;
   text-decoration-thickness: max(3px,.1875rem,.12em);
   box-shadow: inset max(3px,.1875rem,.12em) 0 0 #ededf2d1;
@@ -373,6 +373,8 @@ a:hover {
   font-size: 16px;
   font-weight: normal;
   text-decoration: none;
+  padding-right: 2rem;
+  padding-left: 2rem;
 }
 
 
@@ -660,6 +662,7 @@ html {
 .admonition.warning, div.admonition.warning {
   border-color:#FFF1F0;
   background-color: #FFF1F0;
+  border-radius: 8px;
 }
 
 
@@ -683,6 +686,7 @@ html {
 .admonition.tip, div.admonition.tip {
   border-color: #F6FFED;
   background-color: #F6FFED;
+  border-radius: 8px;
 }
 
 
@@ -709,6 +713,7 @@ html {
 .admonition.important, div.admonition.important {
   border-color: #FFFBE6;
   background-color: #FFFBE6;
+  border-radius: 8px;
 }
 
 
@@ -731,6 +736,7 @@ html {
 .admonition.note, div.admonition.note {
   border-color: #F8F7FF;
   background-color: #F8F7FF;
+  border-radius: 8px;
 }
 
 
