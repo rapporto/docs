@@ -297,6 +297,7 @@ nav.bd-links a.current.reference.internal:first-of-type{
   color: black;
   background-color: #E2E1FF;
   font-weight: normal; 
+  border-radius: 3px;
 }
 
 
@@ -315,6 +316,7 @@ nav.bd-links li > a:hover {
   text-decoration-skip-ink: none;
   text-decoration-thickness: max(3px,.1875rem,.12em);
   box-shadow: inset max(3px,.1875rem,.12em) 0 0 #ededf2d1;
+  border-radius: 3px;
 }
 
 
