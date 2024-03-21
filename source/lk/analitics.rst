@@ -23,8 +23,8 @@
                 <section class="section">
                     <h4 class="item-header"></h4>
                     <ul>
-                        <li class="item-nav"><a href="sender_ statistics.html">Как посмотреть статистику конкретной рассылки</a></li>
-                        <li class="item-nav"><a href="report.html">Как построить отчет</a></li>
+                        <li class="item-nav"><a href="sender_ statistics.html">Просмотр статистики конкретной рассылки</a></li>
+                        <li class="item-nav"><a href="report.html">Построение отчета</a></li>
                     </ul>
                 </section>
             </div>
