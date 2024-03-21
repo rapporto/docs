@@ -29,15 +29,15 @@
                     <h4 class="item-header"></h4>
                     <input type="checkbox" id="spam"/>
                     <ul>
-                        <li class="item-nav"><a href="sms_sender.html">Как создать  SMS-рассылку</a></li>
-                        <li class="item-nav"><a href="viber_sender.html">Как создать  Viber-рассылку</a></li>
-                        <li class="item-nav"><a href="cascade_sender.html">Как отправить каскадную рассылку</a></li>
-                        <li class="item-nav"><a href="file_sender.html">Как создать файл для рассылки</a></li>
-                        <li class="item-nav"><a href="substitutions.html">Как отправить рассылку с подстановками</a></li>
-                        <li class="item-nav"><a href="schedule.html">Как добавить расписание рассылки</a></li>
-                        <li class="item-nav"><a href="delayed_sender.html">Как отложить отправку рассылки</a></li>
-                        <li class="item-nav"><a href="date_of_end.html">Как поставить дату окончания рассылки</a></li>
-                        <li class="item-nav"><a href="sender.html">Как работать с разделом "Рассылки"</a></li>
+                        <li class="item-nav"><a href="sms_sender.html">Создание SMS-рассылки</a></li>
+                        <li class="item-nav"><a href="viber_sender.html">Создание Viber-рассылки</a></li>
+                        <li class="item-nav"><a href="cascade_sender.html">Отправка каскадной рассылки</a></li>
+                        <li class="item-nav"><a href="file_sender.html">Создание файла для рассылки</a></li>
+                        <li class="item-nav"><a href="substitutions.html">Отправка рассылки с подстановками</a></li>
+                        <li class="item-nav"><a href="schedule.html">Добавление расписания рассылки</a></li>
+                        <li class="item-nav"><a href="delayed_sender.html">Отправка отложенной рассылки</a></li>
+                        <li class="item-nav"><a href="date_of_end.html">Указание даты окончания рассылки</a></li>
+                        <li class="item-nav"><a href="sender.html">Работа с разделом "Рассылки"</a></li>
                     </ul>
                     <label class="wrap-btn" for="spam">
                         <span class="wrap">Смотреть все</span>
