@@ -44,15 +44,15 @@
                     <h4 class="item-header">Рассылки</h4>
                     <input type="checkbox" id="spam"/>
                     <ul>
-                        <li class="item-nav"><a href="lk/sms_sender.html">Как создать  SMS-рассылку</a></li>
-                        <li class="item-nav"><a href="lk/viber_sender.html">Как создать  Viber-рассылку</a></li>
-                        <li class="item-nav"><a href="lk/cascade_sender.html">Как отправить каскадную рассылку</a></li>
-                        <li class="item-nav"><a href="lk/file_sender.html">Как создать файл для рассылки</a></li>
-                        <li class="item-nav"><a href="lk/substitutions.html">Как отправить рассылку с подстановками</a></li>
-                        <li class="item-nav"><a href="lk/schedule.html">Как добавить расписание рассылки</a></li>
-                        <li class="item-nav"><a href="lk/delayed_sender.html">Как отложить отправку рассылки</a></li>
-                        <li class="item-nav"><a href="lk/date_of_end.html">Как поставить дату окончания рассылки</a></li>
-                        <li class="item-nav"><a href="lk/sender.html">Как работать с разделом "Рассылки"</a></li>
+                        <li class="item-nav"><a href="lk/sms_sender.html">Создание SMS-рассылки</a></li>
+                        <li class="item-nav"><a href="lk/viber_sender.html">Создание Viber-рассылки</a></li>
+                        <li class="item-nav"><a href="lk/cascade_sender.html">Отправка каскадной рассылки</a></li>
+                        <li class="item-nav"><a href="lk/file_sender.html">Создание файла для рассылки</a></li>
+                        <li class="item-nav"><a href="lk/substitutions.html">Отправка рассылки с подстановками</a></li>
+                        <li class="item-nav"><a href="lk/schedule.html">Добавление расписания рассылки</a></li>
+                        <li class="item-nav"><a href="lk/delayed_sender.html">Отправка отложенной рассылки</a></li>
+                        <li class="item-nav"><a href="lk/date_of_end.html">Указание даты окончания рассылки</a></li>
+                        <li class="item-nav"><a href="lk/sender.html">Работа с разделом "Рассылки"</a></li>
 
 
                     </ul>
@@ -64,8 +64,8 @@
                 <section class="section">
                     <h4 class="item-header">Аналитика</h4>
                     <ul>
-                        <li class="item-nav"><a href="lk/sender_ statistics.html">Как посмотреть статистику конкретной рассылки</a></li>
-                        <li class="item-nav"><a href="lk/report.html">Как построить отчет</a></li>
+                        <li class="item-nav"><a href="lk/sender_ statistics.html">Просмотр статистики конкретной рассылки</a></li>
+                        <li class="item-nav"><a href="lk/report.html">Построение отчета</a></li>
                     </ul>
                 </section> 
             </div>
@@ -73,8 +73,8 @@
                 <section class="section">
                     <h4 class="item-header">Администрирование</h4>
                     <ul>
-                        <li class="item-nav"><a href="lk/newuser.html">Как добавить пользователя</a></li>
-                        <li class="item-nav"><a href="lk/rights.html">Как настроить права пользователю</a></li>
+                        <li class="item-nav"><a href="lk/newuser.html">Добавление пользователя</a></li>
+                        <li class="item-nav"><a href="lk/rights.html">Настройка прав пользователю</a></li>
                         <li class="item-nav"><a href="lk/teams.html">Что такое команды</a></li>
                     </ul>
                 </section>
