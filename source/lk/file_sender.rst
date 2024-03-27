@@ -50,4 +50,5 @@
 Пример файла с подстановками в формате .csv (разделитель — запятая):
 
 .. image:: media/substitutions1.png
+    :align: left
     :width: 350
