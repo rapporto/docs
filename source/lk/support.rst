@@ -32,5 +32,5 @@
  
 .. raw:: html
  	
-    <a href="rest_project/gen.html">Попробовать генератор</a>
+    <a href="rest_project/gen">Попробовать генератор</a>
  
