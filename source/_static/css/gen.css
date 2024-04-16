@@ -1,0 +1,93 @@
+html, body, .container {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 600px 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas: "form data";
+}
+
+.form {
+    grid-area: form;
+    background-color: white;
+    overflow-y: scroll;
+}
+
+.data {
+    grid-area: data;
+    background-color: #F3F3F3;
+    overflow-y: scroll;
+}
+
+.data-title {
+    padding: 8px;
+}
+
+pre {
+    margin: 0;
+    background-color: #F3F3F3;
+}
+
+code {
+    background-color: #F3F3F3;
+}
+
+button {
+    margin-left: 8px;
+}
+
+.message {
+    border: 1px solid #eee;
+    margin: 8px;
+}
+
+.between-message {
+    border: 1px solid #eee;
+    padding: 8px;
+    margin: 8px;
+    padding-left: 32px;
+    background-color: #F7F7F7;
+    text-align: center;
+}
+
+.div-title {
+    background-color: #eee;
+    font-size: 24px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.copy_result {
+    font-style: italic;
+    color: green;
+}
+
+.presets {
+    padding: 8px;
+    border: 1px solid #eee;
+}
+
+.hidden {
+    display: none;
+}
+
+table {
+    width: 100%;
+}
+
+td {
+    padding: 5px 10px;
+    border: 1px solid white;
+    text-align: left;
+    background: #F7F7F7;
+}
+
+td:first-child {
+    text-align: right;
+}
