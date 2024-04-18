@@ -757,8 +757,8 @@ a {
 }
 
 a:visited {
-  color: var(--pst-color-link-hover);
-  text-decoration: none;
+  color: black;
+  text-decoration: underline;
 }
 
 .content {
