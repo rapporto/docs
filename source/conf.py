@@ -87,6 +87,7 @@ html_context = {
 html_theme_options = {
 
     'collapse_navigation': True,
+    'use_download_button': False,
     "show_nav_level": 6,
     'navigation_depth': 6,
     "repository_url": "https://github.com/rapporto/docs",
