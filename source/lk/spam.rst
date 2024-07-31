@@ -9,6 +9,7 @@
 
    sms_sender
    viber_sender
+   telegram_sender
    cascade_sender
    file_sender
    substitutions
@@ -31,6 +32,7 @@
                     <ul>
                         <li class="item-nav"><a href="sms_sender.html">Создание SMS-рассылки</a></li>
                         <li class="item-nav"><a href="viber_sender.html">Создание Viber-рассылки</a></li>
+                        <li class="item-nav"><a href="telegram_sender.html">Создание Telegram-рассылки</a></li>
                         <li class="item-nav"><a href="cascade_sender.html">Отправка каскадной рассылки</a></li>
                         <li class="item-nav"><a href="file_sender.html">Создание файла для рассылки</a></li>
                         <li class="item-nav"><a href="substitutions.html">Отправка рассылки с подстановками</a></li>
