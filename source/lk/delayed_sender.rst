@@ -10,6 +10,6 @@
 
 3. Нажать на кнопку **<Запустить рассылку в [время] [дата]>**.
  
-.. image:: media/delayed.gif
+.. image:: media/delayed_sender1.gif
  
  
