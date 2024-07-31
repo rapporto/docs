@@ -47,6 +47,7 @@
                     <ul>
                         <li class="item-nav"><a href="lk/sms_sender.html">Создание SMS-рассылки</a></li>
                         <li class="item-nav"><a href="lk/viber_sender.html">Создание Viber-рассылки</a></li>
+                        <li class="item-nav"><a href="lk/telegram_sender.html">Создание Telegram-рассылки</a></li>
                         <li class="item-nav"><a href="lk/cascade_sender.html">Отправка каскадной рассылки</a></li>
                         <li class="item-nav"><a href="lk/file_sender.html">Создание файла для рассылки</a></li>
                         <li class="item-nav"><a href="lk/substitutions.html">Отправка рассылки с подстановками</a></li>
