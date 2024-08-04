@@ -67,6 +67,7 @@
                     <h4 class="item-header">Аналитика</h4>
                     <ul>
                         <li class="item-nav"><a href="lk/sender_ statistics.html">Просмотр статистики рассылки</a></li>
+                        <li class="item-nav"><a href="lk/chron_telegram.html">Хронологический отчет Telegram</a></li>
                     </ul>
                 </section> 
             </div>
