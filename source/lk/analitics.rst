@@ -10,7 +10,7 @@
    :hidden:
 
    sender_ statistics
-   report
+   chron_telegram
    
  
 Просматривайте статистику и отчёты по результатам рассылок.
@@ -24,6 +24,7 @@
                     <h4 class="item-header"></h4>
                     <ul>
                         <li class="item-nav"><a href="sender_ statistics.html">Просмотр статистики рассылки</a></li>
+                        <li class="item-nav"><a href="chron_telegram.html">Хронологический отчет Telegram</a></li>
                     </ul>
                 </section>
             </div>
