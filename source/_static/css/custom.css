@@ -50,7 +50,7 @@ body {
 
 .bd-article {
   max-width: 800px;
-  min-width: 800px;
+  min-width: 660px;
   flex-grow: 1;
 }
 
