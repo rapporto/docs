@@ -13,7 +13,6 @@
    lk/analitics
    lk/admin
    lk/support
-   gen
    
    
 
