@@ -11,6 +11,7 @@
 
    sender_ statistics
    chron_telegram
+   summary_rep_telegram
    
  
 Просматривайте статистику и отчёты по результатам рассылок.
@@ -25,6 +26,7 @@
                     <ul>
                         <li class="item-nav"><a href="sender_ statistics.html">Просмотр статистики рассылки</a></li>
                         <li class="item-nav"><a href="chron_telegram.html">Хронологический отчет Telegram</a></li>
+                        <li class="item-nav"><a href="summary_rep_telegram.html">Сводный отчет Telegram</a></li>
                     </ul>
                 </section>
             </div>
