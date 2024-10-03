@@ -84,8 +84,6 @@
                         <li class="item-nav"><a href="lk/sender_ statistics.html">Просмотр статистики рассылки</a></li>
                         <li class="item-nav"><a href="lk/chron_telegram.html">Хронологический отчет Telegram</a></li>
                         <li class="item-nav"><a href="lk/summary_rep_telegram.html">Сводный отчет Telegram</a></li>
-                        <li class="item-nav"><a href="lk/chron_report.html">Общий хронологический отчет</a></li>
-                        <li class="item-nav"><a href="lk/summary_repport.html">Общий сводный отчет</a></li>
 
 
                     </ul>
