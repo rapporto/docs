@@ -1,0 +1,967 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-family: 'Segoe UI', Helvetica, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+button.theme-switch-button {
+    display: none !important;
+}
+
+/*меняем базовые цвета в соответствии с дизайном для светлой темы*/
+
+html[data-theme=light] {
+  --pst-color-secondary: #726CFF;
+  --pst-color-primary: #726CFF ;
+  --pst-color-accent: #726CFF;
+  --pst-color-h1: black;
+}
+
+
+
+/*задаем цвета и размеры шрифта в соответствии с дизайном
+с дизайнером согласовано, что оставляем системный шрифт, 
+настройки шрифта тоже оставили базовые, так как результат при применении не соовтетствует макету*/
+
+body {
+
+  font-family: 'Segoe UI', Helvetica, sans-serif;  color: #000;
+  font-size: 16px;
+}
+
+
+.bd-article-container h1,
+.bd-article-container h2,
+.bd-article-container h3,
+.bd-article-container h4,
+.bd-article-container h5,
+.bd-article-container p.caption {
+  font-family: 'Segoe UI', Helvetica, sans-serif,'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-style: normal;
+}
+
+
+/*Задаем фиксированную ширину для статей, в соответствии с дизайном*/
+
+
+.bd-article {
+  max-width: 800px;
+  min-width: 660px;
+  flex-grow: 1;
+}
+
+.bd-main .bd-content .bd-article-container {
+  padding-bottom: 20px;
+}
+
+
+/*задаем ширину статей и изображений для экранов смартфонов*/
+
+@media (max-width: 768px) {
+  .bd-article {
+    max-width: 400px;
+    min-width: 300px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .bd-article {
+    max-width: 700px;
+    min-width: 600px;
+  }
+}
+
+
+
+h1,
+h2,
+h3,
+h4,
+h5{
+  font-family: 'Segoe UI', Helvetica, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-style: normal;
+}
+
+
+h1 {
+  color: #000;
+  font-size: 36px;
+}
+
+
+h2,
+h3 {
+  color: #000;
+  font-size: 28px;
+}
+
+h4 {
+  color: #000;
+  line-height: 26px; 
+}
+
+
+/*шрифт для бокового меню*/
+
+.bd-sidebar-primary {
+  color: #000
+  font-size: 14px;
+ }
+
+
+.bd-header-article .btn {
+  color: #98A2B3;
+  font-size: 14px;
+}
+
+
+
+code, kbd, pre, samp {
+  font-family: "SFMono-Regular",Menlo,Consolas,Monaco,Liberation Mono,Lucida Console,monospace;
+  font-size: 14px;
+
+
+
+}
+
+
+
+/*Кастомизация основных элементов*/
+
+
+/*Изображение*/
+
+/*изображение, добавляем небольшую рамку, чтобы не сливалось с текстом*/
+
+img {
+  border: 1px solid #a0b3bf82;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 15px auto;
+}
+
+
+
+
+
+/*для лого rapporto не нужно рамок, no limits )
+*/
+img.logo__image {
+  border: 0;
+  width: 147.879px;
+  vertical-align: left;
+}
+
+
+/*выравнивание лого rapporto по левому краю и указание размеров logo */
+
+.navbar-brand {
+  width: 147.879px;
+}
+
+
+/*Выравниваем лого на один уровень с верхнем меню (нужно будет более гибкий вариант поискать)*/
+
+div.sidebar-primary-item, .logo__image {
+
+  margin-top: -12px;
+  margin-bottom: 15px;
+}
+
+
+
+
+
+/*Таблица*/
+
+/*Делаем для таблицы полные границы, так как бывают большие таблицы и без явных границ ухудшается читабельность*/
+
+
+tbody, td, tfoot, th, thead, tr {
+  border: 1px solid #a0b3bf82;
+  padding: 10px 20px;
+}
+
+tfoot {
+  background-color: grey;
+}
+
+/*таблица без видмиых границ, пример использования .. cssclass:: no-border-table*/
+
+.no-border-table {
+  border-collapse: collapse;
+}
+
+
+.no-border-table tbody,
+.no-border-table thead,
+.no-border-table tfoot,
+.no-border-table th, 
+.no-border-table td, 
+.no-border-table tr {
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+
+/*Вкладки*/
+/*Переделываем вкладки в соответствии с дизайном*/
+
+.sphinx-tabs-tab {
+   color: #1D2939;
+ }
+
+
+
+.sphinx-tabs-tab[aria-selected="true"] {
+  border: 0 solid white;
+  color: var(--pst-color-primary);;
+  border-bottom: 2px solid var(--pst-color-primary);
+  margin: -1px;
+  background-color: white;
+}
+
+
+[role="tablist"] {
+  border-bottom: 1px solid white;
+}
+
+.sphinx-tabs-panel {
+  position: relative;
+  padding: 1rem;
+  border: 0;
+  border-top: 1px solid #a0b3bf82;;
+  background: white;
+}
+
+
+
+
+/*Меню навигации*/
+
+
+.bd-sidebar-primary {
+  padding-top: 40px;
+  padding-right: 25px;
+}
+
+
+
+.bd-header-article .header-article-items{
+  margin-top: 24px;
+  padding-right: 2rem;
+}
+
+
+.bd-sidebar-secondary .onthispage{
+  margin-top: 24px;
+}
+
+
+
+
+/*выделение активного пункта левого меню заливкой цветом #E2E1FF*/
+
+/*Задается цвет шрифта для выделенного пункта левого меню и подсветки box-shadow */
+
+
+nav.bd-links li > a:active, nav.bd-links li > a:hover {
+  color: black;
+}
+
+
+/*выделение выбранного пункта левого меню заливкой цветом #E2E1FF*/
+li.toctree-l1.current.active {
+  color: #1D2939;
+  font-weight: normal;
+}
+
+
+
+
+/*Задается цвет шрифта для пункта левого меню и подсветки box-shadow при наведении */
+nav.bd-links .current > a:hover {
+  color: #1D2939;
+  font-weight: normal; 
+}
+
+
+nav.bd-links a.current.reference.internal:first-of-type{
+  box-shadow: inset max(3px,.1875rem,.12em) 0 0 #E2E1FF;
+  color: black;
+  background-color: #E2E1FF;
+  font-weight: normal; 
+  border-radius: 3px;
+}
+
+
+nav.bd-links .current > a {
+  color: inherit;       
+  text-decoration: none; 
+  background: none;      
+  box-shadow: none;
+  font-weight: 400;
+}
+
+/*выделение цветом левого меню при наведении*/
+nav.bd-links li > a:hover {
+  text-decoration-skip: none;
+  background-color: #f8f7ff;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: max(3px,.1875rem,.12em);
+  box-shadow: inset max(3px,.1875rem,.12em) 0 0 #ededf2d1;
+  border-radius: 3px;
+}
+
+
+
+/*Задается цвет шрифта для выделенного пункта правого меню и подсветки box-shadow */
+.toc-entry a.nav-link.active {
+  color: #726CFF;
+}
+
+
+/*задаем отступ от Содержания и правого меню*/
+
+.bd-sidebar-secondary .onthispage {
+  margin-bottom: 30px;
+}
+
+
+/*Задается цвет шрифта для выделенного пункта правого меню и подсветки box-shadow*/
+
+.toc-entry a.nav-link.active:hover {
+  box-shadow: inset max(3px,.1875rem,.12em) 0 0 #726CFF;
+  color: #726CFF;
+
+}
+
+
+/*убираем жирное выделение и подчеркивание для ссылок, при наведении ссылка толькопочеркивается*/
+
+nav.bd-links li > a:hover {
+  box-shadow: none;
+  text-decoration: none;
+}
+
+.toc-entry a.nav-link:hover {
+  box-shadow: none;
+  text-decoration: none;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+/*навигация в нижней части, которая позволяет переходить вперед и назад по статьям
+убираем жирность и оставляем стандартно как для других ссылок - подчеркивание при наведении*/
+
+
+.prev-next-area a p.prev-next-title {
+  word-wrap: break-word;
+  font-size: 16px;
+  font-weight: normal;
+  text-decoration: none;
+
+}
+
+
+.prev-next-area a:hover p.prev-next-title:hover {
+  text-decoration-skip: none;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+}
+
+
+.sidebar-primary-items__end {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+footer.prev-next-footer{
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+
+
+/*Кастомизация иконок*/
+
+
+/*добавляем левый отступ для иконок, которые будут отображаться в выпадающем меню, чтобы в выпадющем списке не сливались с текстом*/
+/*.btn__text-container {
+  margin-left: 10px;
+}
+*/
+
+/*убираем подстветку для кнопок и выпадающего меню, по дизайну ее нет*/
+
+.bd-header-article .btn.show, .bd-header-article .btn:hover {
+  color: #98A2B3;
+}
+
+.bd-header-article .dropdown-menu .dropdown-item:hover {
+  color: #98A2B3;
+}
+
+
+
+
+/*Замена иконки, которая сворачивает левое меню
+!Нужно будет доработать так, чтобы она менялась в зависимости от состояния меню, если левое меню развернуто, то rotate(180deg), 
+если свернуто, то не нужно, чтобы она показывала в сторону сворачивания/разворачивания*/
+
+
+.fa-bars path {
+  fill: transparent; 
+}
+
+.fa-bars, .fa-navicon {
+  background-image: url(../Content.svg);
+  transform: rotate(180deg);
+  width: 24px; 
+  background-size: cover; 
+  display: flex;
+  height: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px; 
+}
+
+
+/*переделываем иконку, которая находится слева от содержания правого меню*/
+
+.fa-list-squares, .fa-list path {
+  fill: transparent; 
+}
+
+ 
+
+
+.fa-list-squares, .fa-list {
+  background-image: url(../menu-01.svg);
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0; 
+  background-size: cover; 
+  margin-right: 3px; 
+}
+
+
+div.page-toc {
+  margin-top: 30px;
+}
+
+
+
+
+/*Заменяем логотип Github*/
+
+
+ 
+.fa-github path {
+  display: none;
+}
+
+.fa-github {
+  background-image: url(../github.svg);
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0; 
+  background-size: cover; 
+}
+
+
+
+
+
+/*Заменяем иконку загрузки статьи со страницы*/
+.fa-download path  {
+  display: none;
+}
+
+.fa-download {
+  background-image: url(../file-download.svg);
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0; 
+  background-size: cover; 
+}
+
+
+.bd-sidebar-primary label.toctree-toggle:hover {
+  background-color: transparent;
+}
+
+
+.fa-github:hover {
+  background-image: url(../github-hov.svg);
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  background-size: cover;
+}
+
+
+.dropdown-toggle:hover .fa-download {
+  background-image: url(../file-download-hov.svg);
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  background-size: cover;
+}
+
+
+
+.search-button:hover {
+  background-image: url(../search-md-hov.svg);
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  background-size: cover;
+  box-shadow: none;
+}
+
+/*задаем цвет для элементов, которые сворачивают левое меню*/
+.fa-chevron-down path{
+  fill: #98A2B3;
+}
+
+
+
+/*Заменяем иконку поиска*/
+
+.search-button path {
+  display: none;
+}
+
+
+.search-button {
+  background-image: url(../search-md.svg);
+  width: 25px;
+  height: 25px;
+  flex-shrink: 0; 
+  margin-top: 1px; 
+  margin-left: 3px; 
+}
+
+
+/*Заменяем иконку для переключения светлой/темной темы */
+
+.fa-sun path {
+  fill: transparent; 
+}
+
+
+
+
+.fa-sun {
+  background-image: url(../sun.svg);
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat; 
+  margin: -8px -6px 0 -6px;
+}
+
+
+
+.fa-moon path {
+  fill: transparent; 
+}
+
+
+
+.fa-moon {
+  background-image: url(../moon.svg);
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat; 
+  background-size: cover; 
+  margin: -8px -6px 0 -6px;
+}
+
+
+
+.theme-switch-button span:hover {
+  box-shadow: none;
+
+}
+
+
+.fa-circle-half-stroke path {
+  fill: transparent; 
+}
+
+
+.fa-circle-half-stroke {
+  background-image: url(../auto.svg);
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0; 
+  background-size: cover; 
+  margin-top: -3px; 
+}
+
+
+
+
+/*выделенные блоки текста с заметками, предупреждением, советом и важным выделением*/
+
+/*не получилось заменить старые иконки, поэтому просто их убираем таким непрямым способом, чтобы поверх задать нужное изображение
+возможно их можно еще сделать прозрачными, но и этот вариант работает*/
+
+html {
+  --pst-icon-info-circle: '';
+  --pst-icon-exclamation-triangle: '';
+  --pst-icon-admonition-tip: '';
+  --pst-icon-admonition-important: '';
+}
+
+
+
+/*увеличиваем внутренние отступы и задаем расстояние между значком и заголовком выделенного блока текста*/
+
+/*.admonition :last-child, div.admonition :last-child {
+  padding-left: 16px;
+
+}
+*/
+.admonition-title {
+  text-indent: 16px; 
+}
+
+
+.admonition, div.admonition {
+  padding: 20px;
+  padding-left: 20px;
+  box-shadow: none !important;
+}
+
+
+/*Переделываем блок с Предупреждением(error) в соответствии с дизайном - задаем новую иконку и цвет*/
+
+
+.admonition.warning > .admonition-title::after, div.admonition.warning > .admonition-title::after {
+  background-image: url(../CloseCircleFilled.svg);
+  width: 24px; 
+  height: 24px;
+  background-size: cover; 
+  margin-top: 1px;
+}
+
+
+.admonition.warning, div.admonition.warning {
+  border-color:#FFF1F0;
+  background-color: #FFF1F0;
+  border-radius: 8px;
+}
+
+
+.admonition.warning > .admonition-title::before, div.admonition.warning > .admonition-title::before {
+  background-color: #FFF1F0;
+}
+
+
+
+/*Переделываем блок с Советом ( success) в соответствии с дизайном - задаем новую иконку и цвет*/
+
+.admonition.tip > .admonition-title::after, div.admonition.tip > .admonition-title::after {
+  background-image: url(../CheckCircleFilled.svg);
+  width: 24px; 
+  height: 24px;
+  background-size: cover; 
+  margin-top: 1px;
+}
+
+
+.admonition.tip, div.admonition.tip {
+  border-color: #F6FFED;
+  background-color: #F6FFED;
+  border-radius: 8px;
+}
+
+
+.admonition.tip > .admonition-title::before, div.admonition.tip > .admonition-title::before {
+  background-color: #F6FFED;
+}
+
+
+
+
+/*Переделываем блок с Важно(warning) в соответствии с дизайном - задаем новую иконку и цвет*/
+
+.admonition.important > .admonition-title::after, div.admonition.important > .admonition-title::after {
+
+  background-image: url(../ExclamationCircleFilled.svg);
+  width: 24px; 
+  height: 24px;
+  background-size: cover; 
+  margin-top: 1px;
+
+}
+
+
+.admonition.important, div.admonition.important {
+  border-color: #FFFBE6;
+  background-color: #FFFBE6;
+  border-radius: 8px;
+}
+
+
+.admonition.important > .admonition-title::before, div.admonition.important > .admonition-title::before {
+  background-color: #FFFBE6;
+}
+
+
+/*Переделываем блок с Заметками(note, info) в соответствии с дизайном - задаем новую иконку и цвет*/
+
+.admonition.note > .admonition-title::after, div.admonition.note > .admonition-title::after {
+  background-image: url(../InfoCircleFilled.svg);
+  width: 24px; 
+  height: 24px;
+  background-size: cover; 
+  margin-top: 1px;
+}
+
+
+.admonition.note, div.admonition.note {
+  border-color: #F8F7FF;
+  background-color: #F8F7FF;
+  border-radius: 8px;
+}
+
+
+.admonition.note > .admonition-title::before, div.admonition.note > .admonition-title::before {
+  background-color: #F8F7FF;
+
+}
+
+
+
+
+a {
+  text-decoration: none;
+  color: #1d2939;
+}
+
+a:visited {
+  color: var(--pst-color-link-hover);
+
+}
+
+.content {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: flex;
+  max-width: 800px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.news {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 16px;
+  align-items: center;
+  gap: 12px;
+  border-radius: 8px;
+  background: var(--colorPrimaryBg, #f8f7ff);
+}
+
+.block {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.row-table {
+  width: 100%;
+  display: flex;
+  gap: 64px;
+}
+
+.section {
+  position: relative;
+  flex-grow: 1;
+  width: 50%;
+}
+
+.section ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.section ul:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.section ul li:nth-child(1n + 4) {
+  max-height: 0;
+  display: none;
+  transition: 0.1s ease-in;
+}
+
+.section .wrap-btn {
+  border: none;
+  background: transparent;
+  color: #726cff;
+  cursor: pointer;
+  margin-top: 12px;
+  padding-left: 8px;
+}
+
+.section #statistica {
+  display: none;
+}
+
+.section .wrap-btn .unwrap {
+  display: none;
+}
+
+.section #statistica:checked ~ ul li:nth-child(1n + 4) {
+  max-height: 999px;
+  display: block;
+  transition: 0.2s ease-in;
+}
+
+.section #statistica:checked ~ .wrap-btn .unwrap {
+  display: block;
+}
+
+.section #statistica:checked ~ .wrap-btn .wrap {
+  display: none;
+}
+
+/* Выпадающее меню для стартовой страницы блока Отчеты */
+.section #report {
+  display: none;
+}
+
+.section #report:checked ~ ul li:nth-child(1n + 4) {
+  max-height: 999px;
+  display: block;
+  transition: 0.2s ease-in;
+}
+
+.section #report:checked ~ .wrap-btn .unwrap {
+  display: block;
+}
+
+.section #report:checked ~ .wrap-btn .wrap {
+  display: none;
+}
+
+/* Выпадающее меню для стартовой страницы блока рассылки */
+.section #spam {
+  display: none;
+}
+
+.section #spam:checked ~ ul li:nth-child(1n + 4) {
+  max-height: 999px;
+  display: block;
+  transition: 0.2s ease-in;
+}
+
+.section #spam:checked ~ .wrap-btn .unwrap {
+  display: block;
+}
+
+.section #spam:checked ~ .wrap-btn .wrap {
+  display: none;
+}
+
+/* Выпадающее меню для стартовой страницы блока Аналитика */
+.section #analytics {
+  display: none;
+}
+
+.section #analytics:checked ~ ul li:nth-child(1n + 4) {
+  max-height: 999px;
+  display: block;
+  transition: 0.2s ease-in;
+}
+
+.section #analytics:checked ~ .wrap-btn .unwrap {
+  display: block;
+}
+
+.section #analytics:checked ~ .wrap-btn .wrap {
+  display: none;
+}
+
+.item-nav {
+  padding: 12px 8px;
+  border-bottom: 1px solid var(--colorSplit, #eaecf0);
+}
+
+
+.item-nav a {
+  color: var(--pst-color-text-base);
+}
+
+.item-header {
+  margin: 0px;
+  padding: 12px 8px;
+  font-size: 22px;
+  border-bottom: 1px solid var(--colorSplit, #eaecf0);
+}
+
+.item-button {
+  padding: 12px 8px;
+}
+
+.view {
+  color: #726cff;
+}
+
+.view:visited {
+  color: #726cff;
+}
+
+@media (max-width: 481px) {
+  .content {
+    
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 40px;
+      flex-shrink: 0;
+      align-self: stretch;
+  }
+  .news {
+      width: 100%;
+  }
+  .row-table {
+      flex-direction: column;
+      gap: 40px;
+  }
+  .section {
+    width: 100%;
+  }
+}
+
+/* Скрывает все символы "&" в тексте */
+body:contains("&") {
+    display: none; /* Скрывает элементы, содержащие "&" */
+}
+
