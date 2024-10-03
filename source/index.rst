@@ -1,5 +1,4 @@
 
-
 Начало работы
 =============
  
@@ -10,16 +9,32 @@
 
    lk/new
    lk/spam
-   lk/analitics
+   lk/analytics
    lk/admin
-   lk/support
-   
    
 
-Создавайте SMS-, Viber- и Telegram-рассылки с индивидуальным контентом и расписанием.
-Настраивайте и отправляйте каскадные и отложенные рассылки сообщений.
-Просматривайте статистику и отчёты по результатам рассылок.
-Администрируйте личный кабинет -- добавляйте пользователей и назначайте им права.
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: Интеграции
+
+   api/rest_project/rest_integration
+
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: &
+
+   glossary
+   support   
+
+| Создавайте SMS-, Viber- и Telegram-рассылки с индивидуальным контентом и расписанием.
+| Настраивайте и отправляйте каскадные и отложенные рассылки сообщений.
+| Просматривайте статистику и отчёты по результатам рассылок.
+| Администрируйте личный кабинет -- добавляйте пользователей и назначайте им права.
+| Настраивайте интеграционные подключения по различным протоколам.
+
  
 .. raw:: html
 
@@ -64,11 +79,20 @@
                 </section>
                 <section class="section">
                     <h4 class="item-header">Аналитика</h4>
+                    <input type="checkbox" id="analytics"/>
                     <ul>
                         <li class="item-nav"><a href="lk/sender_ statistics.html">Просмотр статистики рассылки</a></li>
                         <li class="item-nav"><a href="lk/chron_telegram.html">Хронологический отчет Telegram</a></li>
                         <li class="item-nav"><a href="lk/summary_rep_telegram.html">Сводный отчет Telegram</a></li>
+                        <li class="item-nav"><a href="lk/chron_report.html">Общий хронологический отчет</a></li>
+                        <li class="item-nav"><a href="lk/summary_repport.html">Общий сводный отчет</a></li>
+
+
                     </ul>
+                    <label class="wrap-btn" for="analytics">
+                        <span class="wrap">Смотреть все</span>
+                        <span class="unwrap">Свернуть</span>
+                     </label>
                 </section> 
             </div>
             <div class="row-table">
@@ -78,11 +102,17 @@
                         <li class="item-nav"><a href="lk/newuser.html">Добавление пользователя</a></li>
                         <li class="item-nav"><a href="lk/rights.html">Настройка прав пользователю</a></li>
                         <li class="item-nav"><a href="lk/teams.html">Что такое команды</a></li>
-                    </ul>
+                    </ul>             
                 </section>
+                <section class="section">
+                    <h4 class="item-header">Интеграции</h4>
+                    <input type="checkbox" id="report"/>
+                    <ul>
+                        <li class="item-nav"><a href="api/rest_project/rest_integration.html">REST API</a></li>
+                    </ul>
+                  </section>
             </div>
         </section>
- 
  
 
  
