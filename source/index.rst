@@ -87,10 +87,6 @@
 
 
                     </ul>
-                    <label class="wrap-btn" for="analytics">
-                        <span class="wrap">Смотреть все</span>
-                        <span class="unwrap">Свернуть</span>
-                     </label>
                 </section> 
             </div>
             <div class="row-table">
