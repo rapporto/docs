@@ -61,7 +61,7 @@ html_favicon = '_static/favicon.ico'
 
 html_logo = '_static/logo-light.svg'
 
-html_title = "Сайт документации Раппорто"
+html_title = "Техническая документация Раппорто"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -75,9 +75,7 @@ templates_path = ["_templates"]
 
 source_suffix = ['.rst', '.md']
 
-html_js_files = [
-    'js/custom.js',
-]
+html_js_files = ['js/custom.js', 'js/gener.js', 'js/cus.js']
 
 html_context = {
    "default_mode": "light",
@@ -92,7 +90,7 @@ html_theme_options = {
     'navigation_depth': 6,
     "repository_url": "https://github.com/rapporto/docs",
     "use_repository_button": True,
-    "toc_title": "Содержание",
+    "toc_title": "На этой странице",
     "use_fullscreen_button":False,
     "use_sidenotes": True,
     "logo": {
