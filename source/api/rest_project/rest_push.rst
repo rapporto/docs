@@ -486,33 +486,32 @@ Push
                    :linenos:
                    :emphasize-lines: 14-22
 
-                    {
-                       "login":"ВАШ_ЛОГИН",
-                       "password":"ВАШ_ПАРОЛЬ",
-                       "id":"1",
-                       "message":{
-                          "type":"PUSH",
-                          "data":{
-                             "serviceNumber":"Сервисное_имя_отправителя",
-                             "externalUserId":"ИД_абонента",
-                             "text":"Текст_сообщения",
-                             "title":"Заголовок_сообщения",
-                             "ttl":24,
-                             "ttlUnit":"HOURS",
-                             "Options":[
-                                {
-                                   "param_name":"SENDING_PLATFORMS",
-                                   "param_value":[
-                                      "Android",
-                                      "Ios",
-                                      "RuStore"
-                                   ]
-                                }
-                             ]
-                          }
-                       }
-                    }
-
+                     {
+                        "login":"ВАШ_ЛОГИН",
+                        "password":"ВАШ_ПАРОЛЬ",
+                        "id":"1",
+                        "message":{
+                           "type":"PUSH",
+                           "data":{
+                              "serviceNumber":"Сервисное_имя_отправителя",
+                              "externalUserId":"ИД_абонента",
+                              "text":"Текст_сообщения",
+                              "title":"Заголовок_сообщения",
+                              "ttl":24,
+                              "ttlUnit":"HOURS",
+                              "extraOptions":[
+                                 {
+                                    "param_name":"SENDING_PLATFORMS",
+                                    "param_value":[
+                                       "Android",
+                                       "Ios",
+                                       "RuStore"
+                                    ]
+                                 }
+                              ]
+                           }
+                        }
+                     }
 
 
 Параметры запросов  
