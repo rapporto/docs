@@ -408,37 +408,37 @@ Push
                    :linenos:
                    :emphasize-lines: 14-23
 
-                    {
-                       "login":"ВАШ_ЛОГИН",
-                       "password":"ВАШ_ПАРОЛЬ",
-                       "id":"4560",
-                       "message":{
-                          "type":"PUSH",
-                          "data":{
-                             "externalUserId":"ИД_абонента",
-                    	 "title":"Заголовок",
-                             "text":"Текст",
-                             "serviceNumber":"Номер_отправителя",
-                             "ttl":30,
-                             "ttlUnit":"SECONDS",
-                             "Options":[
-                                {
-                                   "param_name":"LIVE_ACTIVITY",
-                                   "param_value":{
-                                      "aps":{
-                                         "timestamp":"2024-03-29T17:23:47.720Z",
-                                         "event":"update",
-                                         "content-state":{
-                                            "deliveryStatus":2,
-                                            "deliveryTime":5
-                                         }
-                                      }
-                                   }
-                                }
-                             ]
-                          }
-                       }
-                    }
+                     {
+                        "login":"ВАШ_ЛОГИН",
+                        "password":"ВАШ_ПАРОЛЬ",
+                        "id":"4560",
+                        "message":{
+                           "type":"PUSH",
+                           "data":{
+                              "externalUserId":"ИД_абонента",
+                     	 "title":"Заголовок",
+                              "text":"Текст",
+                              "serviceNumber":"Номер_отправителя",
+                              "ttl":30,
+                              "ttlUnit":"SECONDS",
+                              "extraOptions":[
+                                 {
+                                    "param_name":"LIVE_ACTIVITY",
+                                    "param_value":{
+                                       "aps":{
+                                          "timestamp":"2024-03-29T17:23:47.720Z",
+                                          "event":"update",
+                                          "content-state":{
+                                             "deliveryStatus":2,
+                                             "deliveryTime":5
+                                          }
+                                       }
+                                    }
+                                 }
+                              ]
+                           }
+                        }
+                     }
         
         
             .. tab:: SECURE
@@ -449,33 +449,33 @@ Push
                    :linenos:
                    :emphasize-lines: 14-20
 
-                    {
-                       "login":"ВАШ_ЛОГИН",
-                       "password":"ВАШ_ПАРОЛЬ",
-                       "id":"4560",
-                       "message":{
-                          "type":"PUSH",
-                          "data":{
-                             "primaryOn":false,
-                             "externalUserId":"ИД_абонента",
-                    	 "title": "Код для получения %data%",
-                             "text":"%name%, ваша карта с номером %card% готова к выпуску",
-                             "serviceNumber":"Номер_отправителя",
-                             "ttl":30,
-                             "ttlUnit":"SECONDS",
-                             "Options":[
-                                {
-                                   "param_name":"SECURE",
-                                   "param_value":{
-                                      "name":"Имя",
-                                      "card":"*0000",
-                                      "data":"12345"
-                                   }
-                                }
-                             ]
-                          }
-                       }
-                    }
+                     {
+                        "login":"ВАШ_ЛОГИН",
+                        "password":"ВАШ_ПАРОЛЬ",
+                        "id":"4560",
+                        "message":{
+                           "type":"PUSH",
+                           "data":{
+                              "primaryOn":false,
+                              "externalUserId":"ИД_абонента",
+                     	 "title": "Код для получения %data%",
+                              "text":"%name%, ваша карта с номером %card% готова к выпуску",
+                              "serviceNumber":"Номер_отправителя",
+                              "ttl":30,
+                              "ttlUnit":"SECONDS",
+                              "extraOptions":[
+                                 {
+                                    "param_name":"SECURE",
+                                    "param_value":{
+                                       "name":"Имя",
+                                       "card":"*0000",
+                                       "data":"12345"
+                                    }
+                                 }
+                              ]
+                           }
+                        }
+                     }
 
 
             .. tab:: SENDING_PLATFORM
