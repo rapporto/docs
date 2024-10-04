@@ -128,7 +128,7 @@ Viber
 
       .. code-block:: json
          :linenos:
-         :emphasize-lines: 20-27
+         :emphasize-lines: 18-28
 
          {
             "login":"ВАШ_ЛОГИН",
