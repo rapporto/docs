@@ -505,6 +505,7 @@ Push
                                     "param_value":[
                                        "Android",
                                        "Ios",
+                                       "Huawei",
                                        "RuStore"
                                     ]
                                  }
