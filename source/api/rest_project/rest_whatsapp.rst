@@ -94,7 +94,7 @@ WhatsApp
 
        .. code-block:: json
           :linenos:
-         :emphasize-lines: 18-25
+          :emphasize-lines: 18-25
 
             {
               "login":"ВАШ_ЛОГИН",
