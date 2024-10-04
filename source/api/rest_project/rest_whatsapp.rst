@@ -55,6 +55,7 @@ WhatsApp
 
       .. code-block:: json
          :linenos:
+         :emphasize-lines: 18-25
 
          {
             "login":"ВАШ_ЛОГИН",
@@ -93,35 +94,36 @@ WhatsApp
 
        .. code-block:: json
           :linenos:
+         :emphasize-lines: 18-25
 
-             {
-               "login":"ВАШ_ЛОГИН",
-               "password":"ВАШ_ПАРОЛЬ",
-               "useTimeDiff":false,
-               "id":"8770100",
-               "scheduleInfo":
-               {
-                   "timeBegin":"10:00",
-                   "timeEnd":"20:00",
-                   "weekdaysSchedule":"12345"
-               },
-               "destAddr":"Номер_Абонента",
-               "message":
-               {
-                   "type":"WHATSAPP",
-                   "data":
-                   {
-                       "instantContent":
-                       {
-                           "type":"IMAGE_URL",
-                           "data":
-                           {
-                           "imageURL":"https://example.ru/image"
-                           }
-                       },
-                       "serviceNumber":"НОМЕР_ОТПРАВИТЕЛЯ",
-                       "ttl":1440
-                   }
+            {
+              "login":"ВАШ_ЛОГИН",
+              "password":"ВАШ_ПАРОЛЬ",
+              "useTimeDiff":false,
+              "id":"8770100",
+              "scheduleInfo":
+              {
+                  "timeBegin":"10:00",
+                  "timeEnd":"20:00",
+                  "weekdaysSchedule":"12345"
+              },
+              "destAddr":"Номер_Абонента",
+              "message":
+              {
+                  "type":"WHATSAPP",
+                  "data":
+                  {
+                      "instantContent":
+                      {
+                          "type":"IMAGE_URL",
+                          "data":
+                          {
+                          "imageURL":"https://example.ru/image"
+                          }
+                      },
+                      "serviceNumber":"НОМЕР_ОТПРАВИТЕЛЯ",
+                      "ttl":1440
+                  }
                }
             }
 
