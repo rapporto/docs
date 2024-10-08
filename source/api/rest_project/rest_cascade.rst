@@ -10,7 +10,8 @@
 * SMS;
 * Telegram;
 * Viber;
-* VK.
+* VK;
+* WhatsApp.
 
 Последовательность типов сообщений при отправке может быть произвольной.
 
@@ -101,6 +102,51 @@
               }
             }
 
+
+    .. tab:: WhatsApp > SMS
+
+       .. code-block:: json
+          :linenos:
+          :emphasize-lines: 27-37
+
+            {
+                "login": "ВАШ_ЛОГИН",
+                "password": "ВАШ_ПАРОЛЬ",
+                "useTimeDiff": true,
+                "id": "87706112",
+                "scheduleInfo": {
+                    "timeBegin": "09:00",
+                    "timeEnd": "21:00",
+                    "weekdaysSchedule": "12345",
+                    "deadline": "2024-12-31T16:29:30+0300"
+                },
+                "destAddr": "НОМЕР_АБОНЕНТА",
+                "message": {
+                    "type": "WHATSAPP",
+                    "data": {
+                        "instantContent": {
+                            "type": "TEXT",
+                            "data": {
+                                "text": "Текст WhatsApp-сообщения"
+                            }
+                        },
+                        "serviceNumber": "ИМЯ_ОТПРАВИТЕЛЯ",
+                        "ttl": 120,
+                        "ttlUnit": "SECONDS"
+                    }
+                },
+                "cascadeChainLink": {
+                    "state": "DELIVERED",
+                    "message": {
+                        "type": "SMS",
+                        "data": {
+                            "text": "Текст доотправляемого SMS-сообщения",
+                            "serviceNumber": "НОМЕР_ОТПРАВИТЕЛЯ_SMS",
+                            "ttl": 10
+                        }
+                    }
+                }
+            }
 
     .. tab:: FlashingCall (Voice Code) > SMS
 
