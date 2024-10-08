@@ -35,5 +35,5 @@
 
 Сформированный отчет можно скачать на вкладке **“Построенные отчеты”**.
 
-.. image:: media/chron_report_telegram.gif
+.. image:: media/chron_rep_telegram.gif
  
