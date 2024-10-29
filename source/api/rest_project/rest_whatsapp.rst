@@ -15,39 +15,39 @@ WhatsApp
 Примеры запросов на отправку WhatsApp-сообщений
 ------------------------------------------------
 
-..
-    .. raw:: html
+.. raw:: html
+   
+   <p style="line-height: 24px;">Для формирования тестового запроса с вашими параметрами 
+       <a href="https://doc.rapporto.ru/generator/" target="_blank" class="button">
+           <img src="../../_static/link-external-01.svg" class="bttn-icon" alt="Внешняя ссылка"> Открыть генератор запросов
+       </a>
+   </p>
+   <style>
+       .bttn-icon {
+           width: 18px;
+           height: 18px;
+           vertical-align: middle;  /* Центрирует иконку по вертикали */
+           border: 0;
+           margin-right: 4px;
+       }       
+       .button {
+           border: 0;
+           height: 36px;
+           text-decoration: none; /* Убирает подчеркивание */
+           color: #000; /* Цвет текста */
+           background-color: transparent; /* Цвет фона кнопки */
+           padding: 4px 4px; /* Отступы */
+           border-radius: 4px; /* Закругленные углы */
+           display: inline-flex; /* Позволяет выровнять текст и иконку по центру */
+           align-items: center; /* Центрирует содержимое кнопки */
+           line-height: 1; /* Убирает лишние отступы */
+       }
+       .button:hover {
+           background-color: #f8f7ff; /* Цвет фона при наведении */
+           text-decoration: none; /* Убирает подчеркивание */
+       }
+   </style>
 
-    <p style="line-height: 24px;">Для формирования тестового запроса с вашими параметрами 
-        <a href="https://maxim84.tmweb.ru/rest" target="_blank" class="button">
-            <img src="../../_static/link-external-01.svg" class="bttn-icon" alt="Внешняя ссылка"> Открыть генератор запросов
-        </a>
-    </p>
-    <style>
-        .bttn-icon {
-            width: 18px;
-            height: 18px;
-            vertical-align: middle;  /* Центрирует иконку по вертикали */
-            border: 0;
-            margin-right: 4px;
-        }       
-        .button {
-            border: 0;
-            height: 36px;
-            text-decoration: none; /* Убирает подчеркивание */
-            color: #000; /* Цвет текста */
-            background-color: transparent; /* Цвет фона кнопки */
-            padding: 4px 4px; /* Отступы */
-            border-radius: 4px; /* Закругленные углы */
-            display: inline-flex; /* Позволяет выровнять текст и иконку по центру */
-            align-items: center; /* Центрирует содержимое кнопки */
-            line-height: 1; /* Убирает лишние отступы */
-        }
-        .button:hover {
-            background-color: #f8f7ff; /* Цвет фона при наведении */
-            text-decoration: none; /* Убирает подчеркивание */
-        }
-    </style>
 
 .. tabs::
 
