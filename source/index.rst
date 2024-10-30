@@ -106,7 +106,7 @@
                     <ul>
                         <li class="item-nav"><a href="api/rest_project/rest_integration.html">REST API</a></li>
                         <li class="item-nav"><a href="api/rest_batch/rest_batch_main.html">REST_BATCH API</a></li>
-                        <li class="item-nav"><a href="api/ftp/ftp_main.html">REST API</a>FTP API</li>
+                        <li class="item-nav"><a href="api/ftp/ftp_main.html">FTP API</a></li>
                     </ul>
                   </section>
             </div>
