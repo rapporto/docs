@@ -105,10 +105,16 @@
                     <h4 class="item-header">Интеграции</h4>
                     <input type="checkbox" id="report"/>
                     <ul>
-                        <li class="item-nav"><a href="api/rest_project/rest_integration.html">REST API</a></li>
+                        <li class="item-nav"><a href="api/rest/rest_main.html">REST API</a></li>
                         <li class="item-nav"><a href="api/rest_batch/rest_batch_main.html">REST_BATCH API</a></li>
+                        <li class="item-nav"><a href="api/http/http_main.html">HTTP API</a></li>
                         <li class="item-nav"><a href="api/ftp/ftp_main.html">FTP API</a></li>
+
                     </ul>
+                    <label class="wrap-btn" for="report">
+                        <span class="wrap">Смотреть все</span>
+                        <span class="unwrap">Свернуть</span>
+                    </label>
                   </section>
             </div>
         </section>
