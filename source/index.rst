@@ -29,6 +29,14 @@
 .. toctree::
    :maxdepth: 1
    :hidden:
+   :caption: Push-сервис
+
+   push_service/rpns
+
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
    :caption: &
 
    glossary
@@ -119,6 +127,14 @@
                     </label>
                   </section>
             </div>
+            <div class="row-table">
+                <section class="section">
+                    <h4 class="item-header">Push-сервис</h4>
+                    <ul>
+                        <li class="item-nav"><a href="push_service/rpns.html">Сервис Rapporto Push Notification System</a></li>
+                    </ul>
+                </section>
+             </div>
         </section>
  
 
