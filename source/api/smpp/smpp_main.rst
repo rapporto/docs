@@ -33,6 +33,6 @@ SMPP API
 - :abbr:`VK (ВКонтакте)`.
 
 
-Скачать описание: :download:`SMPP API <doc/SMPP_API.pdf>`
+Скачать описание: :download:`SMPP API.pdf <doc/SMPP_API.pdf>`
 
 
