@@ -59,10 +59,8 @@ MO-сообщения
 
         .. code-block:: 
 
-               {
-                  http://partner.ru/service?clientId=79161234567&message=testText&connectorId=50&serviceId=login&receivedDate=2009-10-02%2012:00:00&shortNumber=0000
-               }
-
+               http://partner.ru/service?clientId=79161234567&message=testText&connectorId=50&serviceId=login&receivedDate=2009-10-02%2012:00:00&shortNumber=0000
+               
 
     .. tab:: Описание параметров
       
