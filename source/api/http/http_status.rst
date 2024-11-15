@@ -36,9 +36,8 @@ GET-запрос
 
       .. code-block::
            
-            {
-              http://partner.url?msgType=SMS&transactionId=7986985&ptag=test&status=2
-            }
+            http://partner.url?msgType=SMS&transactionId=7986985&ptag=test&status=2
+            
 
     .. tab:: Параметры GET-запроса
 
