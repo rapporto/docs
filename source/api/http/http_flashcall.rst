@@ -30,13 +30,12 @@ FlashingCall (Voice Code)
 
                 .. code-block::
 
-                    {
-                        POST /login HTTP/1.1
-                        Host: 10.10.10.10:9080
-                        Content-Type: application/x-www-form-urlencoded;charset=utf-8
-                        Content-Length: 58
-                        serviceId=login&pass=123&clientId=79161234567&message=test
-                    }
+                    POST /login HTTP/1.1
+                    Host: 10.10.10.10:9080
+                    Content-Type: application/x-www-form-urlencoded;charset=utf-8
+                    Content-Length: 58
+                    serviceId=login&pass=123&clientId=79161234567&message=test
+                    
 
             .. tab:: URL-формат
 
@@ -44,13 +43,12 @@ FlashingCall (Voice Code)
 
                 .. code-block::
 
-                    {
-                        POST /login HTTP/1.1
-                        Host: 10.241.0.194:9080
-                        Content-Type: application/x-www-form-urlencoded;charset=utf-8
-                        Content-Length: 78
-                        serviceId=login&pass=123&clientId=79161234567&message=%D1%82%D0%B5%D1%81%D1%82
-                    }
+                    POST /login HTTP/1.1
+                    Host: 10.241.0.194:9080
+                    Content-Type: application/x-www-form-urlencoded;charset=utf-8
+                    Content-Length: 78
+                    serviceId=login&pass=123&clientId=79161234567&message=%D1%82%D0%B5%D1%81%D1%82
+                    
 
 
     .. tab:: Текстовый формат
@@ -63,9 +61,8 @@ FlashingCall (Voice Code)
 
                 .. code-block::
 
-                    {
-                        http://partner.ru/login?clientId=79161234567&message=test&pass=123&serviceId=login
-                    }
+                    http://partner.ru/login?clientId=79161234567&message=test&pass=123&serviceId=login
+                    
 
             .. tab:: Текст в URL-формате
 
@@ -73,9 +70,8 @@ FlashingCall (Voice Code)
 
                 .. code-block::
 
-                    {
-                        http://partner.ru/login?clientId=79161234567&message=%D1%82%D0%B5%D1%81%D1%82&pass=123&serviceId=login
-                    }
+                    http://partner.ru/login?clientId=79161234567&message=%D1%82%D0%B5%D1%81%D1%82&pass=123&serviceId=login
+                    
 
 
 Параметры запросов
@@ -248,11 +244,9 @@ FlashingCall (Voice Code)
 
       .. code-block:: 
 
-          {
-               OK
-               4095284974
-          }
-
+          OK
+          4095284974
+          
 
     .. tab:: Параметры ответа
 
@@ -282,10 +276,8 @@ FlashingCall (Voice Code)
 
         .. code-block::
 
-            {
-                Invalid password
-            }
-
+            Invalid password
+            
 
     .. tab:: Коды ошибок при отправке запроса
 
@@ -388,18 +380,15 @@ FlashingCall (Voice Code)
 
         .. code-block::
 
-            {
-                <?xml version="1.0" encoding="utf-8"?>
-                <response>
-                    <code>200</code>
-                    <text>OK</text>
-                    <payload>
-                        <id>4095284976</id>
-                    </payload>
-                </response>
-            }
-
-
+            <?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <code>200</code>
+                <text>OK</text>
+                <payload>
+                    <id>4095284976</id>
+                </payload>
+            </response>
+            
 
     .. tab:: Отправка с ошибкой
 
@@ -407,13 +396,12 @@ FlashingCall (Voice Code)
 
         .. code-block::
 
-            {
-                <?xml version="1.0" encoding="utf-8"?>
-                <response>
-                    <code>401</code>
-                    <text>Invalid password</text>
-                </response>
-            }
+            <?xml version="1.0" encoding="utf-8"?>
+            <response>
+                <code>401</code>
+                <text>Invalid password</text>
+            </response>
+            
 
         При получении статуса **500** или при истечении тайм-аута ожидания ответа, Партнёр должен выдержать паузу минимум 1 минуту. По истечении паузы Партнёр может повторить запрос.
 
