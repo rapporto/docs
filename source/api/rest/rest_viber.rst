@@ -14,7 +14,7 @@ Viber
 .. raw:: html
 
    <p style="line-height: 24px;">Для формирования тестового запроса с вашими параметрами 
-       <a href="https://doc2.rapporto.ru/generator/" target="_blank" class="button">
+       <a href="https://doc.rapporto.ru/generator/" target="_blank" class="button">
            <img src="../../_static/link-external-01.svg" class="bttn-icon" alt="Внешняя ссылка"> Открыть генератор запросов
        </a>
    </p>
