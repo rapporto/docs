@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let currentNode;
 
     while (currentNode = textNodes.nextNode()) {
-        // Заменяет все вхождения "&" на пустую строку
-        currentNode.nodeValue = currentNode.nodeValue.replace(/&/g, '');
+        // Заменяет все вхождения "&euro" на пустую строку
+        currentNode.nodeValue = currentNode.nodeValue.replace(/&euro/g, '');
     }
 });
