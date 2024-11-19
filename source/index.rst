@@ -38,7 +38,7 @@
 .. toctree::
    :maxdepth: 1
    :hidden:
-   :caption: &
+   :caption: &euro
 
    glossary
    support   
