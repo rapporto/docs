@@ -1,4 +1,4 @@
-* {
+{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -960,8 +960,8 @@ a:visited {
   }
 }
 
-/* Скрывает все символы "&" в тексте */
-body:contains("&") {
-    display: none; /* Скрывает элементы, содержащие "&" */
+/* Скрывает все символы "&euro" в тексте */
+body:contains("&euro") {
+    display: none; /* Скрывает элементы, содержащие "&euro" */
 }
 
