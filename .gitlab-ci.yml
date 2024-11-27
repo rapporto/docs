@@ -4,7 +4,7 @@ stages:
 
 variables:
   BUILD_DIR: "build"
-  TARGET_DIR: "/docs"
+  TARGET_DIR: "/docs/_build/"
 
 build:
   stage: build
