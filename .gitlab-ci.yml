@@ -25,6 +25,7 @@ deploy_test:
     - mkdir -p ~/.ssh
     - echo "$TEST_SSH_KEY" > ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
+    - ssh-keyscan -H $TEST_SERVER >> ~/.ssh/known_hosts
   script:
     - apk add --no-cache rsync
     - rsync -avz --delete $BUILD_DIR/html/ $USER@$TEST_SERVER:$TARGET_DIR
@@ -39,6 +40,7 @@ deploy_prod:
     - mkdir -p ~/.ssh
     - echo "$PROD_SSH_KEY" > ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
+    - ssh-keyscan -H $PROD_SERVER >> ~/.ssh/known_hosts
   script:
     - apk add --no-cache rsync
     - rsync -avz --delete $BUILD_DIR/html/ $USER@$PROD_SERVER:$TARGET_DIR
