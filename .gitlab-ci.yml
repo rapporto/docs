@@ -16,6 +16,10 @@ build:
   artifacts:
     paths:
       - $BUILD_DIR/html
+  rules:
+    - changes:
+        - '**/*'
+        - '!README.md'
 
 deploy_test:
   stage: deploy
@@ -31,6 +35,10 @@ deploy_test:
     - rsync -avz --delete $BUILD_DIR/html/ $USER@$TEST_SERVER:$TARGET_DIR
   only:
     - test
+  rules:
+    - changes:
+        - '**/*'
+        - '!README.md'
 
 deploy_prod:
   stage: deploy
@@ -46,3 +54,7 @@ deploy_prod:
     - rsync -avz --delete $BUILD_DIR/html/ $USER@$PROD_SERVER:$TARGET_DIR
   only:
     - main
+  rules:
+    - changes:
+        - '**/*'
+        - '!README.md'
