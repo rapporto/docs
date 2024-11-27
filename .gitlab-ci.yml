@@ -16,10 +16,6 @@ build:
   artifacts:
     paths:
       - $BUILD_DIR/html
-  rules:
-    - changes:
-        - '**/*'
-        - '!README.md'
 
 deploy_test:
   stage: deploy
