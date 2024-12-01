@@ -21,8 +21,9 @@
    api/rest_batch/rest_batch_main
    api/http/http_main
    api/ftp/ftp_main
-   api/ivr/ivr_index
    api/smpp/smpp_main
+   api/ivr/ivr_index
+   api/hlr/hlr_index
 
 
 .. toctree::
@@ -82,8 +83,9 @@
                         <li class="item-nav"><a href="api/rest_batch/rest_batch_main.html">REST_BATCH API</a></li>
                         <li class="item-nav"><a href="api/http/http_main.html">HTTP API</a></li>
                         <li class="item-nav"><a href="api/ftp/ftp_main.html">FTP API</a></li>
-                        <li class="item-nav"><a href="api/ivr/ivr_index.html">IVR</a></li>
                         <li class="item-nav"><a href="api/smpp/smpp_main.html">SMPP API</a></li>
+                        <li class="item-nav"><a href="api/ivr/ivr_index.html">IVR</a></li>
+                        <li class="item-nav"><a href="api/hlr/hlr_index.html">HLR</a></li>
                     </ul>
                     <label class="wrap-btn" for="report">
                         <span class="wrap">Смотреть все</span>
