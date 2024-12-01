@@ -10,6 +10,10 @@ HLR HTTP API
 
 
 
+:abbr:`HLR (Home Location Register)` :abbr:`HTTP (HyperText Transfer Protocol )` :abbr:`API (Application Programming Interface)` v.3.0 предназначен 
+для передачи системой Партнера :term:`HLR`-запросов Сервис-провайдеру с целью получения информации о состоянии номера абонента.
+
+
 Функциональные возможности
 ----------------------------
 
