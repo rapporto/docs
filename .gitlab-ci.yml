@@ -10,8 +10,7 @@ build:
   stage: build
   image: python:3.9
   script:
-    - pip install --upgrade pip
-    - pip install sphinx==7.3.0 tomli sphinx_tabs pydata_sphinx_theme sphinx_book_theme
+    - pip install sphinx
     - rm -rf _build
     - sphinx-build -b html source $BUILD_DIR/html
   artifacts:
