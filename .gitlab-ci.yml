@@ -10,7 +10,7 @@ build:
   stage: build
   image: python:3.9
   script:
-    - pip install sphinx sphinx-rtd-theme sphinx-tabs sphinx-book-theme
+    - pip install sphinx==7.3.0 sphinx-rtd-theme==3.0.2 sphinx-tabs==3.4.7 sphinx-book-theme==1.1.3
     - rm -rf _build
     - sphinx-build -b html source $BUILD_DIR/html
   artifacts:
