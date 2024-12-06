@@ -9,7 +9,8 @@
 
    lk/new
    lk/spam
-
+   lk/rates
+   lk/reports
    
 
 .. toctree::

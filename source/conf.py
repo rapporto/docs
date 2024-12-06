@@ -30,6 +30,7 @@ html_show_sphinx = True
 # ones.
 extensions = [
               'sphinx_tabs.tabs',
+              'pydata_sphinx_theme',
              ]
 
 
