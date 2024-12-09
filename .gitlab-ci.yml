@@ -10,7 +10,7 @@ build:
   stage: build
   image: python:3.9
   script:
-    - pip install -r requirements.txt
+    - pip install --use-deprecated=legacy-resolver -r requirements.txt
     - rm -rf $BUILD_DIR
     - sphinx-build -b html source $BUILD_DIR/html
   artifacts:
