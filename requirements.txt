@@ -1,5 +1,5 @@
 accessible-pygments==0.0.4
-alabaster==0.7.13
+alabaster==0.7.14
 Babel==2.12.1
 beautifulsoup4==4.12.2
 blockdiag==3.0.0
