@@ -1,6 +1,7 @@
 stages:
   - build
   - deploy
+  - publish
 
 variables:
   BUILD_DIR: "build"
@@ -46,3 +47,26 @@ deploy_prod:
     - rsync -avz --delete $BUILD_DIR/html/ $USER@$PROD_SERVER:$TARGET_DIR
   only:
     - main
+
+publish:
+  stage: publish
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache git
+  script:
+    - echo "Publishing contents to GitHub"
+    - git config --global user.email "github@rapporto.ru"
+    - git config --global user.name "Rapporto AutoDeploy"
+    - git clone --depth 1 https://$GITHUB_TOKEN@github.com/$GITHUB_REPO.git publish_directory
+    - cp -r . publish_directory/
+    - cd publish_directory
+    - echo "generator/" >> .gitignore
+    - echo "README.md" >> .gitignore
+    - echo ".gitlab-ci.yml" >> .gitignore
+    - git add .
+    - git commit -m "Publish contents"
+    - git push origin main
+  only:
+    - main
+  dependencies:
+    - deploy_prod
