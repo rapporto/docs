@@ -58,7 +58,8 @@ publish:
     - git config --global user.email "github@rapporto.ru"
     - git config --global user.name "Rapporto AutoDeploy"
     - git clone --depth 1 https://$GITHUB_TOKEN@github.com/$GITHUB_REPO.git publish_directory
-    - cp -r . publish_directory/
+    - cp -r source publish_directory/source
+    - cp requirements.txt publish_directory/
     - cd publish_directory
     - echo "generator/" >> .gitignore
     - echo "README.md" >> .gitignore
