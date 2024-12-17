@@ -48,9 +48,9 @@ deploy_test_v1:
     - apk add --no-cache rsync
     - rsync -avz --delete $BUILD_DIR/html/ $USER@$TEST_LK_V1_SERVER:$TARGET_DIR
   rules:
-    - changes:
-        - source-lk-v1/**
-    - if: '$CI_COMMIT_BRANCH == "test"'
+      - if: '$CI_COMMIT_BRANCH == "test"'
+        changes:
+          - source-lk-v1/**   
 
 deploy_prod_v1:
   stage: deploy
@@ -65,9 +65,9 @@ deploy_prod_v1:
     - apk add --no-cache rsync
     - rsync -avz --delete $BUILD_DIR/html/ $USER@$PROD_LK_V1_SERVER:$TARGET_DIR
   rules:
-    - changes:
-        - source-lk-v1/**
-    - if: '$CI_COMMIT_BRANCH == "main"'
+      - if: '$CI_COMMIT_BRANCH == "main"'
+        changes:
+          - source-lk-v1/**   
 
 deploy_test_v2:
   stage: deploy
@@ -82,9 +82,9 @@ deploy_test_v2:
     - apk add --no-cache rsync
     - rsync -avz --delete $BUILD_DIR/html/ $USER@$TEST_LK_V2_SERVER:$TARGET_DIR
   rules:
-    - changes:
-        - source-lk-v2/**
-    - if: '$CI_COMMIT_BRANCH == "test"'
+      - if: '$CI_COMMIT_BRANCH == "test"'
+        changes:
+          - source-lk-v2/**   
 
 deploy_prod_v2:
   stage: deploy
@@ -99,9 +99,9 @@ deploy_prod_v2:
     - apk add --no-cache rsync
     - rsync -avz --delete $BUILD_DIR/html/ $USER@$PROD_LK_V2_SERVER:$TARGET_DIR
   rules:
-    - changes:
-        - source-lk-v2/**
-    - if: '$CI_COMMIT_BRANCH == "main"'
+      - if: '$CI_COMMIT_BRANCH == "main"'
+        changes:
+          - source-lk-v2/**   
 
 publish:
   stage: publish
