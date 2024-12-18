@@ -24,7 +24,7 @@
    api/ftp/ftp_main
    api/smpp/smpp_main
    api/ivr/ivr_index
-   api/hlr/hlr_index
+   api/hlr/hlr_main
 
 
 
