@@ -4,49 +4,105 @@ stages:
   - publish
 
 variables:
-  BUILD_DIR: "build"
+  BUILD_DIR1: "build1"
+  BUILD_DIR2: "build2"
   TARGET_DIR: "/docs/_build/"
 
-build:
+build_v1:
   stage: build
   image: python:3.9
   script:
     - pip install --use-deprecated=legacy-resolver -r requirements.txt
-    - rm -rf $BUILD_DIR
-    - sphinx-build -b html source $BUILD_DIR/html
+    - rm -rf $BUILD_DIR1
+    - sphinx-build -b html source-lk-v1 $BUILD_DIR1/html
   artifacts:
     paths:
-      - $BUILD_DIR/html
+      - $BUILD_DIR1/html
+  rules:
+    - changes:
+        - source-lk-v1/** 
 
-deploy_test:
+build_v2:
+  stage: build
+  image: python:3.9
+  script:
+    - pip install --use-deprecated=legacy-resolver -r requirements.txt
+    - rm -rf $BUILD_DIR2
+    - sphinx-build -b html source-lk-v2 $BUILD_DIR2/html
+  artifacts:
+    paths:
+      - $BUILD_DIR2/html
+  rules:
+    - changes:
+        - source-lk-v2/**
+
+deploy_test_v1:
   stage: deploy
   image: alpine:latest
   before_script:
     - apk add --no-cache openssh-client
     - mkdir -p ~/.ssh
-    - echo "$TEST_SSH_KEY" > ~/.ssh/id_rsa
+    - echo "$TEST_LK_V1_SSH_KEY" > ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
-    - ssh-keyscan -H $TEST_SERVER >> ~/.ssh/known_hosts
+    - ssh-keyscan -H $TEST_LK_V1_SERVER >> ~/.ssh/known_hosts
   script:
     - apk add --no-cache rsync
-    - rsync -avz --delete $BUILD_DIR/html/ $USER@$TEST_SERVER:$TARGET_DIR
-  only:
-    - test
+    - rsync -avz --delete $BUILD_DIR1/html/ $USER@$TEST_LK_V1_SERVER:$TARGET_DIR
+  rules:
+      - if: '$CI_COMMIT_BRANCH == "test"'
+        changes:
+          - source-lk-v1/**   
 
-deploy_prod:
+deploy_prod_v1:
   stage: deploy
   image: alpine:latest
   before_script:
     - apk add --no-cache openssh-client
     - mkdir -p ~/.ssh
-    - echo "$PROD_SSH_KEY" > ~/.ssh/id_rsa
+    - echo "$PROD_LK_V1_SSH_KEY" > ~/.ssh/id_rsa
     - chmod 600 ~/.ssh/id_rsa
-    - ssh-keyscan -H $PROD_SERVER >> ~/.ssh/known_hosts
+    - ssh-keyscan -H $PROD_LK_V1_SERVER >> ~/.ssh/known_hosts
   script:
     - apk add --no-cache rsync
-    - rsync -avz --delete $BUILD_DIR/html/ $USER@$PROD_SERVER:$TARGET_DIR
-  only:
-    - main
+    - rsync -avz --delete $BUILD_DIR1/html/ $USER@$PROD_LK_V1_SERVER:$TARGET_DIR
+  rules:
+      - if: '$CI_COMMIT_BRANCH == "main"'
+        changes:
+          - source-lk-v1/**   
+
+deploy_test_v2:
+  stage: deploy
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache openssh-client
+    - mkdir -p ~/.ssh
+    - echo "$TEST_LK_V2_SSH_KEY" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - ssh-keyscan -H $TEST_LK_V2_SERVER >> ~/.ssh/known_hosts
+  script:
+    - apk add --no-cache rsync
+    - rsync -avz --delete $BUILD_DIR2/html/ $USER@$TEST_LK_V2_SERVER:$TARGET_DIR
+  rules:
+      - if: '$CI_COMMIT_BRANCH == "test"'
+        changes:
+          - source-lk-v2/**   
+
+deploy_prod_v2:
+  stage: deploy
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache openssh-client
+    - mkdir -p ~/.ssh
+    - echo "$PROD_LK_V2_SSH_KEY" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - ssh-keyscan -H $PROD_LK_V2_SERVER >> ~/.ssh/known_hosts
+  script:
+    - apk add --no-cache rsync
+    - rsync -avz --delete $BUILD_DIR2/html/ $USER@$PROD_LK_V2_SERVER:$TARGET_DIR
+  rules:
+      - if: '$CI_COMMIT_BRANCH == "main"'
+        changes:
+          - source-lk-v2/**   
 
 publish:
   stage: publish
@@ -61,13 +117,11 @@ publish:
     - cp -r source publish_directory/source
     - cp requirements.txt publish_directory/
     - cd publish_directory
-    - echo "generator/" >> .gitignore
-    - echo "README.md" >> .gitignore
-    - echo ".gitlab-ci.yml" >> .gitignore
     - git add .
     - git commit -m "Publish contents"
     - git push origin main
-  only:
-    - main
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
   dependencies:
-    - deploy_prod
+    - deploy_prod_v1
+    - deploy_prod_v2

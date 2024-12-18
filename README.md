@@ -76,11 +76,17 @@
 
 Для корректной работы CI/CD необходимо настроить следующие переменные окружения в GitLab:
 
-- `TEST_SSH_KEY`: SSH-ключ для доступа к тестовому серверу.
-- `TEST_SERVER`: Адрес тестового сервера https://docs-test.rapporto.ru/.
-- `PROD_SSH_KEY`: SSH-ключ для доступа к продакшн серверу.
-- `PROD_SERVER`: Адрес продакшн сервера https://docs.rapporto.ru/.
-- `USER`: Имя пользователя для SSH-доступа.
+- TEST_LK_V1_SSH_KEY: SSH-ключ для доступа к тестовому серверу.
+- TEST_LK_V1_SERVER: Адрес тестового сервера https://doc-test.rapporto.ru/.
+- PROD_LK_V1_SSH_KEY: SSH-ключ для доступа к продакшн серверу.
+- PROD_LK_V1_SERVER: Адрес продакшн сервера https://doc.rapporto.ru/.
+- TEST_LK_V2_SSH_KEY: SSH-ключ для доступа к тестовому серверу.
+- TEST_LK_V2_SERVER: Адрес тестового сервера https://docs-test.rapporto.ru/.
+- PROD_LK_V2_SSH_KEY: SSH-ключ для доступа к продакшн серверу.
+- PROD_LK_V2_SERVER: Адрес продакшн сервера https://docs.rapporto.ru/.
+- USER: Имя пользователя для SSH-доступа.
+- GITHUB_REPO: Внешний репозиторий GitHub
+- GITHUB_TOKEN: Токен для внешнго репозитория GitHub
 
 ### Заключение
 
