@@ -22,8 +22,11 @@
    api/rest_batch/rest_batch_main
    api/http/http_main
    api/ftp/ftp_main
-   api/ivr/ivr_index
    api/smpp/smpp_main
+   api/hlr/hlr_main
+   api/ivr/ivr_index
+
+
 
 
 .. toctree::
