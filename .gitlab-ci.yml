@@ -4,7 +4,8 @@ stages:
   - publish
 
 variables:
-  BUILD_DIR: "build"
+  BUILD_DIR1: "build1"
+  BUILD_DIR2: "build2"
   TARGET_DIR: "/docs/_build/"
 
 build_v1:
@@ -12,11 +13,11 @@ build_v1:
   image: python:3.9
   script:
     - pip install --use-deprecated=legacy-resolver -r requirements.txt
-    - rm -rf $BUILD_DIR
-    - sphinx-build -b html source-lk-v1 $BUILD_DIR/html
+    - rm -rf $BUILD_DIR1
+    - sphinx-build -b html source-lk-v1 $BUILD_DIR1/html
   artifacts:
     paths:
-      - $BUILD_DIR/html
+      - $BUILD_DIR1/html
   rules:
     - changes:
         - source-lk-v1/** 
@@ -26,11 +27,11 @@ build_v2:
   image: python:3.9
   script:
     - pip install --use-deprecated=legacy-resolver -r requirements.txt
-    - rm -rf $BUILD_DIR
-    - sphinx-build -b html source-lk-v2 $BUILD_DIR/html
+    - rm -rf $BUILD_DIR2
+    - sphinx-build -b html source-lk-v2 $BUILD_DIR2/html
   artifacts:
     paths:
-      - $BUILD_DIR/html
+      - $BUILD_DIR2/html
   rules:
     - changes:
         - source-lk-v2/**
@@ -46,7 +47,7 @@ deploy_test_v1:
     - ssh-keyscan -H $TEST_LK_V1_SERVER >> ~/.ssh/known_hosts
   script:
     - apk add --no-cache rsync
-    - rsync -avz --delete $BUILD_DIR/html/ $USER@$TEST_LK_V1_SERVER:$TARGET_DIR
+    - rsync -avz --delete $BUILD_DIR1/html/ $USER@$TEST_LK_V1_SERVER:$TARGET_DIR
   rules:
       - if: '$CI_COMMIT_BRANCH == "test"'
         changes:
@@ -63,7 +64,7 @@ deploy_prod_v1:
     - ssh-keyscan -H $PROD_LK_V1_SERVER >> ~/.ssh/known_hosts
   script:
     - apk add --no-cache rsync
-    - rsync -avz --delete $BUILD_DIR/html/ $USER@$PROD_LK_V1_SERVER:$TARGET_DIR
+    - rsync -avz --delete $BUILD_DIR1/html/ $USER@$PROD_LK_V1_SERVER:$TARGET_DIR
   rules:
       - if: '$CI_COMMIT_BRANCH == "main"'
         changes:
@@ -80,7 +81,7 @@ deploy_test_v2:
     - ssh-keyscan -H $TEST_LK_V2_SERVER >> ~/.ssh/known_hosts
   script:
     - apk add --no-cache rsync
-    - rsync -avz --delete $BUILD_DIR/html/ $USER@$TEST_LK_V2_SERVER:$TARGET_DIR
+    - rsync -avz --delete $BUILD_DIR2/html/ $USER@$TEST_LK_V2_SERVER:$TARGET_DIR
   rules:
       - if: '$CI_COMMIT_BRANCH == "test"'
         changes:
@@ -97,7 +98,7 @@ deploy_prod_v2:
     - ssh-keyscan -H $PROD_LK_V2_SERVER >> ~/.ssh/known_hosts
   script:
     - apk add --no-cache rsync
-    - rsync -avz --delete $BUILD_DIR/html/ $USER@$PROD_LK_V2_SERVER:$TARGET_DIR
+    - rsync -avz --delete $BUILD_DIR2/html/ $USER@$PROD_LK_V2_SERVER:$TARGET_DIR
   rules:
       - if: '$CI_COMMIT_BRANCH == "main"'
         changes:
