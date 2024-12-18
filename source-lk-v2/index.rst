@@ -5,12 +5,12 @@
 .. toctree::
    :maxdepth: 1
    :hidden:
-   :caption: Личный кабинет v.1
+   :caption: Личный кабинет Rapporto
 
    lk/new
    lk/spam
-   lk/rates
-   lk/reports
+   lk/analytics
+   lk/admin
    
 
 .. toctree::
@@ -22,9 +22,8 @@
    api/rest_batch/rest_batch_main
    api/http/http_main
    api/ftp/ftp_main
-   api/smpp/smpp_main
    api/ivr/ivr_index
-   api/hlr/hlr_index
+   api/smpp/smpp_main
 
 
 .. toctree::
@@ -44,8 +43,10 @@
    glossary
    support   
 
-| Создавайте SMS-, Viber- и IVR-рассылки с индивидуальным контентом и расписанием.
+| Создавайте SMS-, Viber- и Telegram-рассылки с индивидуальным контентом и расписанием.
 | Настраивайте и отправляйте каскадные и отложенные рассылки сообщений.
+| Просматривайте статистику и отчёты по результатам рассылок.
+| Администрируйте личный кабинет — добавляйте пользователей и назначайте им права.
 | Настраивайте интеграционные подключения по различным протоколам.
 
  
@@ -72,9 +73,49 @@
                     <h4 class="item-header">Рассылки</h4>
                     <input type="checkbox" id="spam"/>
                     <ul>
-                        <li class="item-nav"><a href="lk/sms_viber_sender.html">SMS-и Viber-рассылка</a></li>
-                        <li class="item-nav"><a href="lk/ivr_sender.html">IVR-рассылка</a></li>
+                        <li class="item-nav"><a href="lk/sms_sender.html">Создание SMS-рассылки</a></li>
+                        <li class="item-nav"><a href="lk/viber_sender.html">Создание Viber-рассылки</a></li>
+                        <li class="item-nav"><a href="lk/telegram_sender.html">Создание Telegram-рассылки</a></li>
+                        <li class="item-nav"><a href="lk/cascade_sender.html">Отправка каскадной рассылки</a></li>
+                        <li class="item-nav"><a href="lk/file_sender.html">Создание файла для рассылки</a></li>
+                        <li class="item-nav"><a href="lk/substitutions.html">Отправка рассылки с подстановками</a></li>
+                        <li class="item-nav"><a href="lk/schedule.html">Добавление расписания рассылки</a></li>
+                        <li class="item-nav"><a href="lk/delayed_sender.html">Отправка отложенной рассылки</a></li>
+                        <li class="item-nav"><a href="lk/date_of_end.html">Указание даты окончания рассылки</a></li>
+                        <li class="item-nav"><a href="lk/sender.html">Работа с разделом "Рассылки"</a></li>
+
+
                     </ul>
+                    <label class="wrap-btn" for="spam">
+                        <span class="wrap">Смотреть все</span>
+                        <span class="unwrap">Свернуть</span>
+                     </label>
+                </section>
+                <section class="section">
+                    <h4 class="item-header">Аналитика</h4>
+                    <input type="checkbox" id="analytics"/>
+                    <ul>
+                        <li class="item-nav"><a href="lk/sender_ statistics.html">Просмотр статистики рассылки</a></li>
+                        <li class="item-nav"><a href="lk/chron_telegram.html">Подробный отчет Telegram</a></li>
+                        <li class="item-nav"><a href="lk/summary_rep_telegram.html">Сводный отчет Telegram</a></li>
+                        <li class="item-nav"><a href="lk/searching.html">Поиск сообщений</a></li>
+
+
+                    </ul>
+                    <label class="wrap-btn" for="analytics">
+                        <span class="wrap">Смотреть все</span>
+                        <span class="unwrap">Свернуть</span>
+                     </label>
+                </section> 
+            </div>
+            <div class="row-table">
+                <section class="section">
+                    <h4 class="item-header">Администрирование</h4>
+                    <ul>
+                        <li class="item-nav"><a href="lk/newuser.html">Добавление пользователя</a></li>
+                        <li class="item-nav"><a href="lk/rights.html">Настройка прав пользователю</a></li>
+                        <li class="item-nav"><a href="lk/teams.html">Что такое команды</a></li>
+                    </ul>             
                 </section>
                 <section class="section">
                     <h4 class="item-header">Интеграции</h4>
@@ -84,9 +125,7 @@
                         <li class="item-nav"><a href="api/rest_batch/rest_batch_main.html">REST_BATCH API</a></li>
                         <li class="item-nav"><a href="api/http/http_main.html">HTTP API</a></li>
                         <li class="item-nav"><a href="api/ftp/ftp_main.html">FTP API</a></li>
-                        <li class="item-nav"><a href="api/smpp/smpp_main.html">SMPP API</a></li>
-                        <li class="item-nav"><a href="api/ivr/ivr_index.html">IVR</a></li>
-                        <li class="item-nav"><a href="api/hlr/hlr_index.html">HLR</a></li>
+
                     </ul>
                     <label class="wrap-btn" for="report">
                         <span class="wrap">Смотреть все</span>
