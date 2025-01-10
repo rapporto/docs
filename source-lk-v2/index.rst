@@ -99,7 +99,7 @@
                     <input type="checkbox" id="analytics"/>
                     <ul>
                         <li class="item-nav"><a href="lk/sender_ statistics.html">Просмотр статистики рассылки</a></li>
-                        <li class="item-nav"><a href="lk/summary_repport.html">Сводный отчет</a></li>
+                        <li class="item-nav"><a href="lk/summary_report.html">Сводный отчет</a></li>
                         <li class="item-nav"><a href="lk/chron_repport.html">Подробный отчет</a></li>
                         <li class="item-nav"><a href="lk/chron_telegram.html">Подробный отчет Telegram</a></li>
                         <li class="item-nav"><a href="lk/summary_rep_telegram.html">Сводный отчет Telegram</a></li>

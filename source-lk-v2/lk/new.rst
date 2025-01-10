@@ -9,7 +9,7 @@
 Добавлены новые возможности личного кабинета:
 
 * :doc:`chron_report`
-* :doc:`summary_repport`
+* :doc:`summary_report`
 
 Октябрь
 ^^^^^^^
