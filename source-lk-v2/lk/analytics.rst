@@ -10,6 +10,8 @@
    :hidden:
 
    sender_ statistics
+   summary_report
+   chron_report
    chron_telegram
    summary_rep_telegram
    searching
@@ -27,6 +29,8 @@
                     <input type="checkbox" id="analytics"/>
                     <ul>
                         <li class="item-nav"><a href="sender_ statistics.html">Просмотр статистики рассылки</a></li>
+                        <li class="item-nav"><a href="summary_report.html">Сводный отчет</a></li>
+                        <li class="item-nav"><a href="chron_report.html">Подробный отчет</a></li>
                         <li class="item-nav"><a href="chron_telegram.html">Подробный отчет Telegram</a></li>
                         <li class="item-nav"><a href="summary_rep_telegram.html">Сводный отчет Telegram</a></li>
                         <li class="item-nav"><a href="searching.html">Поиск сообщений</a></li>
