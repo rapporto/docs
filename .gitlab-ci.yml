@@ -20,7 +20,7 @@ build_v1:
       - $BUILD_DIR1/html
   rules:
     - changes:
-        - source-lk-v1/** 
+        - source-lk-v1/**/* 
 
 build_v2:
   stage: build
@@ -34,7 +34,7 @@ build_v2:
       - $BUILD_DIR2/html
   rules:
     - changes:
-        - source-lk-v2/**
+        - source-lk-v2/**/*
 
 deploy_test_v1:
   stage: deploy
@@ -51,7 +51,7 @@ deploy_test_v1:
   rules:
       - if: '$CI_COMMIT_BRANCH == "test"'
         changes:
-          - source-lk-v1/**   
+          - source-lk-v1/**/*   
 
 deploy_prod_v1:
   stage: deploy
@@ -68,7 +68,7 @@ deploy_prod_v1:
   rules:
       - if: '$CI_COMMIT_BRANCH == "main"'
         changes:
-          - source-lk-v1/**   
+          - source-lk-v1/**/*   
 
 deploy_test_v2:
   stage: deploy
@@ -85,7 +85,7 @@ deploy_test_v2:
   rules:
       - if: '$CI_COMMIT_BRANCH == "test"'
         changes:
-          - source-lk-v2/**   
+          - source-lk-v2/**/*   
 
 deploy_prod_v2:
   stage: deploy
@@ -102,7 +102,7 @@ deploy_prod_v2:
   rules:
       - if: '$CI_COMMIT_BRANCH == "main"'
         changes:
-          - source-lk-v2/**   
+          - source-lk-v2/**/*   
 
 publish:
   stage: publish
