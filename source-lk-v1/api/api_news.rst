@@ -7,7 +7,7 @@
 Январь
 ~~~~~~~~
 
-В REST API добавлено описание кодов ошибок при недоставке Telegtam-сообщений (см. :ref:`REST-ErrCodeDescr`).
+В REST API добавлено описание кодов ошибок при недоставке Telegram-сообщений (см. :ref:`REST-ErrCodeDescr`).
 
 Добавлено описание SMPP API.
 
