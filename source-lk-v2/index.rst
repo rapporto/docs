@@ -1,13 +1,20 @@
 
 Начало работы
 =============
- 
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: &euro
+
+   news
+
+
 .. toctree::
    :maxdepth: 1
    :hidden:
    :caption: Личный кабинет Rapporto
 
-   lk/new
    lk/spam
    lk/analytics
    lk/admin
