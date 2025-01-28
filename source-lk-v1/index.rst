@@ -1,13 +1,19 @@
 
 Начало работы
 =============
- 
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   
+   news
+
+
 .. toctree::
    :maxdepth: 1
    :hidden:
    :caption: Личный кабинет v.1
 
-   lk/new
    lk/spam
    lk/rates
    lk/reports

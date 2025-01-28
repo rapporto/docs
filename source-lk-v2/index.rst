@@ -1,13 +1,20 @@
 
 Начало работы
 =============
- 
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: &euro
+
+   news
+
+
 .. toctree::
    :maxdepth: 1
    :hidden:
    :caption: Личный кабинет Rapporto
 
-   lk/new
    lk/spam
    lk/analytics
    lk/admin
@@ -104,6 +111,7 @@
                         <li class="item-nav"><a href="lk/chron_telegram.html">Подробный отчет Telegram</a></li>
                         <li class="item-nav"><a href="lk/summary_rep_telegram.html">Сводный отчет Telegram</a></li>
                         <li class="item-nav"><a href="lk/searching.html">Поиск сообщений</a></li>
+                        <li class="item-nav"><a href="err_codes.html">Описание кодов ошибок</a></li>
 
 
                     </ul>
