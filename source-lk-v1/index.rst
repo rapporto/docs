@@ -71,7 +71,7 @@
                     </svg>
                     <span>Что нового?</span>
                 </div>
-                <div><a href='lk/new.html' class='view'>Посмотреть</a></div>
+                <div><a href='news.html' class='view'>Посмотреть</a></div>
             </div>
             <div class="row-table">
                 <section class="section">
