@@ -18,6 +18,7 @@
    lk/spam
    lk/analytics
    lk/admin
+   lk/questions
    
 
 .. toctree::
