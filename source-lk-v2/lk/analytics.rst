@@ -13,8 +13,7 @@
    chron_report
    chron_telegram
    summary_rep_telegram
-   searching
-   err_codes   
+   searching   
  
 Просматривайте статистику и отчёты по результатам рассылок.
  
@@ -33,7 +32,6 @@
                         <li class="item-nav"><a href="chron_telegram.html">Подробный отчет Telegram</a></li>
                         <li class="item-nav"><a href="summary_rep_telegram.html">Сводный отчет Telegram</a></li>
                         <li class="item-nav"><a href="searching.html">Поиск сообщений</a></li>
-                        <li class="item-nav"><a href="err_codes.html">Описание кодов ошибок</a></li>
                     </ul>
                     <label class="wrap-btn" for="analytics">
                         <span class="wrap">Смотреть все</span>
