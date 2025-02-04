@@ -1,7 +1,7 @@
 Создание Viber-рассылки
 ========================== 
  
- .. image:: media/how_tosend_viber.gif
+.. image:: media/how_tosend_viber.gif
 
 Для создания Viber-рассылки необходимо выполнить следующие действия:
 
