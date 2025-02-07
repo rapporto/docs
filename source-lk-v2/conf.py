@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 
-copyright = '2024, Rapporto'
+copyright = '2025, Rapporto'
 html_show_copyright = True
 html_show_sphinx = True
 
