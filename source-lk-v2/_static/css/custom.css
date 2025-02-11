@@ -294,7 +294,7 @@ nav.bd-links .current > a:hover {
 
 nav.bd-links a.current.reference.internal:first-of-type{
   box-shadow: inset max(3px,.1875rem,.12em) 0 0 #E2E1FF;
-  color: black;
+  color: #726CFF;
   background-color: #E2E1FF;
   font-weight: normal; 
   border-radius: 3px;
