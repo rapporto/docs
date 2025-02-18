@@ -15,6 +15,7 @@
    :hidden:
    :caption: Личный кабинет Rapporto
 
+   lk/start
    lk/spam
    lk/analytics
    lk/admin
