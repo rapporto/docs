@@ -44,19 +44,19 @@ SMS
         .. code-block:: json
            :linenos:
 
-              {
-                "login":"ВАШ_ЛОГИН",
-                "password":"ВАШ_ПАРОЛЬ",
-                "destAddr":"Номер_Абонента",
-                "message":{
-                  "type":"SMS",
-                  "data":{
-                    "text":"Текст. Follow link: <http://verylongurl.com/very/long/url>",
-                    "serviceNumber":"НОМЕР_ОТПРАВИТЕЛЯ",
-                    "ttl":10
-                  }
+            {
+              "login":"ВАШ_ЛОГИН",
+              "password":"ВАШ_ПАРОЛЬ",
+              "destAddr":"Номер_Абонента",
+              "message":{
+                "type":"SMS",
+                "data":{
+                  "text":"Текст. Follow link: <http://verylongurl.com/very/long/url>",
+                  "serviceNumber":"НОМЕР_ОТПРАВИТЕЛЯ",
+                  "ttl":10
                 }
-              }           
+              }
+            }           
 
 
     .. tab:: Пример расширенного запроса
