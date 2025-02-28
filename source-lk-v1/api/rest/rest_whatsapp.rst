@@ -56,35 +56,31 @@ WhatsApp
          :linenos:
 
           {
-            "login":"ВАШ_ЛОГИН",
-            "password":"ВАШ_ПАРОЛЬ",
-            "useTimeDiff":false,
-            "id":"8770100",
-            "scheduleInfo":
-            {
+             "login":"ВАШ_ЛОГИН",
+             "password":"ВАШ_ПАРОЛЬ",
+             "useTimeDiff":false,
+             "id":"8770100",
+             "scheduleInfo": {
                 "timeBegin":"10:00",
                 "timeEnd":"20:00",
                 "weekdaysSchedule":"12345"
-            },
-            "destAddr":"Номер_Абонента",
-            "message":
-            {
+             },
+             "destAddr":"Номер_Абонента",
+             "message": {
                 "type":"WHATSAPP",
-                "data":
-                {
-                    "instantContent":
-                    {
-                        "type":"TEXT",
-                        "data":
-                        {
-                        "text":"Текст WhatsApp-сообщения"
-                        }
-                    },
-                    "serviceNumber":"НОМЕР_ОТПРАВИТЕЛЯ",
-                    "ttl":1440
-                }
-            }
+                "data": {
+                    "instantContent": {
+                         "type":"TEXT",
+                         "data": {
+                            "text":"Текст WhatsApp-сообщения"
+                         }
+                     },
+                     "serviceNumber":"НОМЕР_ОТПРАВИТЕЛЯ",
+                     "ttl":1440
+                 }
+              }
           }
+
 
 
 
@@ -116,7 +112,7 @@ WhatsApp
                        "serviceNumber":"НОМЕР_ОТПРАВИТЕЛЯ",
                        "ttl":1440
                    }
-               }
+                }
             }
 
 

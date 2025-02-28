@@ -55,37 +55,31 @@ WhatsApp
       .. code-block:: json
          :linenos:
 
-         {
-            "login":"ВАШ_ЛОГИН",
-            "password":"ВАШ_ПАРОЛЬ",
-            "useTimeDiff":false,
-            "id":"8770100",
-            "scheduleInfo":
-            {
+          {
+             "login":"ВАШ_ЛОГИН",
+             "password":"ВАШ_ПАРОЛЬ",
+             "useTimeDiff":false,
+             "id":"8770100",
+             "scheduleInfo": {
                 "timeBegin":"10:00",
                 "timeEnd":"20:00",
                 "weekdaysSchedule":"12345"
-            },
-            "destAddr":"Номер_Абонента",
-            "message":
-            {
+             },
+             "destAddr":"Номер_Абонента",
+             "message": {
                 "type":"WHATSAPP",
-                "data":
-                {
-                    "instantContent":
-                    {
-                        "type":"TEXT",
-                        "data":
-                        {
-                        "text":"Текст WhatsApp-сообщения"
-                        }
-                    },
-                    "serviceNumber":"НОМЕР_ОТПРАВИТЕЛЯ",
-                    "ttl":1440
-                }
-            }
-         }
-
+                "data": {
+                    "instantContent": {
+                         "type":"TEXT",
+                         "data": {
+                            "text":"Текст WhatsApp-сообщения"
+                         }
+                     },
+                     "serviceNumber":"НОМЕР_ОТПРАВИТЕЛЯ",
+                     "ttl":1440
+                 }
+              }
+          }
 
 
    .. tab:: Изображение
@@ -93,30 +87,25 @@ WhatsApp
        .. code-block:: json
           :linenos:
 
-             {
+            {
                "login":"ВАШ_ЛОГИН",
                "password":"ВАШ_ПАРОЛЬ",
                "useTimeDiff":false,
                "id":"8770100",
-               "scheduleInfo":
-               {
-                   "timeBegin":"10:00",
-                   "timeEnd":"20:00",
-                   "weekdaysSchedule":"12345"
+               "scheduleInfo": {
+                  "timeBegin":"10:00",
+                  "timeEnd":"20:00",
+                  "weekdaysSchedule":"12345"
                },
                "destAddr":"Номер_Абонента",
-               "message":
-               {
-                   "type":"WHATSAPP",
-                   "data":
-                   {
-                       "instantContent":
-                       {
+               "message": {
+                  "type":"WHATSAPP",
+                  "data": {
+                      "instantContent": {
                            "type":"IMAGE_URL",
-                           "data":
-                           {
-                           "imageURL":"https://example.ru/image"
-                           }
+                           "data": {
+                              "imageURL":"https://example.ru/image"
+                            }
                        },
                        "serviceNumber":"НОМЕР_ОТПРАВИТЕЛЯ",
                        "ttl":1440
