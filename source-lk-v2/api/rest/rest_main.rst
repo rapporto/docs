@@ -9,7 +9,7 @@ REST API
 
 При интеграции по REST API поддерживается передача следующих типов сообщений:
 
-- :term:`FlashingCall` (:term:`VoiceCode`);
+- FlashingCall (VoiceCode);
 - Push;
 - SMS;
 - Telegram;
