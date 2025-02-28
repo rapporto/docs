@@ -45,24 +45,24 @@ VK
            :linenos:
 
             {
-                "login":"ВАШ_ЛОГИН",
-                "password":"ВАШ_ПАРОЛЬ",
-                "useTimeDiff":true,
-                "id":"8770630",
-                "scheduleInfo":{
-                    "timeBegin":"10:00",
-                    "timeEnd":"12:00",
-                    "weekdaysSchedule":"123"
-                },
-                "destAddr":"Номер_Абонента",
-                "message":{
-                    "type":"VK",
-                    "data":{
-                    "text":"Текст сообщения",
-                    "serviceNumber":"НОМЕР_ОТПРАВИТЕЛЯ",
-                    "ttl":10
-                    }
-                }
+               "login":"ВАШ_ЛОГИН",
+               "password":"ВАШ_ПАРОЛЬ",
+               "useTimeDiff":true,
+               "id":"8770630",
+               "scheduleInfo":{
+                  "timeBegin":"10:00",
+                  "timeEnd":"12:00",
+                  "weekdaysSchedule":"123"
+                  },
+               "destAddr":"Номер_Абонента",
+               "message":{
+                  "type":"VK",
+                  "data":{
+                  "text":"Текст сообщения",
+                  "serviceNumber":"НОМЕР_ОТПРАВИТЕЛЯ",
+                  "ttl":10
+                  }
+               }
             }
 
 
