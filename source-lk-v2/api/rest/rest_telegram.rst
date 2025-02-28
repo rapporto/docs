@@ -15,7 +15,7 @@ Telegram
 
       .. code-block:: json
          :linenos:
-         :emphasize-lines: 5,7-11
+         :emphasize-lines: 18
 
          {
             "login": "Login",
@@ -49,6 +49,7 @@ Telegram
 
        .. code-block:: json
           :linenos:
+          :emphasize-lines: 18,19
 
             {
                "login": "Login",
