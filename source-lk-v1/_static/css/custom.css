@@ -750,11 +750,11 @@ html {
 }
 
 
-
+/*Цвет ссылок*/
 
 a {
   text-decoration: none;
-  color: #1d2939;
+  color: #726CFF;
 }
 
 a:visited {
