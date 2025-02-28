@@ -64,31 +64,32 @@ SMS
 
         .. code-block:: json
            :linenos:
-           :emphasize-lines: 5,7-11 
+           :emphasize-lines: 4,6-13 
 
             {
-              {
-                "login":"ВАШ_ЛОГИН",
-                "password":"ВАШ_ПАРОЛЬ",
-                "useTimeDiff":true,
-                "id":"8770630",
-                "shortenLinks":false,
-                "scheduleInfo":{
-                  "timeBegin":"10:00",
-                  "timeEnd":"12:00",
-                  "weekdaysSchedule":"123"
-                },
-                "destAddr":"Номер_Абонента",
-                "message":{
-                  "type":"SMS",
-                  "data":{
-                    "text":"Текст. Follow link: <http://verylongurl.com/very/long/url>",
-                    "serviceNumber":"НОМЕР_ОТПРАВИТЕЛЯ",
-                    "ttl":10
-                  }
+              "login":"ВАШ_ЛОГИН",
+              "password":"ВАШ_ПАРОЛЬ",
+              "useTimeDiff":true,
+              "id":"8770630",
+              "shortenLinks":false,
+              "registeredDelivery":"1",
+              "notifyUrl":"URL_для_передачи_статусов"
+              "scheduleInfo":{
+                "timeBegin":"10:00",
+                "timeEnd":"12:00",
+                "weekdaysSchedule":"123"
+              },
+              "destAddr":"Номер_Абонента",
+              "message":{
+                "type":"SMS",
+                "data":{
+                  "text":"Текст. Follow link: <http://verylongurl.com/very/long/url>",
+                  "serviceNumber":"НОМЕР_ОТПРАВИТЕЛЯ",
+                  "ttl":10
                 }
-              }           
-            }
+              }
+            }           
+
 
 .. _Rest-SMS-параметры-запроса:
 
