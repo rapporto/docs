@@ -18,7 +18,7 @@ Push
 * данные для обновления виджета :abbr:`Live Activity (Виджет Live Activity функционирует на устройствах с iOS)`;
 * признак главного приложения;
 * подписки мобильного приложения;
-* указание провайдеров (:abbr:`APNS (Apple Push Notification Service)`, :abbr:`FCM (Firebase Cloud Messaging)`, :abbr:`HMS (Huawei Mobile Services)`, RuStore) для передачи данных.
+* указание провайдеров (:abbr:`APNS (Apple Push Notification Service)`, :abbr:`FCM (Firebase Cloud Messaging)`, :abbr:`HMS (Huawei Mobile Services)`, RuStore, Web Push Api) для передачи данных.
 
 
 
@@ -420,7 +420,7 @@ Push
                              "serviceNumber":"Номер_отправителя",
                              "ttl":30,
                              "ttlUnit":"SECONDS",
-                             "Options":[
+                             "extraOptions":[
                                 {
                                    "param_name":"LIVE_ACTIVITY",
                                    "param_value":{
@@ -462,7 +462,7 @@ Push
                              "serviceNumber":"Номер_отправителя",
                              "ttl":30,
                              "ttlUnit":"SECONDS",
-                             "Options":[
+                             "extraOptions":[
                                 {
                                    "param_name":"SECURE",
                                    "param_value":{
@@ -479,7 +479,7 @@ Push
 
             .. tab:: SENDING_PLATFORM
 
-                Параметры для отправки push-уведомлений на определенные типы платформ (APNS, FCM, HMS, RuStore) по желанию Партнера. 
+                Параметры для отправки push-уведомлений на определенные типы платформ (APNS, FCM, HMS, RuStore, Pwa) по желанию Партнера. 
         
                 .. code-block:: json
                    :linenos:
@@ -498,7 +498,7 @@ Push
                              "title":"Заголовок_сообщения",
                              "ttl":24,
                              "ttlUnit":"HOURS",
-                             "Options":[
+                             "extraOptions":[
                                 {
                                    "param_name":"SENDING_PLATFORMS",
                                    "param_value":[
