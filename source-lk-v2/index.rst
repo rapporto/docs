@@ -44,7 +44,7 @@
    :caption: Push-сервис
 
    push_service/rpns
-   push_service/push_sdk
+   push_service/sdk/main
 
 
 .. toctree::
@@ -156,7 +156,7 @@
                     <h4 class="item-header">Push-сервис</h4>
                     <ul>
                         <li class="item-nav"><a href="push_service/rpns.html">Сервис Rapporto Push Notification System</a></li>
-                        <li class="item-nav"><a href="push_service/push_sdk.html">SDK Rapporto</a></li>
+                        <li class="item-nav"><a href="push_service/sdk/main.html">SDK Rapporto</a></li>
                     </ul>
                 </section>
              </div>
