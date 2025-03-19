@@ -24,8 +24,10 @@ Examples of additional parameters:
 
 .. _eng-примеры-запросов:
 
-Request Examples to Send Push Notifications
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Request Examples 
+~~~~~~~~~~~~~~~~~~~~~
+
+Request examples to send push notifications.
 
 .. raw:: html
 
