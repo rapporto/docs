@@ -745,8 +745,8 @@ The **mandatory** parameters are highlighted **in bold**.
 | param_value/content-url          |                  | substituted as a url instead of the sent one. If the url is not sent and the   |
 |                                  |                  | content type has not been sent, it is ignored.                                 |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
-| message/data/extraOptions/       | string           | User data. If it is sent, the previously sent data is replaced or new data     |
-| param_value/custom-payload       |                  | is set if it was not sent earlier.                                             |
+| message/data/extraOptions/       | string           | User data. If they are sent, the previously sent data are replaced or new data |
+| param_value/custom-payload       |                  | are set if they were not sent earlier.                                         |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
 | message/data/extraOptions/       | array            | A list of buttons. If the data is not empty, then the previously sent          |
 | param_value/actions              |                  | content is replaced.                                                           |
