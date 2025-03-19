@@ -12,8 +12,8 @@ The following WhatsApp messages are supported:
 .. note:: It is not allowed to send two types of content at the same time (for example, a text and an image).
 
 
-Request Examples to Send WhatsApp Messages
-------------------------------------------------
+Request Examples 
+~~~~~~~~~~~~~~~~~~~~
 
 .. raw:: html
 
@@ -127,7 +127,7 @@ Request Examples to Send WhatsApp Messages
 .. _eng-Rest-WA-параметры-запроса:
 
 Request Parameters
--------------------------
+~~~~~~~~~~~~~~~~~~~~
 
 The **mandatory** parameters are highlighted **in bold**.
 
