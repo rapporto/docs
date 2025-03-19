@@ -2,8 +2,8 @@
 Link Shortening Service
 ===========================
 
-Description of the Service
-----------------------------
+Description 
+-------------
 
 The functionality of the service:
 
@@ -12,7 +12,7 @@ The functionality of the service:
 * redirecting from a :term:`short link <Короткая ссылка>` to a long one;
 * collecting traffic statistics. 
 
-| This service is connected by the Service Provider upon request from the Partner (see :ref:`eng-Rest-Setup`).
+| This service is provided by the Service Provider upon request from the Partner (see :ref:`eng-Rest-Setup`).
 | After the Service Provider has configured the Service, all received links in the message text will be shortened by default in accordance with the specified settings.
 | If necessary, this setting can also be controlled using the optional *shortenLinks* parameter, which can be sent in the request.
 | If the service is configured and the parameter is not sent, the link will be shortened by default. The same applies to links passed in :ref:`cascading messages <eng-Ссылки-в-каскаде>`.
@@ -27,8 +27,8 @@ Links are shortened for the following types of messages:
 * WhatsApp (see :ref:`eng-Rest-WA-параметры-запроса`).
 
 
-The Sequence of Service Operation
------------------------------------
+Service Operation
+~~~~~~~~~~~~~~~~~~
 
 1. When a long link is detected in the message, a new link is formed - the domain http://kr4.me/ is inserted at the beginning of the new link and a unique :term:`UID` is added, which length can be from 3 to 8 characters. An example of a link after an abbreviation: http://kr4.me/EQiCREB.
 2. After the messages are delivered, when subscribers click on a short link, the link shortening service will identify the corresponding long link and redirect.
@@ -38,7 +38,7 @@ The Sequence of Service Operation
 .. _eng-Rest-Setup:
 
 Service Setup
--------------------------
+---------------
 
 To enable the Service, the following data must be provided to the :ref:`Technical Support: <support>`:
 
