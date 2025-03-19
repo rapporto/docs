@@ -164,7 +164,7 @@ Successful SMS Sending
           
 
 
-SMS sending Errors 
+SMS Sending Errors 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 For error responses, the HTTP response code will be different from 200 (see :ref:`eng-Коды-ошибок-отправки-SMS`).
