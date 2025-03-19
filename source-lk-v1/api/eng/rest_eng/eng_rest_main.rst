@@ -7,7 +7,7 @@ REST API v.6.0 is designed to be integrated into the Partner's system in order t
 
 The integration provides the ability to send both incoming traffic (Mobile Terminated message) and outgoing traffic (Mobile Originated message). 
 
-Types of messages
+Types of Messages
 -------------------
 
 When integrating via REST API, the transmission of the following types of messages is supported:
