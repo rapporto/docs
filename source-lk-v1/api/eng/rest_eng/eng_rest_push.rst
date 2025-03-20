@@ -70,7 +70,7 @@ Request examples to send push notifications.
 
         .. code-block:: json
            :linenos:
-           :emphasize-lines: 5-14 
+           :emphasize-lines: 4-14 
 
              {
                 "login":"YOUR_LOGIN",

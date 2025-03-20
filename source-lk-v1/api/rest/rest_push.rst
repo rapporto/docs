@@ -68,7 +68,7 @@ Push
 
         .. code-block:: json
            :linenos:
-           :emphasize-lines: 5-14 
+           :emphasize-lines: 4-14 
 
             {
                "login":"ВАШ_ЛОГИН",
