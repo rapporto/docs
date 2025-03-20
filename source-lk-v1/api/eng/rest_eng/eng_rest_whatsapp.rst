@@ -13,7 +13,7 @@ The following WhatsApp messages are supported:
 
 
 Request Examples 
-~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 .. raw:: html
 

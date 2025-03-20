@@ -8,7 +8,7 @@ The Service Provider sends a message delivery report to the Partner's URL config
 
 The URL for statuses is set in the integration settings when enabling the service.
 
-Extended statuses of sent messages are available optionally. To receive extended statuses you need to contact the :ref:`technical support <support>` of the Service Provider.
+Extended statuses of sent messages are available optionally. To receive extended statuses you need to contact the :ref:`the Technical Support <eng-support>`.
 
 HTTP method: GET.
 

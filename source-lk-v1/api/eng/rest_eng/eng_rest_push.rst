@@ -704,7 +704,7 @@ The **mandatory** parameters are highlighted **in bold**.
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
 | *Request with data for the application*   _`customPayload`                                                                           |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
-| message/data/customPayload       | JSON Object      | The data which is transmitted as is to the mobile application for further use  |
+| message/data/customPayload       | JSON Object      | The data which are transmitted as is to the mobile application for further use |
 |                                  |                  | in the mobile application.                                                     |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
 | *Request with data for statistics*   _`callbackData`                                                                                 |

@@ -431,10 +431,10 @@ When sending an incorrect request a short text error message may be transmitted 
         | 409           | Sending duplicates prohibited.                            | The Partner shouldn't repeat the request.                 |
         |               |                                                           |                                                           |
         |               | .. note:: The duplicate blocking feature is activated     | If it is necessary to send a duplicate message, the       |
-        |               |       for the Partner's service. During 24 hours the      | Partner can contact the technical support of the Service  |
-        |               |       Partner sent 3 requests to send the message with    | Provider and provide it with the most complete information|
-        |               |       the same text to the same number.                   | about the conditions for this situation.                  |
-        |               |       The first request will be processed successfully and|                                                           |
+        |               |       for the Partner's service. During 24 hours the      | Partner can contact                                       |
+        |               |       Partner sent 3 requests to send the message with    | :ref:`the Technical Support <eng-support>`                |
+        |               |       the same text to the same number.                   | and provide it with the most complete information         |
+        |               |       The first request will be processed successfully and| about the conditions for this situation.                  |
         |               |       the message will be sent to the subscriber. In      |                                                           |
         |               |       response to the last 2 requests Service Provider    |                                                           |
         |               |       will return 409 status and won't send these 2       |                                                           |
@@ -450,13 +450,13 @@ When sending an incorrect request a short text error message may be transmitted 
         |               | **message** parameter is exceeded.                        | message text to the allowed length.                       |
         +---------------+-----------------------------------------------------------+-----------------------------------------------------------+
         | 500           | Server internal error. Technical difficulties at the      | When receiving the status 500 or when the timeout of      |
-        |               | Service Provider side.                                    | waiting for a response expires, the Partner need to wait  | 
+        |               | Service Provider side.                                    | waiting for a response expires, the Partner needs to wait | 
         |               |                                                           | for at least 1 minute. After the pause, the Partner can   |
         |               |                                                           | repeat the request.                                       |
         |               |                                                           |                                                           |
         |               |                                                           | If you receive 500 status more than 10 times you have to  | 
         |               |                                                           | stop transmitting the request. After that, you should     |
-        |               |                                                           | transmit to the technical support of the Service Provider |
+        |               |                                                           | transmit to :ref:`the Technical Support <eng-support>`    |
         |               |                                                           | the most complete information about the conditions for    |
         |               |                                                           | the occurrence of this error for further analysis.        |
         +---------------+-----------------------------------------------------------+-----------------------------------------------------------+
@@ -521,9 +521,12 @@ Response Examples
                 </response>
             }
 
-        When receiving the status **500** or when the timeout of waiting for a response expires, the Partner need to wait for at least 1 minute. After the pause, the Partner can repeat the request.
+        When receiving the status **500** or when the timeout of waiting for a response expires, the Partner needs to wait for at least 1 minute. 
+        After the pause, the Partner can repeat the request.
 
-        .. note:: When receiving the status **500** more than 10 times, the request transmitting should be stopped. After that, the Partner need to transmit to the technical support of the Service Provider the most complete information about the conditions for the occurrence of this error for further analysis.
+        .. note:: When receiving the status **500** more than 10 times, the request transmitting should be stopped. 
+                  After that, the Partner needs to provide :ref:`the Technical Support <eng-support>` with the most complete information 
+                  about the conditions for the occurrence of this error for further analysis.
 
 
     .. tab:: Description of XML elements

@@ -3,7 +3,7 @@ Link Shortening Service
 ===========================
 
 Description 
--------------
+----------------
 
 The functionality of the service:
 
@@ -38,9 +38,9 @@ Service Operation
 .. _eng-Rest-Setup:
 
 Service Setup
----------------
+-------------------------
 
-To enable the Service, the following data must be provided to the :ref:`Technical Support: <support>`:
+To enable the Service, the following data must be provided to :ref:`the Technical Support <eng-support>`:
 
 * amount of characters after which the link must be shortened. For example, if the link is shortened by more than 26 characters, then the link https://rapporto.ru/ will be transmitted to the subscriber unchanged, and the link https://rapporto.ru/company/o_platforme_rapporto/ will be shortened, for example `http://kr4.me/QEiCRE/ <https://rapporto.ru/company/o_platforme_rapporto/>`_;
 * amount of characters in the :term:`UID` that is added after the domain. This parameter affects the number of unique links that can be generated. For example, with a length of UID = 8 characters, about 281 trillion unique links can be generated;

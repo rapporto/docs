@@ -19,4 +19,4 @@ The Service Provider provides the Partner with the following data:
 
 To protect the service, the *Basic access authentication* is supported.
 
-For access inquiries, please contact the :ref:`Technical Support <support>`.
+For access inquiries, please contact the :ref:`Technical Support <eng-support>`.

@@ -40,7 +40,7 @@ Service Operation
 Service Setup
 --------------------
 
-To enable the service, the following data must be transmitted to :ref:`Technical Support <support>`:
+To enable the service, the following data must be provided to the :ref:`Technical Support <eng-support>`:
 
 * the number of characters after which the link must be shortened. For example, if the link is shortened by more than 26 characters, then the link https://rapporto.ru/ will be transmitted to the subscriber unchanged, and the link https://rapporto.ru/company/o_platforme_rapporto/ will be shortened, for example `http://kr4.me/QEiCRE/ <https://rapporto.ru/company/o_platforme_rapporto/>`_;
 * the number of characters in the :term:`UID` that is added after the domain. This parameter affects the number of unique links that can be generated. For example, with a length of UID = 8 characters, about 281 trillion unique links can be generated;

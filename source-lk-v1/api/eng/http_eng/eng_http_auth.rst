@@ -16,4 +16,4 @@ The Service Provider provides the Partner with the following data:
 * serviceId;
 * password.
 
-For access inquiries, please contact :ref:`the Technical Support <support>`.
+For access inquiries, please contact :ref:`the Technical Support <eng-support>`.
