@@ -11,7 +11,7 @@ Types of Messages
 
 When integrating via HTTP API, the transmission of the following types of messages is supported:
 
-- :term:`FlashingCall` (:term:`VoiceCode`);
+- FlashingCall (VoiceCode);
 - Push;
 - SMS;
 - Viber;
