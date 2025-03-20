@@ -335,7 +335,7 @@ Request examples to send push notifications.
             }
 
    
-    .. tab:: data statistics
+    .. tab:: data for statistics
 
         Description of the `callbackData`_ parameter
 
@@ -356,7 +356,7 @@ Request examples to send push notifications.
                      "serviceNumber":"SENDER'S_NAME",
                      "ttl":1,
                      "ttlUnit":"MINUTES",
-                     "callbackData":"Data_statistics"
+                     "callbackData":"Data_for_statistics"
                   }
                }
             }
