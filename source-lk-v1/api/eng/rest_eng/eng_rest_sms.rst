@@ -9,7 +9,7 @@ Request to Send SMS
    
    <p style="line-height: 24px;">To generate a test request with your parameters please
        <a href="https://doc.rapporto.ru/generator/" target="_blank" class="button">
-           <img src="../../../_static/link-external-01.svg" class="bttn-icon" alt="Внешняя ссылка"> open the request generator
+           <img src="../../../_static/link-external-01.svg" class="bttn-icon" alt="Внешняя ссылка"> open the request generator.
        </a>
    </p>
    <style>
