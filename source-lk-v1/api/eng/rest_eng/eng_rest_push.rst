@@ -625,7 +625,7 @@ The **mandatory** parameters are highlighted **in bold**.
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
 | message/data/title               | string           | The header of the text message. Amount of characters is no more than: 80.      |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
-| *Request with the primary application attribute*    _`primaryOn`                                                                     |
+| *Request with the primary application attribute* (_`primaryOn`)                                                                      |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
 | message/data/primaryOn           | boolean          | An indication of the primary application installed on the subscriber's device. |
 |                                  |                  | Possible values are:                                                           |
@@ -653,7 +653,7 @@ The **mandatory** parameters are highlighted **in bold**.
 |                                  |                  | | If any of the specified conditions are not met, an error will be generated   |
 |                                  |                  |   and the request will not be executed.                                        |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
-| *Request specifying the category of content (images, HTML links and buttons)*    _`contentCategory`                                  |
+| *Request specifying the category of content -- images, HTML links and buttons* (_`contentCategory`)                                  |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
 | message/data/content             | object           | Parameters for sending images, HTML links and buttons.                         |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
@@ -671,7 +671,7 @@ The **mandatory** parameters are highlighted **in bold**.
 |                                  |                  | * image size: no more than 1 Mb;                                               |
 |                                  |                  | * proportion: 2:1.                                                             |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
-| *Request to display buttons*  _`actions`                                                                                             |
+| *Request to display buttons* (_`actions`)                                                                                            |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
 | message/data/content/actions     | array            | | An array containing buttons with the ability to:                             |
 |                                  |                  |                                                                                |
@@ -699,7 +699,7 @@ The **mandatory** parameters are highlighted **in bold**.
 |                                  |                  | | In the case of a button with action=link the URL for the transition can be   |
 |                                  |                  |   specified.                                                                   |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
-| *Request with subscriptions*    _`deviceSubscriptions`                                                                               |
+| *Request with subscriptions*  (_`deviceSubscriptions`)                                                                               |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
 | message/data/deviceSubscriptions | array            | A transmitted array with a list of mobile app subscriptions.                   |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
@@ -713,7 +713,7 @@ The **mandatory** parameters are highlighted **in bold**.
 | message/data/callbackData        | string           | Client data for statistics. They are saved in the transmitted form upon        |
 |                                  |                  | receipt, an output in statistical data is possible, if necessary.              |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+ 
-| *Request with enriched data*   _`extraOptions`                                                                                       |
+| *Request with enriched data*  (_`extraOptions`)                                                                                      |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
 | message/data/extraOptions        | array            | An array of additional data objects from the partner.                          |
 |                                  |                  | It contains two mandatory parameters: *param_name* и *param_value*.            |
