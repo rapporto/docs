@@ -703,12 +703,12 @@ The **mandatory** parameters are highlighted **in bold**.
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
 | message/data/deviceSubscriptions | array            | A transmitted array with a list of mobile app subscriptions.                   |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
-| *Request with data for the application*   _`customPayload`                                                                           |
+| *Request with data for the application*  (_`customPayload`)                                                                          |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
 | message/data/customPayload       | JSON Object      | The data which are transmitted as is to the mobile application for further use |
 |                                  |                  | in the mobile application.                                                     |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
-| *Request with data for statistics*   _`callbackData`                                                                                 |
+| *Request with data for statistics*  (_`callbackData`)                                                                                |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
 | message/data/callbackData        | string           | Client data for statistics. They are saved in the transmitted form upon        |
 |                                  |                  | receipt, an output in statistical data is possible, if necessary.              |
