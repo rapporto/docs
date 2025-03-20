@@ -66,38 +66,38 @@ Request examples to send push notifications.
 
     .. tab:: extended request
 
-        Description of `useTimeDiff`_ ; `destAddr`_ parameters  
+        Description of `useTimeDiff`_ ; `destAddr`_ parameters.  
 
         .. code-block:: json
            :linenos:
            :emphasize-lines: 5-14 
 
-                {
-                   "login":"YOUR_LOGIN",
-                   "password":"YOUR_PASSWORD",
-                   "extraParam":"param1=value1,param2=value2",
-                   "useTimeDiff":true,
-                   "id":"8770630",
-                   "scheduleInfo":{
-                     "timeBegin":"10:00",
-                     "timeEnd":"12:00",
-                     "weekdaysSchedule":"123",
-                     "deadline": "2029-12-31T16:29:30+0300"
-                   },
-                   "destAddr":"Subscriber's_Number",
-                   "message":{
-                     "type":"Push",
-                     "data":{
-                       "externalUserId": "subscriber's_ID",
-                       "text":"Notification text",
-                       "serviceNumber":"SENDER'S_NAME",
-                       "ttl":10,
-                       "ttlUnit": "SECONDS",
-                     "registeredDelivery":"1",
-                     "notifyUrl":"URL_for_sending_statuses"
-                     }
-                   }
-                }           
+             {
+                "login":"YOUR_LOGIN",
+                "password":"YOUR_PASSWORD",
+                "id":"8770630",
+                "extraParam":"param1=value1,param2=value2",
+                "registeredDelivery":"1",
+                "notifyUrl":"URL_for_sending_statuses"
+                "useTimeDiff":true,
+                "scheduleInfo":{
+                  "timeBegin":"10:00",
+                  "timeEnd":"12:00",
+                  "weekdaysSchedule":"123",
+                  "deadline": "2029-12-31T16:29:30+0300"
+                },
+                "destAddr":"Subscriber's_Number",
+                "message":{
+                  "type":"Push",
+                  "data":{
+                    "externalUserId": "subscriber's_ID",
+                    "text":"Notification text",
+                    "serviceNumber":"SENDER'S_NAME",
+                    "ttl":10,
+                    "ttlUnit": "SECONDS",
+                  }
+                }
+             }           
 
 
 
@@ -124,9 +124,9 @@ Request examples to send push notifications.
              }
 
 
-    .. tab:: text with header
+    .. tab:: text and header
 
-        Description of the `title`_ parameter
+        Description of the `title`_ parameter.
 
         .. code-block:: json
            :linenos:
@@ -151,7 +151,7 @@ Request examples to send push notifications.
 
     .. tab:: primary application attribute
 
-        Description of the `primaryOn`_ parameter
+        Description of the `primaryOn`_ parameter.
 
         .. code-block:: json
            :linenos:
@@ -177,7 +177,8 @@ Request examples to send push notifications.
     .. tab:: image
 
         In this example the message is transmitted over the client's *externalUserId*.
-        Description of the `contentCategory`_ parameter
+        
+        Description of the `contentCategory`_ parameter.
 
         .. code-block:: json
            :linenos:
@@ -208,7 +209,7 @@ Request examples to send push notifications.
 
         In this example the message is transmitted over the client's *externalUserId*.
         
-        Description of `contentCategory`_ ; `actions`_ parameters
+        Description of `contentCategory`_ ; `actions`_ parameters.
 
         .. code-block:: json
            :linenos:
@@ -249,7 +250,7 @@ Request examples to send push notifications.
                    
     .. tab:: HTML
 
-        Description of the `contentCategory`_ parameter
+        Description of the `contentCategory`_ parameter.
 
         .. code-block:: json
            :linenos:
@@ -278,7 +279,7 @@ Request examples to send push notifications.
 
     .. tab:: subscriptions
 
-        Description of the `deviceSubscriptions`_ parameter
+        Description of the `deviceSubscriptions`_ parameter.
 
         .. code-block:: json
            :linenos:
@@ -308,7 +309,7 @@ Request examples to send push notifications.
 
     .. tab:: data for application
 
-        Description of the `customPayload`_ parameter
+        Description of the `customPayload`_ parameter.
 
         .. code-block:: json
            :linenos:
@@ -337,7 +338,7 @@ Request examples to send push notifications.
    
     .. tab:: data for statistics
 
-        Description of the `callbackData`_ parameter
+        Description of the `callbackData`_ parameter.
 
         .. code-block:: json
            :linenos:

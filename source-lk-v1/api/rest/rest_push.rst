@@ -64,7 +64,7 @@ Push
 
     .. tab:: расширенный запрос
 
-        Описание параметров `useTimeDiff`_ ; `destAddr`_  
+        Описание параметров `useTimeDiff`_ ; `destAddr`_.  
 
         .. code-block:: json
            :linenos:
@@ -123,7 +123,7 @@ Push
 
     .. tab:: с текстом и заголовком
 
-        Описание параметра `title`_
+        Описание параметра `title`_.
 
         .. code-block:: json
            :linenos:
@@ -148,7 +148,7 @@ Push
 
     .. tab:: с признаком главного приложения
 
-        Описание параметра `primaryOn`_
+        Описание параметра `primaryOn`_.
 
         .. code-block:: json
            :linenos:
@@ -174,7 +174,8 @@ Push
     .. tab:: с изображением
 
         В данном примере сообщение передается по *externalUserId* клиента.
-        Описание параметра `contentCategory`_
+        
+        Описание параметра `contentCategory`_.
 
         .. code-block:: json
            :linenos:
@@ -205,7 +206,7 @@ Push
 
         В данном примере сообщение передается по *externalUserId* клиента.
         
-        Описание параметров `contentCategory`_ ; `actions`_
+        Описание параметров `contentCategory`_ ; `actions`_.
 
         .. code-block:: json
            :linenos:
@@ -246,7 +247,7 @@ Push
                    
     .. tab:: с HTML-страницей
 
-        Описание параметра `contentCategory`_
+        Описание параметра `contentCategory`_.
 
         .. code-block:: json
            :linenos:
@@ -275,7 +276,7 @@ Push
 
     .. tab:: с подписками
 
-        Описание параметра `deviceSubscriptions`_
+        Описание параметра `deviceSubscriptions`_.
 
         .. code-block:: json
            :linenos:
@@ -305,7 +306,7 @@ Push
 
     .. tab:: с данными для приложения
 
-        Описание параметра `customPayload`_
+        Описание параметра `customPayload`_.
 
         .. code-block:: json
            :linenos:
@@ -334,7 +335,7 @@ Push
    
     .. tab:: с данными для статистики
 
-        Описание параметра `callbackData`_
+        Описание параметра `callbackData`_.
 
         .. code-block:: json
            :linenos:
@@ -479,7 +480,7 @@ Push
 
             .. tab:: SENDING_PLATFORM
 
-                Параметры для отправки push-уведомлений на определенные типы платформ (APNS, FCM, HMS, RuStore) по желанию Партнера. 
+                Параметры для отправки push-уведомлений на определенные типы платформ (:abbr:`APNS (Apple Push Notification Service)`, :abbr:`FCM (Firebase Cloud Messaging)`, :abbr:`HMS (Huawei Mobile Services)`, RuStore) по желанию Партнера. 
         
                 .. code-block:: json
                    :linenos:
