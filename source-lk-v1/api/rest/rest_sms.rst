@@ -62,7 +62,7 @@ SMS
 
         .. code-block:: json
            :linenos:
-           :emphasize-lines: 4,6-13 
+           :emphasize-lines: 4-13 
 
             {
               "login":"ВАШ_ЛОГИН",

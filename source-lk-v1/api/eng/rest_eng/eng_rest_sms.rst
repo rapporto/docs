@@ -69,7 +69,7 @@ Request Examples
 
         .. code-block:: json
            :linenos:
-           :emphasize-lines: 5,7-11 
+           :emphasize-lines: 4-13 
 
             {
               "login":"YOUR_LOGIN",
