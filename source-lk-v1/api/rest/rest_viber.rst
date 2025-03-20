@@ -154,7 +154,7 @@ Viber
                         "text":"VIBERMESS",
                         "imageURL":"https://example.ru/image",
                         "caption":"ПЕРЕЙТИ",
-                        "action":"https:// example.ru/image"
+                        "action":"https://example.ru/image"
                      }
                   },
                   "serviceNumber":"НОМЕР_ОТПРАВИТЕЛЯ",

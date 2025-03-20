@@ -3,7 +3,7 @@ Push
 Отправка push-уведомлений
 --------------------------
 
-В push-уведомлениях доступна передача текста и, опционально, дополнительных параметров.
+В мобильных и веб push-уведомлениях доступна передача текста и, опционально, дополнительных параметров.
 
 Примеры дополнительных параметров:
 
@@ -18,7 +18,7 @@ Push
 * данные для обновления виджета :abbr:`Live Activity (Виджет Live Activity функционирует на устройствах с iOS)`;
 * признак главного приложения;
 * подписки мобильного приложения;
-* указание провайдеров (:abbr:`APNS (Apple Push Notification Service)`, :abbr:`FCM (Firebase Cloud Messaging)`, :abbr:`HMS (Huawei Mobile Services)`, RuStore) для передачи данных.
+* указание провайдеров (:abbr:`APNS (Apple Push Notification Service)`, :abbr:`FCM (Firebase Cloud Messaging)`, :abbr:`HMS (Huawei Mobile Services)`, RuStore, Web Push Api) для передачи данных.
 
 
 
@@ -68,36 +68,34 @@ Push
 
         .. code-block:: json
            :linenos:
-           :emphasize-lines: 5,6,8-12,23,24 
+           :emphasize-lines: 5-14 
 
-             {
-                {
-                   "login":"ВАШ_ЛОГИН",
-                   "password":"ВАШ_ПАРОЛЬ",
-                   "extraParam":"param1=value1,param2=value2",
-                   "useTimeDiff":true,
-                   "id":"8770630",
-                   "scheduleInfo":{
-                     "timeBegin":"10:00",
-                     "timeEnd":"12:00",
-                     "weekdaysSchedule":"123",
-                     "deadline": "2029-12-31T16:29:30+0300"
-                   },
-                   "destAddr":"Номер_Абонента",
-                   "message":{
-                     "type":"Push",
-                     "data":{
-                       "externalUserId": "ID_абонента",
-                       "text":"Текст уведомления",
-                       "serviceNumber":"НОМЕР_ОТПРАВИТЕЛЯ",
-                       "ttl":10,
-                       "ttlUnit": "SECONDS",
-                     "registeredDelivery":"1",
-                     "notifyUrl":"URL_для_передачи_статусов"
-                     }
-                   }
-                }           
-             }
+            {
+               "login":"ВАШ_ЛОГИН",
+               "password":"ВАШ_ПАРОЛЬ",
+               "id":"8770630",
+               "extraParam":"param1=value1,param2=value2",
+               "registeredDelivery":"1",
+               "notifyUrl":"URL_для_передачи_статусов",
+               "useTimeDiff":true,
+               "scheduleInfo":{
+                  "timeBegin":"10:00",
+                  "timeEnd":"12:00",
+                  "weekdaysSchedule":"123",
+                  "deadline": "2029-12-31T16:29:30+0300"
+                  },
+               "destAddr":"Номер_Абонента",
+               "message":{
+                  "type":"Push",
+                  "data":{
+                     "externalUserId": "ID_абонента",
+                     "text":"Текст уведомления",
+                     "serviceNumber":"НОМЕР_ОТПРАВИТЕЛЯ",
+                     "ttl":10,
+                     "ttlUnit": "SECONDS"
+                  }
+               }
+            }           
 
 
 
@@ -139,7 +137,7 @@ Push
                 "message":{
                    "type":"PUSH",
                    "data":{
-                      "title":"Заголовок Push-cсообщения",
+                      "title":"Заголовок push-сообщения",
                       "text":"Текст уведомления",
                       "serviceNumber":"НОМЕР_ОТПРАВИТЕЛЯ",
                       "ttl":2
@@ -180,7 +178,7 @@ Push
 
         .. code-block:: json
            :linenos:
-           :emphasize-lines: 13-15
+           :emphasize-lines: 13-16
 
              {
                 "login": "ВАШ_ЛОГИН",
@@ -211,7 +209,7 @@ Push
 
         .. code-block:: json
            :linenos:
-           :emphasize-lines: 13-25
+           :emphasize-lines: 13-28
 
              {
                 "login": "ВАШ_ЛОГИН",
@@ -252,7 +250,7 @@ Push
 
         .. code-block:: json
            :linenos:
-           :emphasize-lines: 13-15
+           :emphasize-lines: 13-16
 
              {
                 "login": "ВАШ_ЛОГИН",
@@ -281,7 +279,7 @@ Push
 
         .. code-block:: json
            :linenos:
-           :emphasize-lines: 14,15
+           :emphasize-lines:  14-16
 
             {
                "login":"ВАШ_ЛОГИН",
@@ -311,7 +309,7 @@ Push
 
         .. code-block:: json
            :linenos:
-           :emphasize-lines: 14,15
+           :emphasize-lines:  14-16
 
             {
                "login":"ВАШ_ЛОГИН",
@@ -372,7 +370,7 @@ Push
 
                 .. code-block:: json
                    :linenos:
-                   :emphasize-lines: 14-19
+                   :emphasize-lines: 14-22
 
                     {
                        "login":"ВАШ_ЛОГИН",
@@ -407,7 +405,7 @@ Push
         
                 .. code-block:: json
                    :linenos:
-                   :emphasize-lines: 14-23
+                   :emphasize-lines: 14-28
 
                     {
                        "login":"ВАШ_ЛОГИН",
@@ -422,7 +420,7 @@ Push
                              "serviceNumber":"Номер_отправителя",
                              "ttl":30,
                              "ttlUnit":"SECONDS",
-                             "Options":[
+                             "extraOptions":[
                                 {
                                    "param_name":"LIVE_ACTIVITY",
                                    "param_value":{
@@ -448,7 +446,7 @@ Push
         
                 .. code-block:: json
                    :linenos:
-                   :emphasize-lines: 14-20
+                   :emphasize-lines: 15-24
 
                     {
                        "login":"ВАШ_ЛОГИН",
@@ -464,7 +462,7 @@ Push
                              "serviceNumber":"Номер_отправителя",
                              "ttl":30,
                              "ttlUnit":"SECONDS",
-                             "Options":[
+                             "extraOptions":[
                                 {
                                    "param_name":"SECURE",
                                    "param_value":{
@@ -481,38 +479,73 @@ Push
 
             .. tab:: SENDING_PLATFORM
 
-                Параметры для отправки push-уведомлений на определенные типы платформ (APNS, FCM, HMS, RuStore) по желанию партнера. 
-        
-                .. code-block:: json
-                   :linenos:
-                   :emphasize-lines: 14-22
+                Параметры для отправки push-уведомлений на определенные типы платформ (APNS, FCM, HMS, RuStore, Pwa) по желанию Партнера.
 
-                    {
-                       "login":"ВАШ_ЛОГИН",
-                       "password":"ВАШ_ПАРОЛЬ",
-                       "id":"1",
-                       "message":{
-                          "type":"PUSH",
-                          "data":{
-                             "serviceNumber":"Сервисное_имя_отправителя",
-                             "externalUserId":"ИД_абонента",
-                             "text":"Текст_сообщения",
-                             "title":"Заголовок_сообщения",
-                             "ttl":24,
-                             "ttlUnit":"HOURS",
-                             "Options":[
-                                {
-                                   "param_name":"SENDING_PLATFORMS",
-                                   "param_value":[
-                                      "Android",
-                                      "Ios",
-                                      "RuStore"
-                                   ]
-                                }
-                             ]
-                          }
-                       }
-                    }
+                .. tabs::
+
+                  .. tab:: мобильное push-уведомление
+        
+                     .. code-block:: json
+                        :linenos:
+                        :emphasize-lines: 14-23
+
+                        {
+                           "login":"ВАШ_ЛОГИН",
+                           "password":"ВАШ_ПАРОЛЬ",
+                           "id":"1",
+                           "message":{
+                              "type":"PUSH",
+                              "data":{
+                                 "serviceNumber":"Сервисное_имя_отправителя",
+                                 "externalUserId":"ИД_абонента",
+                                 "text":"Текст_сообщения",
+                                 "title":"Заголовок_сообщения",
+                                 "ttl":24,
+                                 "ttlUnit":"HOURS",
+                                 "extraOptions":[
+                                    {
+                                       "param_name":"SENDING_PLATFORMS",
+                                       "param_value":[
+                                          "Android",
+                                          "Ios",
+                                          "RuStore"
+                                       ]
+                                    }
+                                 ]
+                              }
+                           }
+                        }
+
+                  .. tab:: веб push-уведомление
+
+                     .. code-block:: json
+                        :linenos:
+                        :emphasize-lines: 14-23
+
+                        {
+                           "login":"ВАШ_ЛОГИН",
+                           "password":"ВАШ_ПАРОЛЬ",
+                           "id":"1",
+                           "message":{
+                              "type":"PUSH",
+                              "data":{
+                                 "serviceNumber":"Сервисное_имя_отправителя",
+                                 "externalUserId":"ИД_абонента",
+                                 "text":"Текст_сообщения",
+                                 "title":"Заголовок_сообщения",
+                                 "ttl":24,
+                                 "ttlUnit":"HOURS",
+                                 "extraOptions":[
+                                    {
+                                       "param_name":"SENDING_PLATFORMS",
+                                       "param_value":[
+                                          "Pwa"
+                                       ]
+                                    }
+                                 ]
+                              }
+                           }
+                        }
 
 
 .. _Rest-Push-параметры-запроса:
@@ -522,12 +555,14 @@ Push
 
 **Обязательные** параметры выделены **жирным** шрифтом.
 
+Параметры для отправки веб push-уведомления отмечены *.
+
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
 | Параметр                         | Тип данных       | Описание                                                                       |
 +==================================+==================+================================================================================+
-| **login**                        | string           | Имя Партнера в системе.                                                        |
+| **login** *                      | string           | Имя Партнера в системе.                                                        |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
-| **password**                     | string           | Пароль Партнера в системе.                                                     |
+| **password** *                   | string           | Пароль Партнера в системе.                                                     |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
 | extraParam                       | string           | | Дополнительные параметры, передаваемые в виде *param1=value1,param2=value2*, |
 |                                  |                  |   где                                                                          |

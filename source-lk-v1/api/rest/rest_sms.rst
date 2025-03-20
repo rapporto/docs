@@ -71,7 +71,7 @@ SMS
               "id":"8770630",
               "shortenLinks":false,
               "registeredDelivery":"1",
-              "notifyUrl":"URL_для_передачи_статусов"
+              "notifyUrl":"URL_для_передачи_статусов",
               "scheduleInfo":{
                 "timeBegin":"10:00",
                 "timeEnd":"12:00",
