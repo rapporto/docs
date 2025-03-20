@@ -70,7 +70,7 @@ Request examples to send push notifications.
 
         .. code-block:: json
            :linenos:
-           :emphasize-lines: 5,6,8-12,23,24 
+           :emphasize-lines: 5-14 
 
                 {
                    "login":"YOUR_LOGIN",
@@ -181,7 +181,7 @@ Request examples to send push notifications.
 
         .. code-block:: json
            :linenos:
-           :emphasize-lines: 13-15
+           :emphasize-lines: 13-16
 
              {
                 "login": "YOUR_LOGIN",
@@ -212,7 +212,7 @@ Request examples to send push notifications.
 
         .. code-block:: json
            :linenos:
-           :emphasize-lines: 13-25
+           :emphasize-lines: 13-28
 
              {
                 "login": "YOUR_LOGIN",
@@ -253,7 +253,7 @@ Request examples to send push notifications.
 
         .. code-block:: json
            :linenos:
-           :emphasize-lines: 13-15
+           :emphasize-lines: 13-16
 
              {
                 "login": "YOUR_LOGIN",
@@ -282,7 +282,7 @@ Request examples to send push notifications.
 
         .. code-block:: json
            :linenos:
-           :emphasize-lines: 14,15
+           :emphasize-lines: 14-16
 
             {
                "login":"YOUR_LOGIN",
@@ -312,7 +312,7 @@ Request examples to send push notifications.
 
         .. code-block:: json
            :linenos:
-           :emphasize-lines: 14,15
+           :emphasize-lines: 14-16
 
             {
                "login":"YOUR_LOGIN",
@@ -373,7 +373,7 @@ Request examples to send push notifications.
 
                 .. code-block:: json
                    :linenos:
-                   :emphasize-lines: 14-19
+                   :emphasize-lines: 14-22
 
                     {
                        "login":"YOUR_LOGIN",
@@ -408,7 +408,7 @@ Request examples to send push notifications.
         
                 .. code-block:: json
                    :linenos:
-                   :emphasize-lines: 14-23
+                   :emphasize-lines: 14-28
 
                     {
                        "login":"YOUR_LOGIN",
@@ -449,7 +449,7 @@ Request examples to send push notifications.
         
                 .. code-block:: json
                    :linenos:
-                   :emphasize-lines: 14-20
+                   :emphasize-lines: 15-24
 
                     {
                        "login":"YOUR_LOGIN",
@@ -486,7 +486,7 @@ Request examples to send push notifications.
         
                 .. code-block:: json
                    :linenos:
-                   :emphasize-lines: 14-22
+                   :emphasize-lines: 14-23
 
                     {
                        "login":"YOUR_LOGIN",
