@@ -19,4 +19,4 @@
 
 Минимальные версии поддерживаемых браузеров можно посмотреть `здесь <https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API#browser_compatibility>`_.
 
-Если остались вопросы по работе веб SDK Rapporto, просим обращаться в `службу технической поддержки <https://doc.rapporto.ru/support.html>`_.
+Если остались вопросы по работе веб SDK Rapporto, просим обращаться в `Службу технической поддержки <https://doc.rapporto.ru/support.html>`_.
