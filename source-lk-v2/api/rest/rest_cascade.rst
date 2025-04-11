@@ -180,6 +180,57 @@
             }
 
 
+
+    .. tab:: Telegram > SMS
+
+       | В данном примере – запрос на каскадную отправку сообщений в стандартной рассылке.
+       | Пример запроса для каскадной отправки авторизационного кода абоненту приведен на странице :ref:`tg-sms-cascade`.
+
+       .. code-block:: json
+          :linenos:
+          :emphasize-lines: 25-36
+
+            {
+               "login": "ВАШ_ЛОГИН",
+               "password": "ВАШ_ПАРОЛЬ",
+               "destAddr": "НОМЕР_АБОНЕНТА",
+               "useTimeDiff": true,
+               "id": "superId",
+               "scheduleInfo": 
+               {
+                  "timeBegin": "10:00",
+                  "timeEnd": "12:00",
+                  "weekdaysSchedule": "123"
+               },
+               "message": 
+               {
+                  "type": "TELEGRAM",
+                  "data": 
+                  {
+                     "text": "Hello, world!",
+                     "link": "https://docs.rapporto.ru/",
+                     "serviceNumber": "ИМЯ_ОТПРАВИТЕЛЯ",
+                     "ttl": 3600,
+                     "ttlUnit": "SECONDS"
+                  }
+                },
+                "cascadeChainLink": {
+                  "state": "DELIVERED",
+                  "message": {
+                    "type": "SMS",
+                    "data": {
+                      "text": "Hello, world! Follow link <https://docs.rapporto.ru>",
+                      "serviceNumber": "ИМЯ_ОТПРАВИТЕЛЯ",
+                      "ttl": 1,
+                      "ttlUnit": "MINUTES"
+                    }
+                  }
+                }
+              }
+
+
+
+
     .. tab:: VK > Viber > FlashingCall (Voice Code) > SMS
 
        .. code-block:: json

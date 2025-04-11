@@ -28,7 +28,7 @@ REST API
    rest_request
    rest_sms
    rest_viber
-   rest_telegram
+   rest_tg/index_tg
    rest_push
    rest_vk
    rest_whatsapp
