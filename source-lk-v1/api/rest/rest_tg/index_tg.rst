@@ -23,7 +23,7 @@ Telegram
                     <input type="checkbox" id="report"/>
                     <ul>
                         <li class="item-nav"><a href="rest_telegram.html">Рассылка Telegram-сообщений</a></li>
-                        <li class="item-nav"><a href="rest_tg_auth_codes.html">Авторизационные коды Telegram Gateway</a></li>
+                        <li class="item-nav"><a href="rest_tg_auth_codes.html">Коды авторизации Telegram Gateway</a></li>
                     </ul>
                   </section>
             </div>
