@@ -304,7 +304,7 @@ This section describes the reasons for non-delivery of various types of messages
             |                            | is currently relevant only for iOS.                                             |
             +----------------------------+---------------------------------------------------------------------------------+
             | 28                         | The cloud provider (:abbr:`APNS (Apple Push Notification Service)`,             |
-            |                            | :abbr:`FCM (Firebase Cloud Messaging)`, :abbr:`HMS (Huawei Mobile Services)`,   |  
+            |                            | :abbr:`FCM (Firebase Cloud Messaging)`, :abbr:`HMS (Huawei Mobile Services)`,   | 
             |                            | RuStore, or Web Push API), through which the notification is sent, returned     |
             |                            | an error.                                                                       |
             +----------------------------+---------------------------------------------------------------------------------+
