@@ -258,55 +258,55 @@ This section describes the reasons for non-delivery of various types of messages
       
       .. tab:: Push
 
-            +----------------------------+--------------------------------------------------------------------------------+
-            | Value of unifiedExtStatus  | Description of statuses                                                        | 
-            +============================+================================================================================+
-            | 1                          | An unknown platform error occurred during message delivery, or the operator    |
-            |                            | did not provide an error in the delivery report.                              |
-            +----------------------------+--------------------------------------------------------------------------------+
+            +----------------------------+---------------------------------------------------------------------------------+
+            | Value of unifiedExtStatus  | Description of statuses                                                         | 
+            +============================+=================================================================================+
+            | 1                          | An unknown platform error occurred during message delivery, or the operator     |
+            |                            | did not provide an error in the delivery report.                                |
+            +----------------------------+---------------------------------------------------------------------------------+
             | 7                          | The switching equipment on which the subscriber is registered is not responding.|
-            +----------------------------+--------------------------------------------------------------------------------+
+            +----------------------------+---------------------------------------------------------------------------------+
             | 8                          | Incorrect subscriber number, or the subscriber's phone has been turned off for  |
-            |                            | a very long period of time.                                                  |
-            +----------------------------+--------------------------------------------------------------------------------+
+            |                            | a very long period of time.                                                     |
+            +----------------------------+---------------------------------------------------------------------------------+
             | 9                          | The message was discarded by the platform because the duplicate message         |
-            |                            | suppression mechanism was triggered.                                          |
-            +----------------------------+--------------------------------------------------------------------------------+
-            | 11                         | Routing error in the platform configuration.                                   |
-            +----------------------------+--------------------------------------------------------------------------------+
-            | 13                         | Sending a message from an unregistered sender name with the operator.         |
-            +----------------------------+--------------------------------------------------------------------------------+
+            |                            | suppression mechanism was triggered.                                            |
+            +----------------------------+---------------------------------------------------------------------------------+
+            | 11                         | Routing error in the platform configuration.                                    |
+            +----------------------------+---------------------------------------------------------------------------------+
+            | 13                         | Sending a message from an unregistered sender name with the operator.           |
+            +----------------------------+---------------------------------------------------------------------------------+
             | 18                         | Incorrect request parameters were specified, or mandatory parameters were not   |
-            |                            | specified.                                                                    |
-            +----------------------------+--------------------------------------------------------------------------------+
-            | 19                         | No card found with the transmitted subscriber identifier.                     |
-            +----------------------------+--------------------------------------------------------------------------------+
-            | 20                         | No card found with the transmitted subscriber phone number.                   |
-            +----------------------------+--------------------------------------------------------------------------------+
-            | 21                         | The device is not primary. If sending was performed to the primary device     |
-            |                            | (primaryOn=true).                                                            |
-            +----------------------------+--------------------------------------------------------------------------------+
-            | 22                         | No active installations of the mobile application were found on the user’s    |
-            |                            | device.                                                                      |
-            +----------------------------+--------------------------------------------------------------------------------+
-            | 23                         | The user of the mobile application has a restriction on receiving push         |
-            |                            | notifications at the application level.                                       |
-            +----------------------------+--------------------------------------------------------------------------------+
-            | 24                         | The user of the mobile application has a restriction on receiving push         |
-            |                            | notifications at the operating system level.                                  | 
-            +----------------------------+--------------------------------------------------------------------------------+
-            | 25                         | Subscriptions that are not configured for the user's mobile application        |
-            |                            | installation were specified when sending the message.                        |
-            +----------------------------+--------------------------------------------------------------------------------+
-            | 26                         | No installation of the mobile application was found on the user’s device.     |
-            +----------------------------+--------------------------------------------------------------------------------+
-            | 27                         | The application version is lower than the minimum acceptable version. This    |
-            |                            | is currently relevant only for iOS.                                          |
-            +----------------------------+--------------------------------------------------------------------------------+
-            | 28                         | The cloud provider (:abbr:`APNS (Apple Push Notification Service)`,           |
-            |                            | :abbr:`FCM (Firebase Cloud Messaging)`, :abbr:`HMS (Huawei Mobile Services)`,|  
-            |                            | RuStore, or Web Push API), through which the notification is sent, returned   |
-            |                            | an error.                                                                    |
-            +----------------------------+--------------------------------------------------------------------------------+
-            | 31                         | No installation found with the specified platform (provider).                 |
-            +----------------------------+--------------------------------------------------------------------------------+
+            |                            | specified.                                                                      |
+            +----------------------------+---------------------------------------------------------------------------------+
+            | 19                         | No card found with the transmitted subscriber identifier.                       |
+            +----------------------------+---------------------------------------------------------------------------------+
+            | 20                         | No card found with the transmitted subscriber phone number.                     |
+            +----------------------------+---------------------------------------------------------------------------------+
+            | 21                         | The device is not primary. If sending was performed to the primary device       |
+            |                            | (primaryOn=true).                                                               |
+            +----------------------------+---------------------------------------------------------------------------------+
+            | 22                         | No active installations of the mobile application were found on the user’s      |
+            |                            | device.                                                                         |
+            +----------------------------+---------------------------------------------------------------------------------+
+            | 23                         | The user of the mobile application has a restriction on receiving push          |
+            |                            | notifications at the application level.                                         |
+            +----------------------------+---------------------------------------------------------------------------------+
+            | 24                         | The user of the mobile application has a restriction on receiving push          |
+            |                            | notifications at the operating system level.                                    | 
+            +----------------------------+---------------------------------------------------------------------------------+
+            | 25                         | Subscriptions that are not configured for the user's mobile application         |
+            |                            | installation were specified when sending the message.                           |
+            +----------------------------+---------------------------------------------------------------------------------+
+            | 26                         | No installation of the mobile application was found on the user’s device.       |
+            +----------------------------+---------------------------------------------------------------------------------+
+            | 27                         | The application version is lower than the minimum acceptable version. This      |
+            |                            | is currently relevant only for iOS.                                             |
+            +----------------------------+---------------------------------------------------------------------------------+
+            | 28                         | The cloud provider (:abbr:`APNS (Apple Push Notification Service)`,             |
+            |                            | :abbr:`FCM (Firebase Cloud Messaging)`, :abbr:`HMS (Huawei Mobile Services)`,   |  
+            |                            | RuStore, or Web Push API), through which the notification is sent, returned     |
+            |                            | an error.                                                                       |
+            +----------------------------+---------------------------------------------------------------------------------+
+            | 31                         | No installation found with the specified platform (provider).                   |
+            +----------------------------+---------------------------------------------------------------------------------+
