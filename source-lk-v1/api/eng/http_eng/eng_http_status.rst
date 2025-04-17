@@ -182,7 +182,19 @@ This section describes the reasons for non-delivery of various types of messages
             | 14                         | On the operator's side, a SPAM filter was activated based on the text of the   |
             |                            | message.                                                                       |
             +----------------------------+--------------------------------------------------------------------------------+
- 
+            | 16                         | At the time of SMS message delivery, the phone was busy either receiving or    |
+            |                            | transmitting another short message.                                            |
+            +----------------------------+--------------------------------------------------------------------------------+
+            | 18                         | When sending a message, one or more SMS message parameters were specified      |
+            |                            | incorrectly, or mandatory parameters were not included.                        |
+            +----------------------------+--------------------------------------------------------------------------------+
+            | 20                         | The subscriber's phone does not accept SMS messages.                           |
+            +----------------------------+--------------------------------------------------------------------------------+
+            | 28                         | The SMS message was sent to a number belonging to another mobile operator.     |
+            +----------------------------+--------------------------------------------------------------------------------+
+
+
+
       .. tab:: Viber
 
             +----------------------------+--------------------------------------------------------------------------------+
@@ -249,18 +261,52 @@ This section describes the reasons for non-delivery of various types of messages
             +----------------------------+--------------------------------------------------------------------------------+
             | Value of unifiedExtStatus  | Description of statuses                                                        | 
             +============================+================================================================================+
-            | 1                          | An error unknown to the platform occurred during the the message delivery      |
-            |                            | process, or the operator did not provide an error in the delivery report.      |
+            | 1                          | An unknown platform error occurred during message delivery, or the operator    |
+            |                            | did not provide an error in the delivery report.                              |
             +----------------------------+--------------------------------------------------------------------------------+
-            | 8                          | The subscriber's phone number is incorrect, or the subscriber's phone has been |
-            |                            | switched off for a very long time.                                             |
+            | 7                          | The switching equipment on which the subscriber is registered is not responding.|
             +----------------------------+--------------------------------------------------------------------------------+
-            | 9                          | The message was discarded by the platform as the function of cutting duplicate |
-            |                            | messages was activated.                                                        |
+            | 8                          | Incorrect subscriber number, or the subscriber's phone has been turned off for  |
+            |                            | a very long period of time.                                                  |
             +----------------------------+--------------------------------------------------------------------------------+
-            | 11                         | Routing error at the platform configuration.                                   |
+            | 9                          | The message was discarded by the platform because the duplicate message         |
+            |                            | suppression mechanism was triggered.                                          |
             +----------------------------+--------------------------------------------------------------------------------+
-            | 13                         | Sending a message from a sender's name that is not registered by the operator. |
+            | 11                         | Routing error in the platform configuration.                                   |
             +----------------------------+--------------------------------------------------------------------------------+
-
-
+            | 13                         | Sending a message from an unregistered sender name with the operator.         |
+            +----------------------------+--------------------------------------------------------------------------------+
+            | 18                         | Incorrect request parameters were specified, or mandatory parameters were not   |
+            |                            | specified.                                                                    |
+            +----------------------------+--------------------------------------------------------------------------------+
+            | 19                         | No card found with the transmitted subscriber identifier.                     |
+            +----------------------------+--------------------------------------------------------------------------------+
+            | 20                         | No card found with the transmitted subscriber phone number.                   |
+            +----------------------------+--------------------------------------------------------------------------------+
+            | 21                         | The device is not primary. If sending was performed to the primary device     |
+            |                            | (primaryOn=true).                                                            |
+            +----------------------------+--------------------------------------------------------------------------------+
+            | 22                         | No active installations of the mobile application were found on the user’s    |
+            |                            | device.                                                                      |
+            +----------------------------+--------------------------------------------------------------------------------+
+            | 23                         | The user of the mobile application has a restriction on receiving push         |
+            |                            | notifications at the application level.                                       |
+            +----------------------------+--------------------------------------------------------------------------------+
+            | 24                         | The user of the mobile application has a restriction on receiving push         |
+            |                            | notifications at the operating system level.                                  | 
+            +----------------------------+--------------------------------------------------------------------------------+
+            | 25                         | Subscriptions that are not configured for the user's mobile application        |
+            |                            | installation were specified when sending the message.                        |
+            +----------------------------+--------------------------------------------------------------------------------+
+            | 26                         | No installation of the mobile application was found on the user’s device.     |
+            +----------------------------+--------------------------------------------------------------------------------+
+            | 27                         | The application version is lower than the minimum acceptable version. This    |
+            |                            | is currently relevant only for iOS.                                          |
+            +----------------------------+--------------------------------------------------------------------------------+
+            | 28                         | The cloud provider (:abbr:`APNS (Apple Push Notification Service)`,           |
+            |                            | :abbr:`FCM (Firebase Cloud Messaging)`, :abbr:`HMS (Huawei Mobile Services)`,|  
+            |                            | RuStore, or Web Push API), through which the notification is sent, returned   |
+            |                            | an error.                                                                    |
+            +----------------------------+--------------------------------------------------------------------------------+
+            | 31                         | No installation found with the specified platform (provider).                 |
+            +----------------------------+--------------------------------------------------------------------------------+
