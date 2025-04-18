@@ -201,18 +201,22 @@ The section provides a description of the reasons for the non-delivery of messag
       | 26      | no-application             | No installation of the      |
       |         |                            | mobile application on the   |
       |         |                            | user's device was found.    |
-      +---------+----------------------------+-----------------------------+  
+      +---------+----------------------------+-----------------------------+
       | 27      | below-min-version          | The application version is  |
       |         |                            | less than the minimum       |
       |         |                            | acceptable version. In the  |
       |         |                            | current implementation it is|
-      |         |                            | relevant for IOS only.      |   
+      |         |                            | relevant for IOS only.      |
       +---------+----------------------------+-----------------------------+
       | 28      | provider-error             | APNS, FCM or HMS returned   |
       |         |                            | an error.                   |
       +---------+----------------------------+-----------------------------+
+      | 31      | platform-not-found         | No installation was found   |
+      |         |                            | for the specified platform  |
+      |         |                            | (provider).                 |
+      +---------+----------------------------+-----------------------------+ 
 
-
+  
     .. tab:: SMS
 
       +---------+----------------------------+----------------------------+
@@ -288,6 +292,26 @@ The section provides a description of the reasons for the non-delivery of messag
       |         |                            | SPAM filter was activated  |
       |         |                            | based on the text of the   |
       |         |                            | message.                   |
+      +---------+----------------------------+----------------------------+
+      | 16      | busy                       | At the time of SMS message |
+      |         |                            | delivery, the phone was    |
+      |         |                            | busy either receiving or   |
+      |         |                            | transmitting another       |
+      |         |                            | short message.             |
+      +---------+----------------------------+----------------------------+
+      | 18      | bad-params                 | When sending a message,    |
+      |         |                            | one or more SMS message    |
+      |         |                            | parameters were specified  |
+      |         |                            | incorrectly, or mandatory  |
+      |         |                            | parameters were not        |
+      |         |                            | included.                  |
+      +---------+----------------------------+----------------------------+
+      | 20      | consumer-phone-not-found   | The subscriber's phone does|
+      |         |                            | not accept SMS messages.   |
+      +---------+----------------------------+----------------------------+
+      | 28      | provider-error             | The SMS message was sent   |
+      |         |                            | to a number belonging to   |
+      |         |                            | another mobile operator.   |
       +---------+----------------------------+----------------------------+
 
 
