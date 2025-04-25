@@ -86,11 +86,16 @@
 |                    |              |         </p>                                                                                       |
 |                    |              |         <p>                                                                                        |
 |                    |              |             Пример 1. Стандартные значения с произвольным порядком типов сообщений:                |
-|                    |              |             <code>order list = "W,V,S", W_resendCond = Y, V_resendCond = Y, S_resendCond = Y</code>|
+|                    |              |             <code>order_list = "W,V,S", W_resendCond = Y, V_resendCond = S</code>                  |
+|                    |              |         </p>                                                                                       |
+|                    |              |         <p>                                                                                        |
+|                    |              |             В данном случае будет выполнена доотправка в VK, если по типу WhatsApp будет получен   |
+|                    |              |             статус <code>Не доставлено</code>, и дальше в SMS, если по типу VK не будет получен    |
+|                    |              |             статус <code>Просмотрено</code>, либо будет получен статус <code>Не доставлено</code>. |
 |                    |              |         </p>                                                                                       |
 |                    |              |         <p>                                                                                        |
 |                    |              |             Пример 2. В данном случае будет отправлено только первое сообщение каскада (Flashing   |
-|                    |              |             Call): <code>order_list = "F,S", F_resendCond = N, S_resendCond = Y</code> .           |
+|                    |              |             Call): <code>order_list = "F,S", F_resendCond = N, S_resendCond = Y</code>             |
 |                    |              |         </p>                                                                                       |
 |                    |              |         <p>                                                                                        |
 |                    |              |             Каскадное SMS не отправится, т.к. срабатывание каскада ПОСЛЕ сообщения типа            |
