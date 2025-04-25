@@ -96,7 +96,9 @@
 |                    |              |         </p>                                                                                       |
 |                    |              |         <p>                                                                                        |
 |                    |              |             Пример 2. В данном случае будет отправлено только первое сообщение каскада (Flashing   |
-|                    |              |             Call): <code>order_list = "F,S", F_resendCond = N, S_resendCond = Y</code>             |
+|                    |              |             Call):                                                                                 |
+|                    |              |         <br>                                                                                       |
+|                    |              |         <code>order_list = "F,S", F_resendCond = N, S_resendCond = Y</code>                        |
 |                    |              |         </p>                                                                                       |
 |                    |              |         <p>                                                                                        |
 |                    |              |             Каскадное SMS не отправится, т.к. срабатывание каскада ПОСЛЕ сообщения типа            |
