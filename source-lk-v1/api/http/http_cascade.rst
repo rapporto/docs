@@ -102,7 +102,7 @@
 |                    |              |         </p>                                                                                       |
 |                    |              |         <p>                                                                                        |
 |                    |              |             Каскадное SMS не отправится, т.к. срабатывание каскада ПОСЛЕ сообщения типа            |
-|                    |              |             Flashing Call запрещено (<code>F_resendCond = N)</code>.                               |
+|                    |              |             Flashing Call запрещено (<code>F_resendCond = N</code>).                               |
 |                    |              |         </p>                                                                                       |
 |                    |              |         <p>                                                                                        |
 |                    |              |             Параметр <code>S_resendCond = Y</code> при этом не имеет значения, т.к. это            |
