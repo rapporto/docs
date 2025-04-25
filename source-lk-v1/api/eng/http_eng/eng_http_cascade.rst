@@ -31,54 +31,6 @@ Request Parameters
 
 Possible parameters of the HTTP request for cascade message resending.
 
-
-| <type>_resendCond  | string       | Parameter that defines the conditions for triggering a resend.                                    |
-|                    |              |                                                                                                    |
-|                    |              | .. raw:: html                                                                                      |
-|                    |              |                                                                                                    |
-|                    |              |     <details>                                                                                      |
-|                    |              |         <summary>More details</summary>                                                           |
-|                    |              |         <p>                                                                                        |
-|                    |              |             Here <type> is a character that defines the message type (<code>i, s, v, f, p, w</code>), |
-|                    |              |             for which the settings are applied.                                                  |
-|                    |              |         </p>                                                                                       |
-|                    |              |         <p>                                                                                        |
-|                    |              |             Possible values (case insensitive):                                                    |
-|                    |              |         </p>                                                                                       |
-|                    |              |         <ul>                                                                                       |
-|                    |              |             <li>N – do not perform resend;</li>                                                  |
-|                    |              |             <li>Y – perform resend upon receiving the status <code>Not Delivered</code>;</li>     |
-|                    |              |             <li>S – same as <code>Y</code>, plus the resend will occur if the status <code>Viewed</code> is not received within the message's lifetime.</li> |
-|                    |              |         </ul>                                                                                      |
-|                    |              |         <p>                                                                                        |
-|                    |              |             Important! The value <code>S</code> is not applicable for SMS and FlashingCall messages, |
-|                    |              |             as they do not have a <code>Viewed</code> status.                                     |
-|                    |              |         </p>                                                                                       |
-|                    |              |         <p>                                                                                        |
-|                    |              |             By using a combination of parameters, different settings can be defined for different types |
-|                    |              |             of messages.                                                                            |
-|                    |              |         </p>                                                                                       |
-|                    |              |         <p>                                                                                        |
-|                    |              |             Example 1. Standard values with arbitrary order of message types:                     |
-|                    |              |         <br>                                                                                       |
-|                    |              |             <code>order_list = "W,V,S", W_resendCond = Y, V_resendCond = S</code>                |
-|                    |              |         </p>                                                                                       |
-|                    |              |         <p>                                                                                        |
-|                    |              |             In this case, a resend will be performed to VK if the status <code>Not Delivered</code> is received for WhatsApp, and then to SMS if the status <code>Viewed</code> is not received for VK, or if the status <code>Not Delivered</code> is received. |
-|                    |              |         </p>                                                                                       |
-|                    |              |         <p>                                                                                        |
-|                    |              |             Example 2. In this case, only the first message of the cascade (Flashing Call) will be sent: |
-|                    |              |         <br>                                                                                       |
-|                    |              |         <code>order_list = "F,S", F_resendCond = N, S_resendCond = Y</code>                      |
-|                    |              |         </p>                                                                                       |
-|                    |              |         <p>                                                                                        |
-|                    |              |             The cascade SMS will not be sent, as the triggering of a cascade AFTER the Flashing Call message is prohibited (<code>F_resendCond = N</code>). |
-|                    |              |         </p>                                                                                       |
-|                    |              |         <p>                                                                                        |
-|                    |              |             The parameter <code>S_resendCond = Y</code> has no effect here, as this is a setting for triggering the cascade AFTER SMS. |
-|                    |              |         </p>                                                                                       |
-|                    |              |     </details>                                                                                     |
-
 +--------------------+--------------+----------------------------------------------------------------------------------------------------+
 | Parameter Name     | Type         |  Description                                                                                       |
 +====================+==============+====================================================================================================+
