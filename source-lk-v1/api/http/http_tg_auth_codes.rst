@@ -99,7 +99,7 @@
                     POST /login HTTP/1.1
                     Host: 10.241.0.194:9080
                     Content-Type: application/x-www-form-urlencoded;charset=utf-8
-                    Content-Length: 78
+                    Content-Length: 80
                     serviceId=login&pass=123&clientId=79161234567&message=%D0%BA%D0%BE%D0%B4+12345
 
                 Описание формата запроса:
