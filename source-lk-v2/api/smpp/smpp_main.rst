@@ -12,6 +12,7 @@ SMPP API
    smpp_vk
    smpp_push
    smpp_flashcall
+   smpp_tg_auth_codes
    smpp_cascade
    smpp_mo
    smpp_status
