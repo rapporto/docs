@@ -77,7 +77,7 @@
                     POST /<uri> HTTP/1.1
                     Host: 10.10.10.10:9080
                     Content-Type: application/x-www-form-urlencoded;charset=utf-8
-                    Content-Length: 80
+                    Content-Length: 78
                     serviceId=login&pass=123&clientId=79161234567&message=code 12345
 
                 
@@ -86,7 +86,7 @@
                 - POST /login HTTP/1.1: URI запроса;
                 - Host: Адрес и порт сервера;
                 - Content-Type: Тип контента;
-                - Content-Length: Длина тела запроса. В данном случае длина строки ``serviceId=login&pass=123&clientId=79161234567&message=code 12345`` равна 80.
+                - Content-Length: Длина тела запроса. В данном случае длина строки ``serviceId=login&pass=123&clientId=79161234567&message=code 12345`` равна 78.
                 - Тело запроса: Содержит параметры в простом текстовом формате.
 
 
@@ -283,21 +283,31 @@
 
     .. tab:: POST-запрос
 
-        .. code-block::
+        POST-запрос с текстом сообщения на кириллице ``код 12345`` в виде последовательности байт в шестнадцатеричной системе счисления в кодировке UTF-8.
 
+        .. code-block::
+       
             POST /login HTTP/1.1
             Host: 10.241.0.194:9080
             Content-Type: application/x-www-form-urlencoded;charset=utf-8
-            Content-Length: 208
-            serviceId=login&pass=123&clientId=79161234567&message=0605040b8423f0dc0601ae02056a0045c60b03687474703a2f2f7761702e7A616772757A6B612e636F6D0001035A616772757A6B6155524C000101&smpp_encoding=245&smpp_esm_class=64
-            
+            Content-Length: 144
+            serviceId=login&pass=123&clientId=79161234567&message=D0BAD0BED0B4203132333435&smpp_encoding=245&smpp_esm_class=64
+
 
     .. tab:: GET-запрос
 
+        GET-запрос с текстом сообщения на кириллице ``код 12345`` в виде последовательности байт в шестнадцатеричной системе счисления в кодировке UTF-8.
+
         .. code-block::
 
-            http://partner.ru/login?clientId=79161234567&message=0605040b8423f0dc0601ae02056a0045c60b03687474703a2f2f7761702e7A616772757A6B612e636F6D0001035A616772757A6B6155524C000101&serviceId=login&pass=123&smpp_encoding=245&smpp_esm_class=64
+            http://partner.ru/login?serviceId=login&pass=123&clientId=79161234567&message=D0BAD0BED0B4203132333435&smpp_encoding=245&smpp_esm_class=64 HTTP/1.1
             
+        Примечания:
+
+        **Кодирование**: В GET-запросе параметры передаются в строке запроса, и пробелы заменяются на `%20`, а специальные символы должны быть закодированы.
+        
+        **Длина строки**: В GET-запросах длина строки запроса не указывается, но важно помнить, что некоторые серверы могут иметь ограничения на длину URL.
+
 
 
 Параметры для передачи двоичных данных в запросе
