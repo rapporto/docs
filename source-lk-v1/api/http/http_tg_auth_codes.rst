@@ -212,7 +212,7 @@
 |                    |              |         </p>                                                                                       |
 |                    |              |         <p>                                                                                        |
 |                    |              |             Сервис-провайдер опционально возвращает Партнёру данный идентификатор в рамках запроса |
-|                    |              |             на получение статуса доставки сообщения (этот функционал подробно описан в разделе     |
+|                    |              |             на получение статуса доставки сообщения (см.                                           |
 |                    |              |             <a href="https://docs.rapporto.ru/api/http/http_status.html">Сервис получения статусов |
 |                    |              |             доставки</a>).                                                                         |
 |                    |              |         </p>                                                                                       |
@@ -331,6 +331,7 @@
             Host: 10.241.0.194:9080
             Content-Type: application/x-www-form-urlencoded;charset=utf-8
             Content-Length: 144
+            
             serviceId=login&pass=123&clientId=79161234567&message=D0BAD0BED0B4203132333435&smpp_encoding=245&smpp_esm_class=64
 
 
