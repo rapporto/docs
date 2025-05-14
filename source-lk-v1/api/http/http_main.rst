@@ -29,6 +29,7 @@ HTTP API
    http_vk
    http_push
    http_flashcall
+   http_tg_auth_codes
    http_cascade
    http_mo
    http_status
