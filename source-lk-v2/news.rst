@@ -52,8 +52,8 @@
 
 Добавлены новые возможности личного кабинета:
 
-* :doc:`lk/chron_report`
-* :doc:`lk/summary_report`
+* :doc:`lk/chron_report`;
+* :doc:`lk/summary_report`.
 
 Октябрь
 ~~~~~~~~
