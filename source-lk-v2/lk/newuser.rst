@@ -1,7 +1,7 @@
 Добавление пользователя
 =======================
 
-.. image:: media/rapphowtocreatenewuser.gif
+.. image:: media/new_user.gif
 
 Для добавления нового пользователя необходимо следующее:
 
