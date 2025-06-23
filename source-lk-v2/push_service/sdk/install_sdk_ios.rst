@@ -67,15 +67,15 @@ Swift:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Swift:
+::
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        application.registerForRemoteNotifications()
+        return true
+    }
 
-``func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-    application.registerForRemoteNotifications()
-    return true
-}``
-
-``func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-    ZGRMessaging.sharedInstance().register(forRemoteNotifications: deviceToken)
-}``
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        ZGRMessaging.sharedInstance().register(forRemoteNotifications: deviceToken)
+    }
 
 
 3. Отправка внешнего идентификатора пользователя и/или номера телефона пользователя в ZGR
@@ -84,11 +84,8 @@ Swift:
 .. code-block:: swift
 
     ZGRMessaging.sharedInstance().sendUserPhoneNumber("79876543210", externalUserId: "id1") {
-    // Perform any code
+        // Perform any code
     }
-
-
-
 
 
 4. Реализация протокола делегата UNUserNotificationCenterDelegate
@@ -96,15 +93,16 @@ Swift:
 
 .. code-block:: swift
 
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    application.registerForRemoteNotifications()
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        application.registerForRemoteNotifications()
     
-    UNUserNotificationCenter.current().delegate = self
-    UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
         
+        }
+        return true
     }
-    return true
-}
+
 
 
 5. Перенаправление push-уведомления в ZGR
