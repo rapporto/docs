@@ -82,10 +82,10 @@ Swift:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: swift
-    
+
     ZGRMessaging.sharedInstance().sendUserPhoneNumber("79876543210", externalUserId: "id1") {
     // Perform any code
-}
+    }
 
 
 
