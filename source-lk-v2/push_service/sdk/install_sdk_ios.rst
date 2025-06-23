@@ -88,7 +88,7 @@ ZGRMessaging.sharedInstance().sendUserPhoneNumber("79876543210", externalUserId:
 }
 
 
-1. Реализация протокола делегата UNUserNotificationCenterDelegate
+4. Реализация протокола делегата UNUserNotificationCenterDelegate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: swift
@@ -104,7 +104,7 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 }
 
 
-1. Перенаправление push-уведомления в ZGR
+5. Перенаправление push-уведомления в ZGR
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: swift
@@ -120,7 +120,7 @@ func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive respo
 }
 
 
-1. Метод для изменения статуса уведомлений ZGRNotification
+6. Метод для изменения статуса уведомлений ZGRNotification
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: swift
@@ -128,7 +128,7 @@ func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive respo
 ZGRMessaging.shared.updateNotificationStatus("Seen", forNotification: identifier)
 
 
-1. Метод для проверки, разрешены ли push-уведомления в системе
+7. Метод для проверки, разрешены ли push-уведомления в системе
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: swift
@@ -136,7 +136,7 @@ ZGRMessaging.shared.updateNotificationStatus("Seen", forNotification: identifier
 ZGRMessaging.shared.checkIsPushGranted()
 
 
-1. Метод для изменения счётчика пушей в бейдже приложения
+8. Метод для изменения счётчика push в бейдже приложения
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Допустим, что вызов метода происходит в AppDelegate.swift
@@ -146,8 +146,8 @@ ZGRMessaging.shared.checkIsPushGranted()
 ZGRMessaging.shared.application(app, setApplicationBadgeNumber: 5)
 
 
-1. Рассылка системной нотификации в момент открытия пуша
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+9. Рассылка системной нотификации в момент открытия push-уведомления
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Допустим, в AppDelegate.swift подписываемся на событие zgrDidOpenRemoteNotification
 

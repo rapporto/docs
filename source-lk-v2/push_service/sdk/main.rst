@@ -12,3 +12,4 @@ SDK Rapporto
 
    mobile_sdk
    web_sdk
+   install_sdk_ios
