@@ -71,9 +71,9 @@ Swift:
 ``func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     application.registerForRemoteNotifications()
     return true
-}
+}``
 
-func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+``func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
     ZGRMessaging.sharedInstance().register(forRemoteNotifications: deviceToken)
 }``
 
@@ -82,10 +82,13 @@ func application(_ application: UIApplication, didRegisterForRemoteNotifications
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: swift
-
-ZGRMessaging.sharedInstance().sendUserPhoneNumber("79876543210", externalUserId: "id1") {
+    
+    ZGRMessaging.sharedInstance().sendUserPhoneNumber("79876543210", externalUserId: "id1") {
     // Perform any code
 }
+
+
+
 
 
 4. Реализация протокола делегата UNUserNotificationCenterDelegate
