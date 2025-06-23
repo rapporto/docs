@@ -66,16 +66,16 @@ Swift:
 2. Отправка запроса на получение от системы push-токена и передача полученного токена в ZGR
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block:: swift
+Swift:
 
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+``func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     application.registerForRemoteNotifications()
     return true
 }
 
 func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
     ZGRMessaging.sharedInstance().register(forRemoteNotifications: deviceToken)
-}
+}``
 
 
 3. Отправка внешнего идентификатора пользователя и/или номера телефона пользователя в ZGR
