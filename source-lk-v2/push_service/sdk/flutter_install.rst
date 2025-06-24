@@ -13,7 +13,7 @@
 
 1. Перетянуть полученный от ZGR конфигурационный файл ``ZGRConfig.json`` в корневой каталог в иерархии файлов проекта (левая панель в Xcode).
     
-.. image:: push_service/media/fl_8.png
+.. image:: media/fl_8.png
     
 2. Активировать чек-бокс “Copy items if needed”.
 3. Перетянуть файл ``ZGRImSDK.xcframework`` в каталог Frameworks (левая панель в Xcode). В случае, если в проекте отсутствует папка Frameworks, перетянуть файл ``ZGRImSDK.xcframework`` в раздел “Frameworks, Libraries, and Embedded Content” на центральном экране основного таргета приложения.
