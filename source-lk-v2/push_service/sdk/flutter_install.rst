@@ -6,14 +6,14 @@
 
 Необходимо убедиться в наличии всех необходимых файлов от ZGR:
 
-    * ``ZGRConfig.json`` (файл конфигурации);
-    * ``ZGRImSDK.xcframework`` (динамическая универсальная библиотека).
+* ``ZGRConfig.json`` (файл конфигурации);
+* ``ZGRImSDK.xcframework`` (динамическая универсальная библиотека).
     
 Далее открыть Xcode и установить фреймворк в приложение, выполнив следующее:
 
 1. Перетянуть полученный от ZGR конфигурационный файл ``ZGRConfig.json`` в корневой каталог в иерархии файлов проекта (левая панель в Xcode).
     
-.. image:: media/fl_8.png
+.. image:: push_service/media/fl_8.png
     
 2. Активировать чек-бокс “Copy items if needed”.
 3. Перетянуть файл ``ZGRImSDK.xcframework`` в каталог Frameworks (левая панель в Xcode). В случае, если в проекте отсутствует папка Frameworks, перетянуть файл ``ZGRImSDK.xcframework`` в раздел “Frameworks, Libraries, and Embedded Content” на центральном экране основного таргета приложения.

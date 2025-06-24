@@ -51,7 +51,7 @@ ZGR Messaging SDK (push service)
 В приложенном тестовом проекте вы найдете примеры использования всех возможностей SDK. Ниже приведены только основные сценарии работы с SDK.
 
 
-**1. Подключение библиотеки ZGR к ``AppDelegate``**
+**1. Подключение библиотеки ZGR к AppDelegate**
 
 Swift:
 
@@ -86,7 +86,7 @@ Swift:
 
 --------
 
-**4. Реализация протокола делегата ``UNUserNotificationCenterDelegate``**
+**4. Реализация протокола делегата UNUserNotificationCenterDelegate**
 
 Swift:
 ::
@@ -120,7 +120,7 @@ Swift:
 
 ---------
 
-**6. Метод для изменения статуса уведомлений ``ZGRNotification``**
+**6. Метод для изменения статуса уведомлений ZGRNotification**
 
 Swift:
 ::
