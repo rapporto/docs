@@ -29,16 +29,20 @@ ZGR Messaging SDK (push service)
 
 В настоящий момент доступны три варианта установки:
 
-* вручную (процесс подробно изложен в файле `manually_installation.md` в каталоге `installation`);
-* в качестве `pod` с помощью менеджера пакетов CocoaPods (файл `pod_installation.md` в каталоге `installation`);
-* с помощью Swift Package Manager (файл `spm_installation.md` в каталоге `installation`).
+* вручную (процесс подробно изложен в статье :doc:`manually_install`);
+* в качестве *pod* с помощью менеджера пакетов CocoaPods (статья :doc:`pod_install`);
+* с помощью Swift Package Manager (статья :doc:`spm_install`).
 
 Взаимодействие с кроссплатформенными приложениями
 ---------------------------------------------------
 
 Библиотека гарантированно работает без изменений с приложениями, разработанными с помощью кроссплатформенных фреймворков Flutter и React Native.
-Варианты интеграции SDK и приложений описаны в соответствующих файлах `flutter_installation.md`/`rn_installation.md` в каталоге `installation`, а также `flutter_usage.md`/`rn_usage.md` в каталоге `crossplatform`.
+Варианты интеграции SDK и приложений описаны в соответствующих статьях: 
 
+* :doc:`flutter_install`;
+* :doc:`RN_install`; 
+* :doc:`flutter_usage`;
+* :doc:`RN_usage`.
 
 Интеграция приложения с APNS
 ------------------------------
