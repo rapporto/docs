@@ -12,6 +12,7 @@ SDK Rapporto
 
    mobile_sdk
    web_sdk
+   install_sdk_android
    install_sdk_ios
    manually_install
    pod_install
