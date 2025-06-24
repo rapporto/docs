@@ -1,9 +1,10 @@
 Использование библиотеки ZGRImSDK в мобильном приложении, основанном на фреймворке React Native
 =================================================================================================
 
-Рекомендуется тщательно ознакомиться с документацией по React Native: 
-* https://reactnative.dev ,
-* https://reactnative.dev/docs/communication-ios
+Рекомендуется тщательно ознакомиться с документацией по React Native:
+
+* https://reactnative.dev,
+* https://reactnative.dev/docs/communication-ios.
 
 
 Взаимодействие Swift и React Native
@@ -16,11 +17,11 @@
 
 Взаимодействие между кодом React Native и iOS-частью (obj-C/swift) можно обеспечить с помощью вспомогательного файла Connect.
 
-Допустим, необходимо вызвать из js-кода функцию ``sdkLogin()``, определенную в файле AppDelegate.swift:
+Допустим, необходимо вызвать из js-кода функцию ``sdkLogin()``, определенную в файле *AppDelegate.swift*:
 
 .. image:: media/rn_2_.png
 
-В основной папке iOS-части проекта необходимо создать файлы Connect.m и ConnectFile.swift, в которых нужно объявить внешние (extern) по отношению к js-коду методы.  
+В основной папке iOS-части проекта необходимо создать файлы *Connect.m* и *ConnectFile.swift*, в которых нужно объявить внешние (extern) по отношению к js-коду методы.  
 
 .. image:: media/rn_3_.png
 
@@ -30,9 +31,9 @@
 
 .. image:: media/rn_5_.png
 
-Также необходимо импортировать NativeModules, и объявить ``const { Connect } = NativeModules;``.
+Также необходимо импортировать *NativeModules* и объявить ``const { Connect } = NativeModules;``.
 
-После этого функция sdkLogin() доступна в js-коде через вызов ``Connect.sdkLogin()``:
+После этого функция ``sdkLogin()`` доступна в js-коде через вызов ``Connect.sdkLogin()``:
 
 .. image:: media/rn_6_.png
 

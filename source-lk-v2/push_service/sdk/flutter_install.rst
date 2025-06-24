@@ -15,18 +15,18 @@
     
 .. image:: media/fl_8.png
     
-2. Активировать чек-бокс “Copy items if needed”.
-3. Перетянуть файл ``ZGRImSDK.xcframework`` в каталог Frameworks (левая панель в Xcode). В случае, если в проекте отсутствует папка Frameworks, перетянуть файл ``ZGRImSDK.xcframework`` в раздел “Frameworks, Libraries, and Embedded Content” на центральном экране основного таргета приложения.
+2. Активировать чек-бокс **“Copy items if needed”**.
+3. Перетянуть файл ``ZGRImSDK.xcframework`` в каталог Frameworks (левая панель в Xcode). В случае, если в проекте отсутствует папка Frameworks, перетянуть файл ``ZGRImSDK.xcframework`` в раздел **“Frameworks, Libraries, and Embedded Content”** на центральном экране основного таргета приложения.
 
 .. image:: media/fl_4.png
     
-4. Активировать чек-бокс “Copy items if needed”.
-5. Перейти в основные настройки таргета приложения (первая вкладка), к разделу “Frameworks, Libraries and Embedded Content” и нажать **<+>**.
+4. Активировать чек-бокс **“Copy items if needed”**.
+5. Перейти в основные настройки таргета приложения (первая вкладка), к разделу **“Frameworks, Libraries and Embedded Content”** и нажать **<+>**.
 6. В открывшемся меню выбрать библиотеку ``ZGRImSDK.xcframework``, нажать **<Add>**.
 
 .. image:: media/fl_12.png
     
-7. Убедиться, что библиотека будет встроена в приложение посредством установки пункта “Embed & Sign”.
+7. Убедиться, что библиотека будет встроена в приложение посредством установки пункта **“Embed & Sign”**.
     
 .. image:: media/fl_5.png
     
@@ -44,8 +44,8 @@
 
 .. image:: media/fl_8.png
 
-2. Активировать чек-бокс “Copy items if needed”.
-3. Создать ``podfile`` и отредактировать таким образом, чтобы библиотека ``ZGRImSDK.xcframework`` устанавливалась и в основное приложение и в расширения.
+2. Активировать чек-бокс **“Copy items if needed”**.
+3. Создать *podfile* и отредактировать таким образом, чтобы библиотека ``ZGRImSDK.xcframework`` устанавливалась и в основное приложение и в расширения.
 
 .. image:: media/fl_11_1.png
     
@@ -53,16 +53,16 @@
 
 .. image:: media/fl_11.png
     
-5. Перейти в основные настройки таргета приложения (первая вкладка) к разделу “Frameworks, Libraries and Embedded Content” и нажать **<+>**.
+5. Перейти в основные настройки таргета приложения (первая вкладка) к разделу **“Frameworks, Libraries and Embedded Content”** и нажать **<+>**.
 6. В открывшемся меню выбрать библиотеку ``ZGRImSDK.xcframework``, нажать **<Add>**.
 
 .. image:: media/fl_12.png
     
-7. Убедиться, что ``pod`` c библиотекой будет встроен в приложение посредством установки пункта “Embed & Sign”.
+7. Убедиться, что *pod* c библиотекой будет встроен в приложение посредством установки пункта **“Embed & Sign”**.
 
 .. image:: media/fl_5.png
     
-8. Проверить интеграцию приложения и SDK. Открыть файл AppDelegate и выполнить команду ``import ZGRImSDK``. Библиотека должна быть доступна для импорта.
+8. Проверить интеграцию приложения и SDK. Открыть файл *AppDelegate* и выполнить команду ``import ZGRImSDK``. Библиотека должна быть доступна для импорта.
     
 .. image:: media/fl_6.png
     
