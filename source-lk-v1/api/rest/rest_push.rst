@@ -3,7 +3,7 @@ Push
 Отправка push-уведомлений
 --------------------------
 
-В push-уведомлениях доступна передача текста и, опционально, дополнительных параметров.
+В мобильных и веб push-уведомлениях доступна передача текста и, опционально, дополнительных параметров.
 
 Примеры дополнительных параметров:
 
@@ -18,7 +18,7 @@ Push
 * данные для обновления виджета :abbr:`Live Activity (Виджет Live Activity функционирует на устройствах с iOS)`;
 * признак главного приложения;
 * подписки мобильного приложения;
-* указание провайдеров (:abbr:`APNS (Apple Push Notification Service)`, :abbr:`FCM (Firebase Cloud Messaging)`, :abbr:`HMS (Huawei Mobile Services)`, RuStore) для передачи данных.
+* указание провайдеров (:abbr:`APNS (Apple Push Notification Service)`, :abbr:`FCM (Firebase Cloud Messaging)`, :abbr:`HMS (Huawei Mobile Services)`, RuStore, PWA) для передачи данных.
 
 
 
@@ -480,38 +480,73 @@ Push
 
             .. tab:: SENDING_PLATFORM
 
-                Параметры для отправки push-уведомлений на определенные типы платформ (:abbr:`APNS (Apple Push Notification Service)`, :abbr:`FCM (Firebase Cloud Messaging)`, :abbr:`HMS (Huawei Mobile Services)`, RuStore) по желанию Партнера. 
+                Параметры для отправки push-уведомлений на определенные типы платформ (:abbr:`APNS (Apple Push Notification Service)`, :abbr:`FCM (Firebase Cloud Messaging)`, :abbr:`HMS (Huawei Mobile Services)`, RuStore, PWA) по желанию Партнера. 
         
-                .. code-block:: json
-                   :linenos:
-                   :emphasize-lines: 14-23
+                .. tabs::
 
-                    {
-                       "login":"ВАШ_ЛОГИН",
-                       "password":"ВАШ_ПАРОЛЬ",
-                       "id":"1",
-                       "message":{
-                          "type":"PUSH",
-                          "data":{
-                             "serviceNumber":"Сервисное_имя_отправителя",
-                             "externalUserId":"ИД_абонента",
-                             "text":"Текст_сообщения",
-                             "title":"Заголовок_сообщения",
-                             "ttl":24,
-                             "ttlUnit":"HOURS",
-                             "Options":[
-                                {
-                                   "param_name":"SENDING_PLATFORMS",
-                                   "param_value":[
-                                      "Android",
-                                      "Ios",
-                                      "RuStore"
-                                   ]
-                                }
-                             ]
-                          }
-                       }
-                    }
+                  .. tab:: мобильный push 
+ 
+                     .. code-block:: json
+                        :linenos:
+                        :emphasize-lines: 14-23
+
+                        {
+                           "login":"ВАШ_ЛОГИН",
+                           "password":"ВАШ_ПАРОЛЬ",
+                           "id":"1",
+                           "message":{
+                              "type":"PUSH",
+                              "data":{
+                                 "serviceNumber":"Сервисное_имя_отправителя",
+                                 "externalUserId":"ИД_абонента",
+                                 "text":"Текст_сообщения",
+                                 "title":"Заголовок_сообщения",
+                                 "ttl":24,
+                                 "ttlUnit":"HOURS",
+                                 "Options":[
+                                    {
+                                       "param_name":"SENDING_PLATFORMS",
+                                       "param_value":[
+                                          "Android",
+                                          "Ios",
+                                          "RuStore"
+                                       ]
+                                    }
+                                 ]
+                              }
+                           }
+                        }
+
+                  .. tab:: веб push
+
+                     .. code-block:: json
+                        :linenos:
+                        :emphasize-lines: 14-23
+
+                        {
+                           "login":"ВАШ_ЛОГИН",
+                           "password":"ВАШ_ПАРОЛЬ",
+                           "id":"1",
+                           "message":{
+                              "type":"PUSH",
+                              "data":{
+                                 "serviceNumber":"Сервисное_имя_отправителя",
+                                 "externalUserId":"ИД_абонента",
+                                 "text":"Текст_сообщения",
+                                 "title":"Заголовок_сообщения",
+                                 "ttl":24,
+                                 "ttlUnit":"HOURS",
+                                 "extraOptions":[
+                                    {
+                                       "param_name":"SENDING_PLATFORMS",
+                                       "param_value":[
+                                          "Pwa",
+                                       ]
+                                    }
+                                 ]
+                              }
+                           }
+                        }
 
 
 .. _Rest-Push-параметры-запроса:
@@ -520,6 +555,8 @@ Push
 ~~~~~~~~~~~~~~~~~~~~
 
 **Обязательные** параметры выделены **жирным** шрифтом.
+
+Звездочкой (*) отмечены параметры, которые **не работают** при отправке веб push-сообщений.
 
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
 | Параметр                         | Тип данных       | Описание                                                                       |
@@ -752,23 +789,23 @@ Push
 | *param_name=LIVE_ACTIVITY*                                                                                                           |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
 | message/data/extraOptions/       | timestamp        | *timestamp* в формате ISO 860 — дата и время, когда Live Activity считается    |
-| param_value/aps/stale_date       |                  | устаревшим.                                                                    |
+| param_value/aps/stale_date *     |                  | устаревшим.                                                                    |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
 | message/data/extraOptions/       | timestamp        | *timestamp* в формате ISO 8601 — дата и время, когда Live Activity закрывается |
-| param_value/aps/dismissal_date   |                  | на экране блокировки. После того, как виджет перестанет быть активным, он может|
+| param_value/aps/dismissal_date * |                  | на экране блокировки. После того, как виджет перестанет быть активным, он может|
 |                                  |                  | еще 4 часа оставаться на экране блокировки, если его не закрыть. Чтобы закрыть |
 |                                  |                  | сразу и не ждать, можно указать дату, которая уже прошла.                      |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
 | **message/data/extraOptions/     | timestamp        | *timestamp* в формате ISO 8601.                                                |
-| param_value/aps/timestamp**      |                  |                                                                                |
+| param_value/aps/timestamp** *    |                  |                                                                                |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
 | **message/data/extraOptions/     | string           | Событие для обновления Live Activity, принимает следующие значения:            |
-| param_value/aps/event**          |                  |                                                                                |
+| param_value/aps/event**  *       |                  |                                                                                |
 |                                  |                  | * update (для обновления);                                                     |
 |                                  |                  | * end (для деактивации).                                                       |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
 | message/data/extraOptions/       | object           | | Данные, которые будут отображаться в виджете Live Activity.                  |
-| param_value/aps/content_state    |                  | | Параметры передаются разработчиком виджета. Данный блок не валидируется.     |
+| param_value/aps/content_state *  |                  | | Параметры передаются разработчиком виджета. Данный блок не валидируется.     |
 |                                  |                  | | В demo приложении реализовано:                                               |
 |                                  |                  |                                                                                |
 |                                  |                  | - *deliveryStatus* — статус активити:                                          |
@@ -805,7 +842,8 @@ Push
 |                                  |                  | * Android;                                                                     |
 |                                  |                  | * Ios;                                                                         |
 |                                  |                  | * Huawei;                                                                      |
-|                                  |                  | * RuStore.                                                                     |
+|                                  |                  | * RuStore;                                                                     |
+|                                  |                  | * Pwa (для отправки веб push-уведомлений).                                     |
 +----------------------------------+------------------+--------------------------------------------------------------------------------+
 
 
