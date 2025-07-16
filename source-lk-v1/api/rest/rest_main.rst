@@ -16,7 +16,7 @@ REST API
 - :doc:`PUSH <rest_push>`;
 - :doc:`SMS <rest_sms>`;
 - :doc:`TELEGRAM <rest_tg/rest_telegram>`;
-- :doc:`TGCODE <rest_tg/rest_tgcode>`;
+- :doc:`TGCODE <rest_tg/rest_tg_auth_codes>`;
 - :doc:`VIBER <rest_viber>`;
 - :doc:`VK <rest_vk>`;
 - :doc:`WHATSAPP <rest_whatsapp>`.
