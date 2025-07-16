@@ -6,6 +6,7 @@
 Типы сообщений, допустимые в каскадной рассылке:
 
 - FLASHINGCALL (VOICECODE);
+- MAX;
 - PUSH;
 - SMS;
 - TELEGRAM;
@@ -67,43 +68,37 @@
             }
 
 
-    .. tab:: VIBER > SMS
+
+    .. tab:: MAX > SMS
 
        .. code-block:: json
           :linenos:
-          :emphasize-lines: 19-30
+          :emphasize-lines: 12-21
 
             {
               "login": "ВАШ_ЛОГИН",
               "password": "ВАШ_ПАРОЛЬ",
-              "id": "8770100",
-              "destAddr": "Номер_Абонента",
+              "destAddr": "НОМЕР_АБОНЕНТА",
               "message": {
-                "type": "VIBER",
+                "type": "MAX",
                 "data": {
-                  "instantContent": {
-                    "type": "TEXT",
-                    "data": {
-                      "text": "VIBERMESS"
-                    }
-                  },
-                  "serviceNumber": "НОМЕР_ОТПРАВИТЕЛЯ",
-                  "ttl": 1
+                  "text": "ТЕКСТ_СООБЩЕНИЯ.",
+                  "serviceNumber": "ИМЯ_ОТПРАВИТЕЛЯ_ДЛЯ_MAX"
                 }
               },
               "cascadeChainLink": {
-                "state": "READ",
+                "state": "DELIVERED",
                 "message": {
                   "type": "SMS",
                   "data": {
-                    "text": "SMSMESS",
-                    "serviceNumber": "НОМЕР_ОТПРАВИТЕЛЯ",
-                    "ttl": 1,
-                    "ttlUnit": "HOURS"
+                    "text": "ТЕКСТ_СООБЩЕНИЯ.",
+                    "serviceNumber": "ИМЯ_ОТПРАВИТЕЛЯ_ДЛЯ_SMS"
                   }
                 }
               }
             }
+
+
 
 
     .. tab:: FLASHINGCALL (VOICECODE) > SMS
@@ -137,50 +132,6 @@
             }
 
 
-    .. tab:: WHATSAPP > SMS
-
-       .. code-block:: json
-          :linenos:
-          :emphasize-lines: 27-37
- 
-            {
-                "login": "ВАШ_ЛОГИН",
-                "password": "ВАШ_ПАРОЛЬ",
-                "useTimeDiff": true,
-                "id": "87706112",
-                "scheduleInfo": {
-                    "timeBegin": "09:00",
-                    "timeEnd": "21:00",
-                    "weekdaysSchedule": "12345",
-                    "deadline": "2024-12-31T16:29:30+0300"
-                },
-                "destAddr": "НОМЕР_АБОНЕНТА",
-                "message": {
-                    "type": "WHATSAPP",
-                    "data": {
-                        "instantContent": {
-                            "type": "TEXT",
-                            "data": {
-                                "text": "Текст WhatsApp-сообщения"
-                            }
-                        },
-                        "serviceNumber": "ИМЯ_ОТПРАВИТЕЛЯ",
-                        "ttl": 120,
-                        "ttlUnit": "SECONDS"
-                    }
-                },
-                "cascadeChainLink": {
-                    "state": "DELIVERED",
-                    "message": {
-                        "type": "SMS",
-                        "data": {
-                            "text": "Текст доотправляемого SMS-сообщения",
-                            "serviceNumber": "НОМЕР_ОТПРАВИТЕЛЯ_SMS",
-                            "ttl": 10
-                        }
-                    }
-                }
-            }
 
 
     .. tab:: TELEGRAM > SMS
@@ -268,6 +219,94 @@
                     "serviceNumber": "ИМЯ_ОТПРАВИТЕЛЯ",
                     "ttl": 1,
                     "ttlUnit": "MINUTES"
+                  }
+                }
+              }
+            }
+
+
+
+
+    .. tab:: WHATSAPP > SMS
+
+       .. code-block:: json
+          :linenos:
+          :emphasize-lines: 27-37
+ 
+            {
+                "login": "ВАШ_ЛОГИН",
+                "password": "ВАШ_ПАРОЛЬ",
+                "useTimeDiff": true,
+                "id": "87706112",
+                "scheduleInfo": {
+                    "timeBegin": "09:00",
+                    "timeEnd": "21:00",
+                    "weekdaysSchedule": "12345",
+                    "deadline": "2024-12-31T16:29:30+0300"
+                },
+                "destAddr": "НОМЕР_АБОНЕНТА",
+                "message": {
+                    "type": "WHATSAPP",
+                    "data": {
+                        "instantContent": {
+                            "type": "TEXT",
+                            "data": {
+                                "text": "Текст WhatsApp-сообщения"
+                            }
+                        },
+                        "serviceNumber": "ИМЯ_ОТПРАВИТЕЛЯ",
+                        "ttl": 120,
+                        "ttlUnit": "SECONDS"
+                    }
+                },
+                "cascadeChainLink": {
+                    "state": "DELIVERED",
+                    "message": {
+                        "type": "SMS",
+                        "data": {
+                            "text": "Текст доотправляемого SMS-сообщения",
+                            "serviceNumber": "НОМЕР_ОТПРАВИТЕЛЯ_SMS",
+                            "ttl": 10
+                        }
+                    }
+                }
+            }
+
+
+
+    .. tab:: VIBER > SMS
+
+       .. code-block:: json
+          :linenos:
+          :emphasize-lines: 19-30
+
+            {
+              "login": "ВАШ_ЛОГИН",
+              "password": "ВАШ_ПАРОЛЬ",
+              "id": "8770100",
+              "destAddr": "Номер_Абонента",
+              "message": {
+                "type": "VIBER",
+                "data": {
+                  "instantContent": {
+                    "type": "TEXT",
+                    "data": {
+                      "text": "VIBERMESS"
+                    }
+                  },
+                  "serviceNumber": "НОМЕР_ОТПРАВИТЕЛЯ",
+                  "ttl": 1
+                }
+              },
+              "cascadeChainLink": {
+                "state": "READ",
+                "message": {
+                  "type": "SMS",
+                  "data": {
+                    "text": "SMSMESS",
+                    "serviceNumber": "НОМЕР_ОТПРАВИТЕЛЯ",
+                    "ttl": 1,
+                    "ttlUnit": "HOURS"
                   }
                 }
               }
