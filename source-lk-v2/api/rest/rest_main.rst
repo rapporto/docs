@@ -1,9 +1,8 @@
 
-
 REST API
 =========
 
-| REST API v.6.1 предназначен для интеграции в систему клиента с целью отправки сообщений определённых типов и получения статусов отправленных сообщений. 
+| REST API v.7.0 предназначен для интеграции в систему клиента с целью отправки сообщений определённых типов и получения статусов отправленных сообщений. 
 | Интеграция обеспечивает возможность отправки как входящего трафика (:term:`MT-сообщение`), так и исходящего (:term:`MO-сообщение`). 
 
 Типы сообщений
@@ -13,6 +12,7 @@ REST API
 
 - CARDSMOBILE;
 - FLASHINGCALL (VOICECODE);
+- MAX;
 - PUSH;
 - SMS;
 - TELEGRAM;
@@ -29,10 +29,11 @@ REST API
    rest_auth
    rest_request
    rest_sms
-   rest_viber
-   rest_tg/index_tg
+   rest_max
    rest_push
+   rest_tg/index_tg
    rest_vk
+   rest_viber
    rest_whatsapp
    rest_flashcall
    rest_cardsmobile

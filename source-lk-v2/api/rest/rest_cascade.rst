@@ -6,6 +6,7 @@
 Типы сообщений, допустимые в каскадной рассылке:
 
 - FLASHINGCALL (VOICECODE);
+- MAX;
 - PUSH;
 - SMS;
 - TELEGRAM;
@@ -61,6 +62,36 @@
                     "text": "Текст доотправляемого SMS-сообщения",
                     "serviceNumber": "НОМЕР_ОТПРАВИТЕЛЯ_SMS",
                     "ttl": 2
+                  }
+                }
+              }
+            }
+
+
+    .. tab:: MAX > SMS
+
+       .. code-block:: json
+          :linenos:
+          :emphasize-lines: 12-21
+
+            {
+              "login": "ВАШ_ЛОГИН",
+              "password": "ВАШ_ПАРОЛЬ",
+              "destAddr": "НОМЕР_АБОНЕНТА",
+              "message": {
+                "type": "MAX",
+                "data": {
+                  "text": "ТЕКСТ_СООБЩЕНИЯ.",
+                  "serviceNumber": "ИМЯ_ОТПРАВИТЕЛЯ_ДЛЯ_MAX"
+                }
+              },
+              "cascadeChainLink": {
+                "state": "DELIVERED",
+                "message": {
+                  "type": "SMS",
+                  "data": {
+                    "text": "ТЕКСТ_СООБЩЕНИЯ.",
+                    "serviceNumber": "ИМЯ_ОТПРАВИТЕЛЯ_ДЛЯ_SMS"
                   }
                 }
               }

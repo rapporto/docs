@@ -1,5 +1,4 @@
 
-
 REST API
 =========
 
@@ -33,8 +32,8 @@ REST API
    rest_max
    rest_push
    rest_tg/index_tg
-   rest_viber
    rest_vk
+   rest_viber
    rest_whatsapp
    rest_flashcall
    rest_cardsmobile
