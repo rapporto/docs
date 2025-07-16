@@ -10,16 +10,16 @@ REST API
 
 При интеграции по REST API поддерживается передача следующих типов сообщений:
 
-- :ref:`CARDSMOBILE <rest_cardsmobile>`;
-- :ref:`FLASHINGCALL (VOICECODE) <rest_flashcall>`;
-- :ref:`MAX <rest_max>`;
-- :ref:`PUSH <rest_push>`;
-- :ref:`SMS <rest_sms>`;
-- :ref:`TELEGRAM <rest_telegram>`;
-- :ref:`TGCODE <rest_tgcode>`;
-- :ref:`VIBER <rest_viber>`;
-- :ref:`VK <rest_vk>`;
-- :ref:`WHATSAPP <rest_whatsapp>`.
+- :doc:`CARDSMOBILE <rest_cardsmobile>`;
+- :doc:`FLASHINGCALL (VOICECODE) <rest_flashcall>`;
+- :doc:`MAX <rest_max>`;
+- :doc:`PUSH <rest_push>`;
+- :doc:`SMS <rest_sms>`;
+- :doc:`TELEGRAM <rest_telegram>`;
+- :doc:`TGCODE <rest_tgcode>`;
+- :doc:`VIBER <rest_viber>`;
+- :doc:`VK <rest_vk>`;
+- :doc:`WHATSAPP <rest_whatsapp>`.
 
 
 .. toctree::
