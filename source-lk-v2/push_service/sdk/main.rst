@@ -10,5 +10,5 @@ SDK Rapporto
    :maxdepth: 1
    :hidden:
 
-   mobile_sdk
-   web_sdk
+   mobile/mobile_sdk
+   web/web_sdk
