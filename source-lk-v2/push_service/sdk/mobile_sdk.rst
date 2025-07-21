@@ -54,3 +54,16 @@ SDK для HMS–приложения
    
 Если остались вопросы по работе SDK Rapporto, просим обращаться в `Службу технической поддержки <https://doc.rapporto.ru/support.html>`_.
 
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   install_sdk_android
+   install_sdk_ios
+   manually_install
+   pod_install
+   spm_install
+   flutter_install
+   RN_install
+   flutter_usage
+   RN_usage
