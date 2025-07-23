@@ -31,4 +31,4 @@ SDK для HMS–приложений
    :maxdepth: 1
    :hidden:
 
-   install_sdk_android
+   PushService для Android <install_sdk_android>

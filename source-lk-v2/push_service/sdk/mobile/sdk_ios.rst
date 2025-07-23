@@ -25,11 +25,11 @@ SDK для iOS-приложений
    :maxdepth: 1
    :hidden:
 
-   install_sdk_ios
-   manually_install
-   pod_install
-   spm_install
-   flutter_install
-   RN_install
-   flutter_usage
-   RN_usage
+   ZGR Messaging SDK <install_sdk_ios>
+   Интеграция в ручном режиме <manually_install>
+   Интеграция c помощью CocoaPods <pod_install>
+   Интеграция c помощью Swift Package Manager <spm_install>
+   Интеграция в приложение на базе Flutter <flutter_install>
+   Использование в приложении на базе Flutter <flutter_usage>
+   Интеграция в приложение на базе React Native <RN_install>
+   Использование в приложении на базе React Native <RN_usage>
