@@ -24,6 +24,7 @@
    :hidden:
    :caption: Интеграции
 
+   introduction
    api/rest/rest_main
    api/rest_batch/rest_batch_main
    api/http/http_main
