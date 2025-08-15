@@ -1,4 +1,5 @@
-.. _tg-codes-smpp:
+..
+   .. _tg-codes-smpp:
 
 Коды авторизации Telegram Gateway
 ==================================
