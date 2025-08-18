@@ -16,6 +16,10 @@
                         <li class="item-nav"><a href="templates_file.html">Создание файла с шаблонами</a></li>
                         <li class="item-nav"><a href="templates_expressions.html">Выражения для подстановок</a></li>
                     </ul>
+                    <label class="wrap-btn" for="templates_intro">
+                        <span class="wrap">Смотреть все</span>
+                        <span class="unwrap">Свернуть</span>
+                     </label>
                 </section>
             </div>   
         </section>
@@ -28,3 +32,5 @@
    templates_add
    templates_file
    templates_expressions
+
+
