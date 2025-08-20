@@ -32,3 +32,4 @@ SDK для HMS–приложений
    :hidden:
 
    PushService для Android <install_sdk_android>
+   sdk_android_flutter
