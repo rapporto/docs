@@ -17,6 +17,7 @@
 
    lk/start
    lk/spam
+   lk/templates/templates_intro
    lk/analytics
    lk/admin
    lk/questions
@@ -58,6 +59,7 @@
 
 | Создавайте SMS-, Viber- и Telegram-рассылки с индивидуальным контентом и расписанием.
 | Настраивайте и отправляйте каскадные и отложенные рассылки сообщений.
+| Добавляйте шаблоны для разделения исходящего трафика на типы.
 | Просматривайте статистику и отчёты по результатам рассылок.
 | Администрируйте личный кабинет — добавляйте пользователей и назначайте им права.
 | Настраивайте интеграционные подключения по различным протоколам.
@@ -81,6 +83,7 @@
                 </div>
                 <div><a href='news.html' class='view'>Посмотреть</a></div>
             </div>
+
             <div class="row-table">
                 <section class="section">
                     <h4 class="item-header">Рассылки</h4>
@@ -99,14 +102,30 @@
                         <li class="item-nav"><a href="lk/segments.html">Создание сегментов</a></li>
                         <li class="item-nav"><a href="lk/black_list.html">Добавление черного списка</a></li>
                         <li class="item-nav"><a href="lk/sender.html">Работа с разделом "Рассылки"</a></li>
-
-
                     </ul>
                     <label class="wrap-btn" for="spam">
                         <span class="wrap">Смотреть все</span>
                         <span class="unwrap">Свернуть</span>
                      </label>
                 </section>
+
+                <section class="section">
+                    <h4 class="item-header">Шаблоны</h4>
+                    <input type="checkbox" id="templates"/>
+                    <ul>
+                        <li class="item-nav"><a href="lk/templates/templates_search.html">Поиск шаблонов</a></li>
+                        <li class="item-nav"><a href="lk/templates/templates_add.html">Добавление шаблонов</a></li>
+                        <li class="item-nav"><a href="lk/templates/templates_file.html">Создание файла с шаблонами</a></li>
+                        <li class="item-nav"><a href="lk/templates/templates_expressions.html">Выражения для подстановок</a></li>  
+                    </ul>
+                    <label class="wrap-btn" for="templates">
+                        <span class="wrap">Смотреть все</span>
+                        <span class="unwrap">Свернуть</span>
+                     </label>
+                </section>
+            </div>
+
+            <div class="row-table">
                 <section class="section">
                     <h4 class="item-header">Аналитика</h4>
                     <input type="checkbox" id="analytics"/>
@@ -118,16 +137,13 @@
                         <li class="item-nav"><a href="lk/summary_rep_telegram.html">Сводный отчет Telegram</a></li>
                         <li class="item-nav"><a href="lk/financial_report.html">Финансовый отчет</a></li>
                         <li class="item-nav"><a href="lk/searching.html">Поиск сообщений</a></li>
-
-
                     </ul>
                     <label class="wrap-btn" for="analytics">
                         <span class="wrap">Смотреть все</span>
                         <span class="unwrap">Свернуть</span>
                      </label>
                 </section> 
-            </div>
-            <div class="row-table">
+
                 <section class="section">
                     <h4 class="item-header">Администрирование</h4>
                     <ul>
@@ -136,6 +152,9 @@
                         <li class="item-nav"><a href="lk/teams.html">Что такое команды</a></li>
                     </ul>             
                 </section>
+            </div>
+
+            <div class="row-table">
                 <section class="section">
                     <h4 class="item-header">Интеграции</h4>
                     <input type="checkbox" id="report"/>
@@ -147,15 +166,13 @@
                         <li class="item-nav"><a href="api/smpp/smpp_main.html">SMPP API</a></li>
                         <li class="item-nav"><a href="api/hlr/hlr_main.html">HLR API</a></li>
                         <li class="item-nav"><a href="api/ivr/ivr_index.html">IVR</a></li>
-
                     </ul>
                     <label class="wrap-btn" for="report">
                         <span class="wrap">Смотреть все</span>
                         <span class="unwrap">Свернуть</span>
                     </label>
-                  </section>
-            </div>
-            <div class="row-table">
+                </section>
+
                 <section class="section">
                     <h4 class="item-header">Push-сервис</h4>
                     <ul>
@@ -163,8 +180,5 @@
                         <li class="item-nav"><a href="push_service/sdk/main.html">SDK Rapporto</a></li>
                     </ul>
                 </section>
-             </div>
+            </div>
         </section>
- 
-
- 

@@ -890,6 +890,26 @@ a:visited {
   display: none;
 }
 
+/* Выпадающее меню для стартовой страницы блока Шаблоны */
+.section #templates {
+  display: none;
+}
+
+.section #templates:checked ~ ul li:nth-child(1n + 4) {
+  max-height: 999px;
+  display: block;
+  transition: 0.2s ease-in;
+}
+
+.section #templates:checked ~ .wrap-btn .unwrap {
+  display: block;
+}
+
+.section #templates:checked ~ .wrap-btn .wrap {
+  display: none;
+}
+
+
 /* Выпадающее меню для стартовой страницы блока Аналитика */
 .section #analytics {
   display: none;
