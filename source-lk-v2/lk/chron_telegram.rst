@@ -5,7 +5,7 @@
 
 Для построения подробного отчета Telegram необходимо выполнить следующие действия:
 
-.. image:: media/chron_report_telegram1.gif
+.. image:: media/reports_chron-report-telegram_overview.gif
 
 1. В личном кабинете перейти в раздел **"Отчеты"**, нажав на соответствующую иконку в левом меню страницы.
 
