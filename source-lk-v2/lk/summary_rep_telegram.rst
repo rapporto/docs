@@ -5,7 +5,7 @@
 
 Для построения сводного отчета Telegram необходимо выполнить следующие действия:
 
-.. image:: media/summary_report_telegram3.gif
+.. image:: media/reports_summary-report-telegram_overview.gif
 
 1. В личном кабинете перейти в раздел **"Отчеты"**, нажав на соответствующую иконку в левом меню страницы.
 
