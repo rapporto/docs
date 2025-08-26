@@ -1,7 +1,5 @@
-
-
 Рассылки
-========
+==========
  
 .. toctree::
    :maxdepth: 2 
@@ -16,19 +14,17 @@
    schedule
    delayed_sender
    date_of_end
+   messaging_edit-properties
    contact_list
    segments
    black_list
    sender
 
-
-   
-
 Создавайте рассылки с индивидуальным контентом и расписанием.
  
 .. raw:: html
 
-         <section class="content">   
+        <section class="content">   
             <div class="row-table">
                 <section class="section">
                     <h4 class="item-header"></h4>
@@ -43,6 +39,7 @@
                         <li class="item-nav"><a href="schedule.html">Добавление расписания рассылки</a></li>
                         <li class="item-nav"><a href="delayed_sender.html">Отправка отложенной рассылки</a></li>
                         <li class="item-nav"><a href="date_of_end.html">Указание даты окончания рассылки</a></li>
+                        <li class="item-nav"><a href="messaging_edit-properties.html">Редактирование рассылок</a></li>
                         <li class="item-nav"><a href="contact_list.html">Добавление контактов</a></li>
                         <li class="item-nav"><a href="segments.html">Создание сегментов</a></li>
                         <li class="item-nav"><a href="black_list.html">Добавление черного списка</a></li>
@@ -51,13 +48,7 @@
                     <label class="wrap-btn" for="spam">
                         <span class="wrap">Смотреть все</span>
                         <span class="unwrap">Свернуть</span>
-                     </label>
-                </section>
-                
+                    </label>
+                </section> 
             </div>
-            
         </section>
- 
- 
-
- 
