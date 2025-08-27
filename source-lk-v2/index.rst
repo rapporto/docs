@@ -98,6 +98,7 @@
                         <li class="item-nav"><a href="lk/schedule.html">Добавление расписания рассылки</a></li>
                         <li class="item-nav"><a href="lk/delayed_sender.html">Отправка отложенной рассылки</a></li>
                         <li class="item-nav"><a href="lk/date_of_end.html">Указание даты окончания рассылки</a></li>
+                        <li class="item-nav"><a href="lk/messaging_edit-properties.html">Редактирование рассылок</a></li>
                         <li class="item-nav"><a href="lk/contact_list.html">Добавление контактов</a></li>
                         <li class="item-nav"><a href="lk/segments.html">Создание сегментов</a></li>
                         <li class="item-nav"><a href="lk/black_list.html">Добавление черного списка</a></li>
@@ -106,7 +107,7 @@
                     <label class="wrap-btn" for="spam">
                         <span class="wrap">Смотреть все</span>
                         <span class="unwrap">Свернуть</span>
-                     </label>
+                    </label>
                 </section>
 
                 <section class="section">
@@ -121,7 +122,7 @@
                     <label class="wrap-btn" for="templates">
                         <span class="wrap">Смотреть все</span>
                         <span class="unwrap">Свернуть</span>
-                     </label>
+                    </label>
                 </section>
             </div>
 
@@ -131,8 +132,8 @@
                     <input type="checkbox" id="analytics"/>
                     <ul>
                         <li class="item-nav"><a href="lk/sender_statistics.html">Просмотр статистики рассылки</a></li>
+                        <li class="item-nav"><a href="lk/chron_report.html">Подробный отчет</a></li>
                         <li class="item-nav"><a href="lk/summary_report.html">Сводный отчет</a></li>
-                        <li class="item-nav"><a href="lk/chron_repport.html">Подробный отчет</a></li>
                         <li class="item-nav"><a href="lk/chron_telegram.html">Подробный отчет Telegram</a></li>
                         <li class="item-nav"><a href="lk/summary_rep_telegram.html">Сводный отчет Telegram</a></li>
                         <li class="item-nav"><a href="lk/financial_report.html">Финансовый отчет</a></li>
@@ -141,14 +142,14 @@
                     <label class="wrap-btn" for="analytics">
                         <span class="wrap">Смотреть все</span>
                         <span class="unwrap">Свернуть</span>
-                     </label>
+                    </label>
                 </section> 
 
                 <section class="section">
                     <h4 class="item-header">Администрирование</h4>
                     <ul>
                         <li class="item-nav"><a href="lk/newuser.html">Добавление пользователя</a></li>
-                        <li class="item-nav"><a href="lk/rights.html">Настройка прав пользователю</a></li>
+                        <li class="item-nav"><a href="lk/rights.html">Настройка прав пользователя</a></li>
                         <li class="item-nav"><a href="lk/teams.html">Что такое команды</a></li>
                     </ul>             
                 </section>
