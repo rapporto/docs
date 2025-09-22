@@ -10,6 +10,7 @@ APIs in English
    rest_eng/eng_rest_main
    http_eng/eng_http_main
    ftp_eng/eng_ftp_main
+   smpp_eng/eng_smpp_main
    eng_support
 
 
