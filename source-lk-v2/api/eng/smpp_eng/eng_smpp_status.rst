@@ -12,7 +12,7 @@ The message delivery status is transmitted in the ``message_state`` TLV paramete
 
 .. important:: As of 01/03/2023 ``DELIVRD(2)`` and ``UNDELIV(5)`` statuses are no longer transmitted for SMS messages sent to MegaFon subscribers.
 
-The number of message delivery reports the Service Provider sends to the Partner depends on the scenario and the configured resending mode (see :ref:`cascade`). 
+The number of message delivery reports the Service Provider sends to the Partner depends on the scenario and the configured resending mode (see :ref:`cascade_eng`). 
 
 The table provides examples for a scenario where the *VK → SMS* sending combination is configured. 
 
