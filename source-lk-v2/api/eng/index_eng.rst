@@ -30,8 +30,8 @@ APIs in English
                         <li class="item-nav"><a href="smpp_eng/eng_smpp_main.html">SMPP API</a></li>
                     </ul>
                     <label class="wrap-btn" for="report">
-                        <span class="wrap">See all</span>
-                        <span class="unwrap">Hide</span>
+                        <span class="wrap">View all</span>
+                        <span class="unwrap">Collapse</span>
                      </label>
                   </section>
             </div>
