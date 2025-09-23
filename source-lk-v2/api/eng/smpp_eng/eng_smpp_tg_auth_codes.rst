@@ -8,7 +8,7 @@ This section describes the specifics of transmitting authorization codes via the
 .. raw:: html
 
      <details>
-         <summary>Learn more</summary>
+         <summary>More details</summary>
          <p>
              The Telegram Gateway service is designed to deliver authorization and verification digital codes to users of Telegram.
          <p>

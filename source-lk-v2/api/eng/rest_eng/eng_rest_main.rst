@@ -15,6 +15,7 @@ When integrating via REST API, the transmission of the following types of messag
 - FlashingCall (VoiceCode);
 - Push;
 - SMS;
+- MAX;
 - Telegram;
 - Viber;
 - VK;
@@ -28,6 +29,7 @@ When integrating via REST API, the transmission of the following types of messag
    eng_rest_auth
    eng_rest_request
    eng_rest_sms
+   eng_rest_max
    eng_rest_viber
    eng_rest_telegram
    eng_rest_push
