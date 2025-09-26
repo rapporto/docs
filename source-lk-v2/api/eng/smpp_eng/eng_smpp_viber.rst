@@ -13,13 +13,14 @@ The type of Viber message is determined automatically based on the set of parame
 Request to Send Viber Messages
 =================================
 
-To send a message to the Partner, you need to :ref:`establish a connection <linkSettingeng>` to the server and transmit the ``submit_sm`` packet to the Service Provider.
+To send a message, the Partner needs to :ref:`establish a connection <linkSettingeng>` to the server and transmit the ``submit_sm`` packet to the Service Provider.
 This packet contains all the necessary message parameters and may also include optional :abbr:`TLV (Tag Length Value)` parameters.
 
-.. note:: If additional functionality is required, specify the values of the corresponding TLV parameters. Their descriptions are provided in the following sections of the website:
+.. note:: If additional functionality is required, specify the values for the corresponding TLV parameters. These parameters are described in the following sections of the website:
 
           - :doc:`eng_smpp_cascade`;
           - :doc:`eng_smpp_short_link`.
+
 
 Main Request Parameters
 ---------------------------
@@ -28,7 +29,7 @@ Main Request Parameters
 | Parameter                 | Type                     | Description                                                                                                |
 +===========================+==========================+============================================================================================================+
 | source_addr               | string                   | | Service name from which the message is sent.                                                             |
-|                           |                          | | If this parameter is absent, the message is sent from the default number configured on the               |
+|                           |                          | | If this parameter is absent, the message is sent from the default name configured on the                 |
 |                           |                          |   Service Provider's platform (as per the Partner's request).                                              |
 |                           |                          | | The encoding for the ``source_addr`` parameter value is ASCII (according to the SMPP protocol).          |
 |                           |                          | | The sender’s number (chat name) in Viber may contain Unicode symbols, including Cyrillic.                |
@@ -37,11 +38,11 @@ Main Request Parameters
 |                           |                          |   interface between the Service Provider’s and Viber’s platforms.                                          |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | destination_addr          | string                   | | Subscriber's phone number.                                                                               |
-|                           |                          | | Maximum length: 25 characters.                                                                           | 
+|                           |                          | | Maximum length is 25 characters.                                                                         | 
 |                           |                          | | Examples: 79036550550, +79036550550, 8-903-655-05-50, 89036550550.                                       | 
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | short_message             | string                   | | Message to be sent to the subscriber.                                                                    |
-|                           |                          | | Maximum Viber message length: 1000 characters.                                                           | 
+|                           |                          | | Maximum Viber message length is 1000 characters.                                                         | 
 |                           |                          | | Maximum user data length for the ``short_message`` field: 254 octets.                                    | 
 |                           |                          |                                                                                                            | 
 |                           |                          | | Text messages longer than 254 octets are recommended to be sent in a single PDU in the TLV parameter     |
@@ -77,12 +78,9 @@ Main Request Parameters
 |                           |                          | | This option can be configured by default on the Service Provider's side (upon the Partner's request).    |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | schedule_delivery_time    | string                   | | Scheduled message delivery date and time.                                                                |
-|                           |                          | | The Service Provider's platform has a restriction:                                                       | 
-|                           |                          |   the scheduled time cannot be later than a certain period from the current moment.                        | 
-|                           |                          | | The exact limits of this restriction should be clarified with the Service Provider's support team.       | 
 |                           |                          | | The ``schedule_delivery_time`` field can be set in either relative or absolute format.                   |
 |                           |                          | | Furthermore, a special format is available to specify a delivery interval based on the subscriber's      |
-|                           |                          |    local time zone, derived automatically from their phone number.                                         |
+|                           |                          |   local time zone, derived automatically from their phone number.                                          |
 |                           |                          | | Value format for the ``YYMMDDhhmmsstnnp`` parameter, where:                                              |
 |                           |                          |                                                                                                            |
 |                           |                          | - YYMMDDhhmmss – year, month, day, hours, minutes, seconds;                                                |
@@ -99,8 +97,10 @@ Main Request Parameters
 |                           |                          |     10:00 am and the window is set for “yesterday” from 3:00 pm to 6:00 pm, the message will not be sent   |
 |                           |                          |     before 3:00 pm. If the interval has already ended on the current day, its start  is moved to the next  |
 |                           |                          |     day.                                                                                                   |
-+---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
-| validity_period           | string                   | | Message validity period.                                                                                 |
+|                           |                          | | The Service Provider's platform has a restriction, namely, the scheduled date and time cannot be later   | 
+|                           |                          |   than a specified period from the current moment.                                                         | 
+|                           |                          | | The exact limits of this restriction should be clarified with the Service Provider's support team.       |+---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
+| validity_period           | string                   | | Message lifetime.                                                                                        |
 |                           |                          | | Validity period for Viber: from 30 to 86400 seconds (up 24 hours).                                       |
 |                           |                          | | Value format for the  ``YYMMDDhhmmsstnnp`` parameter, where:                                             |
 |                           |                          |                                                                                                            |
@@ -115,8 +115,8 @@ Main Request Parameters
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 
 
-Request TLV Parameters
--------------------------
+TLV Parameters
+--------------------
 
 TLV parameters for sending messages from the Partner to the Service Provider.
 
@@ -127,20 +127,14 @@ TLV parameters for sending messages from the Partner to the Service Provider.
 |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
 |                           | Length              | 2                 | Integer           | Length of the parameter in octets.                                    |
 |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
-|                           | Value               | up to 2048        | Octet String      | Used for message text longer than 254 octets                          |
-|                           |                     |                   |                   | (an SMPP multi-segment message).                                      |
+|                           | Value               | up to 2048        | Octet String      | Contains the extended short message user data, longer than 254 octets.|
 |                           |                     |                   |                   |                                                                       |
-|                           |                     |                   |                   | The Service Provider's SMPP server supports concatenation of messages |
-|                           |                     |                   |                   | split into parts using one of the following methods:                  |
+|                           |                     |                   |                   | .. note:: The short message data should be inserted in either the     |
+|                           |                     |                   |                   |    ``short_message`` or ``message_payload`` fields. Both fields       |
+|                           |                     |                   |                   |    should not be used simultaneously.                                 |
 |                           |                     |                   |                   |                                                                       |
-|                           |                     |                   |                   | - UDH-8;                                                              |
-|                           |                     |                   |                   | - UDH-16;                                                             |
-|                           |                     |                   |                   | - using TLV parameters.                                               |
-|                           |                     |                   |                   |                                                                       |
-|                           |                     |                   |                   | .. note:: Text messages shorter than 254 octets should be sent in the |
-|                           |                     |                   |                   |    ``short_message`` parameter.                                       |
-|                           |                     |                   |                   |    Simultaneous use of the ``message_payload``and ``short_message``   |
-|                           |                     |                   |                   |    parameters is not allowed.                                         |
+|                           |                     |                   |                   |    The ``sm_length`` field should be set to zero if using the         |
+|                           |                     |                   |                   |    ``message_payload`` parameter.                                     |
 +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
 | ptag                      | Tag                 | 2                 | Integer           | id = 0x1411                                                           |
 |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
@@ -166,7 +160,7 @@ TLV parameters for sending messages from the Partner to the Service Provider.
 |                           | Value               | up to 2048        | Octet String      | Link to the image to be sent in the Viber message.                    |
 |                           |                     |                   |                   |                                                                       |
 |                           |                     |                   |                   | | Maximum length: 2048 characters.                                    |
-|                           |                     |                   |                   | | The URL must begin with “http://” or “https://”.                    |
+|                           |                     |                   |                   | | The URL must begin with ``http://`` or ``https://``.                |
 |                           |                     |                   |                   | | Characters that are not allowed in the URL according to the HTTP    |
 |                           |                     |                   |                   |   protocol standard (special characters, Cyrillic, Unicode) must be   |
 |                           |                     |                   |                   |   encoded (URLEncoded) using UTF-8 encoding.                          |
@@ -179,13 +173,14 @@ TLV parameters for sending messages from the Partner to the Service Provider.
 |                           |                     |                   |                   | | Clicking the button navigates to the specified URL.                 |
 |                           |                     |                   |                   |                                                                       |
 |                           |                     |                   |                   | | Maximum length: 2048 characters.                                    |
-|                           |                     |                   |                   | | The URL must begin with “http://” or “https://”.                    |
+|                           |                     |                   |                   | | The URL must begin with ``http://`` or ``https://``.                |
 |                           |                     |                   |                   | | Characters that are not allowed in the URL according to the HTTP    |
 |                           |                     |                   |                   |   protocol standard (special characters, Cyrillic, Unicode) must be   |
 |                           |                     |                   |                   |   encoded (URLEncoded) using UTF-8 encoding.                          |
-|                           |                     |                   |                   | | Example: 0x68,0x74,0x74,0x70,0x3A,0x2F,0x2F,0x77,0x77,0x77,         |
-|                           |                     |                   |                   |   0x2E,0x62,0x75,0x74,0x74,0x6F,0x6E, 0x2E,0x72,0x75,0x00             |
-|                           |                     |                   |                   |   – corresponds to the string “http://www.button.ru/”.                |
+|                           |                     |                   |                   | | Example: ``0x68,0x74,0x74,0x70,0x3A,0x2F,                           |
+|                           |                     |                   |                   |   0x2F,0x77,0x77,0x77,0x2E,0x62,0x75,0x74,                            |
+|                           |                     |                   |                   |   0x74,0x6F,0x6E, 0x2E,0x72,0x75,0x00``                               |
+|                           |                     |                   |                   |   – corresponds to the string ``http://www.button.ru/``.              |
 |                           |                     |                   |                   | | The use of NULL characters at the end of the string value is        |
 |                           |                     |                   |                   |   optional.                                                           |
 +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
@@ -198,8 +193,8 @@ TLV parameters for sending messages from the Partner to the Service Provider.
 |                           |                     |                   |                   | | Maximum length: 20 characters.                                      |
 |                           |                     |                   |                   | | If the text contains Cyrillic characters, UTF-8 encoding should     |
 |                           |                     |                   |                   |   be used.                                                            |
-|                           |                     |                   |                   | | Example: 0xD0,0xBA,0xD0,0xBD,0xD0,0xBE,0xD0,0xBF,0xD0,0xBA,0xD0,0xB0|
-|                           |                     |                   |                   |   – corresponds to the string “button”.                               |
+|                           |                     |                   |                   | | Example: ``0xD0,0xBA,0xD0,0xBD,0xD0,0xBE,0xD0,                      |
+|                           |                     |                   |                   |   0xBF,0xD0,0xBA,0xD0,0xB0`` – corresponds to the string ``button``.  |
 +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
 | viberTTL                  | Tag                 | 2                 | Integer           | id = 0x1435                                                           |
 |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
@@ -227,7 +222,7 @@ Response to Request
 
 In response to the ``submit_sm`` packet, the Service Provider's server replies with the ``submit_sm_resp`` packet containing the ``command_status`` field.
 
-If the packet is accepted and processed successfully, the body of the ``submit_sm_resp`` packet will contain ``message_id`` – a unique identifier (a positive integer) 
+If the packet is accepted and processed successfully, the body of the ``submit_sm_resp`` packet will contain a ``message_id`` unique identifier (a positive integer) 
 assigned to this PDU by the Service Provider's server. 
 
 Subsequently, the ``message_id`` value is used by the Partner to receive and analyze message delivery statuses.
@@ -238,12 +233,13 @@ Possible values for the ``command_status`` field are provided in the tables belo
 Successful Send Response
 ----------------------------
 
-In case of successful sending, the response code (HEX) ``0x00`` is returned.
+In case of successful sending, the ``0x00`` response code (HEX) is returned.
           
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 | Code (HEX)          | Description                                         | Partner Action                                          |
 +=====================+=====================================================+=========================================================+
-| 0x00                | The packet received successfully.                   | No errors, normal service operation.                    |
+| 0x00                | The packet received successfully.                   | No errors, common service's operation.                  |
+|                     |                                                     | No Partner's action needed.                             |
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 
 
@@ -259,7 +255,7 @@ For invalid results, the response code (HEX) will be different from ``0x00``.
 |                     |                                                     | and retry sending the message.                          |
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 | 0x03                | The Partner sent a PDU of an unsupported type       | The Partner fixes the errors on their side.             |
-|                     | (query_sm, submit_multi, data_sm, etc.).            |                                                         |
+|                     | (``query_sm``, ``submit_multi``, ``data_sm``, etc.) |                                                         |
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 | 0x08                | System error on the server.                         | | The Partner can retry sending the message.            |
 |                     |                                                     | | If the error persists, stop trying to send the        |
@@ -297,7 +293,7 @@ For invalid results, the response code (HEX) will be different from ``0x00``.
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 | 0x55                | The threshold for the maximum number of response    | The Partner needs to wait for the next incoming message |
 |                     | messages for the “request-response” or “mixed”      | from the subscriber.                                    |
-|                     | mode has been exceeded.                             |                                                         |  
+|                     | mode has been exceeded.                             |                                                         |
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 | 0x58                | | The bandwidth set for the Partner has been        | | The Partner stops the sending process (``submit_sm``) |
 |                     |   exceeded.                                         |   for 5 seconds, then resumes sending without           |
@@ -308,7 +304,7 @@ For invalid results, the response code (HEX) will be different from ``0x00``.
 |                     |   processed: the Service Provider will send messages|                                                         |
 |                     |   to subscribers.                                   |                                                         |
 |                     | | In response to the last 2 messages, the           |                                                         |
-|                     |    Service Provider will return the ``0x58`` error  |                                                         |
+|                     |   Service Provider will return the ``0x58`` error   |                                                         |
 |                     |   code to the Partner and will not send these       |                                                         |
 |                     |   2 messages to subscribers.                        |                                                         |
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
@@ -316,7 +312,7 @@ For invalid results, the response code (HEX) will be different from ``0x00``.
 |                     | parameter specified.                                | then retry with the correct ``schedule_delivery_time``. |
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 | 0x62                | | Transaction duration limit exceeded.              | The Partner can retry sending with the correct          |
-|                     | | An error occurs if the value passed in the        | ``schedule_delivery_time`` value.                       |
+|                     | | The error occurs if the value passed in the       | ``schedule_delivery_time`` value.                       |
 |                     |   ``schedule_delivery_time`` parameter is out       |                                                         |
 |                     |   of range.                                         |                                                         |
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
@@ -340,20 +336,21 @@ For invalid results, the response code (HEX) will be different from ``0x00``.
 |                     | the TLV parameters.                                 | then retry sending the message with the correct set     |
 |                     |                                                     | of parameters.                                          |
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
-| 0x500               | The error will appear if a certain merging          | When this error occurs, the Partner stops the process   |
-|                     | method is specified in the settings of the          | of sending messages, changes the method of sending      |
-|                     | integration SMPP client in the “Protocol Parameters“| these messages on their side (TLV or UDH), repeats      |
-|                     | protocol parameters (“Merge via UDH“ or             | sending these messages.                                 |
-|                     | “Merge via TLV“), and a packet that does not match  |                                                         |
-|                     | this processing type is received from the SMPP      | If the error appears again after the changes made,      |
-|                     | client.                                             | contact the                                             |
+| 0x500               | The error will occur if in the settings of          | When this error occurs, the Partner stops the process   |
+|                     | the integrated SMPP client under the protocol       | of sending messages, changes the method of sending      |
+|                     | parameters ("Protocol Parameters"), a specific      | these messages on their side (TLV or UDH), repeats      |
+|                     | concatenation method ("Concatenate via UDH" or      | sending these messages.                                 |
+|                     | "Concatenate via TLV") is selected, and the SMPP    |                                                         |
+|                     | client sends a packet that does not conform         | If the error occurs again after the changes made,       |
+|                     | to this type of processing.                         | please contact the                                      |
 |                     |                                                     | :ref:`Technical Support Service <eng-support>`,         |
-|                     | The error will not appear if the                    | providing the most comprehensive information about      |
-|                     | “Detect automatically” option (default value) option| the conditions for the occurrence of this error.        |
-|                     | is selected. In this case, when receiving data from |                                                         |
-|                     | the SMPP client, the type of packet is              |                                                         |
-|                     | automatically determined and the message is merged  |                                                         |
-|                     | according to a certain method.                      |                                                         |
+|                     | The error will not occur if the                     | providing the most comprehensive information about      |
+|                     | “Detect automatically” option (set by default)      | the conditions for the occurrence of this error.        |
+|                     | is selected. In this case, upon receiving data from |                                                         |
+|                     | the SMPP client, the packet type is                 |                                                         |
+|                     | automatically determined, and the message           |                                                         |
+|                     | concatenation is performed according to             |                                                         |
+|                     | the specified method.                               |                                                         |
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 
 .. note:: If the Partner's service does not respond to the Service Provider's requests, :ref:`eng_reprocessing` is performed.
@@ -363,14 +360,14 @@ For invalid results, the response code (HEX) will be different from ``0x00``.
 Message Delivery Statuses
 ==============================
 
-To receive the SMS message statuses, you need to configure the :doc:`eng_smpp_status`.
+To receive Viber message statuses, you need to configure the :doc:`eng_smpp_status`.
 
 
-Viber Session
-=============
+Viber Sessions
+===============
 
 | Viber sessions are a feature that allows a Partner to communicate with subscribers at a fixed price per session within a certain time frame. 
-| Users can start a session for any reason – a question, a problem report, checking a booking or delivery status – and are guaranteed a real-time response.
+| The reason for starting a session can be anything: a question, a problem report, a booking inquiry, or a delivery status check. The user will receive a response in real time.
 
 .. note:: The Viber Sessions feature is not available by default. Please contact your supervising manager to enable it.
 
@@ -380,7 +377,7 @@ Setup
 
 | A special Viber business account is required to use Viber sessions.
 | You can create a new Viber business account with the sessions feature enabled.
-| If you already have an existing business account and would like to enable sessions for it, contact your supervising manager.
+| If you already have an existing business account and would like to enable sessions for it, please contact your supervising manager.
 
 .. important:: For business accounts that support the Viber Sessions feature, only text messages or only images are available.
 

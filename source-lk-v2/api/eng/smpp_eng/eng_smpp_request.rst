@@ -67,7 +67,7 @@ Maintaining the Connection
 ---------------------------
 
 | The ``enquire_link`` PDU is used to maintain the connection during periods of no traffic. The server sends the ``enquire_link`` packet once per minute if there is no traffic on the connection during this period.
-| If there is no adequate response from the client (the ``enquire_link_resp`` PDU) within 30 seconds (the timeout is configurable on the Service Provider's platform), the server terminates the connection without sending the ``unbind`` packet.
+| If there is no correct response from the client (the ``enquire_link_resp`` PDU) within 30 seconds, the server terminates the connection without sending the ``unbind`` packet. The timeout is configurable on the Service Provider's platform.
 | The client can also send the ``enquire_link`` packet to the Server at any time and should expect an immediate ``enquire_link_resp`` response.
 
 

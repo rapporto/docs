@@ -1,5 +1,5 @@
 
-APIs in English
+English version
 ================
 
 .. toctree::

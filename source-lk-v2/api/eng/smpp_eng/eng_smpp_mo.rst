@@ -26,12 +26,12 @@ The table below describes the parameters used in the Service Provider's request 
 | destination_addr          | string                   | Receiver. The service name.                                                                                |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | short_message             | string                   | | Text of the message from the subscriber.                                                                 |
-|                           |                          | | Long messages consisting of multiple parts can be delivered to the Partner in various ways:              |
+|                           |                          | | Long messages made up of multiple parts can be sent to the Partner in different ways:                    |
 |                           |                          |                                                                                                            |
-|                           |                          | - several PDUs, concatenation using the UDH-8 algorithm (default setting);                                 |
-|                           |                          | - several PDUs, concatenation using the UDH-16 algorithm;                                                  |
-|                           |                          | - several PDUs, concatenation using TLV parameters (SAR parameters);                                       |
-|                           |                          | - a single PDU, with the text sent in the ``message_payload`` (0x0424) TLV parameter.                      |
+|                           |                          | - as multiple PDUs with concatenation using the UDH-8 algorithm, which is the default setting.             |
+|                           |                          | - as multiple PDUs with concatenation using the UDH-16 algorithm.                                          |
+|                           |                          | - as multiple PDUs with concatenation using TLV parameters (SAR parameters);                               |
+|                           |                          | - as a single PDU, with the text sent in the ``message_payload`` (0x0424) TLV parameter.                   |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | data_coding               | integer                  | | Encoding scheme/type of the message text.                                                                |
 |                           |                          | | Depending on the content, the text is sent in one of two encodings:                                      |
@@ -44,5 +44,4 @@ The table below describes the parameters used in the Service Provider's request 
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 
 If necessary, additional TLV parameters containing extended message information can be included in the packet.
-
 
