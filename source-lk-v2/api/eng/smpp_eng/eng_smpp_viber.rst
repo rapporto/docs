@@ -38,15 +38,15 @@ Main Request Parameters
 |                           |                          |   interface between the Service Provider’s and Viber’s platforms.                                          |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | destination_addr          | string                   | | Subscriber's phone number.                                                                               |
-|                           |                          | | Maximum length is 25 characters.                                                                         | 
-|                           |                          | | Examples: 79036550550, +79036550550, 8-903-655-05-50, 89036550550.                                       | 
+|                           |                          | | Maximum length is 25 characters.                                                                         |
+|                           |                          | | Examples: 79036550550, +79036550550, 8-903-655-05-50, 89036550550.                                       |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | short_message             | string                   | | Message to be sent to the subscriber.                                                                    |
-|                           |                          | | Maximum Viber message length is 1000 characters.                                                         | 
-|                           |                          | | Maximum user data length for the ``short_message`` field: 254 octets.                                    | 
-|                           |                          |                                                                                                            | 
+|                           |                          | | Maximum Viber message length is 1000 characters.                                                         |
+|                           |                          | | Maximum user data length for the ``short_message`` field: 254 octets.                                    |
+|                           |                          |                                                                                                            |
 |                           |                          | | Text messages longer than 254 octets are recommended to be sent in a single PDU in the TLV parameter     |
-|                           |                          |   ``message_payload``(id = ``0x0424``).                                                                    | 
+|                           |                          |   ``message_payload``(id = ``0x0424``).                                                                    |
 |                           |                          |                                                                                                            |
 |                           |                          | .. warning:: Simultaneous use of both fields is not allowed. When using the ``message_payload``            |
 |                           |                          |   parameter, the value of the ``short_message`` parameter should not be specified.                         |
@@ -97,9 +97,11 @@ Main Request Parameters
 |                           |                          |     10:00 am and the window is set for “yesterday” from 3:00 pm to 6:00 pm, the message will not be sent   |
 |                           |                          |     before 3:00 pm. If the interval has already ended on the current day, its start  is moved to the next  |
 |                           |                          |     day.                                                                                                   |
-|                           |                          | | The Service Provider's platform has a restriction, namely, the scheduled date and time cannot be later   | 
-|                           |                          |   than a specified period from the current moment.                                                         | 
-|                           |                          | | The exact limits of this restriction should be clarified with the Service Provider's support team.       |+---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
+|                           |                          |                                                                                                            |
+|                           |                          | | The Service Provider's platform has a restriction, namely, the scheduled date and time cannot be later   |
+|                           |                          |   than a specified period from the current moment.                                                         |
+|                           |                          | | The exact limits of this restriction should be clarified with the Service Provider's support team.       |
++---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | validity_period           | string                   | | Message lifetime.                                                                                        |
 |                           |                          | | Validity period for Viber: from 30 to 86400 seconds (up 24 hours).                                       |
 |                           |                          | | Value format for the  ``YYMMDDhhmmsstnnp`` parameter, where:                                             |

@@ -132,8 +132,9 @@ Main Request Parameters
 |                           |                          |     10:00 am and the window is set for “yesterday” from 3:00 pm to 6:00 pm, the message will not be sent   |
 |                           |                          |     before 3:00 pm. If the interval has already ended on the current day, its start  is moved to the next  |
 |                           |                          |     day.                                                                                                   |
-|                           |                          | | The Service Provider's platform has a restriction, namely, the scheduled date and time cannot be later   | 
-|                           |                          |   than a specified period from the current moment.                                                         | 
+|                           |                          |                                                                                                            |
+|                           |                          | | The Service Provider's platform has a restriction, namely, the scheduled date and time cannot be later   |
+|                           |                          |   than a specified period from the current moment.                                                         |
 |                           |                          | | The exact limits of this restriction should be clarified with the Service Provider's support team.       |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | validity_period           | string                   | | Message lifetime.                                                                                        |
