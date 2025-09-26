@@ -3,7 +3,7 @@ Mobile Originated Messages
 
 Mobile Originated message (MO message) is a message sent by a subscriber's device to the server.
 
-To get MO messages from subscribers the Partner shell provide the Service Provider with an URL. The URL is set in the integration settings when enabling the service.
+To get MO messages from subscribers the Partner shall provide the Service Provider with an URL. The URL is set in the integration settings when enabling the service.
 
 Setup
 ------------
