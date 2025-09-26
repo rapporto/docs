@@ -85,7 +85,7 @@ Request TLV Parameters
         |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         |                           | Value               | 11                | Octet String      | Service name from which messages will be sent in resending mode.      |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | The parameter is analyzed only after receiving the ``0x1437``         |
+        |                           |                     |                   |                   | The parameter is being processed only after receiving the ``0x1437``  |
         |                           |                     |                   |                   | TLV parameter.                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         | TLV Identifier for        | Tag                 | 2                 | Integer           | id = 0x1439                                                           |
@@ -94,7 +94,7 @@ Request TLV Parameters
         |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         |                           | Value               | 1000              | Octet String      | Alternative text of the Viber message sent in resending mode.         |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | The parameter is analyzed only after receiving the ``0x1437``         |
+        |                           |                     |                   |                   | The parameter is being processed only after receiving the ``0x1437``  |
         |                           |                     |                   |                   | TLV parameter.                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         | TLV Identifier for        | Tag                 | 2                 | Integer           | id = 0x1461                                                           |
@@ -104,7 +104,7 @@ Request TLV Parameters
         |                           | Value               | 16                | Octet String      | Lifetime for the message sent in resending mode.                      |
         |                           |                     |                   |                   | Format:  “YYMMDDhhmmsstnnp”.                                          |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | The parameter is analyzed only after receiving the ``0x1437``         |
+        |                           |                     |                   |                   | The parameter is being processed only after receiving the ``0x1437``  |
         |                           |                     |                   |                   | TLV parameter.                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
 
@@ -137,7 +137,7 @@ Request TLV Parameters
         |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         |                           | Value               | 11                | Octet String      | Service name from which messages will be sent in resending mode.      |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | The parameter is analyzed only after receiving the ``0x1454``         |
+        |                           |                     |                   |                   | The parameter is being processed only after receiving the ``0x1454``  |
         |                           |                     |                   |                   | TLV parameter.                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         | TLV Identifier for        | Tag                 | 2                 | Integer           | id = 0x1456                                                           |
@@ -146,7 +146,7 @@ Request TLV Parameters
         |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         |                           | Value               | 2048              | Octet String      | Alternative text of the VK message sent in resending mode.            |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | The parameter is analyzed only after receiving the ``0x1454``         |
+        |                           |                     |                   |                   | The parameter is being processed only after receiving the ``0x1454``  |
         |                           |                     |                   |                   | TLV parameter.                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         | TLV Identifier for        | Tag                 | 2                 | Integer           | id = 0x1457                                                           |
@@ -156,7 +156,7 @@ Request TLV Parameters
         |                           | Value               | 16                | Octet String      | Lifetime for the message sent in resending mode.                      |
         |                           |                     |                   |                   | Format: “YYMMDDhhmmsstnnp”.                                           |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | The parameter is analyzed only after receiving the ``0x1454``         |
+        |                           |                     |                   |                   | The parameter is being processed only after receiving the ``0x1454``  |
         |                           |                     |                   |                   | TLV parameter.                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
 
@@ -190,8 +190,8 @@ Request TLV Parameters
         |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         |                           | Value               | 11                | Octet String      | Service name from which messages will be sent in resending mode.      |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | The parameter is analyzed only after receiving the ``0x1458``         |
-        |                           |                     |                   |                   | TLV parameter. .                                                      |
+        |                           |                     |                   |                   | The parameter is being processed only after receiving the ``0x1458``  |
+        |                           |                     |                   |                   | TLV parameter.                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         | TLV Identifier for        | Tag                 | 2                 | Integer           | id = 0x1460                                                           |
         | alternative message       +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
@@ -199,7 +199,7 @@ Request TLV Parameters
         |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         |                           | Value               | 2000              | Octet String      | Alternative text of the VK message sent in resending mode.            |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | The parameter is analyzed only after receiving the ``0x1458``         |
+        |                           |                     |                   |                   | The parameter is being processed only after receiving the ``0x1458``  |
         |                           |                     |                   |                   | TLV parameter.                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         | TLV Identifier for        | Tag                 | 2                 | Integer           | id = 0x1442                                                           |
@@ -209,7 +209,7 @@ Request TLV Parameters
         |                           | Value               | 16                | Octet String      | Lifetime for the message sent in resending mode.                      |
         |                           |                     |                   |                   | Format: “YYMMDDhhmmsstnnp”.                                           |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | The parameter is analyzed only after receiving the ``0x1458``         |
+        |                           |                     |                   |                   | The parameter is being processed only after receiving the ``0x1458``  |
         |                           |                     |                   |                   | TLV parameter.                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
 

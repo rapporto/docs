@@ -10,7 +10,7 @@ This section describes the specifics of transmitting authorization codes via the
      <details>
          <summary>More details</summary>
          <p>
-             The Telegram Gateway service is designed to deliver authorization and verification digital codes to users of Telegram.
+             The Telegram Gateway service is designed to deliver authorization and verification digital codes to Telegram Messenger users.
          <p>
              Codes are sent from the Verification Codes official channel.
          </p>
@@ -19,16 +19,17 @@ This section describes the specifics of transmitting authorization codes via the
              The delivery of codes is also unaffected by whether the user has a Telegram Premium subscription or not.
          </p>
          <p>
-             Sending digital codes via Telegram is possible within SMS-type message texts. During processing, messages will be converted into the TG format and transmitted to Telegram.
+             Digital codes can be sent to Telegram messenger in text messages of SMS type only. During processing, messages will be converted into the TG format and transmitted to Telegram.
          </p>
          <p>
              Currently, the service supports:
          </p>
          <ul>
-             <li>sending messages with authorization codes via Telegram;</li>
+             <li>sending messages with authorization codes to Telegram;</li>
              <li>receiving message delivery statuses;</li>
          </ul>  
      </details>
+
 
 
 Connection 
@@ -45,13 +46,13 @@ The Partner and the Service Provider must agree on the following to connect:
 Sending Request 
 -------------------
 
-When requesting the transmission of an authorization code to Telegram, be sure to include the service name. This name should be pre-approved with the :ref:`Technical Support Service <eng-support>`.
+In the request for transmitting the authorization code to Telegram, it is necessary to specify a service name that has been separately coordinated with the :ref:`Technical Support Service <eng-support>`.
 
 It is recommended to include parameters and values related to the ``SMS`` message type in the request.
 
-The message should consist of four to eight digits.
+The message must contain a code consisting of four to eight digits.
 
-To send a message to the Partner, you need to :ref:`establish a connection <linkSettingeng>` to the server and transmit the ``submit_sm`` packet to the Service Provider.
+To send a message, the Partner needs to :ref:`establish a connection <linkSettingeng>` to the server and transmit the ``submit_sm`` packet to the Service Provider.
 This packet contains all the necessary message parameters (optionally, also :abbr:`TLV (Tag Length Value)` parameters).
 
 Main Request Parameters
@@ -66,33 +67,27 @@ Main Request Parameters
 |                           |                          | sending) must contain the service name, which is separately agreed upon with the                           | 
 |                           |                          | :ref:`Technical Support Service <eng-support>`.                                                            |
 |                           |                          |                                                                                                            | 
-|                           |                          | | If this parameter is absent, the message is sent from the default number configured on the               |
+|                           |                          | | If this parameter is absent, the message is sent from the default name configured on the                 |
 |                           |                          |   Service Provider's platform (as per the Partner's request).                                              |
 |                           |                          | | The encoding for the ``source_addr`` parameter value is ASCII (according to the SMPP protocol).          |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
-| destination_addr          | string                   | | Subscriber's phone number, up to 25 characters. Examples: 79036550550, +79036550550, 8-903-655-05-50,    |
-|                           |                          |  89036550550.                                                                                              |
+| destination_addr          | string                   | | Subscriber's phone number.                                                                               |
+|                           |                          | | Maximum length is 25 characters.                                                                         | 
+|                           |                          | | Examples: 79036550550, +79036550550, 8-903-655-05-50, 89036550550.                                       | 
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | short_message             | string                   | Message to be sent to the subscriber.                                                                      |
 |                           |                          |                                                                                                            | 
-|                           |                          | Must contain a code consisting of four to eight digits.                                                    | 
+|                           |                          | Message must contain a code consisting of four to eight digits.                                            | 
 |                           |                          |                                                                                                            | 
-|                           |                          | Maximum message length: 2000 characters.                                                                   | 
+|                           |                          | Maximum message length is 2000 characters.                                                                 | 
 |                           |                          |                                                                                                            | 
 |                           |                          | Maximum user data length for the ``short_message`` field: 254 octets.                                      | 
 |                           |                          |                                                                                                            | 
-|                           |                          | Long text messages (longer than 254 octets, multi-segment from an SMPP perspective) are recommended to     |
-|                           |                          | be sent in a single PDU by placing the text in the TLV parameter ``message_payload``, id = 0x0424.         | 
-|                           |                          | Message data should be inserted in the ``short_message`` field or in the ``message_payload`` field.        |
-|                           |                          | **Important!** Simultaneous use of both fields is not allowed. When using the ``message_payload``          |
-|                           |                          | field, the ``short_message`` field must remain empty.                                                      |
-|                           |                          |                                                                                                            | 
-|                           |                          | The Service Provider's SMPP server supports message concatenation (reassembly of segmented messages)       | 
-|                           |                          | using one of the following methods:                                                                        |
-|                           |                          |                                                                                                            | 
-|                           |                          | - UDH-8;                                                                                                   | 
-|                           |                          | - UDH-16;                                                                                                  | 
-|                           |                          | - using TLV parameters.                                                                                    |
+|                           |                          | Text messages longer than 254 octets are recommended to be sent in a single PDU in the TLV parameter       |
+|                           |                          | ``message_payload``(id = ``0x0424``).                                                                      | 
+|                           |                          |                                                                                                            |
+|                           |                          | .. warning:: Simultaneous use of both fields is not allowed. When using the ``message_payload``            |
+|                           |                          |    parameter, the value of the ``short_message`` parameter should not be specified.                        |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | data_coding               | integer                  | | Encoding scheme/type of the message text. It is set in accordance with the GSM 03.38 standard.           |
 |                           |                          | | Valid values:                                                                                            |
@@ -120,7 +115,7 @@ Main Request Parameters
 |                           |                          |                                                                                                            |
 |                           |                          | | This option can be configured by default on the Service Provider's side (upon the Partner's request).    |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
-| validity_period           | string                   | | Message validity period.                                                                                 |
+| validity_period           | string                   | | Message lifetime.                                                                                        |
 |                           |                          | | Validity period: from 30 to 3600 seconds.                                                                |
 |                           |                          | | Value format for the ``YYMMDDhhmmsstnnp`` parameter, where:                                              |
 |                           |                          |                                                                                                            |
@@ -147,8 +142,8 @@ Main Request Parameters
 
 
 
-Request TLV Parameters
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TLV Parameters
+--------------------
 
 TLV parameters for sending messages from the Partner to the Service Provider.
 
@@ -159,14 +154,14 @@ TLV parameters for sending messages from the Partner to the Service Provider.
 |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
 |                           | Length              | 2                 | Integer           | Length of the parameter in octets.                                    |
 |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
-|                           | Value               | up to 2048        | Octet String      | Used for message text longer than 254 octets.                         |
+|                           | Value               | up to 2048        | Octet String      | Contains the extended short message user data, longer than 254 octets.|
 |                           |                     |                   |                   |                                                                       |
-|                           |                     |                   |                   | | The message text should be placed either in the ``short_message``   |
-|                           |                     |                   |                   |   field or in the ``message_payload`` field.                          |
-|                           |                     |                   |                   | | Simultaneous use of both fields is not allowed.                     |
-|                           |                     |                   |                   |                                                                       | 
-|                           |                     |                   |                   | | When using the ``message_payload`` field, the ``short_message``     |
-|                           |                     |                   |                   |   field should remain empty.                                          |
+|                           |                     |                   |                   | .. note:: The short message data should be inserted in either the     |
+|                           |                     |                   |                   |    ``short_message`` or ``message_payload`` fields. Both fields       |
+|                           |                     |                   |                   |    should not be used simultaneously.                                 |
+|                           |                     |                   |                   |                                                                       |
+|                           |                     |                   |                   |    The ``sm_length`` field should be set to zero if using the         |
+|                           |                     |                   |                   |    ``message_payload`` parameter.                                     |
 +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
 | ptag                      | Tag                 | 2                 | Integer           | id = 0x1411                                                           |
 |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
@@ -192,7 +187,7 @@ Response to Request
 
 In response to the ``submit_sm`` packet, the Service Provider's server replies with the ``submit_sm_resp`` packet containing the ``command_status`` field.
 
-If the packet is accepted and processed successfully, the body of the ``submit_sm_resp`` packet will contain ``message_id`` – a unique identifier (a positive integer) 
+If the packet is accepted and processed successfully, the body of the ``submit_sm_resp`` packet will contain a ``message_id`` unique identifier (a positive integer) 
 assigned to this PDU by the Service Provider's server. 
 
 Subsequently, the ``message_id`` value is used by the Partner to receive and analyze message delivery statuses.
@@ -202,12 +197,13 @@ Possible values for the ``command_status`` field are provided in the tables belo
 Successful Send Response
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In case of successful sending, the response code (HEX) ``0x00`` is returned.
+In case of successful sending, the ``0x00`` response code (HEX) is returned.
           
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 | Code (HEX)          | Description                                         | Partner Action                                          |
 +=====================+=====================================================+=========================================================+
-| 0x00                | The packet received successfully.                   | No errors, normal service operation.                    |
+| 0x00                | The packet received successfully.                   | No errors, common service's operation.                  |
+|                     |                                                     | No Partner's action needed.                             |
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 
 
@@ -223,7 +219,7 @@ For invalid results, the response code (HEX) will be different from ``0x00``.
 |                     |                                                     | and retry sending the message.                          |
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 | 0x03                | The Partner sent a PDU of an unsupported type       | The Partner fixes the errors on their side.             |
-|                     | (query_sm, submit_multi, data_sm, etc.).            |                                                         |
+|                     | (``query_sm``, ``submit_multi``, ``data_sm``, etc.) |                                                         |
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 | 0x08                | System error on the server.                         | | The Partner can retry to send the message.            |
 |                     |                                                     | | If the error persists, stop trying to send the        |
@@ -277,7 +273,7 @@ For invalid results, the response code (HEX) will be different from ``0x00``.
 |                     |   2 messages to subscribers.                        |                                                         |
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 | 0x62                | | Transaction duration limit exceeded.              | The Partner can retry sending with the correct          |
-|                     | | An error occurs if the value passed in the        | ``schedule_delivery_time`` value.                       |
+|                     | | The error occurs if the value passed in the       | ``schedule_delivery_time`` value.                       |
 |                     |   ``schedule_delivery_time`` parameter is out       |                                                         |
 |                     |   of range.                                         |                                                         |
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
@@ -301,20 +297,21 @@ For invalid results, the response code (HEX) will be different from ``0x00``.
 |                     | the TLV parameters.                                 | then retry sending the message with the correct set     |
 |                     |                                                     | of parameters.                                          |
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
-| 0x500               | The error will appear if a certain merging          | When this error occurs, the Partner stops the process   |
-|                     | method is specified in the settings of the          | of sending messages, changes the method of sending      |
-|                     | integration SMPP client in the “Protocol Parameters“| these messages on their side (TLV or UDH), repeats      |
-|                     | protocol parameters (“Merge via UDH“ or             | sending these messages.                                 |
-|                     | “Merge via TLV“), and a packet that does not match  |                                                         |
-|                     | this processing type is received from the SMPP      | If the error appears again after the changes made,      |
-|                     | client.                                             | contact the                                             |
+| 0x500               | The error will occur if in the settings of          | When this error occurs, the Partner stops the process   |
+|                     | the integrated SMPP client under the protocol       | of sending messages, changes the method of sending      |
+|                     | parameters ("Protocol Parameters"), a specific      | these messages on their side (TLV or UDH), repeats      |
+|                     | concatenation method ("Concatenate via UDH" or      | sending these messages.                                 |
+|                     | "Concatenate via TLV") is selected, and the SMPP    |                                                         |
+|                     | client sends a packet that does not conform         | If the error occurs again after the changes made,       |
+|                     | to this type of processing.                         | please contact the                                      |
 |                     |                                                     | :ref:`Technical Support Service <eng-support>`,         |
-|                     | The error will not appear if the                    | providing the most comprehensive information about      |
-|                     | “Detect automatically” option (default value)       | the conditions for the occurrence of this error.        |
-|                     | is selected. In this case, when receiving data from |                                                         |
-|                     | the SMPP client, the type of packet is              |                                                         |
-|                     | automatically determined and the message is merged  |                                                         |
-|                     | according to a certain method.                      |                                                         |
+|                     | The error will not occur if the                     | providing the most comprehensive information about      |
+|                     | “Detect automatically” option (set by default)      | the conditions for the occurrence of this error.        |
+|                     | is selected. In this case, upon receiving data from |                                                         |
+|                     | the SMPP client, the packet type is                 |                                                         |
+|                     | automatically determined, and the message           |                                                         |
+|                     | concatenation is performed according to             |                                                         |
+|                     | the specified method.                               |                                                         |
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 
 .. note:: If the Partner's service does not respond to the Service Provider's requests, :ref:`eng_reprocessing` is performed.

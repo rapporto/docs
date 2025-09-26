@@ -35,7 +35,7 @@ The table provides examples for a scenario where the *VK → SMS* sending combin
 |                                                         | receiving a            |                                                         |
 |                                                         | “not delivered” status |                                                         |
 +---------------------------------------------------------+------------------------+---------------------------------------------------------+ 
-| The VK message was delivered to the subscriber but was  | ``S`` – same as        | Two reports will be sent:                               |
+| The VK message was delivered to the subscriber but was  | ``S`` – the same as    | Two reports will be sent:                               |
 | not read by the subscriber within the message lifetime. | ``Y``, plus perform    |                                                         |
 |                                                         | resending if a “viewed”| 1. VK message delivered.                                |
 |                                                         | status is not          | 2. SMS message delivered or not delivered.              |
@@ -60,8 +60,8 @@ The number of logical parts is specified in the ``sub`` field of the ``deliver_s
 then the number of logical parts for the entire (complete) message will be specified in each ``sub`` field of the corresponding ``deliver_sm``.
 
 
-Send parameters
----------------------
+Transmitted Parameters
+------------------------
 
 The table below describes parameters of the ``deliver_sm`` packet transmitted from the Service Provider to the Partner.
 
@@ -73,7 +73,7 @@ The table below describes parameters of the ``deliver_sm`` packet transmitted fr
 | dest_addr                 | string                   | Service name.                                                                                              |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | short_message             | string                   | | Read report.                                                                                             |
-|                           |                          | | The delivery/read report is formatted as a string:                                                       |
+|                           |                          | | The delivery/read report is generated as a string:                                                       |
 |                           |                          |   ``id: IIIIIIIIII sub: SSS dlvrd: DDD submit date: YYMMDDhhmm                                             |
 |                           |                          |   done date: YYMMDDhhmm stat: DDDDDDD seen date: YYMMDDhhmm err: E text: ...``.                            |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
@@ -169,26 +169,26 @@ This section describes errors that may occur when sending different message type
     .. tab:: SMS
 
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Code    | Error description                                                                                                                              |
+      | Code    | Error Description                                                                                                                              |
       +=========+================================================================================================================================================+
-      | 1       | An error unknown to the platform occurred during message delivery, or the operator did not provide an error in the delivery report.            |                                  
+      | 1       | An unknown error (to the platform) occurred during message delivery, or the operator did not provide an error in the delivery report.          |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 2       | The subscriber's phone was switched off or out of coverage for the duration of the message delivery attempts.                                  |
+      | 2       | The subscriber's device was powered off or out of network coverage throughout the duration of the message delivery attempts.                   |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 3       | The subscriber’s device is blocked, either the subscriber has the ban on receiving messages enabled, or the subscriber is in roaming with      |
-      |         | the ban on receiving messages while roaming enabled.                                                                                           |
+      | 3       | The subscriber’s device is blocked, or the subscriber has message reception disabled, or the subscriber is in roaming with message             |
+      |         | reception banned while roaming.                                                                                                                |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
       | 4       | An error occurred at the transport layer of the signaling network during the delivery of the message.                                          |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 5       | The subscriber’s phone memory is full.                                                                                                         |
+      | 5       | The subscriber’s device memory is full.                                                                                                        |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 6       | The subscriber does not have the message receiving service activated.                                                                          |
+      | 6       | The subscriber does not have the message receiving service subscribed.                                                                         |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
       | 7       | The switching equipment on which the subscriber is registered is not responding.                                                               |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 8       | Invalid subscriber number, or the subscriber's phone has been switched off for a very long period of time.                                     |
+      | 8       | The subscriber's number is invalid, or the subscriber's device has been powered off for a very long period of time.                            |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 9       | The message was discarded by the platform as the function of cutting duplicate messages was activated.                                         |
+      | 9       | The message was discarded by the platform because the duplicate message filtering mechanism was triggered.                                     |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
       | 10      | The message was discarded by the platform because one of the message filters, such as a spam filter, was triggered.                            |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -198,13 +198,13 @@ This section describes errors that may occur when sending different message type
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
       | 13      | Sending a message from a sender name that is not registered by the operator.                                                                   |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 14      | On the operator’s side, a SPAM filter was activated based on the text of the message.                                                          |
+      | 14      | On the operator’s side, a spam filter was triggered by the message text.                                                                       |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 16      | At the time of SMS message delivery, the phone was busy either receiving or transmitting another short message.                                |
+      | 16      | At the time of SMS message delivery, the subscriber’s device was busy receiving or transmitting another short message.                         |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 18      | When sending a message, one or more SMS message parameters were specified incorrectly, or mandatory parameters were not included.              |
+      | 18      | During message transmission, one or more SMS message parameters were specified incorrectly, or mandatory parameters were not specified.        |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 20      | The subscriber’s phone does not accept SMS messages.                                                                                           |
+      | 20      | The subscriber’s device does not accept SMS messages.                                                                                          |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
       | 28      | The SMS message was sent to a number belonging to another mobile operator.                                                                     |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -214,20 +214,20 @@ This section describes errors that may occur when sending different message type
     .. tab:: VIBER
 
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Code    | Error description                                                                                                                              |
+      | Code    | Error Description                                                                                                                              |
       +=========+================================================================================================================================================+
-      | 1       | An error unknown to the platform occurred during message delivery, or the operator did not provide an error in the delivery report.            |
+      | 1       | An unknown error (to the platform) occurred during message delivery, or the operator did not provide an error in the delivery report.          |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 3       | The subscriber’s device is blocked, either the subscriber has the ban on receiving messages enabled, or the subscriber is in roaming with      |
-      |         | the ban on receiving messages while roaming enabled.                                                                                           |
+      | 3       | The subscriber’s device is blocked, or the subscriber has message reception disabled, or the subscriber is in roaming with message reception   |
+      |         | disabled in roaming.                                                                                                                           |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 5       | The subscriber’s phone memory is full.                                                                                                         |
+      | 5       | The subscriber’s device memory is full.                                                                                                        |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 6       | The subscriber does not have the message receiving service activated.                                                                          |
+      | 6       | The subscriber does not have the message receiving service subscribed.                                                                         |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 7       | The switching equipment on which the subscriber is registered isn’t responding.                                                                |
+      | 7       | The switching equipment on which the subscriber is registered is not responding.                                                               |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 9       | The message was discarded by the platform as the function of cutting duplicate messages was activated.                                         |
+      | 9       | The message was discarded by the platform as the duplicate message filtering mechanism was triggered.                                          |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
       | 11      | Routing error in the platform configuration.                                                                                                   |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -236,39 +236,38 @@ This section describes errors that may occur when sending different message type
     .. tab:: VK
 
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Code    | Error description                                                                                                                              |
+      | Code    | Error Description                                                                                                                              |
       +=========+================================================================================================================================================+
-      | 1       | An error unknown to the platform occurred during message delivery, or the operator did not provide an error in the delivery report.            |
+      | 1       | An unknown error (to the platform) occurred during message delivery, or the operator did not provide an error in the delivery report.          |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 3       | The subscriber’s device is blocked, either the subscriber has the ban on receiving messages enabled, or the subscriber is in roaming with      |
-      |         | the ban on receiving messages while roaming enabled.                                                                                           |
+      | 3       | The subscriber’s device is blocked, or the subscriber has message reception disabled, or the subscriber is in roaming with message reception   |
+      |         | disabled in roaming.                                                                                                                           |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 6       | The subscriber does not have the message receiving service activated.                                                                          |
+      | 6       | The subscriber does not have the message receiving service subscribed.                                                                         |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 10      |  The message was discarded by the platform because one of the message filters, such as a spam filter, was triggered.                           |
+      | 10       | The message was discarded by the platform because one of the message filters, such as a spam filter, was triggered.                           |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
       | 11      | Routing error in the platform configuration.                                                                                                   |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
 
-
     .. tab:: PUSH
 
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Код     | Error description                                                                                                                              |
+      | Код     | Error Description                                                                                                                              |
       +=========+================================================================================================================================================+
-      | 1       | An error unknown to the platform occurred during message delivery, or the operator did not provide an error in the delivery report.            |
+      | 1       | An unknown error (to the platform) occurred during message delivery, or the operator did not provide an error in the delivery report.          |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 7       | The switching equipment on which the subscriber is registered isn’t responding.                                                                |
+      | 7       | The switching equipment on which the subscriber is registered is not responding.                                                               |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 8       | Invalid subscriber number, or the subscriber's phone has been switched off for a very long period of time.                                     |
+      | 8       | The subscriber's number is invalid, or the subscriber's device has been powered off for a very long period of time.                            |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 9       | The message was discarded by the platform as the function of cutting duplicate messages was activated.                                         |
+      | 9       | The message was discarded by the platform because the duplicate message filtering mechanism was triggered.                                     |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
       | 11      | Routing error in the platform configuration.                                                                                                   |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
       | 13      | Sending a message from a sender name that is not registered by the operator.                                                                   |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 18      | Incorrect request parameters were specified, or mandatory parameters were not specified.                                                       |
+      | 18      | During message transmission, one or more message parameters were specified incorrectly, or mandatory parameters were not specified.            |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
       | 19      | No card found with the transmitted subscriber identifier.                                                                                      |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -298,21 +297,20 @@ This section describes errors that may occur when sending different message type
     .. tab:: FLASHINGCALL (VOICECODE)
 
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | Code    | Error description                                                                                                                              |
+      | Code    | Error Description                                                                                                                              |
       +=========+================================================================================================================================================+
-      | 1       | An error unknown to the platform occurred during message delivery, or the operator did not provide an error in the delivery report.            |
+      | 1       | An unknown error (to the platform) occurred during message delivery, or the operator did not provide an error in the delivery report.          |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 2       | The subscriber's phone was switched off or out of coverage for the duration of the message delivery attempts.                                  |
+      | 2       | The subscriber's device was powered off or out of network coverage throughout the duration of the message delivery attempts.                   |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
       | 4       | An error occurred at the transport layer of the signaling network during the delivery of the message.                                          |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 6       | The subscriber does not have the message receiving service activated.                                                                          |
+      | 5       | The subscriber’s device memory is full.                                                                                                        |
+      +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
+      | 6       | The subscriber does not have the message receiving service subscribed.                                                                         |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
       | 16      | The subscriber’s number is busy.                                                                                                               |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-
 
 
 

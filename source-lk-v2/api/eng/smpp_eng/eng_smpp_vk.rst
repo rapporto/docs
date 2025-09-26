@@ -1,10 +1,10 @@
 VK
-===
+=======
 
-Features of VK Messages
------------------------------------
+Features of :abbr:`VK (VKontakte social network)` Messages
+-----------------------------------------------------------
 
-When sending VK messages, the following features should be considered:
+When sending messages to VKontakte social network, the following features should be considered:
 
 1.	The Partner can only send text messages with a maximum length of 2048 characters.
 2.	Messages may contain links. If necessary, links may be shortened (see :doc:`eng_smpp_short_link`).
@@ -12,9 +12,9 @@ When sending VK messages, the following features should be considered:
 4.	The Partner can send no more than 50 messages per second from one VK group.
 5.	The Partner can send no more than 5 messages per day to one user from one VK group.
 6.	All VK groups and examples of message texts are subject to preliminary moderation with the presentation of a service agreement, a trademark certificate and other necessary documents.
-7.	Messages have a time-to-live period from 1 minute to 24 hours. If the notification is not received by the user's device within the time to live period, it will not be delivered and displayed to the end user.
+7.	Messages have a time-to-live period from 1 minute to 24 hours. If the notification is not received by the user's device within the time to live period, it will not be delivered and displayed to the user.
 8.  Only delivered messages are charged.
-9.	Messages are delivered only to active VK users. A user is considered active if they have visited the website (via the mobile or web version of the social network) within the last 7 days.
+9.	Messages are delivered only to active VK users. Active users are those who have visited the website within the last 7 days (either the mobile or web version of the social network).
 
 Connecting the VK Message Sending Service
 ------------------------------------------
@@ -24,13 +24,14 @@ To enable the VK message sending service, the Partner has to additionally provid
 - the URL of the VK group (on whose behalf the messages will be sent); 
 - examples of text messages for moderation.
 
-VKontakte Network Moderation Rules
--------------------------------------
+VKontakte Moderation Rules
+--------------------------------
 
-| These moderation rules are applied for all message templates, which are submitted for approval for further mass messaging to end users of *Mail.Ru Group* projects. 
-| Both the sender (a company) and the text (a template) of the message are moderated. The following criteria are taken into account when checking a company: the industry to which the company belongs, the company type, its market reputation. 
+These moderation rules are applied for all message templates, which are submitted for approval for further mass messaging to end users of *Mail.Ru Group* projects. 
 
-Messages from the following companies are not accepted for review:
+Both the sender (a Partner's company) and the text (a template) of the message are moderated. The following criteria are taken into account when checking a company: the industry to which the company belongs, the company type, its market reputation. 
+
+Messages from the following companies are *not accepted for review*:
 
 1.	Microfinance organizations.
 2.	Debt collection agencies (including relevant bank departments).
@@ -46,7 +47,7 @@ The following rules apply to text moderation:
 1.	Advertising texts are not being accepted for consideration. Advertising includes any messages addressed to an indefinite number of persons and aimed at attracting attention to an object of advertising, forming or maintaining interest in it, and promoting it in the market.
 2.	If a message template submitted for moderation contains both a service component and an advertising component, it will not pass moderation.
 3.	All message templates must comply with the requirements of the legislation of the Russian Federation and the legislation of the country in which the users to whom the message is addressed are located, as well as existing ethical norms and principles (templates should not contain messages that offend human dignity, promote violence, racial or national hatred, etc.).
-4.	Message templates should not contain information directly or indirectly compromising the Mail.Ru Group and all projects and products that are part of the group of companies. Message templates should not contain information that may advertise products that compete in terms of price or consumer properties with services provided by projects and services of the *Mail.Ru Group*.
+4.	Message templates should not contain information directly or indirectly compromising the *Mail.Ru Group* and all projects and products that are part of the group of companies. Message templates should not contain information that may advertise products that compete in terms of price or consumer properties with services provided by projects and services of the *Mail.Ru Group*.
 5.	Message templates should contain information strictly related to the interaction between the user and the owner of the official group, on behalf of which the message is sent.
 6.	Message templates should contain information concerning only orders and/or actions of users that were performed immediately prior to the sending of the informational message.
 7.	Templates might contain URL to WEB pages and sites only after individual approval.
@@ -55,7 +56,7 @@ The following rules apply to text moderation:
 Request to Send Messages 
 ==========================
 
-To send a message to the Partner, you need to :ref:`establish a connection <linkSettingeng>` to the server and transmit the ``submit_sm`` packet to the Service Provider.
+To send a message, the Partner needs to :ref:`establish a connection <linkSettingeng>` with the server and transmit the ``submit_sm`` packet to the Service Provider.
 This packet contains all the necessary message parameters and may also include optional :abbr:`TLV (Tag Length Value)` parameters.
 
 .. note:: If additional functionality is required, specify the values of the corresponding TLV parameters. Their descriptions are provided in the following sections of the website:
@@ -72,23 +73,18 @@ Main Request Parameters
 | Parameter                 | Type                     | Description                                                                                                |
 +===========================+==========================+============================================================================================================+
 | source_addr               | string                   | | Service name from which the message is sent.                                                             |
-|                           |                          | | If this parameter is absent, the message is sent from the default number configured on the               |
+|                           |                          | | If this parameter is absent, the message is sent from the default name configured on the                 |
 |                           |                          |   Service Provider's platform (as per the Partner's request).                                              |
 |                           |                          | | The encoding for the ``source_addr`` parameter value is ASCII (according to the SMPP protocol).          |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | destination_addr          | string                   | | Subscriber's phone number.                                                                               |
-|                           |                          | | Maximum length: 25 characters.                                                                           | 
+|                           |                          | | Maximum length is 25 characters.                                                                         | 
 |                           |                          | | Examples: 79036550550, +79036550550, 8-903-655-05-50, 89036550550.                                       | 
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | short_message             | string                   | | Message to be sent to the subscriber.                                                                    |
-|                           |                          | | Maximum Viber message length: 2048 characters.                                                           | 
+|                           |                          | | Maximum VK message length is 2048 characters.                                                            | 
 |                           |                          | | Maximum user data length for the ``short_message`` field: 254 octets.                                    | 
 |                           |                          |                                                                                                            | 
-|                           |                          | | Text messages longer than 254 octets are recommended to be sent in a single PDU in the TLV parameter     |
-|                           |                          |   ``message_payload``(id = ``0x0424``).                                                                    | 
-|                           |                          |                                                                                                            |
-|                           |                          | .. warning:: Simultaneous use of both fields is not allowed. When using the ``message_payload``            |
-|                           |                          |    parameter, the value of the ``short_message`` parameter should not be specified.                        |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | data_coding               | integer                  | | Encoding scheme/type of the message text. It is set in accordance with the GSM 03.38 standard.           |
 |                           |                          | | Valid values:                                                                                            |
@@ -117,12 +113,9 @@ Main Request Parameters
 |                           |                          | | This option can be configured by default on the Service Provider's side (upon the Partner's request).    |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | schedule_delivery_time    | string                   | | Scheduled message delivery date and time.                                                                |
-|                           |                          | | The Service Provider's platform has a restriction:                                                       | 
-|                           |                          |   the scheduled time cannot be later than a certain period from the current moment.                        | 
-|                           |                          | | The exact limits of this restriction should be clarified with the Service Provider's support team.       | 
 |                           |                          | | The ``schedule_delivery_time`` field can be set in either relative or absolute format.                   |
 |                           |                          | | Furthermore, a special format is available to specify a delivery interval based on the subscriber's      |
-|                           |                          |    local time zone, derived automatically from their phone number.                                         |
+|                           |                          |   local time zone, derived automatically from their phone number.                                          |
 |                           |                          | | Value format for the ``YYMMDDhhmmsstnnp`` parameter, where:                                              |
 |                           |                          |                                                                                                            |
 |                           |                          | - YYMMDDhhmmss – year, month, day, hours, minutes, seconds;                                                |
@@ -137,10 +130,13 @@ Main Request Parameters
 |                           |                          |     a possible sending interval, while the quarters specify the length of this interval. Sending occurs    |
 |                           |                          |     within the specified time, even if the date is in the past. For example, if the current time is        |
 |                           |                          |     10:00 am and the window is set for “yesterday” from 3:00 pm to 6:00 pm, the message will not be sent   |
-|                           |                          |     before 3:00 pm. If the interval has already ended on the current day, its start is moved to the next   |
+|                           |                          |     before 3:00 pm. If the interval has already ended on the current day, its start  is moved to the next  |
 |                           |                          |     day.                                                                                                   |
+|                           |                          | | The Service Provider's platform has a restriction, namely, the scheduled date and time cannot be later   | 
+|                           |                          |   than a specified period from the current moment.                                                         | 
+|                           |                          | | The exact limits of this restriction should be clarified with the Service Provider's support team.       |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
-| validity_period           | string                   | | Message validity period.                                                                                 |
+| validity_period           | string                   | | Message lifetime.                                                                                        |
 |                           |                          | | Validity period for VK: from 60 to 86400 seconds (up to 24 hours).                                       |
 |                           |                          | | Value format for the  ``YYMMDDhhmmsstnnp`` parameter, where:                                             |
 |                           |                          |                                                                                                            |
@@ -155,7 +151,7 @@ Main Request Parameters
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 
 
-Request TLV Parameters
+TLV Parameters
 -----------------------
 
 TLV parameters for sending messages from the Partner to the Service Provider.
@@ -167,20 +163,14 @@ TLV parameters for sending messages from the Partner to the Service Provider.
 |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
 |                           | Length              | 2                 | Integer           | Length of the parameter in octets.                                    |
 |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
-|                           | Value               | up to 2048        | Octet String      | Used for message text longer than 254 octets                          |
-|                           |                     |                   |                   | (an SMPP multi-segment message).                                      |
+|                           | Value               | up to 2048        | Octet String      | Contains the extended short message user data, longer than 254 octets.|
 |                           |                     |                   |                   |                                                                       |
-|                           |                     |                   |                   | The Service Provider's SMPP server supports concatenation of messages |
-|                           |                     |                   |                   | split into parts using one of the following methods:                  |
+|                           |                     |                   |                   | .. note:: The short message data should be inserted in either the     |
+|                           |                     |                   |                   |    ``short_message`` or ``message_payload`` fields. Both fields       |
+|                           |                     |                   |                   |    should not be used simultaneously.                                 |
 |                           |                     |                   |                   |                                                                       |
-|                           |                     |                   |                   | - UDH-8;                                                              |
-|                           |                     |                   |                   | - UDH-16;                                                             |
-|                           |                     |                   |                   | - using TLV parameters.                                               |
-|                           |                     |                   |                   |                                                                       |
-|                           |                     |                   |                   | .. note:: Text messages shorter than 254 octets should be sent in the |
-|                           |                     |                   |                   |    ``short_message`` parameter.                                       |
-|                           |                     |                   |                   |    Simultaneous use of the ``message_payload`` and ``short_message``  |
-|                           |                     |                   |                   |    parameters is not allowed.                                         |
+|                           |                     |                   |                   |    The ``sm_length`` field should be set to zero if using the         |
+|                           |                     |                   |                   |    ``message_payload`` parameter.                                     |
 +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
 | ptag                      | Tag                 | 2                 | Integer           | id = 0x1411                                                           |
 |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
@@ -206,7 +196,7 @@ Response to Request
 
 In response to the ``submit_sm`` packet, the Service Provider's server replies with the ``submit_sm_resp`` packet containing the ``command_status`` field.
 
-If the packet is accepted and processed successfully, the body of the ``submit_sm_resp`` packet will contain ``message_id`` – a unique identifier (a positive integer) 
+If the packet is accepted and processed successfully, the body of the ``submit_sm_resp`` packet will contain a ``message_id`` unique identifier (a positive integer) 
 assigned to this PDU by the Service Provider's server. 
 
 Subsequently, the ``message_id`` value is used by the Partner to receive and analyze message delivery statuses.
@@ -216,12 +206,13 @@ Possible values for the ``command_status`` field are provided in the tables belo
 Successful Send Response
 ----------------------------
 
-In case of successful sending, the response code (HEX) ``0x00`` is returned.
+In case of successful sending, the ``0x00`` response code (HEX) is returned.
           
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 | Code (HEX)          | Description                                         | Partner Action                                          |
 +=====================+=====================================================+=========================================================+
-| 0x00                | The packet received successfully.                   | No errors, normal service operation.                    |
+| 0x00                | The packet received successfully.                   | No errors, common service's operation.                  |
+|                     |                                                     | No Partner's action needed.                             |
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 
 
@@ -237,7 +228,7 @@ For invalid results, the response code (HEX) will be different from ``0x00``.
 |                     |                                                     | and retry sending the message.                          |
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 | 0x03                | The Partner sent a PDU of an unsupported type       | The Partner fixes the errors on their side.             |
-|                     | (query_sm, submit_multi, data_sm, etc.).            |                                                         |
+|                     | (``query_sm``, ``submit_multi``, ``data_sm``, etc.) |                                                         |
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 | 0x08                | System error on the server.                         | | The Partner can retry to send the message.            |
 |                     |                                                     | | If the error persists, stop trying to send the        |
@@ -294,7 +285,7 @@ For invalid results, the response code (HEX) will be different from ``0x00``.
 |                     | parameter specified.                                | then retry with the correct ``schedule_delivery_time``. |
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 | 0x62                | | Transaction duration limit exceeded.              | The Partner can retry sending with the correct          |
-|                     | | An error occurs if the value passed in the        | ``schedule_delivery_time`` value.                       |
+|                     | | The error occurs if the value passed in the       | ``schedule_delivery_time`` value.                       |
 |                     |   ``schedule_delivery_time`` parameter is out       |                                                         |
 |                     |   of range.                                         |                                                         |
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
@@ -318,20 +309,21 @@ For invalid results, the response code (HEX) will be different from ``0x00``.
 |                     | the TLV parameters.                                 | then retry sending the message with the correct set     |
 |                     |                                                     | of parameters.                                          |
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
-| 0x500               | The error will appear if a certain merging          | When this error occurs, the Partner stops the process   |
-|                     | method is specified in the settings of the          | of sending messages, changes the method of sending      |
-|                     | integration SMPP client in the “Protocol Parameters“| these messages on their side (TLV or UDH), repeats      |
-|                     | protocol parameters (“Merge via UDH“ or             | sending these messages.                                 |
-|                     | “Merge via TLV“), and a packet that does not match  |                                                         |
-|                     | this processing type is received from the SMPP      | If the error appears again after the changes made,      |
-|                     | client.                                             | contact the                                             |
+| 0x500               | The error will occur if in the settings of          | When this error occurs, the Partner stops the process   |
+|                     | the integrated SMPP client under the protocol       | of sending messages, changes the method of sending      |
+|                     | parameters ("Protocol Parameters"), a specific      | these messages on their side (TLV or UDH), repeats      |
+|                     | concatenation method ("Concatenate via UDH" or      | sending these messages.                                 |
+|                     | "Concatenate via TLV") is selected, and the SMPP    |                                                         |
+|                     | client sends a packet that does not conform         | If the error occurs again after the changes made,       |
+|                     | to this type of processing.                         | please contact the                                      |
 |                     |                                                     | :ref:`Technical Support Service <eng-support>`,         |
-|                     | The error will not appear if the                    | providing the most comprehensive information about      |
-|                     | “Detect automatically” option (default value)       | the conditions for the occurrence of this error.        |
-|                     | is selected. In this case, when receiving data from |                                                         |
-|                     | the SMPP client, the type of packet is              |                                                         |
-|                     | automatically determined and the message is merged  |                                                         |
-|                     | according to a certain method.                      |                                                         |
+|                     | The error will not occur if the                     | providing the most comprehensive information about      |
+|                     | “Detect automatically” option (set by default)      | the conditions for the occurrence of this error.        |
+|                     | is selected. In this case, upon receiving data from |                                                         |
+|                     | the SMPP client, the packet type is                 |                                                         |
+|                     | automatically determined, and the message           |                                                         |
+|                     | concatenation is performed according to             |                                                         |
+|                     | the specified method.                               |                                                         |
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 
 .. note:: If the Partner's service does not respond to the Service Provider's requests, :ref:`eng_reprocessing` is performed.
@@ -340,4 +332,4 @@ For invalid results, the response code (HEX) will be different from ``0x00``.
 Message Delivery Statuses
 ===============================
 
-To receive the VK message statuses, you need to configure the :doc:`eng_smpp_status`.
+To receive VK message statuses, you need to configure the :doc:`eng_smpp_status`.
