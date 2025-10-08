@@ -138,6 +138,14 @@ export default class CodeCreator {
 
             }
 
+            if (type == 'Telegram') {
+                
+                let contentType = $(`#telegram-contentType-${order}`).value;
+
+                if (contentType == 'LINK') message.link = $(`#telegram-link-${order}`).value;
+
+            }
+
             order++;
 
         }

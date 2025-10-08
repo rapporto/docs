@@ -7,6 +7,7 @@ import FlashingCallMessage from './FlashingCallMessage.js';
 import CardsMobileMessage from './CardsMobileMessage.js';
 import VKMessage from './VKMessage.js';
 import MAXMessage from './MAXMessage.js';
+import TelegramMessage from './TelegramMessage.js';
 
 export default class MessageFactory {
 
@@ -46,6 +47,14 @@ export default class MessageFactory {
 
             case 'CardsMobile':
                 m = new CardsMobileMessage(text);
+                break;
+
+            case 'MAX':
+                m = new MAXMessage(text);
+                break;
+
+            case 'Telegram':
+                m = new TelegramMessage(text);
                 break;
 
             default:
