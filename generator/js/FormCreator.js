@@ -10,7 +10,7 @@ export default class FormCreator {
 
 }
 
-const messageTypes = ['SMS', 'Viber', 'Push', 'WhatsApp', 'FlashingCall', 'VK', 'CardsMobile'];
+const messageTypes = ['SMS', 'Viber', 'Push', 'WhatsApp', 'FlashingCall', 'VK', 'CardsMobile', 'MAX'];
 let table, row, cell;
 
 table = $('#options-content').add('table');
@@ -493,6 +493,17 @@ function resetContent(order) {
         hideById(`cardsmobile-contentCategory-${order}`);
         hideById(`cardsmobile-image-url-${order}`);
 
+    }
+
+    if (type == 'MAX') {
+
+        hideById(`ttl-${order}`);
+        hideById(`ttlUnit-${order}`);
+
+    } else {
+
+        showById(`ttl-${order}`);
+        showById(`ttlUnit-${order}`);
     }
 
 }

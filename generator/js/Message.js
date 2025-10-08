@@ -54,7 +54,7 @@ export default class Message {
 
     get messageTypes() {
 
-        return ['SMS', 'Viber', 'Push', 'WhatsApp', 'FlashingCall', 'VK', 'CardsMobile'];
+        return ['SMS', 'Viber', 'Push', 'WhatsApp', 'FlashingCall', 'VK', 'CardsMobile', 'MAX'];
 
     }
 
@@ -90,7 +90,7 @@ export default class Message {
     
     get messageTypesWithTextInData() {
 
-        return ['SMS', 'VK', 'FlashingCall', 'Push', 'CardsMobile'];
+        return ['SMS', 'VK', 'FlashingCall', 'Push', 'CardsMobile', 'MAX'];
 
     }
 

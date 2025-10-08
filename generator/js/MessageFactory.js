@@ -6,6 +6,7 @@ import PushMessage from './PushMessage.js';
 import FlashingCallMessage from './FlashingCallMessage.js';
 import CardsMobileMessage from './CardsMobileMessage.js';
 import VKMessage from './VKMessage.js';
+import MAXMessage from './MAXMessage.js';
 
 export default class MessageFactory {
 
