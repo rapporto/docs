@@ -10,7 +10,7 @@ export default class FormCreator {
 
 }
 
-const messageTypes = ['SMS', 'Viber', 'Push', 'WhatsApp', 'FlashingCall', 'VK', 'CardsMobile', 'MAX', 'Telegram'];
+const messageTypes = ['SMS', 'Viber', 'Push', 'WhatsApp', 'FlashingCall', 'VK', 'CardsMobile', 'MAX', 'Telegram', 'TGCode'];
 let table, row, cell;
 
 table = $('#options-content').add('table');

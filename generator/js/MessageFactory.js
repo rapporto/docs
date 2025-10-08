@@ -8,6 +8,7 @@ import CardsMobileMessage from './CardsMobileMessage.js';
 import VKMessage from './VKMessage.js';
 import MAXMessage from './MAXMessage.js';
 import TelegramMessage from './TelegramMessage.js';
+import TGCodeMessage from './TGCodeMessage.js';
 
 export default class MessageFactory {
 
@@ -55,6 +56,10 @@ export default class MessageFactory {
 
             case 'Telegram':
                 m = new TelegramMessage(text);
+                break;
+
+            case 'TGCode':
+                m = new TGCodeMessage(text);
                 break;
 
             default:

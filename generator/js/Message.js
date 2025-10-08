@@ -54,13 +54,13 @@ export default class Message {
 
     get messageTypes() {
 
-        return ['SMS', 'Viber', 'Push', 'WhatsApp', 'FlashingCall', 'VK', 'CardsMobile', 'MAX', 'Telegram'];
+        return ['SMS', 'Viber', 'Push', 'WhatsApp', 'FlashingCall', 'VK', 'CardsMobile', 'MAX', 'Telegram', 'TGCode'];
 
     }
 
     static get canBeSeen() {
 
-        return ['Viber', 'Push', 'WhatsApp', 'VK', 'CardsMobile', 'Telegram'];
+        return ['Viber', 'Push', 'WhatsApp', 'VK', 'CardsMobile', 'Telegram', 'TGCode'];
 
     }
 
@@ -90,7 +90,7 @@ export default class Message {
     
     get messageTypesWithTextInData() {
 
-        return ['SMS', 'VK', 'FlashingCall', 'Push', 'CardsMobile', 'MAX', 'Telegram'];
+        return ['SMS', 'VK', 'FlashingCall', 'Push', 'CardsMobile', 'MAX', 'Telegram', 'TGCode'];
 
     }
 
@@ -124,6 +124,7 @@ export default class Message {
             case 'FlashingCall':
             case 'VK':
             case 'Telegram':
+            case 'TGCode':
                 
                 unit = 'MINUTES';
                 break;
