@@ -53,7 +53,8 @@
    :maxdepth: 1
    :hidden:
    :caption: &euro
-
+ 
+   installation/main
    glossary
    support   
 
