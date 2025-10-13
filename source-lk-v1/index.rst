@@ -49,6 +49,7 @@
    :hidden:
    :caption: &euro
 
+   installation/main
    glossary
    support   
 
@@ -110,8 +111,18 @@
                         <li class="item-nav"><a href="push_service/sdk/main.html">SDK Rapporto</a></li>
                     </ul>
                 </section>
-             </div>
+            </div>
         </section>
+
+            <div class="row-table">
+                <section class="section">
+                    <h4 class="item-header">Установка платформы On-Premises</h4>
+                    <ul>
+                        <li class="item-nav"><a href="installation/rcs/inst_rcs.html">Rapporto Communication System</a></li>
+                        <li class="item-nav"><a href="installation/pgw/inst_pgw.html">Rapporto Push Notification System</a></li>
+                    </ul>
+                </section> 
+            </div>    
  
 
  

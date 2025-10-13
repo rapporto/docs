@@ -10,7 +10,7 @@ export default class FormCreator {
 
 }
 
-const messageTypes = ['SMS', 'Viber', 'Push', 'WhatsApp', 'FlashingCall', 'VK', 'CardsMobile'];
+const messageTypes = ['SMS', 'Viber', 'Push', 'WhatsApp', 'FlashingCall', 'VK', 'CardsMobile', 'MAX', 'Telegram', 'TGCode'];
 let table, row, cell;
 
 table = $('#options-content').add('table');
@@ -320,6 +320,13 @@ function addMessage(order) {
     select.appendChild(new Option('Изображение', 'IMAGE', false, false));
     select.on('change', (e) => resetContent(order));
 
+    cell = addMRow(mt, 'Тип контента');
+    select = cell.add('select');
+    select.id = `telegram-contentType-${order}`;
+    select.appendChild(new Option('Текст', 'TEXT', true, true));
+    select.appendChild(new Option('Текст + ссылка', 'LINK', false, false));
+    select.on('change', (e) => resetContent(order));
+
     addMRow(mt, 'Ссылка на изображение').add('input', {
         id: `viber-image-url-${order}`,
         type: 'text'
@@ -373,6 +380,11 @@ function addMessage(order) {
 
     addMRow(mt, 'Ссылка на изображение').add('input', {
         id: `cardsmobile-image-url-${order}`,
+        type: 'text'
+    });
+
+    addMRow(mt, 'Ссылка').add('input', {
+        id: `telegram-link-${order}`,
         type: 'text'
     });
 
@@ -492,6 +504,40 @@ function resetContent(order) {
 
         hideById(`cardsmobile-contentCategory-${order}`);
         hideById(`cardsmobile-image-url-${order}`);
+
+    }
+
+    if (type == 'MAX') {
+
+        hideById(`ttl-${order}`);
+        hideById(`ttlUnit-${order}`);
+
+    } else {
+
+        showById(`ttl-${order}`);
+        showById(`ttlUnit-${order}`);
+    }
+
+    if (type == 'Telegram') {
+
+        showById(`telegram-contentType-${order}`);
+        let contentType = $(`#telegram-contentType-${order}`).value;       
+
+        switch (contentType) {
+
+            case 'TEXT':
+                hideById(`telegram-link-${order}`);
+                break;
+
+            case 'LINK':
+                showById(`telegram-link-${order}`);
+                break;
+        }
+
+    } else {
+
+        hideById(`telegram-contentType-${order}`);
+        hideById(`telegram-link-${order}`);
 
     }
 
