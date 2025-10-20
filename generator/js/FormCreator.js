@@ -541,6 +541,16 @@ function resetContent(order) {
 
     }
 
+    if (type == 'MAX' || type == 'TGCode') {
+
+        document.getElementById(`sname-${order}`).placeholder = 'Обязательное поле';
+
+    } else {
+
+        document.getElementById(`sname-${order}`).placeholder = '';
+
+    }
+
 }
 
 function hideById(id) {
