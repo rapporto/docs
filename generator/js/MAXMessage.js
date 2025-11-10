@@ -8,4 +8,27 @@ export default class MAXMessage extends Message {
 
     }
 
+    get jsonObject() {
+
+        let obj = {};
+
+        obj.type = this.type;
+        obj.data = {};
+
+        if (this.messageTypesWithTextInData.includes(this._type)) {
+
+            obj.data.text = this.text;
+
+        }
+
+        if (this.serviceNumber != '') {
+
+            obj.data.serviceNumber = this.serviceNumber;
+
+        }
+
+        return obj;
+
+    }
+
 }
