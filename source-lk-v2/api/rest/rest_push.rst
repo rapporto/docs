@@ -416,7 +416,7 @@ Push
                           "type":"PUSH",
                           "data":{
                              "externalUserId":"ИД_абонента",
-                          	  "title":"Заголовок",
+                             "title":"Заголовок",
                              "text":"Текст",
                              "serviceNumber":"Номер_отправителя",
                              "ttl":30,
@@ -458,7 +458,7 @@ Push
                           "data":{
                              "primaryOn":false,
                              "externalUserId":"ИД_абонента",
-                    	        "title": "Код для получения %data%",
+                             "title": "Код для получения %data%",
                              "text":"%name%, ваша карта с номером %card% готова к выпуску",
                              "serviceNumber":"Номер_отправителя",
                              "ttl":30,
