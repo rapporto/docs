@@ -421,7 +421,7 @@ Push
                              "serviceNumber":"Номер_отправителя",
                              "ttl":30,
                              "ttlUnit":"SECONDS",
-                             "Options":[
+                             "extraOptions":[
                                 {
                                    "param_name":"LIVE_ACTIVITY",
                                    "param_value":{
@@ -463,7 +463,7 @@ Push
                              "serviceNumber":"Номер_отправителя",
                              "ttl":30,
                              "ttlUnit":"SECONDS",
-                             "Options":[
+                             "extraOptions":[
                                 {
                                    "param_name":"SECURE",
                                    "param_value":{
@@ -503,7 +503,7 @@ Push
                                  "title":"Заголовок_сообщения",
                                  "ttl":24,
                                  "ttlUnit":"HOURS",
-                                 "Options":[
+                                 "extraOptions":[
                                     {
                                        "param_name":"SENDING_PLATFORMS",
                                        "param_value":[
