@@ -68,7 +68,6 @@
             }
 
 
-
     .. tab:: MAX > SMS
 
        .. code-block:: json
@@ -99,6 +98,43 @@
             }
 
 
+    .. tab:: VIBER > SMS
+
+       .. code-block:: json
+          :linenos:
+          :emphasize-lines: 19-30
+
+            {
+              "login": "ВАШ_ЛОГИН",
+              "password": "ВАШ_ПАРОЛЬ",
+              "id": "8770100",
+              "destAddr": "Номер_Абонента",
+              "message": {
+                "type": "VIBER",
+                "data": {
+                  "instantContent": {
+                    "type": "TEXT",
+                    "data": {
+                      "text": "VIBERMESS"
+                    }
+                  },
+                  "serviceNumber": "НОМЕР_ОТПРАВИТЕЛЯ",
+                  "ttl": 1
+                }
+              },
+              "cascadeChainLink": {
+                "state": "READ",
+                "message": {
+                  "type": "SMS",
+                  "data": {
+                    "text": "SMSMESS",
+                    "serviceNumber": "НОМЕР_ОТПРАВИТЕЛЯ",
+                    "ttl": 1,
+                    "ttlUnit": "HOURS"
+                  }
+                }
+              }
+            }
 
 
     .. tab:: FLASHINGCALL (VOICECODE) > SMS
@@ -132,6 +168,50 @@
             }
 
 
+    .. tab:: WHATSAPP > SMS
+
+       .. code-block:: json
+          :linenos:
+          :emphasize-lines: 27-37
+ 
+            {
+                "login": "ВАШ_ЛОГИН",
+                "password": "ВАШ_ПАРОЛЬ",
+                "useTimeDiff": true,
+                "id": "87706112",
+                "scheduleInfo": {
+                    "timeBegin": "09:00",
+                    "timeEnd": "21:00",
+                    "weekdaysSchedule": "12345",
+                    "deadline": "2024-12-31T16:29:30+0300"
+                },
+                "destAddr": "НОМЕР_АБОНЕНТА",
+                "message": {
+                    "type": "WHATSAPP",
+                    "data": {
+                        "instantContent": {
+                            "type": "TEXT",
+                            "data": {
+                                "text": "Текст WhatsApp-сообщения"
+                            }
+                        },
+                        "serviceNumber": "ИМЯ_ОТПРАВИТЕЛЯ",
+                        "ttl": 120,
+                        "ttlUnit": "SECONDS"
+                    }
+                },
+                "cascadeChainLink": {
+                    "state": "DELIVERED",
+                    "message": {
+                        "type": "SMS",
+                        "data": {
+                            "text": "Текст доотправляемого SMS-сообщения",
+                            "serviceNumber": "НОМЕР_ОТПРАВИТЕЛЯ_SMS",
+                            "ttl": 10
+                        }
+                    }
+                }
+            }
 
 
     .. tab:: TELEGRAM > SMS
@@ -225,94 +305,6 @@
             }
 
 
-
-
-    .. tab:: WHATSAPP > SMS
-
-       .. code-block:: json
-          :linenos:
-          :emphasize-lines: 27-37
- 
-            {
-                "login": "ВАШ_ЛОГИН",
-                "password": "ВАШ_ПАРОЛЬ",
-                "useTimeDiff": true,
-                "id": "87706112",
-                "scheduleInfo": {
-                    "timeBegin": "09:00",
-                    "timeEnd": "21:00",
-                    "weekdaysSchedule": "12345",
-                    "deadline": "2024-12-31T16:29:30+0300"
-                },
-                "destAddr": "НОМЕР_АБОНЕНТА",
-                "message": {
-                    "type": "WHATSAPP",
-                    "data": {
-                        "instantContent": {
-                            "type": "TEXT",
-                            "data": {
-                                "text": "Текст WhatsApp-сообщения"
-                            }
-                        },
-                        "serviceNumber": "ИМЯ_ОТПРАВИТЕЛЯ",
-                        "ttl": 120,
-                        "ttlUnit": "SECONDS"
-                    }
-                },
-                "cascadeChainLink": {
-                    "state": "DELIVERED",
-                    "message": {
-                        "type": "SMS",
-                        "data": {
-                            "text": "Текст доотправляемого SMS-сообщения",
-                            "serviceNumber": "НОМЕР_ОТПРАВИТЕЛЯ_SMS",
-                            "ttl": 10
-                        }
-                    }
-                }
-            }
-
-
-
-    .. tab:: VIBER > SMS
-
-       .. code-block:: json
-          :linenos:
-          :emphasize-lines: 19-30
-
-            {
-              "login": "ВАШ_ЛОГИН",
-              "password": "ВАШ_ПАРОЛЬ",
-              "id": "8770100",
-              "destAddr": "Номер_Абонента",
-              "message": {
-                "type": "VIBER",
-                "data": {
-                  "instantContent": {
-                    "type": "TEXT",
-                    "data": {
-                      "text": "VIBERMESS"
-                    }
-                  },
-                  "serviceNumber": "НОМЕР_ОТПРАВИТЕЛЯ",
-                  "ttl": 1
-                }
-              },
-              "cascadeChainLink": {
-                "state": "READ",
-                "message": {
-                  "type": "SMS",
-                  "data": {
-                    "text": "SMSMESS",
-                    "serviceNumber": "НОМЕР_ОТПРАВИТЕЛЯ",
-                    "ttl": 1,
-                    "ttlUnit": "HOURS"
-                  }
-                }
-              }
-            }
-
-
     .. tab:: VK > VIBER > FLASHINGCALL (VOICECODE) > SMS
 
        .. code-block:: json
@@ -389,31 +381,52 @@
 +--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
 | Параметр                       | Обязат.  | Тип          | Описание                                                                         |
 +================================+==========+==============+==================================================================================+ 
-| cascadeChainLink               | нет      | object       | | Параметры каскадных сообщений.                                                 |
+| cascadeChainLink               | нет      | object       | Параметры каскадных сообщений.                                                   |
 +--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
-| | {cascadeChainLink}           | да       | enum         | | Статус, по которому производится доотправка сообщения.                         |
-| | state                        |          |              | | Обязательный параметр, если требуется передача сообщения в каскаде.            |
+| | {cascadeChainLink}           | да       | enum         | Статус, по которому производится доотправка сообщения.                           |
+| | state                        |          |              |                                                                                  |
 |                                |          |              |                                                                                  |
 |                                |          |              | .. raw:: html                                                                    |
 |                                |          |              |                                                                                  |
 |                                |          |              |     <details>                                                                    |
 |                                |          |              |         <summary>Подробнее</summary>                                             |
 |                                |          |              |         <p>                                                                      |
+|                                |          |              |             Обязательный параметр, если требуется передача сообщения в каскаде.  |
+|                                |          |              |         </p>                                                                     |
+|                                |          |              |         <p>                                                                      |
 |                                |          |              |             Возможные значения:                                                  |
 |                                |          |              |         </p>                                                                     |
 |                                |          |              |         <ul>                                                                     |
-|                                |          |              |             <li><code>DELIVERED</code> – производить доотправку, если сообщение  |
+|                                |          |              |             <li><code>DELIVERED</code> — производить доотправку, если сообщение  |
 |                                |          |              |                 не доставлено в течение времени жизни сообщения;</li>            |
-|                                |          |              |             <li><code>READ</code> – производить доотправку, если сообщение не    |
+|                                |          |              |             <li><code>READ</code> — производить доотправку, если сообщение не    |
 |                                |          |              |                 прочитано в течение времени жизни сообщения.</li>                |
 |                                |          |              |         </ul>                                                                    |
 |                                |          |              |     </details>                                                                   |
 +--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
-| | {cascadeChainLink}           | да       | object       | | Параметры доотправляемого сообщения.                                           |
-| | message                      |          |              | | Обязательный параметр, если требуется передача сообщения в каскаде.            |
-|                                |          |              | | Аналогично объекту ``message`` основного сообщения.                            |
+| | {cascadeChainLink}           | да       | object       | Параметры доотправляемого сообщения.                                             |
+| | message                      |          |              |                                                                                  |
+|                                |          |              | .. raw:: html                                                                    |
+|                                |          |              |                                                                                  |
+|                                |          |              |     <details>                                                                    |
+|                                |          |              |         <summary>Подробнее</summary>                                             |
+|                                |          |              |         <p>                                                                      |
+|                                |          |              |             Обязательный параметр, если требуется передача сообщения в каскаде.  |
+|                                |          |              |         </p>                                                                     |
+|                                |          |              |         <p>                                                                      |
+|                                |          |              |             Аналогично объекту <code>message</code> основного сообщения.         |
+|                                |          |              |         </p>                                                                     |
+|                                |          |              |     </details>                                                                   |
 +--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
-| | {cascadeChainLink}           | нет      | object       | | Параметры следующего доотправляемого сообщения в цепочке.                      |
-| | nextLink                     |          |              | | Аналогично объекту ``cascadeChainLink``.                                       |
+| | {cascadeChainLink}           | нет      | object       | Параметры следующего доотправляемого сообщения в цепочке.                        |
+| | nextLink                     |          |              |                                                                                  |
+|                                |          |              | .. raw:: html                                                                    |
+|                                |          |              |                                                                                  |
+|                                |          |              |     <details>                                                                    |
+|                                |          |              |         <summary>Подробнее</summary>                                             |
+|                                |          |              |         <p>                                                                      |
+|                                |          |              |             Аналогично объекту <code>cascadeChainLink</code>.                    |
+|                                |          |              |         </p>                                                                     |
+|                                |          |              |     </details>                                                                   |
 +--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
 
