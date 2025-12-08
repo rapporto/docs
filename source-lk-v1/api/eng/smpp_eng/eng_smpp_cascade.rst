@@ -43,17 +43,28 @@ Request TLV Parameters
         |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         |                           | Value               | up to 1000        | Octet String      | Sequence of message types in the cascade.                             |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | | The value represents an enumeration of message types                |
-        |                           |                     |                   |                   |   (separated by commas).                                              |
-        |                           |                     |                   |                   | | Possible values (case insensitive):                                 |
+        |                           |                     |                   |                   | .. raw:: html                                                         |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | - i – Viber;                                                          |
-        |                           |                     |                   |                   | - s – SMS;                                                            |
-        |                           |                     |                   |                   | - p – Push;                                                           |
-        |                           |                     |                   |                   | - v – VK;                                                             |
-        |                           |                     |                   |                   | - f – FlashingCall (VoiceCode).                                       |
-        |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | For example, “V,S” or “V,I,S”.                                        |
+        |                           |                     |                   |                   |     <details>                                                         |
+        |                           |                     |                   |                   |         <summary>More details</summary>                               |
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             The value represents an enumeration of message types      |  
+        |                           |                     |                   |                   |             (separated by commas)                                     | 
+        |                           |                     |                   |                   |         </p>                                                          |
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             Possible values (case insensitive):                       |  
+        |                           |                     |                   |                   |         </p>                                                          |     
+        |                           |                     |                   |                   |         <ul>                                                          |
+        |                           |                     |                   |                   |             <li><code>i</code> — Viber;</li>                          |
+        |                           |                     |                   |                   |             <li><code>s</code> — SMS;</li>                            |
+        |                           |                     |                   |                   |             <li><code>p</code> — Push;</li>                           |
+        |                           |                     |                   |                   |             <li><code>v</code> — VK;</li>                             |
+        |                           |                     |                   |                   |             <li><code>f</code> — FlashingCall (VoiceCode).</li>       |
+        |                           |                     |                   |                   |         </ul>                                                         |  
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             For example, "V,S" or "V,I,S".                            |  
+        |                           |                     |                   |                   |         </p>                                                          |  
+        |                           |                     |                   |                   |     </details>                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
 
 
@@ -70,42 +81,77 @@ Request TLV Parameters
         |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         |                           | Value               | 1                 | Octet String      | Resending mode.                                                       |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | | This parameter is mandatory if a resending mode different           |
-        |                           |                     |                   |                   |   from the default configuration is intended to be used.              |
-        |                           |                     |                   |                   | | Possible values :                                                   |
+        |                           |                     |                   |                   | .. raw:: html                                                         |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | - “N” – do not resend;                                                |
-        |                           |                     |                   |                   | - “Y” – resend if the status “not delivered” is received;             |
-        |                           |                     |                   |                   | - “S” – resend if the “viewed” status is not received within          |
-        |                           |                     |                   |                   |   the message lifetime.                                               |
+        |                           |                     |                   |                   |     <details>                                                         |
+        |                           |                     |                   |                   |         <summary>More details</summary>                               |
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             This parameter is mandatory if a resending mode different |  
+        |                           |                     |                   |                   |             from the default configuration is intended to be used.    |      
+        |                           |                     |                   |                   |         </p>                                                          |
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             Possible values:                                          |  
+        |                           |                     |                   |                   |         </p>                                                          |     
+        |                           |                     |                   |                   |         <ul>                                                          |
+        |                           |                     |                   |                   |             <li><code>N</code> — do not resend;</li>                  |            
+        |                           |                     |                   |                   |             <li><code>Y</code> — resend if the “not delivered” status |
+        |                           |                     |                   |                   |                 is received;</li>                                     |
+        |                           |                     |                   |                   |             <li><code>S</code> — resend if the “viewed” status is not |
+        |                           |                     |                   |                   |                 received within the message lifetime. </li>           |
+        |                           |                     |                   |                   |         </ul>                                                         |    
+        |                           |                     |                   |                   |     </details>                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         | TLV Identifier for        | Tag                 | 2                 | Integer           | id = 0x1438                                                           |
         | service name reception    +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         |                           | Length              | 2                 | Integer           | Length of the parameter in octets.                                    |
         |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
-        |                           | Value               | 11                | Octet String      | Service name from which messages will be sent in resending mode.      |
+        |                           | Value               | 11                | Octet String      | Service name from which messages will be sent in the resending mode.  |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | The parameter is being processed only after receiving the ``0x1437``  |
-        |                           |                     |                   |                   | TLV parameter.                                                        |
+        |                           |                     |                   |                   | .. raw:: html                                                         |
+        |                           |                     |                   |                   |                                                                       |
+        |                           |                     |                   |                   |     <details>                                                         |
+        |                           |                     |                   |                   |         <summary>More details</summary>                               |
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             The parameter is being processed only after receiving the |  
+        |                           |                     |                   |                   |             <code>0x1437</code> TLV parameter.                        |      
+        |                           |                     |                   |                   |         </p>                                                          |   
+        |                           |                     |                   |                   |     </details>                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         | TLV Identifier for        | Tag                 | 2                 | Integer           | id = 0x1439                                                           |
         | alternative message       +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         | text reception            | Length              | 2                 | Integer           | Length of the parameter in octets.                                    |
         |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
-        |                           | Value               | 1000              | Octet String      | Alternative text of the Viber message sent in resending mode.         |
+        |                           | Value               | 1000              | Octet String      | Alternative text of the Viber message sent in the resending mode.     |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | The parameter is being processed only after receiving the ``0x1437``  |
-        |                           |                     |                   |                   | TLV parameter.                                                        |
+        |                           |                     |                   |                   |                                                                       |
+        |                           |                     |                   |                   | .. raw:: html                                                         |
+        |                           |                     |                   |                   |                                                                       |
+        |                           |                     |                   |                   |     <details>                                                         |
+        |                           |                     |                   |                   |         <summary>More details</summary>                               |
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             The parameter is being processed only after receiving the |  
+        |                           |                     |                   |                   |             <code>0x1437</code> TLV parameter.                        |      
+        |                           |                     |                   |                   |         </p>                                                          |   
+        |                           |                     |                   |                   |     </details>                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         | TLV Identifier for        | Tag                 | 2                 | Integer           | id = 0x1461                                                           |
         | for message lifetime      +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         | reception                 | Length              | 2                 | Integer           | Length of the parameter in octets.                                    |
         |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
-        |                           | Value               | 16                | Octet String      | Lifetime for the message sent in resending mode.                      |
-        |                           |                     |                   |                   | Format:  “YYMMDDhhmmsstnnp”.                                          |
+        |                           | Value               | 16                | Octet String      | Lifetime for the message sent in the resending mode.                  |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | The parameter is being processed only after receiving the ``0x1437``  |
-        |                           |                     |                   |                   | TLV parameter.                                                        |
+        |                           |                     |                   |                   | .. raw:: html                                                         |
+        |                           |                     |                   |                   |                                                                       |
+        |                           |                     |                   |                   |     <details>                                                         |
+        |                           |                     |                   |                   |         <summary>More details</summary>                               |
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             Format: <code>YYMMDDhhmmsstnnp</code>.                    |  
+        |                           |                     |                   |                   |         </p>                                                          |  
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             The parameter is being processed only after receiving the |  
+        |                           |                     |                   |                   |             <code>0x1437</code> TLV parameter.                        |      
+        |                           |                     |                   |                   |         </p>                                                          |   
+        |                           |                     |                   |                   |     </details>                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
 
 
@@ -122,42 +168,76 @@ Request TLV Parameters
         |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         |                           | Value               | 1                 | Octet String      | Resending mode.                                                       |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | | This parameter is mandatory if a resending mode different           |
-        |                           |                     |                   |                   |   from the default configuration is intended to be used.              |
-        |                           |                     |                   |                   | | Possible values :                                                   |
+        |                           |                     |                   |                   | .. raw:: html                                                         |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | - “N” – do not resend;                                                |
-        |                           |                     |                   |                   | - “Y” – resend if the status “not delivered” is received;             |
-        |                           |                     |                   |                   | - “S” – resend if the “viewed” status is not received within          |
-        |                           |                     |                   |                   |   the message lifetime.                                               |
+        |                           |                     |                   |                   |     <details>                                                         |
+        |                           |                     |                   |                   |         <summary>More details</summary>                               |
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             This parameter is mandatory if a resending mode different |  
+        |                           |                     |                   |                   |             from the default configuration is intended to be used.    |      
+        |                           |                     |                   |                   |         </p>                                                          |
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             Possible values:                                          |  
+        |                           |                     |                   |                   |         </p>                                                          |     
+        |                           |                     |                   |                   |         <ul>                                                          |
+        |                           |                     |                   |                   |             <li><code>N</code> — do not resend;</li>                  |            
+        |                           |                     |                   |                   |             <li><code>Y</code> — resend if the “not delivered” status |
+        |                           |                     |                   |                   |                 is received;</li>                                     |
+        |                           |                     |                   |                   |             <li><code>S</code> — resend if the “viewed” status is not |
+        |                           |                     |                   |                   |                 received within the message lifetime. </li>           |
+        |                           |                     |                   |                   |         </ul>                                                         |    
+        |                           |                     |                   |                   |     </details>                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         | TLV Identifier for        | Tag                 | 2                 | Integer           | id = 0x1455                                                           |
         | service name reception    +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         |                           | Length              | 2                 | Integer           | Length of the parameter in octets.                                    |
         |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
-        |                           | Value               | 11                | Octet String      | Service name from which messages will be sent in resending mode.      |
+        |                           | Value               | 11                | Octet String      | Service name from which messages will be sent in the resending mode.  |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | The parameter is being processed only after receiving the ``0x1454``  |
-        |                           |                     |                   |                   | TLV parameter.                                                        |
+        |                           |                     |                   |                   | .. raw:: html                                                         |
+        |                           |                     |                   |                   |                                                                       |
+        |                           |                     |                   |                   |     <details>                                                         |
+        |                           |                     |                   |                   |         <summary>More details</summary>                               |
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             The parameter is being processed only after receiving the |  
+        |                           |                     |                   |                   |             <code>0x1437</code> TLV parameter.                        |      
+        |                           |                     |                   |                   |         </p>                                                          |   
+        |                           |                     |                   |                   |     </details>                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         | TLV Identifier for        | Tag                 | 2                 | Integer           | id = 0x1456                                                           |
         | alternative message       +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         | text reception            | Length              | 2                 | Integer           | Length of the parameter in octets.                                    |
         |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
-        |                           | Value               | 2048              | Octet String      | Alternative text of the VK message sent in resending mode.            |
+        |                           | Value               | 2048              | Octet String      | Alternative text of the VK message sent in the resending mode.        |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | The parameter is being processed only after receiving the ``0x1454``  |
-        |                           |                     |                   |                   | TLV parameter.                                                        |
+        |                           |                     |                   |                   | .. raw:: html                                                         |
+        |                           |                     |                   |                   |                                                                       |
+        |                           |                     |                   |                   |     <details>                                                         |
+        |                           |                     |                   |                   |         <summary>More details</summary>                               |
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             The parameter is being processed only after receiving the |  
+        |                           |                     |                   |                   |             <code>0x1454</code> TLV parameter.                        |      
+        |                           |                     |                   |                   |         </p>                                                          |   
+        |                           |                     |                   |                   |     </details>                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         | TLV Identifier for        | Tag                 | 2                 | Integer           | id = 0x1457                                                           |
         | for message lifetime      +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         | reception                 | Length              | 2                 | Integer           | Length of the parameter in octets.                                    |
         |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
-        |                           | Value               | 16                | Octet String      | Lifetime for the message sent in resending mode.                      |
-        |                           |                     |                   |                   | Format: “YYMMDDhhmmsstnnp”.                                           |
+        |                           | Value               | 16                | Octet String      | Lifetime for the message sent in the resending mode.                  |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | The parameter is being processed only after receiving the ``0x1454``  |
-        |                           |                     |                   |                   | TLV parameter.                                                        |
+        |                           |                     |                   |                   | .. raw:: html                                                         |
+        |                           |                     |                   |                   |                                                                       |
+        |                           |                     |                   |                   |     <details>                                                         |
+        |                           |                     |                   |                   |         <summary>More details</summary>                               |
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             Format: <code>YYMMDDhhmmsstnnp</code>.                    |  
+        |                           |                     |                   |                   |         </p>                                                          | 
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             The parameter is being processed only after receiving the |  
+        |                           |                     |                   |                   |             <code>0x1454</code> TLV parameter.                        |      
+        |                           |                     |                   |                   |         </p>                                                          |   
+        |                           |                     |                   |                   |     </details>                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
 
 
@@ -175,44 +255,76 @@ Request TLV Parameters
         |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         |                           | Value               | 1                 | Octet String      | Resending mode.                                                       |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | | This parameter is mandatory if a resending mode different           |
-        |                           |                     |                   |                   |   from the default configuration is intended to be used.              |
-        |                           |                     |                   |                   | | Possible values :                                                   |
+        |                           |                     |                   |                   | .. raw:: html                                                         |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | - “N” – do not resend;                                                |
-        |                           |                     |                   |                   | - “Y” – resend if the status “not delivered” is received;             |
-        |                           |                     |                   |                   | - “S” – resend if the “viewed” status is not received within          |
-        |                           |                     |                   |                   |   the message lifetime.                                               |
+        |                           |                     |                   |                   |     <details>                                                         |
+        |                           |                     |                   |                   |         <summary>More details</summary>                               |
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             This parameter is mandatory if a resending mode different |  
+        |                           |                     |                   |                   |             from the default configuration is intended to be used.    |      
+        |                           |                     |                   |                   |         </p>                                                          |
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             Possible values:                                          |  
+        |                           |                     |                   |                   |         </p>                                                          |     
+        |                           |                     |                   |                   |         <ul>                                                          |
+        |                           |                     |                   |                   |             <li><code>N</code> — do not resend;</li>                  |            
+        |                           |                     |                   |                   |             <li><code>Y</code> — resend if the status “not delivered” |
+        |                           |                     |                   |                   |                 is received;</li>                                     |
+        |                           |                     |                   |                   |             <li><code>S</code> — resend if the “viewed” status is not |
+        |                           |                     |                   |                   |                 received within the message lifetime. </li>           |
+        |                           |                     |                   |                   |         </ul>                                                         |    
+        |                           |                     |                   |                   |     </details>                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         | TLV Identifier for        | Tag                 | 2                 | Integer           | id = 0x1459                                                           |
         | service name reception    +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         |                           | Length              | 2                 | Integer           | Length of the parameter in octets.                                    |
         |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
-        |                           | Value               | 11                | Octet String      | Service name from which messages will be sent in resending mode.      |
+        |                           | Value               | 11                | Octet String      | Service name from which messages will be sent in the resending mode.  |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | The parameter is being processed only after receiving the ``0x1458``  |
-        |                           |                     |                   |                   | TLV parameter.                                                        |
+        |                           |                     |                   |                   | .. raw:: html                                                         |
+        |                           |                     |                   |                   |                                                                       |
+        |                           |                     |                   |                   |     <details>                                                         |
+        |                           |                     |                   |                   |         <summary>More details</summary>                               |
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             The parameter is being processed only after receiving the |  
+        |                           |                     |                   |                   |             <code>0x1458</code> TLV parameter.                        |      
+        |                           |                     |                   |                   |         </p>                                                          |   
+        |                           |                     |                   |                   |     </details>                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         | TLV Identifier for        | Tag                 | 2                 | Integer           | id = 0x1460                                                           |
         | alternative message       +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         | text reception            | Length              | 2                 | Integer           | Length of the parameter in octets.                                    |
         |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
-        |                           | Value               | 2000              | Octet String      | Alternative text of the VK message sent in resending mode.            |
-        |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | The parameter is being processed only after receiving the ``0x1458``  |
+        |                           | Value               | 2000              | Octet String      | Alternative text of the VK message sent in the resending mode.        |
         |                           |                     |                   |                   | TLV parameter.                                                        |
+        |                           |                     |                   |                   |                                                                       |
+        |                           |                     |                   |                   | .. raw:: html                                                         |
+        |                           |                     |                   |                   |                                                                       |
+        |                           |                     |                   |                   |     <details>                                                         |
+        |                           |                     |                   |                   |         <summary>More details</summary>                               |
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             The parameter is being processed only after receiving the |  
+        |                           |                     |                   |                   |             <code>0x1458</code> TLV parameter.                        |      
+        |                           |                     |                   |                   |         </p>                                                          |   
+        |                           |                     |                   |                   |     </details>                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         | TLV Identifier for        | Tag                 | 2                 | Integer           | id = 0x1442                                                           |
         | message lifetime          +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         | reception                 | Length              | 2                 | Integer           | Length of the parameter in octets.                                    |
         |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
-        |                           | Value               | 16                | Octet String      | Lifetime for the message sent in resending mode.                      |
-        |                           |                     |                   |                   | Format: “YYMMDDhhmmsstnnp”.                                           |
+        |                           | Value               | 16                | Octet String      | Lifetime for the message sent in the resending mode.                  |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | The parameter is being processed only after receiving the ``0x1458``  |
-        |                           |                     |                   |                   | TLV parameter.                                                        |
+        |                           |                     |                   |                   | .. raw:: html                                                         |
+        |                           |                     |                   |                   |                                                                       |
+        |                           |                     |                   |                   |     <details>                                                         |
+        |                           |                     |                   |                   |         <summary>More details</summary>                               |
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             Format: <code>YYMMDDhhmmsstnnp</code>                     |  
+        |                           |                     |                   |                   |         </p>                                                          |  
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             The parameter is being processed only after receiving the |  
+        |                           |                     |                   |                   |             <code>0x1458</code> TLV parameter.                        |      
+        |                           |                     |                   |                   |         </p>                                                          |   
+        |                           |                     |                   |                   |     </details>                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
 
-
-
-        

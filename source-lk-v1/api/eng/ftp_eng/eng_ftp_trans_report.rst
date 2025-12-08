@@ -24,4 +24,9 @@ If the result of the action is *Fail*, then the loading failed, the description 
 - duplicate number is in the file;
 - invalid number.
 
-.. note:: If the file contains the same phone numbers, only the first one in the list will be processed. The remaining numbers will be rejected by the system. 
+.. raw:: html
+
+  <div class="admonition note">
+      <p class="admonition-title">Note</p>
+      <p>If the file contains the same phone numbers, only the first one in the list will be processed. The remaining numbers will be rejected by the system.</p>
+  </div>                                                                           

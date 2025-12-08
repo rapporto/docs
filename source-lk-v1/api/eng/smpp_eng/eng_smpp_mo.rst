@@ -25,22 +25,43 @@ The table below describes the parameters used in the Service Provider's request 
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | destination_addr          | string                   | Receiver. The service name.                                                                                |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
-| short_message             | string                   | | Text of the message from the subscriber.                                                                 |
-|                           |                          | | Long messages made up of multiple parts can be sent to the Partner in different ways:                    |
+| short_message             | string                   | Text of the message from the subscriber.                                                                   |
 |                           |                          |                                                                                                            |
-|                           |                          | - as multiple PDUs with concatenation using the UDH-8 algorithm, which is the default setting.             |
-|                           |                          | - as multiple PDUs with concatenation using the UDH-16 algorithm.                                          |
-|                           |                          | - as multiple PDUs with concatenation using TLV parameters (SAR parameters);                               |
-|                           |                          | - as a single PDU, with the text sent in the ``message_payload`` (0x0424) TLV parameter.                   |
+|                           |                          | .. raw:: html                                                                                              |
+|                           |                          |                                                                                                            |
+|                           |                          |     <details>                                                                                              |
+|                           |                          |         <summary>More details</summary>                                                                    |
+|                           |                          |         <p>                                                                                                |
+|                           |                          |             Long messages made up of multiple parts can be sent to the Partner in different ways:          |         
+|                           |                          |         </p>                                                                                               |
+|                           |                          |         <ul>                                                                                               |
+|                           |                          |             <li>as multiple PDUs with concatenation using the UDH-8 algorithm, which is the default        |
+|                           |                          |                 setting;</li>                                                                              |
+|                           |                          |             <li>as multiple PDUs with concatenation using the UDH-16 algorithm;</li>                       |
+|                           |                          |             <li>as multiple PDUs with concatenation using TLV parameters (SAR parameters);</li>            |
+|                           |                          |             <li>as a single PDU, with the text sent in the <code>message_payload</code>                    |
+|                           |                          |                 (<code>0x0424</code> ).</li>                                                               |
+|                           |                          |         </ul>                                                                                              |     
+|                           |                          |     </details>                                                                                             |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
-| data_coding               | integer                  | | Encoding scheme/type of the message text.                                                                |
-|                           |                          | | Depending on the content, the text is sent in one of two encodings:                                      |
+| data_coding               | integer                  | Encoding scheme/type of the message text.                                                                  |
 |                           |                          |                                                                                                            |
-|                           |                          | - GSM DEFAULT ALPHABET (``data_coding`` = 0);                                                              |
-|                           |                          | - UCS2 (``data_coding`` = 8).                                                                              |
+|                           |                          | .. raw:: html                                                                                              |
 |                           |                          |                                                                                                            |
-|                           |                          | It is also possible to use the ASCII encoding for ``data_coding`` = 0 (a unified setting                   |
-|                           |                          | for receiving and sending messages).                                                                       |
+|                           |                          |     <details>                                                                                              |
+|                           |                          |         <summary>More details</summary>                                                                    |
+|                           |                          |         <p>                                                                                                |
+|                           |                          |             Depending on the content, the text is sent in one of two encodings:                            |         
+|                           |                          |         </p>                                                                                               |
+|                           |                          |         <ul>                                                                                               |
+|                           |                          |             <li>GSM DEFAULT ALPHABET (<code>data_coding</code> = <code>0</code>);</li>                     |
+|                           |                          |             <li>UCS2 (<code>data_coding</code> = <code>8</code>).</li>                                     |
+|                           |                          |         </ul>                                                                                              |  
+|                           |                          |         <p>                                                                                                |
+|                           |                          |             It is also possible to use the ASCII encoding for <code>data_coding</code> = <code>0</code>    |         
+|                           |                          |             (a unified setting for receiving and sending messages).                                        |
+|                           |                          |         </p>                                                                                               |   
+|                           |                          |     </details>                                                                                             |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 
 If necessary, additional TLV parameters containing extended message information can be included in the packet.

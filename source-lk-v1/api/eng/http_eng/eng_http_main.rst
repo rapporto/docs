@@ -12,14 +12,13 @@ Types of Messages
 
 When integrating via HTTP API, the transmission of the following types of messages is supported:
 
-- FlashingCall (VoiceCode);
-- Push;
-- SMS;
-- Viber;
-- VK;
-- WhatsApp.
 
-
+- :doc:`FLASHINGCALL (VOICECODE) <eng_http_flashcall>`;
+- :doc:`PUSH <eng_http_push>`;
+- :doc:`SMS <eng_http_sms>`;
+- :doc:`VIBER <eng_http_viber>`;
+- :doc:`VK <eng_http_vk>`;
+- :doc:`WHATSAPP <eng_http_whatsapp>`;
 
 .. toctree::
    :maxdepth: 1
@@ -37,3 +36,4 @@ When integrating via HTTP API, the transmission of the following types of messag
    eng_http_mo
    eng_http_status
    eng_http_short_link
+   

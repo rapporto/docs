@@ -1,27 +1,76 @@
-Push
-=====
+VK
+=======
 
-Text sending and additional parameters are available in push notifications.
+Features of :abbr:`VK (VKontakte social network)` Messages
+-----------------------------------------------------------
+
+When sending messages to VKontakte social network, the following features should be considered:
+
+1.	The Partner can only send text messages with a maximum length of 2048 characters.
+2.	Messages may contain links. If necessary, links may be shortened (see :doc:`eng_smpp_short_link`).
+3.	Messages are sent from a VK group to any VK user via their phone number.
+4.	The Partner can send no more than 50 messages per second from one VK group.
+5.	The Partner can send no more than 5 messages per day to one user from one VK group.
+6.	All VK groups and examples of message texts are subject to preliminary moderation with the presentation of a service agreement, a trademark certificate and other necessary documents.
+7.	Messages have a time-to-live period from 1 minute to 24 hours. If the notification is not received by the user's device within the time to live period, it will not be delivered and displayed to the user.
+8.  Only delivered messages are charged.
+9.	Messages are delivered only to active VK users. Active users are those who have visited the website within the last 7 days (either the mobile or web version of the social network).
+
+Connecting the VK Message Sending Service
+------------------------------------------
+
+To enable the VK message sending service, the Partner has to additionally provide the Service Provider with:
+
+- the URL of the VK group (on whose behalf the messages will be sent); 
+- examples of text messages for moderation.
+
+VKontakte Moderation Rules
+--------------------------------
+
+These moderation rules are applied for all message templates, which are submitted for approval for further mass messaging to end users of *Mail.Ru Group* projects. 
+
+Both the sender (a Partner's company) and the text (a template) of the message are moderated. The following criteria are taken into account when checking a company: the industry to which the company belongs, the company type, its market reputation. 
+
+Messages from the following companies are *not accepted for review*:
+
+1.	Microfinance organizations.
+2.	Debt collection agencies (including relevant bank departments).
+3.	Bookmakers.
+4.	Online casinos.
+5.	Jewelry stores.
+6.	Cigarette manufacturers.
+7.	Pharmaceutical manufacturers.
+8.	Alcoholic beverage producers.
+
+The following rules apply to text moderation:
+
+1.	Advertising texts are not being accepted for consideration. Advertising includes any messages addressed to an indefinite number of persons and aimed at attracting attention to an object of advertising, forming or maintaining interest in it, and promoting it in the market.
+2.	If a message template submitted for moderation contains both a service component and an advertising component, it will not pass moderation.
+3.	All message templates must comply with the requirements of the legislation of the Russian Federation and the legislation of the country in which the users to whom the message is addressed are located, as well as existing ethical norms and principles (templates should not contain messages that offend human dignity, promote violence, racial or national hatred, etc.).
+4.	Message templates should not contain information directly or indirectly compromising the *Mail.Ru Group* and all projects and products that are part of the group of companies. Message templates should not contain information that may advertise products that compete in terms of price or consumer properties with services provided by projects and services of the *Mail.Ru Group*.
+5.	Message templates should contain information strictly related to the interaction between the user and the owner of the official group, on behalf of which the message is sent.
+6.	Message templates should contain information concerning only orders and/or actions of users that were performed immediately prior to the sending of the informational message.
+7.	Templates might contain URL to WEB pages and sites only after individual approval.
 
 
-Request to Send Messages  
+Request to Send Messages 
 ==========================
 
-To send a message, the Partner needs to :ref:`establish a connection <linkSettingeng>` to the server and transmit the ``submit_sm`` packet to the Service Provider.
-This packet must contain all required message parameters and may also include optional :abbr:`TLV (Tag Length Value)` parameters.
+To send a message, the Partner needs to :ref:`establish a connection <linkSettingeng>` with the server and transmit the ``submit_sm`` packet to the Service Provider.
+This packet contains all the necessary message parameters and may also include optional :abbr:`TLV (Tag Length Value)` parameters.
 
 .. raw:: html
     
     <div class="admonition note">
         <p class="admonition-title">Note</p>
-        <p>If additional functionality is required, specify the values for the corresponding TLV parameters. Their descriptions are provided in the following sections of the website:
+        <p>If additional functionality is required, specify the values for the corresponding TLV parameters. These parameters are described in the following sections of the website:
         <li><a href="https://doc.rapporto.ru/api/eng/smpp_eng/eng_smpp_cascade.html">Cascade Message Sending</a> </li> 
         <li><a href="https://doc.rapporto.ru/api/eng/smpp_eng/eng_smpp_short_link.html">Link Shortening Service</a> </li> 
     </div>                                                                           
 
-
 Main Request Parameters
-----------------------------
+---------------------------
+
 
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | Parameter                 | Type                     | Description                                                                                                |
@@ -64,7 +113,7 @@ Main Request Parameters
 |                           |                          |     <details>                                                                                              |
 |                           |                          |         <summary>More details</summary>                                                                    |
 |                           |                          |         <p>                                                                                                |
-|                           |                          |             Maximum push message length is 1000 characters.                                                |                                                   
+|                           |                          |             Maximum VK message length is 2048 characters.                                                  |                                                   
 |                           |                          |         </p>                                                                                               |
 |                           |                          |         <p>                                                                                                |
 |                           |                          |             Maximum user data length for the <code>short_message</code> field: 254 octets.                 |                                                   
@@ -193,7 +242,7 @@ Main Request Parameters
 |                           |                          |     <details>                                                                                              |
 |                           |                          |         <summary>More details</summary>                                                                    |
 |                           |                          |         <p>                                                                                                |
-|                           |                          |             Validity period for push: from 30 to 86400 seconds (up to 24 hours).                           |          
+|                           |                          |             Validity period for VK: from 60 to 86400 seconds (up to 24 hours).                             |          
 |                           |                          |         </p>                                                                                               |
 |                           |                          |         <p>                                                                                                |
 |                           |                          |              Value format for the <code>YYMMDDhhmmsstnnp</code> parameter, where:                          |          
@@ -235,14 +284,21 @@ TLV parameters for sending messages from the Partner to the Service Provider.
 |                           |                     |                   |                   |     <details>                                                                        |
 |                           |                     |                   |                   |         <summary>More details</summary>                                              |
 |                           |                     |                   |                   |         <p>                                                                          |
-|                           |                     |                   |                   |             The short message data should be inserted in either the                  |  
-|                           |                     |                   |                   |             <code>short_message</code> or <code>message_payload</code> fields.       | 
-|                           |                     |                   |                   |             Both fields should not be used simultaneously.                           |
+|                           |                     |                   |                   |             The Service Provider's SMPP server supports reassembling                 |  
+|                           |                     |                   |                   |             segmented messages using one of the following methods:                   | 
 |                           |                     |                   |                   |         </p>                                                                         |
-|                           |                     |                   |                   |         <p>                                                                          |
-|                           |                     |                   |                   |             The <code>short_message</code> field should be set to zero if using the  |  
-|                           |                     |                   |                   |             <code>message_payload</code> field.                                      | 
-|                           |                     |                   |                   |         </p>                                                                         |
+|                           |                     |                   |                   |         <ul>                                                                         |
+|                           |                     |                   |                   |             <li>UDH-8;</li>                                                          |
+|                           |                     |                   |                   |             <li>UDH-16;</li>                                                         |
+|                           |                     |                   |                   |             <li>using TLV parameters.</li>                                           |
+|                           |                     |                   |                   |         </ul>                                                                        | 
+|                           |                     |                   |                   |     <div class="admonition note">                                                    |
+|                           |                     |                   |                   |         <p class="admonition-title">Note</p>                                         |
+|                           |                     |                   |                   |         <p>Text messages shorter than 254 octets are recommended to be sent in the   |
+|                           |                     |                   |                   |         <code>short_message</code> parameter. Simultaneous use of the                |
+|                           |                     |                   |                   |         <code>message_payload</code> and <code>short_message</code>                  |
+|                           |                     |                   |                   |         parameters is not allowed.                                                   | 
+|                           |                     |                   |                   |     </div>                                                                           |
 |                           |                     |                   |                   |     </details>                                                                       |  
 +---------------------------+---------------------+-------------------+-------------------+--------------------------------------------------------------------------------------+
 | ptag                      | Tag                 | 2                 | Integer           | id = 0x1411                                                                          |
@@ -281,7 +337,7 @@ TLV parameters for sending messages from the Partner to the Service Provider.
 +---------------------------+---------------------+-------------------+-------------------+--------------------------------------------------------------------------------------+
 
 
-Response to Request  
+Response to Request 
 =====================
 
 In response to the ``submit_sm`` packet, the Service Provider's server replies with the ``submit_sm_resp`` packet containing the ``command_status`` field.
@@ -292,7 +348,6 @@ assigned to this PDU by the Service Provider's server.
 Subsequently, the ``message_id`` value is used by the Partner to receive and analyze message delivery statuses.
 
 Possible values for the ``command_status`` field are provided in the tables below.
-
 
 Successful Send Response
 ----------------------------
@@ -543,12 +598,10 @@ For invalid results, the response code (HEX) will be different from ``0x00``.
     </div>                                                                           
 
 
+VK message Delivery Statuses
+===============================
 
-
-Push Notification Delivery Statuses
-=====================================
-
-To receive push notification statuses, you need to configure the :doc:`eng_smpp_status`.
+To receive VK message statuses, you need to configure the :doc:`eng_smpp_status`.
 
 Delivery Error Codes
 -----------------------

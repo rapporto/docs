@@ -11,7 +11,7 @@ The Service Provider provides the Partner with the following data:
 
 - system_id;
 - password;
-- host and port – connection settings.
+- host and port — connection settings.
 
 
 Please contact the :ref:`Technical Support Service <eng-support>` for access inquiries.

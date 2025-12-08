@@ -28,12 +28,13 @@ Types of Messages
 
 When integrating via the SMPP API, the transmission of the following types of messages is supported:
 
-- FlashingCall (VoiceCode);
-- Push;
-- SMS;
-- Viber;
-- VK.
 
+- :doc:`FLASHINGCALL (VOICECODE) <eng_smpp_flashcall>`;
+- :doc:`PUSH <eng_smpp_push>`;
+- :doc:`SMS <eng_smpp_sms>`;
+- :doc:`VIBER <eng_smpp_viber>`;
+- :doc:`VK <eng_smpp_vk>`;
+- :doc:`TGCODE <eng_smpp_tg_auth_codes>`.
 
 Functional Features
 --------------------
@@ -54,7 +55,7 @@ The maximum number of simultaneously active SMPP sessions with one login is conf
 Interface Protection
 ~~~~~~~~~~~~~~~~~~~~~
 
-Protection is implemented using IP addresses – the Service Provider's SMPP server rejects connections from IP addresses not authorized by the Partner.
+Protection is implemented using IP addresses — the Service Provider's SMPP server rejects connections from IP addresses not authorized by the Partner.
 
 Additional Security Measures 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

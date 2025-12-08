@@ -12,14 +12,15 @@ Types of Messages
 
 When integrating via REST API, the transmission of the following types of messages is supported:
 
-- FlashingCall (VoiceCode);
-- Push;
-- SMS;
-- Telegram;
-- Viber;
-- VK;
-- WhatsApp.
-
+- :doc:`CARDSMOBILE <eng_rest_cardsmobile>`;
+- :doc:`FLASHINGCALL (VOICECODE) <eng_rest_flashcall>`;
+- :doc:`MAX <eng_rest_max>`;
+- :doc:`PUSH <eng_rest_push>`;
+- :doc:`SMS <eng_rest_sms>`;
+- :doc:`TELEGRAM <eng_rest_telegram>`;
+- :doc:`VIBER <eng_rest_viber>`;
+- :doc:`VK <eng_rest_vk>`;
+- :doc:`WHATSAPP <eng_rest_whatsapp>`.
 
 .. toctree::
    :maxdepth: 1
@@ -28,6 +29,7 @@ When integrating via REST API, the transmission of the following types of messag
    eng_rest_auth
    eng_rest_request
    eng_rest_sms
+   eng_rest_max
    eng_rest_viber
    eng_rest_telegram
    eng_rest_push

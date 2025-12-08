@@ -44,7 +44,7 @@ To enable the service, the following data must be provided to the :ref:`Technica
 * the number of characters in the ``UID`` that is added after the domain. This parameter affects the number of unique links that can be generated. For example, with a length of UID = 8 characters, about 281 trillion unique links can be generated;
 * clarify the need to generate unique links for each subscriber. This parameter affects the traffic statistics. If a single link is used for all subscribers, the total traffic statistics for all subscribers will be displayed;
 * the number of days after which an inactive link is deleted if there were no clicks on it;
-* the link lifetime – the number of days after which an inactive link is deleted, even if there were clicks on it.
+* the link lifetime — the number of days after which an inactive link is deleted, even if there were clicks on it.
 
 
 
@@ -53,8 +53,8 @@ TLV Parameters for Link Shortening
 
 Two different parameters are used to shorten links in message texts:
 
-- ``shorten_links`` – for shortening links in the text of individual messages;
-- ``shorten_list`` – for shortening links in the texts of messages within the cascade message.
+- ``shorten_links`` — for shortening links in the text of individual messages;
+- ``shorten_list`` — for shortening links in the texts of messages within the cascade message.
 
  
 .. tabs:: 
@@ -72,8 +72,16 @@ Two different parameters are used to shorten links in message texts:
         |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         |                           | Value               | 1                 | Octet String      | Shortening links in the text of the message.                          |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | The byte representation of the ``true`` or ``false`` values can be    |
-        |                           |                     |                   |                   | specified here to indicate whether URL shortening is required.        |
+        |                           |                     |                   |                   | .. raw:: html                                                         |
+        |                           |                     |                   |                   |                                                                       |
+        |                           |                     |                   |                   |     <details>                                                         |
+        |                           |                     |                   |                   |         <summary>More details</summary>                               |
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             The byte representation of the <code>true</code>          | 
+        |                           |                     |                   |                   |             or <code>false</code> values can be specified here        |                      
+        |                           |                     |                   |                   |             to indicate whether URL shortening is required.           |        
+        |                           |                     |                   |                   |         </p>                                                          |
+        |                           |                     |                   |                   |     </details>                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
 
 
@@ -88,32 +96,41 @@ Two different parameters are used to shorten links in message texts:
         |                           +---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
         |                           | Value               | up to 1000        | Octet String      | Shortening links in the cascade message.                              |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | | The parameter value must contain a list of message types            |
-        |                           |                     |                   |                   |   (comma-separated) for which link shortening is required.            |
-        |                           |                     |                   |                   | | Possible message type values (case insensitive):                    |
+        |                           |                     |                   |                   | .. raw:: html                                                         |
         |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | - i – Viber;                                                          |
-        |                           |                     |                   |                   | - s – SMS;                                                            |
-        |                           |                     |                   |                   | - p – Push;                                                           |
-        |                           |                     |                   |                   | - v – VK.                                                             |
-        |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | For example, “V,S” means that URLs should be shortened in VK and SMS  |
-        |                           |                     |                   |                   | messages, but not in Viber messages.                                  |
-        |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | If URL shortening is enabled for the Partner, the following scenarios |
-        |                           |                     |                   |                   | are possible:                                                         |
-        |                           |                     |                   |                   |                                                                       |
-        |                           |                     |                   |                   | - the parameter is not passed in the request – links are shortened    |
-        |                           |                     |                   |                   |   for all message types by default;                                   |
-        |                           |                     |                   |                   | - the parameter is passed and its value is empty – link shortening    |
-        |                           |                     |                   |                   |   is disabled for all message types;                                  |
-        |                           |                     |                   |                   | - The parameter is passed in the request and the value is not empty – |
-        |                           |                     |                   |                   |   links are shortened only for the message types specified in the     |
-        |                           |                     |                   |                   |   parameter value.                                                    |
+        |                           |                     |                   |                   |     <details>                                                         |
+        |                           |                     |                   |                   |         <summary>More details</summary>                               |
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             The parameter value must contain a list of message types  |   
+        |                           |                     |                   |                   |             (comma-separated) for which link shortening is required.  |
+        |                           |                     |                   |                   |         </p>                                                          |
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             Possible message type values (case insensitive):          |  
+        |                           |                     |                   |                   |         </p>                                                          |
+        |                           |                     |                   |                   |         <ul>                                                          |
+        |                           |                     |                   |                   |             <li><code>i</code> — Viber;</li>                          |                                                                              
+        |                           |                     |                   |                   |             <li><code>s</code> — SMS;</li>                            |                                                                             
+        |                           |                     |                   |                   |             <li><code>p</code> — Push;</li>                           |
+        |                           |                     |                   |                   |             <li><code>v</code> — VK;</li>                             |                                                                           
+        |                           |                     |                   |                   |         </ul>                                                         |
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             For example, “V,S” means that URLs should be shortened in |   
+        |                           |                     |                   |                   |             VK and SMS messages, but not in Viber messages.           |
+        |                           |                     |                   |                   |         </p>                                                          |
+        |                           |                     |                   |                   |         <p>                                                           |
+        |                           |                     |                   |                   |             If URL shortening is enabled for the Partner, the         |     
+        |                           |                     |                   |                   |             following scenarios are possible:                         |      
+        |                           |                     |                   |                   |         <ul>                                                          |
+        |                           |                     |                   |                   |             <li>the parameter is not passed in the request — links are|  
+        |                           |                     |                   |                   |                 shortened for all message types by default;</li>      |                                                                           
+        |                           |                     |                   |                   |             <li>the parameter is passed and its value is empty —      |                  
+        |                           |                     |                   |                   |                 link shortening is disabled for all message           |    
+        |                           |                     |                   |                   |                 types;</li>                                           |      
+        |                           |                     |                   |                   |             <li>the parameter is passed in the request and the value  | 
+        |                           |                     |                   |                   |                 is not empty — links are shortened only for the       |
+        |                           |                     |                   |                   |                 message types specified in the parameter value.</li>  |                                                                 
+        |                           |                     |                   |                   |         </ul>                                                         |
+        |                           |                     |                   |                   |         </p>                                                          |
+        |                           |                     |                   |                   |     </details>                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
-
-
-
-
-
 
