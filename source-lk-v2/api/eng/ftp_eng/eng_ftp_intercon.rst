@@ -12,11 +12,14 @@ The file is uploaded by any convenient method that provides sufficient security,
 
 Additionally, it is possible to enable the generation of files with messages delivery reports to subscribers.
 
-.. note:: 
+.. raw:: html
 
-   On the Platform, the  calculating format of multi-segment messages length (messages consisting of several parts) in the direction "RF - Beeline" 
-   corresponds to the algorithm used by the operator "VimpelCom", namely: 67 characters per part of a concatenated message in Unicode (Cyrillic) 
-   and 152 characters in GSM DEFAULT encoding (Latin).
+   <div class="admonition note">
+       <p class="admonition-title">Note</p>
+       <p>On the Platform, the  calculating format of multi-segment messages length (messages consisting of several parts) in the direction "RF - Beeline" 
+          corresponds to the algorithm used by the operator "VimpelCom", namely: 67 characters per part of a concatenated message in Unicode (Cyrillic) 
+          and 152 characters in GSM DEFAULT encoding (Latin).</p>
+   </div>                                                                           
 
 
 Operating Procedure

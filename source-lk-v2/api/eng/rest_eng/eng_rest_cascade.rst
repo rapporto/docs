@@ -6,25 +6,27 @@ Description
 
 Cascading message sending is the sequential sending of a message via different channels over the message's lifetime (*ttl* parameter). 
 
-The message is resent in case of receiving a status indicating that the message was not successfully sent (if no "DELIVERED" or "READ" statuses of the *state* parameter are received).
+The message is resent in case of receiving a status indicating that the message was not successfully sent (if no “DELIVERED“ or “READ“ statuses of the *state* parameter are received).
 
 The service supports the following types of cascading message:
 
-* FlashingCall (Voice Code);
-* Push;
+* FLASHINGCALL (VOICECODE);
+* MAX;
+* PUSH;
 * SMS;
-* Telegram;
-* Viber;
+* TELEGRAM;
+* TGCODE;
+* VIBER;
 * VK;
-* WhatsApp.
+* WHATSAPP.
 
 When sending it can be any sequence of message types.
 
 The default message lifetime is set when configuring the integration connection or transmitted in the *ttl* parameter when sending the message. The lifetime for each message from the cascade chain is set separately.
 
-Resending of the FlashingCall (Voice Code) type message is possible only for the "DELIVERED" status.
+Resending of the FlashingCall (Voice Code) type message is possible only for the “DELIVERED“ status.
 
-To receive reports on all types of messages when sending a cascading message chain you need to specify the value "1" in the *registeredDelivery* parameter.
+To receive reports on all types of messages when sending a cascading message chain you need to specify the value “1“ in the *registeredDelivery* parameter.
 
 Cascading message sending is not available by default. To enable it the Partner needs to contact his supervising manager.
 
@@ -253,16 +255,49 @@ Request Parameters
 --------------------
 
 In order to send the chain of messages of various types, an additional block of *CascadeChainLink* parameters shall be transmitted in the request.
-
-The **mandatory** parameters are highlighted **in bold**.
-
-.. csv-table::
-      :header: "Parameter", "Data type", "Description"
-      :widths: 30, 15, 35
-      :class: my-table
-
-         "cascadeChainLink", "object", "Cascading message parameters."
-         "**cascadeChainLink/state**", "enum", "A status by which the message is resent. Possible values are: DELIVERED (to resend the message if the message is not delivered during the message lifetime); READ (to resend the message if the message is not read during the message lifetime)."
-         "**cascadeChainLink/message**", "object", "Parameters of the message to be resent. Similar to the *message* object of the main message."
-         "cascadeChainLink/nextLink", "object", "Parameters of the next message to be resent in the chain. Similar to the *cascadeChainLink* object."
  
++--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
+| Parameter                      | Required | Type         | Description                                                                      |
++================================+==========+==============+==================================================================================+ 
+| cascadeChainLink               | no       | object       | Cascading message parameters.                                                    |
++--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
+| | {cascadeChainLink}           | yes      | enum         | Status by which the message is resent.                                           |
+| | state                        |          |              |                                                                                  |
+|                                |          |              |                                                                                  |
+|                                |          |              | .. raw:: html                                                                    |
+|                                |          |              |                                                                                  |
+|                                |          |              |     <details>                                                                    |
+|                                |          |              |         <summary>More details</summary>                                          |
+|                                |          |              |         <p>                                                                      |
+|                                |          |              |             Possible values are:                                                 |
+|                                |          |              |         </p>                                                                     |
+|                                |          |              |         <ul>                                                                     |
+|                                |          |              |             <li><code>DELIVERED</code> (to resend the message if the message is  |
+|                                |          |              |                 not delivered during the message lifetime);</li>                 |
+|                                |          |              |             <li><code>READ</code> (to resend the message if the message is not   |
+|                                |          |              |                 read during the message lifetime).</li>                          |
+|                                |          |              |         </ul>                                                                    |
+|                                |          |              |     </details>                                                                   |
++--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
+| | {cascadeChainLink}           | yes      | object       | Parameters of the message to be resent.                                          |
+| | message                      |          |              |                                                                                  |
+|                                |          |              | .. raw:: html                                                                    |
+|                                |          |              |                                                                                  |
+|                                |          |              |     <details>                                                                    |
+|                                |          |              |         <summary>More details</summary>                                          |
+|                                |          |              |         <p>                                                                      |
+|                                |          |              |             Similar to the <code>message</code> object of the main message.      |
+|                                |          |              |         </p>                                                                     |
+|                                |          |              |     </details>                                                                   |
++--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
+| | {cascadeChainLink}           | no       | object       | Parameters of the next message to be resent in the chain.                        |
+| | nextLink                     |          |              |                                                                                  |
+|                                |          |              | .. raw:: html                                                                    |
+|                                |          |              |                                                                                  |
+|                                |          |              |     <details>                                                                    |
+|                                |          |              |         <summary>More details</summary>                                          |
+|                                |          |              |         <p>                                                                      |
+|                                |          |              |             Similar to the <code>cascadeChainLink</code> object.                 |
+|                                |          |              |         </p>                                                                     |
+|                                |          |              |     </details>                                                                   |
++--------------------------------+----------+--------------+----------------------------------------------------------------------------------+

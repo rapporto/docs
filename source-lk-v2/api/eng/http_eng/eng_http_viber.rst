@@ -86,168 +86,347 @@ Request Parameters
 
 The parameters are applicable for POST and GET requests.
 
-The **mandatory** parameters are highlighted **in bold**.
++--------------------+---------+--------------+-------------------------------------------------------------------------------------------------------------------+
+| Parameter          | Required| Type         | Description                                                                                                       |
++====================+=========+==============+===================================================================================================================+
+| clientId           | yes     | string       | Subscriber's phone number, no more than 25 characters.                                                            |
+|                    |         |              |                                                                                                                   |
+|                    |         |              | .. raw:: html                                                                                                     |
+|                    |         |              |                                                                                                                   |
+|                    |         |              |     <details>                                                                                                     |
+|                    |         |              |         <summary>More details</summary>                                                                           |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             Examples: <code>79036550550</code>, <code>+79036550550</code>, <code>8-903-655-05-50</code>,          |                            
+|                    |         |              |             <code>89036550550</code>.                                                                             |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |     </details>                                                                                                    |  
++--------------------+---------+--------------+-------------------------------------------------------------------------------------------------------------------+
+| message            | no      | string       | Text of the message in UTF-8 encoding.                                                                            |
+|                    |         |              |                                                                                                                   |               
+|                    |         |              | .. raw:: html                                                                                                     |
+|                    |         |              |                                                                                                                   |
+|                    |         |              |     <details>                                                                                                     |
+|                    |         |              |         <summary>More details</summary>                                                                           |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             Maximum length: 1000 characters.                                                                      |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |     </details>                                                                                                    |
++--------------------+---------+--------------+-------------------------------------------------------------------------------------------------------------------+
+| serviceId          | yes     | string       | ID of the Partner’s service (login), which is used to send a message.                                             |
+|                    |         |              |                                                                                                                   |
+|                    |         |              | .. raw:: html                                                                                                     |
+|                    |         |              |                                                                                                                   |
+|                    |         |              |     <details>                                                                                                     |
+|                    |         |              |         <summary>More details</summary>                                                                           |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             The Service Provider establishes <code>serviceId</code> while enabling the Partner’s service and      |                                                   
+|                    |         |              |             reports it to the Partner.                                                                            |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |     </details>                                                                                                    |
++--------------------+---------+--------------+-------------------------------------------------------------------------------------------------------------------+
+| pass               | yes     | string       | Password for authorization in the service.                                                                        |
+|                    |         |              |                                                                                                                   |
+|                    |         |              | .. raw:: html                                                                                                     |
+|                    |         |              |                                                                                                                   |
+|                    |         |              |     <details>                                                                                                     |
+|                    |         |              |         <summary>More details</summary>                                                                           |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             The Service Provider establishes the password while enabling the service and reports it to the        |
+|                    |         |              |             Partner.                                                                                              |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |     </details>                                                                                                    |
++--------------------+---------+--------------+-------------------------------------------------------------------------------------------------------------------+
+| ptag               | no      | string       | Message identifier in the Partner's system.                                                                       |
+|                    |         |              |                                                                                                                   |
+|                    |         |              | .. raw:: html                                                                                                     |
+|                    |         |              |                                                                                                                   |
+|                    |         |              |     <details>                                                                                                     |
+|                    |         |              |         <summary>More details</summary>                                                                           |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |            It may contain from 1 to 50 characters.                                                                |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |            Valid characters: 0...9a...zA...Z-                                                                     |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             It may be any identifier in the Partner's system.                                                     |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |     <div class="admonition note">                                                                                 |
+|                    |         |              |         <p class="admonition-title">Note</p>                                                                      |
+|                    |         |              |         <p>For example, it may be the unique identifier of a message or the identifier of                         |
+|                    |         |              |            subdivision, which initiates the request for sending. In contrast to the                               |
+|                    |         |              |             <code>partnerMsgId</code> parameter, which is needed to control resending                             |
+|                    |         |              |            and duplication, the Service Provider does not control values sent in the                              |
+|                    |         |              |             <code>ptag</code> parameter (only format compliance is checked).                                      |
+|                    |         |              |            </p>                                                                                                   |
+|                    |         |              |     </div>                                                                                                        |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             The Service Provider optionally returns this identifier to the Partner as part of a request for       |
+|                    |         |              |             receiving the message delivery status (this functionality is described in the section                 | 
+|                    |         |              |             <a href="https://doc.rapporto.ru/api/eng/http_eng/eng_http_status.html">                              |
+|                    |         |              |             Delivery Status Service</a>).                                                                         |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |     </details>                                                                                                    |
++--------------------+---------+--------------+-------------------------------------------------------------------------------------------------------------------+
+| imageUrl           | no      | string       | Link to the image to be sent to the subscriber.                                                                   |
+|                    |         |              |                                                                                                                   |
+|                    |         |              | .. raw:: html                                                                                                     |
+|                    |         |              |                                                                                                                   |
+|                    |         |              |     <details>                                                                                                     |
+|                    |         |              |         <summary>More details</summary>                                                                           |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |            The link must begin with "http://" or "https://".                                                      |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |     </details>                                                                                                    |
++--------------------+---------+--------------+-------------------------------------------------------------------------------------------------------------------+
+| buttonText         | no      | string       | Text of the button.                                                                                               |
+|                    |         |              |                                                                                                                   |
+|                    |         |              | .. raw:: html                                                                                                     |
+|                    |         |              |                                                                                                                   |
+|                    |         |              |     <details>                                                                                                     |
+|                    |         |              |         <summary>More details</summary>                                                                           |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             If the <code>buttonText</code> parameter is sent, the <code>buttonLink</code> parameter must be       |
+|                    |         |              |             sent as well.                                                                                         |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             Maximum length: 30 characters.                                                                        |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |     </details>                                                                                                    |
++--------------------+---------+--------------+-------------------------------------------------------------------------------------------------------------------+
+| buttonLink         | no      | string       | Link to follow to after clicking on the button.                                                                   |
+|                    |         |              |                                                                                                                   |
+|                    |         |              | .. raw:: html                                                                                                     |
+|                    |         |              |                                                                                                                   |
+|                    |         |              |     <details>                                                                                                     |
+|                    |         |              |         <summary>More details</summary>                                                                           |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |            The link should start with "http://", "https://", "viber://", "tel:", "mailto:"                        |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |            Maximum link length: 2048 characters.                                                                  |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |            If the <code>buttonLink</code> parameter is sent, the <code>buttonText</code> must be sent as well.    |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |     </details>                                                                                                    |
++--------------------+---------+--------------+-------------------------------------------------------------------------------------------------------------------+
+| viberTtl           | no      | integer      | Message lifetime.                                                                                                 |
+|                    |         |              |                                                                                                                   |
+|                    |         |              | .. raw:: html                                                                                                     |
+|                    |         |              |                                                                                                                   |
+|                    |         |              |     <details>                                                                                                     |
+|                    |         |              |         <summary>More details</summary>                                                                           |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             Acceptable range in seconds: from 30 to 86400.                                                        |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             Recommended minimum value: 60.                                                                        |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             During this time, Viber will try to deliver the message to the subscriber.                            |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             Values that go beyond the minimum and maximum ones will be rounded to them.                           |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             If no parameter is sent, the default value will be used (agreed when the service started).            |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             If a message's lifetime has expired, it is assigned the "undelivered" status.                         |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |     </details>                                                                                                    |
++--------------------+---------+--------------+-------------------------------------------------------------------------------------------------------------------+
+| sending_time       | no      | string       | Local time to send a message to a subscriber.                                                                     |
+|                    |         |              |                                                                                                                   |
+|                    |         |              | .. raw:: html                                                                                                     |
+|                    |         |              |                                                                                                                   |
+|                    |         |              |     <details>                                                                                                     |
+|                    |         |              |         <summary>More details</summary>                                                                           |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             Specified in the <code>hh_hh</code> format, where two hour values specify the time period in which    |
+|                    |         |              |             the message should be sent.                                                                           |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |     <div class="admonition warning">                                                                              |
+|                    |         |              |         <p class="admonition-title">Warning</p>                                                                   |
+|                    |         |              |         <p>If the parameter is specified, then its value cannot be empty.                                         |
+|                    |         |              |            </p>                                                                                                   |
+|                    |         |              |     </div>                                                                                                        |
+|                    |         |              |     <div class="admonition note">                                                                                 |
+|                    |         |              |         <p class="admonition-title">Note</p>                                                                      |
+|                    |         |              |         <p>For example, if the parameter value is                                                                 |
+|                    |         |              |            <code>sending_time = 10_20</code>, the message will be sent within the period from 10:00 to 20:00      |
+|                    |         |              |             local time in the time zone of the subscriber.                                                        |
+|                    |         |              |            </p>                                                                                                   |
+|                    |         |              |     </div>                                                                                                        |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             The time zone of the subscriber is determined <b>not</b> by actual location of the subscriber.        |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             If the Partner doesn't send the <code>time_zone</code> parameter, the time zone of the subscriber     |
+|                    |         |              |              will be determined by the phone number.                                                              |                                
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             If the Partner sends the time zone in the <code>time_zone</code> parameter, the message will be       |
+|                    |         |              |             sent to the subscriber according to local time of this time zone.                                     |        
+|                    |         |              |                                                                                                                   |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |     </details>                                                                                                    |
++--------------------+---------+--------------+-------------------------------------------------------------------------------------------------------------------+
+| time_zone          | no      | string       | Time zone of the subscriber.                                                                                      |
+|                    |         |              |                                                                                                                   |
+|                    |         |              | .. raw:: html                                                                                                     |
+|                    |         |              |                                                                                                                   |
+|                    |         |              |     <details>                                                                                                     |
+|                    |         |              |         <summary>More details</summary>                                                                           |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             Specified in the <code>±hh:mm</code> format. For details see                                          |
+|                    |         |              |             <a href="https://www.isotc154.org/posts/2019-08-27-introduction-to-the-new-8601/">ISO 8601</a>.       |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             If the Partner sends the value time zone in this parameter, the message will be sent to the subscriber|
+|                    |         |              |             according to local time of this time zone, otherwise the time zone of the subscriber will             |
+|                    |         |              |             be determined by the subscriber's phone number.                                                       |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |     <div class="admonition note">                                                                                 |
+|                    |         |              |         <p class="admonition-title">Note</p>                                                                      |
+|                    |         |              |         <p>The subscriber with the number from Khabarovsk is in Moscow. The following sending options are         |
+|                    |         |              |            available:</p>                                                                                         |
+|                    |         |              |             <ol>                                                                                                  |
+|                    |         |              |                <li>                                                                                               |
+|                    |         |              |                   <p>The values are received: <code>sending_time = 10_20</code>, <code>time_zone = +04:00</code>  |
+|                    |         |              |                     (Moscow time).</p>                                                                            |
+|                    |         |              |                   <p>The message will be sent within the period from 10:00 to 20:00 Moscow time.</p>              |
+|                    |         |              |                </li>                                                                                              |
+|                    |         |              |                <li>                                                                                               |
+|                    |         |              |                   <p>The <code>sending_time = 10_20</code> value was received and the <code>time_zone</code>      |
+|                    |         |              |                     parameter wasn't passed.</p>                                                                  |
+|                    |         |              |                   <p>The message will be sent within the period from 10:00 to 20:00 (Khabarovsk time).</p>        |
+|                    |         |              |                </li>                                                                                              |
+|                    |         |              |             </ol>                                                                                                 |
+|                    |         |              |     </div>                                                                                                        |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             For the zero zone it is necessary to specify a "+" or "–" sign.                                       |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             The "+" sign will be transformed into <code>%2B</code> when encoded in URL. For example, the          |
+|                    |         |              |             +04:00 time zone will be sent as <code>time_zone = %2B04:00</code>.                                   |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |     </details>                                                                                                    |
++--------------------+---------+--------------+-------------------------------------------------------------------------------------------------------------------+
+| source             | no      | string       | Name of the sender.                                                                                               |
+|                    |         |              |                                                                                                                   |
+|                    |         |              | .. raw:: html                                                                                                     |
+|                    |         |              |                                                                                                                   |
+|                    |         |              |     <details>                                                                                                     |
+|                    |         |              |         <summary>More details</summary>                                                                           |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             The message will be sent to the subscriber from the service name specified in this parameter.         |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             This parameter is optional. If the parameter is missing in the request, the message will be sent      |
+|                    |         |              |             to the subscriber from the default service name (setting on the Service Provider's side).             |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |     <div class="admonition important">                                                                            |
+|                    |         |              |         <p class="admonition-title">Important</p>                                                                 |
+|                    |         |              |         <p>This parameter is not available for the Partner by default. This feature can be activated              |
+|                    |         |              |            only after approval by the Service Provider. In this case, the list of allowed senders' names          |
+|                    |         |              |            is set for the Partner's service or the dynamic signature feature is activated.</p>                    |
+|                    |         |              |     </div>                                                                                                        |
+|                    |         |              |     </details>                                                                                                    |
++--------------------+---------+--------------+-------------------------------------------------------------------------------------------------------------------+
+| output             | no      | string       | Request response format.                                                                                          |
+|                    |         |              |                                                                                                                   |
+|                    |         |              | .. raw:: html                                                                                                     |
+|                    |         |              |                                                                                                                   |
+|                    |         |              |     <details>                                                                                                     |
+|                    |         |              |         <summary>More details</summary>                                                                           |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             If <code>output = xml</code>, the response to request will be formed as XML,                          |
+|                    |         |              |             see <a href="https://doc.rapporto.ru/api/eng/http_eng/eng_http_viber.html#response-in-the-xml-format">|
+|                    |         |              |             Response in the XML Format</a>.                                                                       |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             If the parameter is not defined or is different, the default format is used: text/plain               |
+|                    |         |              |             (see <a href="https://doc.rapporto.ru/api/eng/http_eng/eng_http_viber.html#response">                 |
+|                    |         |              |             Response to the request</a>).                                                                         |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |     </details>                                                                                                    |
++--------------------+---------+--------------+-------------------------------------------------------------------------------------------------------------------+
+| partnerMsgId       | no      | string       | Message unique identifier in the Partner's system.                                                                |
+|                    |         |              |                                                                                                                   |
+|                    |         |              | .. raw:: html                                                                                                     |
+|                    |         |              |                                                                                                                   |
+|                    |         |              |     <details>                                                                                                     |
+|                    |         |              |         <summary>More details</summary>                                                                           |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             Allowed length: from 1 to 50 characters.                                                              |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             This parameter is required for resending and duplicate control. The Partner can send a request to     |
+|                    |         |              |             send a message several times with the same <code>partnerMsgId</code>.                                 |
+|                    |         |              |                                                                                                                   |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             In this case:                                                                                         |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |         <ul>                                                                                                      |
+|                    |         |              |             <li>the message will be sent to the subscriber only once (when the first request is received);</li>   |
+|                    |         |              |             <li>in responses to requests the Service Provider will return to the Partner the same message         |
+|                    |         |              |                 identifier in the Service Provider system (the same that was sent for the first request).</li>    |
+|                    |         |              |         </ul>                                                                                                     |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             The Service Provider as an option returns this identifier to the Partner as a part of the request     |
+|                    |         |              |             for receiving the message delivery status (see section                                                |
+|                    |         |              |             <a href="https://doc.rapporto.ru/api/eng/http_eng/eng_http_status.html">Delivery Status Service</a>). |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             This parameter is not available by default. To enable this functionality, please consult              |
+|                    |         |              |             with your manager.                                                                                    |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |     </details>                                                                                                    |
++--------------------+---------+--------------+-------------------------------------------------------------------------------------------------------------------+
+| shortenLinks       | no      | boolean      | Parameter specifies whether to shorten links in the message text.                                                 |
+|                    |         |              |                                                                                                                   |
+|                    |         |              | .. raw:: html                                                                                                     |
+|                    |         |              |                                                                                                                   |
+|                    |         |              |     <details>                                                                                                     |
+|                    |         |              |         <summary>More details</summary>                                                                           |
+|                    |         |              |     <div class="admonition important">                                                                            |    
+|                    |         |              |         <p class="admonition-title">Important</p>                                                                 |
+|                    |         |              |         <p>It is used for single messages only.</p>                                                               |
+|                    |         |              |     </div>                                                                                                        |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             If cascade resending, you need to use the <code>shorten_list</code> parameter  (see                   |
+|                    |         |              |             <a href="https://doc.rapporto.ru/api/eng/http_eng/eng_http_cascade.html">                             |
+|                    |         |              |             Cascading Message Sending</a>).                                                                       |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |     <div class="admonition important">                                                                            |
+|                    |         |              |         <p class="admonition-title">Important</p>                                                                 |
+|                    |         |              |         <p>This option is not available by default. The connection of this functionality should be agreed         |
+|                    |         |              |            with your supervising manager.</p>                                                                     |                                                                          
+|                    |         |              |     </div>                                                                                                        |
+|                    |         |              |         <p>                                                                                                       |
+|                    |         |              |             For more details: see                                                                                 |
+|                    |         |              |             <a href="https://doc.rapporto.ru/api/eng/http_eng/eng_http_short_link.html">                          |
+|                    |         |              |             Link Shortening Service</a>.                                                                          |
+|                    |         |              |         </p>                                                                                                      |
+|                    |         |              |     </details>                                                                                                    |
++--------------------+---------+--------------+-------------------------------------------------------------------------------------------------------------------+
 
-+---------------------------+-------------------------+----------------------------------------------------------------------------------+
-| Parameter                 | Type                    | Description                                                                      |
-+===========================+=========================+==================================================================================+
-| **clientId**              | string                  | | Subscriber's phone number, no more than 25 character.                          |
-|                           |                         | | Examples: 79036550550, +79036550550, 8-903-655-05-50, 89036550550.             |
-+---------------------------+-------------------------+----------------------------------------------------------------------------------+
-| message                   | string                  | | The text of the message in UTF-8 incoding.                                     |
-|                           |                         | | Maximum length: 1000 characters.                                               |
-+---------------------------+-------------------------+----------------------------------------------------------------------------------+
-| **serviceId**             | string                  | An ID of the Partner’s service (login), which is used to send a message.         |
-|                           |                         | The Service Provider establishes serviceId while enabling the Partner’s service  |
-|                           |                         | and reports it to the Partner.                                                   |
-+---------------------------+-------------------------+----------------------------------------------------------------------------------+
-| **pass**                  | string                  | A password for authorization in the service. The Service Provider establishes    |
-|                           |                         | the password while enabling the service and reports it to the Partner.           |
-+---------------------------+-------------------------+----------------------------------------------------------------------------------+
-| ptag                      | string                  | | Message identifier in the Partner's system.                                    |
-|                           |                         | | It may contain from 1 to 50 characters.                                        |
-|                           |                         | | Valid characters: 0...9a...zA...Z-                                             |
-|                           |                         | | It may be any identifier in the Partner's system.                              |
-|                           |                         |                                                                                  |
-|                           |                         | .. note::                                                                        |
-|                           |                         |     For example, it may be the unique identifier of message or the identifier    |
-|                           |                         |     of subdivision, which initiates the request for sending. In contrast to      |
-|                           |                         |     *partnerMsgId* parameter, which is needed to control resending and           |
-|                           |                         |     duplication, the Service Provider does not control values sent in            |
-|                           |                         |     *ptag* parameter (only format compliance is checked).                        |
-|                           |                         |                                                                                  |
-|                           |                         | The Service Provider optionally returns this identifier to the Partner as part   |
-|                           |                         | of a request for receiving of the message delivery status (this functionality is |
-|                           |                         | described in the section «Service of message delivery status receiving»).        |
-+---------------------------+-------------------------+----------------------------------------------------------------------------------+
-| imageUrl                  | string                  | | A link to the image to be sent to the subscriber.                              |
-|                           |                         | | The link must begin with "http://" или "https://".                             |
-+---------------------------+-------------------------+----------------------------------------------------------------------------------+
-| buttonText                | string                  | | The text of the button. If the *buttonText* parameter is sent, the *buttonLink*|
-|                           |                         |   parameter must be sent as well.                                                |
-|                           |                         | | Maximum length: 30 characters.                                                 |
-+---------------------------+-------------------------+----------------------------------------------------------------------------------+
-| buttonLink                | string                  | | The link to follow to after clicking on the button.                            |
-|                           |                         | | The link should start with "http://", "https://", "viber://", "tel:",          |
-|                           |                         |   "mailto:".                                                                     |
-|                           |                         | | Maximum link length: 2048 characters.                                          |
-|                           |                         | | If the *buttonLink* parameter is sent, the *buttonText* must be sent as well.  |
-+---------------------------+-------------------------+----------------------------------------------------------------------------------+
-| viberTtl                  | integer                 | | The message lifetime.                                                          |
-|                           |                         | | Acceptable range in seconds: from 30 to 86400.                                 |
-|                           |                         | | Recommended minimum value: 60.                                                 |
-|                           |                         | | During this time, Viber will try to deliver the message to the subscriber.     |
-|                           |                         | | Values that go beyond the minimum and maximum ones will be rounded to them.    |
-|                           |                         | | If no parameter is sent, the default value will be used (agreed when the       |
-|                           |                         |   service started).                                                              |
-|                           |                         | | If a message's lifetime has expired, it becomes *undelivered* status.          |
-+---------------------------+-------------------------+----------------------------------------------------------------------------------+
-| sending_time              | string                  | | Local time to send a message to a subscriber.                                  |
-|                           |                         | | Specified in the **hh_hh** format, where two hour values specify the time      |
-|                           |                         |   period in which the message should be sent.                                    |
-|                           |                         |                                                                                  |
-|                           |                         | .. warning:: If the parameter is specified, then its value cannot be empty.      |
-|                           |                         |                                                                                  |
-|                           |                         | .. note:: For example, if the parameter value is *sending_time=10_20*,           |
-|                           |                         |     the message will be sent within the period from 10:00 to 20:00 local time    |
-|                           |                         |     in the time zone of the subscriber.                                          |
-|                           |                         |                                                                                  |
-|                           |                         | | The time zone of the subscriber is determined **not** by actual location       |
-|                           |                         |   of the subscriber.                                                             |
-|                           |                         | | If the Partner doesn't send the *time_zone* parameter, the time zone of the    |
-|                           |                         |   subscriber will be determined by the phone number.                             |
-|                           |                         | | If the Partner sends the time zone in the *time_zone* parameter, the message   |
-|                           |                         |   will be sent to the subscriber according to local time of this time zone.      |
-+---------------------------+-------------------------+----------------------------------------------------------------------------------+
-| time_zone                 | string                  | The time zone of the subscriber. Specified in the **±hh:mm** format. For details |
-|                           |                         | see `ISO 8601 <http://en.wikipedia.org/wiki/ISO_8601#Time_offsets_from_UTC>`_.   |
-|                           |                         |                                                                                  |
-|                           |                         | If the Partner sends the value time zone in this parameter, the message will be  |
-|                           |                         | sent to the subscriber according to local time of this time zone, otherwise the  |
-|                           |                         | time zone of the subscriber will be determined by the subscriber's phone number. |
-|                           |                         |                                                                                  |
-|                           |                         | .. note:: The subscriber with the number from Khabarovsk is in Moscow.           |
-|                           |                         |     The following sending options are available:                                 |
-|                           |                         |                                                                                  |
-|                           |                         |     1. The values are received: *sending_time=10_20*, *time_zone=+04:00*         |
-|                           |                         |        (Moscow time).                                                            |
-|                           |                         |                                                                                  |
-|                           |                         |        The message will be sent within the period from 10:00 to 20:00 Moscow     |
-|                           |                         |        time.                                                                     |
-|                           |                         |                                                                                  |
-|                           |                         |     2. The value *sending_time=10_20* was received and *time_zone* parameter     |
-|                           |                         |        wasn't passed. The message will be sent within the period from 10:00      |
-|                           |                         |        to 20:00 Khabarovsk time.                                                 |
-|                           |                         |                                                                                  |
-|                           |                         | | For the zero zone it is necessary to specify a sign "+" or "-".                |
-|                           |                         | | The "+" sign will be transformed into "%2B" when encoded in URL.               |
-|                           |                         | | For example, the +04:00 time zone will be sent as time_zone= %2B04:00.         |
-+---------------------------+-------------------------+----------------------------------------------------------------------------------+
-| source                    | string                  | Name of the sender. The message will be sent to the subscriber from the service  |
-|                           |                         | name specified in this parameter.                                                |
-|                           |                         |                                                                                  |
-|                           |                         | This parameter is optional. If the parameter is missing in the request,          |
-|                           |                         | the message will be sent to the subscriber from the default service name         |
-|                           |                         | (setting on the Service Provider's side).                                        |
-|                           |                         |                                                                                  |
-|                           |                         | .. important:: This parameter is not available for the Partner by default.       |
-|                           |                         |     This feature can be activated only after approval by the Service Provider.   |
-|                           |                         |     In this case, the list of allowed senders' names is set for the Partner's    |
-|                           |                         |     service or the dynamic signature feature is activated.                       |
-+---------------------------+-------------------------+----------------------------------------------------------------------------------+
-| output                    | string                  | Request response format.                                                         |
-|                           |                         |                                                                                  |
-|                           |                         | If *output=xml*, the response to request will be formed as XML                   |
-|                           |                         | (see :ref:`Response in XML format <Vb engОтвет в формате XML>`).                 |
-|                           |                         |                                                                                  |
-|                           |                         | If the parameter is not defined or is different, the default format is used:     |
-|                           |                         | :abbr:`text/plain (Simple text)`                                                 |
-|                           |                         | (see :ref:`Response to the request <Vb engОтвет на запрос>`).                    |
-+---------------------------+-------------------------+----------------------------------------------------------------------------------+
-| partnerMsgId              | string                  | The message unique identifier in the Partner's system.                           |
-|                           |                         | Allowable length: from 1 to 50 characters.                                       |
-|                           |                         |                                                                                  |
-|                           |                         | This parameter is required for resending and duplicate control.                  |
-|                           |                         | The Partner can send a request to send a message several times with the same     |
-|                           |                         | *partnerMsgId*.                                                                  |
-|                           |                         |                                                                                  |
-|                           |                         | At that:                                                                         |
-|                           |                         |                                                                                  |
-|                           |                         | * the message will be sent to the subscriber only once                           |
-|                           |                         |   (when the first request is received);                                          |
-|                           |                         | * in responses to requests the Service Provider will return to the Partner       |
-|                           |                         |   the same message identifier in the Service Provider system (the same that      |
-|                           |                         |   was sent for the first request).                                               |
-|                           |                         |                                                                                  |
-|                           |                         | The Service Provider as an option returns this identifier to the Partner         |
-|                           |                         | as a part of the request for receiving the message delivery status               |
-|                           |                         | (see :doc:`eng_http_status`).                                                    |
-|                           |                         |                                                                                  |
-|                           |                         | This parameter is not available by default.                                      |
-|                           |                         | The connection of this functionality should be agreed with your manager.         |
-+---------------------------+-------------------------+----------------------------------------------------------------------------------+
-| shortenLinks              | boolean                 | The parameter specifies whether to shorten links in the message text.            |
-|                           |                         |                                                                                  |
-|                           |                         | .. important:: It is used for single messages only.                              |
-|                           |                         |                                                                                  |
-|                           |                         | If cascade resending, you need to use the *shorten_list* parameter               |
-|                           |                         | (see :doc:`eng_http_cascade`).                                                   |
-|                           |                         |                                                                                  |
-|                           |                         | .. important:: This option is not available by default.                          |
-|                           |                         |     The connection of this functionality should be agreed with your supervising  |
-|                           |                         |     manager.                                                                     |
-|                           |                         |                                                                                  |
-|                           |                         | For more details see: :doc:`eng_http_short_link`.                                |
-+---------------------------+-------------------------+----------------------------------------------------------------------------------+
+.. raw:: html
 
-.. note::
-
-    Possible combinations of parameters in the request:
-
-    * message;
-    * imageUrl;
-    * message + buttonText + buttonLink;
-    * message + imageUrl + buttonText + buttonLink.
+   <div class="admonition note">
+       <p class="admonition-title">Note</p>
+       <p>Possible combinations of parameters in the request:</p>
+       <ul>
+           <li>message;</li>
+           <li>imageUrl;</li>
+           <li>message + buttonText + buttonLink;</li>
+           <li>message + imageUrl + buttonText + buttonLink.</li>
+       </ul>
+   </div>
+                                                                                       
 
 
 .. _Vb engОтвет на запрос:
@@ -260,15 +439,19 @@ Response
 | In agreement with the Partner, the response can be generated in :abbr:`XML (Xtensible Markup Language)` format. 
 
 
-.. note:: The Service Provider sends messages to subscribers only if the request is successfully processed.
+.. raw:: html
 
+   <div class="admonition note">
+       <p class="admonition-title">Note</p>
+       <p>The Service Provider sends messages to subscribers only if the request is successfully processed.</p>
+   </div>                                                                           
 
 Successful Sending 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In case of successful processing of the request Service Provider returns to the Partner:
+In case of successful processing of the request the Service Provider returns to the Partner:
 
-* HTTP code "200 OK"; 
+* HTTP code ``200 OK``; 
 * the ID of the message in the Service Provider's system. 
 
 .. tabs::
@@ -300,7 +483,7 @@ In case of successful processing of the request Service Provider returns to the 
 Sending Errors 
 ^^^^^^^^^^^^^^^^^^^
 
-When sending an incorrect request a short text error message may be transmitted in the response body.
+When sending an incorrect request, a short text error message may be transmitted in the response body.
 
 .. tabs::
 
@@ -318,84 +501,170 @@ When sending an incorrect request a short text error message may be transmitted 
 
     .. tab:: Error codes when sending the request
 
-        +---------------+-----------------------------------------------------------+-----------------------------------------------------------+
-        | Response Code | Description                                               | Possible Partner's action                                 |
-        +===============+===========================================================+===========================================================+
-        | 400           | Mandatory parameters are unavailable or they are set      | Please repeat the request with the correct combination    |
-        |               | incorrectly.                                              | of parameters and their correct values.                   |
-        |               |                                                           |                                                           |
-        |               | For example, the *message* parameter is not set           |                                                           |
-        |               | (where it's needed).                                      |                                                           |
-        +---------------+-----------------------------------------------------------+-----------------------------------------------------------+
-        | 401           | Incorrect combination of *serviceId* and *pass*           | Please repeat the request with the correct *serviceId*    |
-        |               | parameter is sent.                                        | and *pass* values.                                        |
-        |               |                                                           |                                                           |
-        +---------------+-----------------------------------------------------------+-----------------------------------------------------------+
-        | 402           | The balance of paid messages has been exhausted           | To resume sending messages, the Partner needs to make an  |
-        |               | (for Partners working on prepaid).                        | advance payment and contact your supervising manager.     |
-        |               |                                                           |                                                           |
-        |               |                                                           | The Partner shouldn't repeat the request.                 |
-        +---------------+-----------------------------------------------------------+-----------------------------------------------------------+
-        | 403           | The service with the *serviceId* parameter being sent     | Please contact your supervising manager.                  |
-        |               | is unavailable or inactive.                               |                                                           |
-        |               |                                                           | The Partner shouldn't repeat the request.                 |
-        +---------------+-----------------------------------------------------------+-----------------------------------------------------------+
-        | 406           | Impossible to send a message to a subscriber with         | The Partner shouldn't repeat the request.                 |
-        |               | *clientId* sent.                                          |                                                           |
-        +---------------+-----------------------------------------------------------+-----------------------------------------------------------+
-        | 408           | Allowable rate of message sending is exceeded.            | The Partner can repeat the request without exceeding      | 
-        |               |                                                           | the allowed rate.                                         |
-        |               | .. note:: The Partner's service is set to a permissible   |                                                           |
-        |               |       speed of 10 requests per second. The Partner sent   |                                                           |
-        |               |       12 requests per second. The first 10 requests will  |                                                           |
-        |               |       be successfully processed: in response to these     |                                                           |
-        |               |       requests the Service Provider will return the status|                                                           |
-        |               |       200 and send messages to subscribers. In response   |                                                           |
-        |               |       to the last 2 requests the Service Provider will    |                                                           |
-        |               |       return the Partner status 408 and won`t send        |                                                           |
-        |               |       messages to subscribers.                            |                                                           |
-        +---------------+-----------------------------------------------------------+-----------------------------------------------------------+
-        | 409           | Sending duplicates prohibited.                            | The Partner shouldn't repeat the request.                 |
-        |               |                                                           |                                                           |
-        |               | .. note:: The duplicate blocking feature is activated     | If it is necessary to send a duplicate message, the       |
-        |               |       for the Partner's service. During 24 hours the      | Partner can contact                                       |
-        |               |       Partner sent 3 requests to send the message with    | :ref:`the Technical Support <eng-support>`                |
-        |               |       the same text to the same number.                   | and provide it with the most complete information         |
-        |               |       The first request will be processed successfully    | about the conditions for this situation.                  |
-        |               |       and the message will be sent to the subscriber. In  |                                                           |
-        |               |       response to the last 2 requests Service Provider    |                                                           |
-        |               |       will return 409 status and won't send these 2       |                                                           |
-        |               |       messages to the subscriber.                         |                                                           |
-        |               |                                                           |                                                           |
-        |               | The duplicate blocking feature is deactivated for the     |                                                           |
-        |               | Partner by default. The feature can be activated by the   |                                                           |
-        |               | Partner's request. The Service Provider can also activate |                                                           |
-        |               | the duplicate blocking feature for the Partner, if        |                                                           |
-        |               | necessary: for example, in case of subscribers complaints.|                                                           |
-        +---------------+-----------------------------------------------------------+-----------------------------------------------------------+
-        | 414           | The allowed length of the message body sent in the        | The Partner can repeat the request after shortening the   |
-        |               | *message* parameter is exceeded.                          | message text to the allowed length.                       |
-        +---------------+-----------------------------------------------------------+-----------------------------------------------------------+
-        | 500           | Server internal error. Technical difficulties at the      | When receiving the status 500 or when the timeout of      |
-        |               | Service Provider side.                                    | waiting for a response expires, the Partner need to wait  | 
-        |               |                                                           | for at least 1 minute. After the pause, the Partner can   |
-        |               |                                                           | repeat the request.                                       |
-        |               |                                                           |                                                           |
-        |               |                                                           | If you receive 500 status more than 10 times you have to  | 
-        |               |                                                           | stop transmitting the request. After that, you should     |
-        |               |                                                           | provide :ref:`the Technical Support <eng-support>` with   |
-        |               |                                                           | the most complete information about the conditions for    |
-        |               |                                                           | the occurrence of this error for further analysis.        |
-        +---------------+-----------------------------------------------------------+-----------------------------------------------------------+
-        | 503           | The request is being currently processed.                 | The Partner should wait for a response to the first       | 
-        |               |                                                           | request with the *partnerMsgId* parameter value sent.     |
-        |               | The error might appear if the Partner almost              |                                                           |
-        |               | simultaneously sends several requests with the same value | The Partner can repeat the request if the first request   |
-        |               | *partnerMsgId*.                                           | is not answered.                                          |
-        |               | Until the first request is processed the Service Provider |                                                           |
-        |               | will return the state 503 to the Partner for all          |                                                           |
-        |               | following requests with the same *partnerMsgId*.          |                                                           |
-        +---------------+-----------------------------------------------------------+-----------------------------------------------------------+
+        +---------------+-----------------------------------------------------------+------------------------------------------------------------------------------------+
+        | Response Code | Description                                               | Possible Partner's action                                                          |
+        +===============+===========================================================+====================================================================================+
+        | 400           | Mandatory parameters are unavailable or they are set      | .. raw:: html                                                                      |
+        |               | incorrectly.                                              |                                                                                    |
+        |               |                                                           |     <details>                                                                      |
+        |               | .. raw:: html                                             |         <summary>Troubleshooting</summary>                                         |
+        |               |                                                           |         <p>                                                                        |
+        |               |    <details>                                              |             Please repeat the request with the correct combination of parameters   |
+        |               |        <summary>More details</summary>                    |             and their correct values.                                              |
+        |               |                                                           |         </p>                                                                       |      
+        |               |        <p>                                                |     </details>                                                                     |
+        |               |            For example, the <code>message</code>          |                                                                                    |
+        |               |            parameter is not set (where it's needed).      |                                                                                    |
+        |               |        </p>                                               |                                                                                    |
+        |               |    </details>                                             |                                                                                    |
+        +---------------+-----------------------------------------------------------+------------------------------------------------------------------------------------+
+        | 401           | Incorrect combination of ``serviceId`` and ``pass``.      | .. raw:: html                                                                      |
+        |               |                                                           |                                                                                    |
+        |               |                                                           |     <details>                                                                      |
+        |               |                                                           |         <summary>Troubleshooting</summary>                                         |
+        |               |                                                           |         <p>                                                                        |
+        |               |                                                           |             Please repeat the request with the correct <code>serviceId</code>      |
+        |               |                                                           |             and <code>pass</code>.                                                 |
+        |               |                                                           |         </p>                                                                       |
+        |               |                                                           |     </details>                                                                     |
+        +---------------+-----------------------------------------------------------+------------------------------------------------------------------------------------+
+        | 402           | The balance of paid messages has been exhausted           | .. raw:: html                                                                      |
+        |               | (for Partners working on prepaid).                        |                                                                                    |
+        |               |                                                           |     <details>                                                                      |
+        |               |                                                           |         <summary>Troubleshooting</summary>                                         |
+        |               |                                                           |         <p>                                                                        |
+        |               |                                                           |             To resume sending messages, the Partner needs to make an advance       |
+        |               |                                                           |             payment and contact your supervising manager.                          |
+        |               |                                                           |         </p>                                                                       |
+        |               |                                                           |         <p>                                                                        |
+        |               |                                                           |             The Partner shouldn't repeat the request.                              |
+        |               |                                                           |         </p>                                                                       |
+        |               |                                                           |     </details>                                                                     |
+        +---------------+-----------------------------------------------------------+------------------------------------------------------------------------------------+
+        | 403           | The service with the ``serviceId`` parameter being sent   | .. raw:: html                                                                      |
+        |               | is unavailable or inactive.                               |                                                                                    |
+        |               |                                                           |     <details>                                                                      |
+        |               |                                                           |         <summary>Troubleshooting</summary>                                         |
+        |               |                                                           |         <p>                                                                        |
+        |               |                                                           |             Please contact your supervising manager.                               |
+        |               |                                                           |         </p>                                                                       |
+        |               |                                                           |         <p>                                                                        |
+        |               |                                                           |             The Partner shouldn't repeat the request.                              |
+        |               |                                                           |         </p>                                                                       |
+        |               |                                                           |     </details>                                                                     |
+        +---------------+-----------------------------------------------------------+------------------------------------------------------------------------------------+
+        | 406           | Impossible to send a message to a subscriber with         | .. raw:: html                                                                      |
+        |               | ``clientId``.                                             |                                                                                    |
+        |               |                                                           |     <details>                                                                      |
+        |               |                                                           |         <summary>Troubleshooting</summary>                                         |
+        |               |                                                           |         <p>                                                                        |
+        |               |                                                           |             The Partner shouldn't repeat the request.                              |
+        |               |                                                           |         </p>                                                                       |
+        |               |                                                           |     </details>                                                                     |
+        +---------------+-----------------------------------------------------------+------------------------------------------------------------------------------------+
+        | 408           | Allowable rate of message sending is exceeded.            | .. raw:: html                                                                      |
+        |               |                                                           |                                                                                    |
+        |               |                                                           |     <details>                                                                      |
+        |               | .. raw:: html                                             |         <summary>Troubleshooting</summary>                                         |
+        |               |                                                           |         <p>                                                                        |
+        |               |    <details>                                              |             The Partner can repeat the request without exceeding the allowed rate. |
+        |               |        <summary>More details</summary>                    |         </p>                                                                       |
+        |               |     <div class="admonition note">                         |     </details>                                                                     |
+        |               |       <p class="admonition-title">Note</p>                |                                                                                    |
+        |               |         <p>The Partner's service is set to a permissible  |                                                                                    |
+        |               |            speed of 10 requests per second. The Partner   |                                                                                    |
+        |               |            sent 12 requests per second. The first 10      |                                                                                    |
+        |               |            requests will be successfully processed: in    |                                                                                    |
+        |               |            response to these requests the Service Provider|                                                                                    |
+        |               |            will return the <code>200</code> status and    |                                                                                    |
+        |               |            send messages to subscribers. In response to   |                                                                                    |
+        |               |            the last 2 requests the Service Provider will  |                                                                                    |
+        |               |            return the <code>408</code> status to the      |                                                                                    |
+        |               |            Partner and won`t send messages to subscribers.|                                                                                    |
+        |               |            </p>                                           |                                                                                    |
+        |               |      </div>                                               |                                                                                    |
+        |               |    </details>                                             |                                                                                    |
+        +---------------+-----------------------------------------------------------+------------------------------------------------------------------------------------+
+        | 409           | Sending duplicates prohibited.                            | .. raw:: html                                                                      |
+        |               |                                                           |                                                                                    |
+        |               | .. raw:: html                                             |     <details>                                                                      |
+        |               |                                                           |         <summary>Troubleshooting</summary>                                         |                                
+        |               |    <details>                                              |         <p>                                                                        |
+        |               |        <summary>More details</summary>                    |             The Partner shouldn't repeat the request.                              |                                        
+        |               |     <div class="admonition note">                         |         </p>                                                                       |
+        |               |       <p class="admonition-title">Note</p>                |         <p>                                                                        |
+        |               |          <p>The duplicate blocking feature is activated   |             If it is necessary to send a duplicate                                 |
+        |               |             for the Partner's service. During 24 hours    |             message, the Partner can contact the                                   |
+        |               |             the Partner sent 3 requests to send the       |             <a href="https://doc.rapporto.ru/api/eng/eng_support.html#eng-support">|
+        |               |             message with the same text to the same number.|             Technical Support Service</a> and provide it                           |
+        |               |             The first request will be processed           |             with the most complete information about the                           |
+        |               |             successfully and the message will be sent to  |             conditions for this situation.                                         |
+        |               |             the subscriber. In response to the last 2     |         </p>                                                                       |
+        |               |             requests the Service Provider will return the |      </details>                                                                    |
+        |               |             <code>409</code> status and won't send these  |                                                                                    |
+        |               |             2 messages to the subscriber. </p>            |                                                                                    |
+        |               |     </div>                                                |                                                                                    |
+        |               |        <p>                                                |                                                                                    |
+        |               |            The duplicate blocking feature is deactivated  |                                                                                    |
+        |               |            for the Partner by default. The feature can be |                                                                                    |
+        |               |            activated by the Partner's request. The Service|                                                                                    |
+        |               |            Provider can also activate the duplicate       |                                                                                    |
+        |               |            blocking feature for the Partner, if necessary:|                                                                                    |
+        |               |            for example, in case of subscribers complaints.|                                                                                    |
+        |               |        </p>                                               |                                                                                    |
+        |               |    </details>                                             |                                                                                    |
+        +---------------+-----------------------------------------------------------+------------------------------------------------------------------------------------+
+        | 414           | The allowed length of the message body sent in the        | .. raw:: html                                                                      |
+        |               | ``message`` parameter.                                    |                                                                                    |
+        |               |                                                           |     <details>                                                                      |
+        |               |                                                           |         <summary>Troubleshooting</summary>                                         |
+        |               |                                                           |         <p>                                                                        |
+        |               |                                                           |             The Partner can repeat the request after shortening the message text   |
+        |               |                                                           |             to the allowed length.                                                 |
+        |               |                                                           |         </p>                                                                       |
+        |               |                                                           |     </details>                                                                     |
+        +---------------+-----------------------------------------------------------+------------------------------------------------------------------------------------+
+        | 500           | Server internal error. Technical difficulties at the      | .. raw:: html                                                                      |
+        |               | Service Provider side.                                    |                                                                                    |
+        |               |                                                           |     <details>                                                                      |
+        |               |                                                           |         <summary>Troubleshooting</summary>                                         |
+        |               |                                                           |         <p>                                                                        |
+        |               |                                                           |             When receiving the <code>500</code> status or when the timeout         |
+        |               |                                                           |             of waiting for a response expires, the Partner needs to wait for at    |
+        |               |                                                           |             least 1 minute. After the pause, the Partner can repeat the request.   |
+        |               |                                                           |         </p>                                                                       |
+        |               |                                                           |         <p>                                                                        |
+        |               |                                                           |             If you receive the <code>500</code> status more than 10 times, you have|
+        |               |                                                           |             to stop transmitting the request. After that, you should provide the   |
+        |               |                                                           |             <a href="https://doc.rapporto.ru/api/eng/eng_support.html#eng-support">|
+        |               |                                                           |             Technical Support Service</a> with the most complete information about |
+        |               |                                                           |             the conditions for the occurrence of this error for further analysis.  |
+        |               |                                                           |         </p>                                                                       |
+        |               |                                                           |     </details>                                                                     |
+        +---------------+-----------------------------------------------------------+------------------------------------------------------------------------------------+
+        | 503           | The request is being currently processed.                 | .. raw:: html                                                                      |
+        |               |                                                           |                                                                                    |
+        |               |                                                           |     <details>                                                                      |
+        |               | .. raw:: html                                             |         <summary>Troubleshooting</summary>                                         |
+        |               |                                                           |         <p>                                                                        |
+        |               |    <details>                                              |             The Partner should wait for a response to the first request with       |
+        |               |        <summary>More details</summary>                    |             the <code>partnerMsgId</code> parameter value                          |
+        |               |        <p>                                                |             sent.                                                                  |
+        |               |            The error might appear if the Partner almost   |         </p>                                                                       |
+        |               |            simultaneously sends several requests with     |         <p>                                                                        |
+        |               |            the same <code>partnerMsgId</code>             |             The Partner can repeat the request if the first request is not         |
+        |               |            value.                                         |             answered.                                                              |
+        |               |        </p>                                               |         </p>                                                                       |
+        |               |        <p>                                                |     </details>                                                                     |
+        |               |            Until the first request is processed the       |                                                                                    |
+        |               |            Service Provider will return the               |                                                                                    |
+        |               |            <code>503</code> status                        |                                                                                    |
+        |               |            to the Partner for all                         |                                                                                    |
+        |               |            following requests with the same               |                                                                                    |
+        |               |            <code>partnerMsgId</code>.                     |                                                                                    |
+        |               |        </p>                                               |                                                                                    |
+        |               |    </details>                                             |                                                                                    |
+        +---------------+-----------------------------------------------------------+------------------------------------------------------------------------------------+
 
 
 
@@ -404,11 +673,11 @@ When sending an incorrect request a short text error message may be transmitted 
 Response in the XML Format
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-| To receive the response in :abbr:`XML (Xtensible Markup Language)` format the Partner need to send the **output=xml** parameter in the body of the request.
+| To receive the response in :abbr:`XML (Xtensible Markup Language)` format the Partner needs to send the ``output = xml`` parameter in the body of the request.
 | In this case, the Service Provider synchronously responds to the request with one of the following HTTP codes:
 
-* 200 – the request was successfully processed;
-* 500 – internal server error, technical problems on the Service Provider's side.
+* ``200`` — the request was successfully processed;
+* ``500`` — internal server error, technical problems on the Service Provider's side.
 
 Response Examples
 ^^^^^^^^^^^^^^^^^^
@@ -417,8 +686,8 @@ Response Examples
 
     .. tab:: Successful sending
 
-        | Response example in XML format in case of successful request sending (HTTP code **200**).
-        | The description of the response content is given in "XML elements" tab.
+        | Response example in XML format in case of successful request sending (HTTP code ``200``).
+        | The description of the response content is given in the “Description of XML elements“ tab.
 
         .. code-block::
 
@@ -449,45 +718,57 @@ Response Examples
                 </response>
             }
 
-        When receiving the status **500** or when the timeout of waiting for a response expires, the Partner needs to wait for at least 1 minute. 
+        When receiving the status ``500`` or when the timeout of waiting for a response expires, the Partner needs to wait for at least 1 minute. 
         After the pause, the Partner can repeat the request.
+                  
+        .. raw:: html
 
-        .. note:: When receiving the status **500** more than 10 times, the request transmitting should be stopped. 
-                  After that, the Partner needs to provide :ref:`the Technical Support <eng-support>` with the most complete information about the conditions 
-                  for the occurrence of this error for further analysis.
+          <div class="admonition note">
+             <p class="admonition-title">Note</p>
+            <p>When receiving the <code>500</code> status more than 10 times, the request transmitting should be stopped. After that, the Partner needs to provide the
+            <a href="https://doc.rapporto.ru/api/eng/eng_support.html#eng-support">Technical Support Service</a> with the most complete information about the conditions
+            for the occurrence of this error for further analysis.</p>
+         </div>                                                                           
+
 
 
     .. tab:: Description of XML elements
 
-        The **mandatory** parameters are highlighted **in bold**.
+        +-----------------+---------+--------------------------------------------------+------------------------------------------+
+        | Name            |Required |        Description                               | Note                                     |
+        +=================+=========+==================================================+==========================================+
+        | xml version     | yes     | Number of XML version.                           | It is contained in the prologue of the   |
+        |                 |         |                                                  | XML document.                            |
+        +-----------------+---------+--------------------------------------------------+------------------------------------------+
+        | encoding        | no      | Encoding.                                        | It is contained in the prologue of the   |
+        |                 |         |                                                  | XML document.                            |
+        +-----------------+---------+--------------------------------------------------+------------------------------------------+
+        | response        | yes     | A root element. It contains the                  |                                          |
+        |                 |         | ``code``, ``text``, ``payload`` elements.        |                                          |
+        +-----------------+---------+--------------------------------------------------+------------------------------------------+
+        | code            | yes     | A response code (values correspond to HTTP codes | For more details see                     |
+        |                 |         | for responses of type text/plain).               | :ref:`above. <eКоды-ош-при-отпр-запроса>`|
+        +-----------------+---------+--------------------------------------------------+------------------------------------------+
+        | text            | no      | Additional brief textual information about       | It may contain an error information.     |
+        |                 |         | the response.                                    |                                          |
+        +-----------------+---------+--------------------------------------------------+------------------------------------------+
+        | payload         | no      | Information about the message, contains the      | Would be sent only if the request is     |
+        |                 |         | ``id`` element.                                  | performed successfully                   |
+        +-----------------+---------+--------------------------------------------------+ (when ``code = 200``).                   |
+        | id              | no      | The identifier assigned to the message           |                                          |
+        |                 |         | by the Service Provider.                         |                                          |
+        |                 |         | The identifier is a 64-bit positive integer.     |                                          |
+        +-----------------+---------+--------------------------------------------------+------------------------------------------+
 
-        +-----------------+--------------------------------------------------+------------------------------------------+
-        | Name            | Description                                      | Note                                     |
-        +=================+==================================================+==========================================+
-        | **xml version** | Number of XML version.                           | It is contained in the prologue of the   |
-        |                 |                                                  | XML document.                            |
-        +-----------------+--------------------------------------------------+------------------------------------------+
-        | encoding        | Encoding .                                       | It is contained in the prologue of the   |
-        |                 |                                                  | XML document.                            |
-        +-----------------+--------------------------------------------------+------------------------------------------+
-        | **response**    | A root element. It contains                      |                                          |
-        |                 | *code*, *text*, *payload* elements.              |                                          |
-        +-----------------+--------------------------------------------------+------------------------------------------+
-        | **code**        | A response code (values correspond to HTTP codes | For more details see                     |
-        |                 | for responses of type text/plain).               | :ref:`above. <eКоды-ош-при-отпр-запроса>`|
-        +-----------------+--------------------------------------------------+------------------------------------------+
-        | text            | Additional brief textual information about       | It may contain an error information.     |
-        |                 | the response.                                    |                                          |
-        +-----------------+--------------------------------------------------+------------------------------------------+
-        | payload         | Information about the message, contains the      | Would be sent only if the request is     |
-        |                 | *id* element.                                    | performed successfully (when code=200).  |
-        +-----------------+--------------------------------------------------+                                          |
-        | id              | The identifier assigned to the message           |                                          |
-        |                 | by the Service Provider.                         |                                          |
-        |                 | The identifier is a 64-bit positive integer.     |                                          |
-        +-----------------+--------------------------------------------------+------------------------------------------+
+Viber Delivery Statuses
+--------------------------
 
+To receive statuses of push notifications, you need to set up the :doc:`eng_http_status`.
 
+Delivery Error Codes
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Delivery error codes for each message type are provided in the corresponding tab of the :ref:`engErrCodeDescr` section.
 
 
 Viber Session
@@ -496,7 +777,12 @@ Viber Session
 | Viber Session is a feature that allows to the Partner to communicate with subscribers at a fixed price per session within a certain time frame.
 | It can be any reason for the request: a question, a message about a problem, checking the reservation or the delivery status. The subscriber will receive a response in real time. 
 
-.. note:: The feature of Viber sessions is not available by default. Please, contact your supervising manager to connect it.
+.. raw:: html
+
+   <div class="admonition note">
+       <p class="admonition-title">Note</p>
+       <p>The feature of Viber sessions is not available by default. Please, contact your supervising manager to connect it.</p>
+   </div>                                                                           
 
 
 Viber Session Setup
@@ -506,8 +792,12 @@ Viber Session Setup
 | You can create a new Viber business account with connected session functionality.
 | If you already have a valid business account and you would like to connect sessions to it, please, contact your supervising manager.
 
-.. important:: For business accounts that support Viber sessions, messages with the type “text only“ or “image only“ are available (the value of InstantContent.type parameter must be “TEXT“ or “IMAGE_URL“).
+.. raw:: html
 
+   <div class="admonition important">
+       <p class="admonition-title">Important</p>
+       <p>For business accounts that support Viber sessions, messages with the type “text only“ or “image only“ are available (the value of InstantContent.type parameter must be <code>TEXT</code> or <code>IMAGE_URL</code>).</p>
+   </div>                                                                           
 
 Features 
 ------------------
@@ -539,11 +829,5 @@ Billing of Viber Sessions
 | A subscription fee is charged for using the session functionality. Please check the session size with the supervising manager when creating a business account.
 | All sessions are paid for a fixed (identical) price. Messages within sessions are not charged.
 | Messages outside the session are charged as usual.
-
-
-
-
-
-
 
 

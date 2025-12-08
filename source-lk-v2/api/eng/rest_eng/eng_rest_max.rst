@@ -58,7 +58,7 @@ The content of the request complies with the requirements for a standard request
         |                                |          |              |             Maximum length: 15 digits.                                           |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |             Contains a country code, operator code, and phone number.            |
+        |                                |          |              |             It contains a country code, operator code, and phone number.         |
         |                                |          |              |             For Russia, the code can be <code>8</code>, <code>7</code>           |
         |                                |          |              |             or <code>+7</code>.                                                  |
         |                                |          |              |         </p>                                                                     |
@@ -80,13 +80,22 @@ The content of the request complies with the requirements for a standard request
         |                                |          |              |     <details>                                                                    |
         |                                |          |              |         <summary>More details</summary>                                          |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |             Contains information about the message type and its content.         |
+        |                                |          |              |             It contains information about the message type and its content.      |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |     </details>                                                                   |
         +--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
         | | {message}                    | yes      | enum         | Message type.                                                                    |
         | | type                         |          |              |                                                                                  |
         |                                |          |              | Set the value to ``MAX``.                                                        |
+        |                                |          |              |                                                                                  |
+        |                                |          |              | .. raw:: html                                                                    |
+        |                                |          |              |                                                                                  |
+        |                                |          |              |     <details>                                                                    |
+        |                                |          |              |         <summary>More details</summary>                                          |
+        |                                |          |              |         <p>                                                                      |
+        |                                |          |              |             Set the value to <code>MAX</code>.                                   |
+        |                                |          |              |         </p>                                                                     |
+        |                                |          |              |     </details>                                                                   |
         +--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
         | | {message}                    | yes      | object       | Parameters of the data to be sent.                                               |
         | | data                         |          |              |                                                                                  |
@@ -158,13 +167,15 @@ In case of successful sending, the HTTP code ``200 OK`` is returned.
 
     .. tab:: Response parameters
 
-      .. csv-table:: 
-          :header: "Parameter", "Data type", "Description"
-          :widths: 30, 15, 35
-          :class: my-table
-
-          "mtNum", "string", "Sending chain identifier assigned by the Service Provider's platform."
-          "id", "string", "Unique identifier on the Partner's side. The parameter is included if it was present in the request."
+         +-----------------------+--------------+--------------------------------------------------------------------+
+         | Parameter             | Data type    | Description                                                        |
+         +=======================+==============+====================================================================+
+         | mtNum                 | string       | Identifier of the sending chain assigned by the Service Provider   | 
+         |                       |              | platform.                                                          |
+         +-----------------------+--------------+--------------------------------------------------------------------+
+         | id                    | string       | Unique identifier on the Partner's side. It is present if it       |
+         |                       |              | provided when sending.                                             |
+         +-----------------------+--------------+--------------------------------------------------------------------+
 
 
 MAX Sending Errors 
@@ -189,43 +200,55 @@ For results with errors, a response HTTP code will differ from ``200 OK`` (see :
 
    .. tab:: Response parameters
 
-      .. csv-table:: 
-        :header: "Parameter", "Data type", "Description"
-        :widths: 30, 15, 35
-        :class: my-table
-
-        "error", "object", "Error information."
-        "error/code", "int", "Error code."
-        "error/description", "string", "Short error description."
-        "extendedDescription", "string", "Optional parameter. Contains a detailed error description."
+      +-----------------------+--------------+--------------------------------------------------------------------+
+      | Parameter             | Data type    | Description                                                        |
+      +=======================+==============+====================================================================+
+      | error                 | object       | Error information.                                                 | 
+      +-----------------------+--------------+--------------------------------------------------------------------+
+      | error/code            | int          | Error code.                                                        |
+      +-----------------------+--------------+--------------------------------------------------------------------+
+      | error/description     | string       | A brief description of the error.                                  | 
+      +-----------------------+--------------+--------------------------------------------------------------------+
+      | extendedDescription   | string       | Detailed description of the error (optional parameter).            |
+      +-----------------------+--------------+--------------------------------------------------------------------+
 
 .. _Error-codes-max:          
 
 Error Codes 
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-.. csv-table:: 
-   :header: "Code", "Description", "HTTP-code"
-   :widths: 7, 30, 15
-   :class: my-table
++------------+--------------------------------+----------------+
+| Code       | Description                    | HTTP-code      |
++============+================================+================+
+| 1          | Service is unavailable         | 503            |
++------------+--------------------------------+----------------+
+| 2          | Invalid IP-address             | 403            |
++------------+--------------------------------+----------------+
+| 3          | Too many connections           | 429            |
++------------+--------------------------------+----------------+
+| 4          | Invalid request                | 400            |
++------------+--------------------------------+----------------+
+| 5          | Invalid login                  | 401            |
++------------+--------------------------------+----------------+
+| 6          | Invalid password               | 401            |
++------------+--------------------------------+----------------+
+| 7          | serviceNumber is not defined   | 400            |
++------------+--------------------------------+----------------+
+| 8          | destAddr is not correct        | 406            |
++------------+--------------------------------+----------------+
+| 9          | Message type is not correct    | 406            |
++------------+--------------------------------+----------------+
+| 10         | Prohibited sending duplicates  | 409            |
++------------+--------------------------------+----------------+
+| 11         | Invalid TTL                    | 406            |
++------------+--------------------------------+----------------+
+| 100        | 100                            | 500            |
++------------+--------------------------------+----------------+
 
-   1, "Service is unavailable", "503"
-   2, "Invalid IP-address", "403"
-   3, "Too many connections", "429"
-   4, "Invalid request", "400"
-   5, "Invalid login", "401"
-   6, "Invalid password", "401"
-   7, "serviceNumber is not defined", "400"
-   8, "destAddr is not correct", "406"
-   9, "Message type is not correct", "406"
-   10, "Prohibited sending duplicates", "409"
-   11, "Invalid TTL", "406"
-   100, "100", "500"
 
 
-
-
-Message Delivery Statuses
+MAX Delivery Statuses
 -------------------------------
 
 To receive statuses of messages, you need to set up a :doc:`eng_rest_status`.
+
