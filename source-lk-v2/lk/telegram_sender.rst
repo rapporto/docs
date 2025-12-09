@@ -2,7 +2,7 @@
 Создание Telegram-рассылки
 ==========================
 
-.. image:: media/telegram_sender3.gif
+.. image:: media/messaging_telegram.gif
 
 Для создания Telegram-рассылки необходимо выполнить следующие действия:
  

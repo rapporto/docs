@@ -2,7 +2,7 @@
 Создание SMS-рассылки
 ========================
 
-.. image:: media/how_tosend_sms.gif
+.. image:: media/messaging_sms.gif
 
 Для создания SMS-рассылки необходимо выполнить следующие действия:
  
