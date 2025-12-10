@@ -675,7 +675,7 @@ Response Examples
 WhatsApp Messages Delivery Statuses
 --------------------------------------------
 
-To receive statuses of push notifications, you need to set up the :doc:`eng_http_status`.
+To receive WhatsApp message statuses, you need to set up the :doc:`eng_http_status`.
 
 Delivery Error Codes
 ~~~~~~~~~~~~~~~~~~~~~~~

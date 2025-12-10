@@ -763,7 +763,7 @@ Response Examples
 Viber Delivery Statuses
 --------------------------
 
-To receive statuses of push notifications, you need to set up the :doc:`eng_http_status`.
+To receive Viber message statuses, you need to set up the :doc:`eng_http_status`.
 
 Delivery Error Codes
 ~~~~~~~~~~~~~~~~~~~~~~~
