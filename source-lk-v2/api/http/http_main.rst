@@ -8,13 +8,13 @@ HTTP API
 
 При интеграции по HTTP API поддерживается передача следующих типов сообщений:
 
-- :term:`FlashingCall` (:term:`VoiceCode`);
-- Push;
-- SMS;
-- Viber;
-- :abbr:`VK (ВКонтакте)`;
-- WhatsApp.
-
+- :doc:`FLASHINGCALL (VOICECODE) <http_flashcall>`;
+- :doc:`PUSH <http_push>`;
+- :doc:`SMS <http_sms>`;
+- :doc:`VIBER <http_viber>`;
+- :doc:`VK <http_vk>`;
+- :doc:`WHATSAPP <http_whatsapp>`;
+- :doc:`TGCODE <http_tg_auth_codes>`.
 
 
 .. toctree::

@@ -13,7 +13,7 @@ To set up the service the Partner must provide the following data to the Service
 * a keyword with synonyms (or a regular expression) for defining the Partner's messages;
 * service name to which the service will be provided;
 * URL of the Partner's service, where the interaction protocol for receiving incoming messages from the Service Provider is implemented;
-* time out value – a period of time during which the Partner needs to return a response according to the exchange protocol;
+* time out value — a period of time during which the Partner needs to return a response according to the exchange protocol;
 * a text of a message being sent to the subscriber if the Partner's server is unavailable.
 
 .. _engMO Взаимодействие с платформой:
@@ -71,89 +71,157 @@ The service provider transmits a message from the subscriber to the Partner via 
 
     .. tab:: Description of the parameters
       
-         The **mandatory** parameters are highlighted **in bold**.
-
-         +-----------------------+-----------------------------+----------------------------------------------------+
-         | Parameter             | Type                        | Description                                        |
-         +=======================+=============================+====================================================+
-         | **clientId**          | String                      | Subscriber phone number.                           |
-         +-----------------------+-----------------------------+----------------------------------------------------+
-         | **message**           | String                      | The text, which was sent by the subscriber, encoded|
-         |                       |                             | in UTF-8. The service prefix (a template), to which|
-         |                       |                             | the message refers, can be preliminary deleted     |
-         |                       |                             | from the text.                                     |
-         +-----------------------+-----------------------------+----------------------------------------------------+
-         | **connectorId**       | integer                     | Code of the operator, through whose SMS center the |
-         |                       |                             | message was received from the subscriber.          |
-         +-----------------------+-----------------------------+----------------------------------------------------+
-         | **serviceId**         | string                      | Identifier of the Partner's service, for which     | 
-         |                       |                             | the message is addressed.                          |
-         +-----------------------+-----------------------------+----------------------------------------------------+
-         | **receivedDate**      | string                      | The date and time the message was received by the  |
-         |                       |                             | Service Provider. Format: “YYYY-MM-DD HH:MM:SS”.   |
-         +-----------------------+-----------------------------+----------------------------------------------------+
-         | **shortNumber**       | string                      | Service name, to which the subscriber sent the     |
-         |                       |                             | message.                                           |
-         +-----------------------+-----------------------------+----------------------------------------------------+
-         | **mtSent**            | integer                     | The value of the parameter is the number of        |
-         |                       |                             | messages accumulated in the "Delayed" queue while  |
-         |                       |                             | the Partner's service was unavailable              |
-         |                       |                             | (see :ref:`Message Reprocessing.                   |
-         |                       |                             | <MO engПовторная обработка сообщений>`)            |
-         +-----------------------+-----------------------------+----------------------------------------------------+
-         | **messageId**         | string                      | The unique identifier of the message.              |
-         +-----------------------+-----------------------------+----------------------------------------------------+
-         | **clientPhone**       | string                      | Subscriber phone number. Can be masked, i.e. not   |
-         |                       |                             | all number digits will be sent, but last 4.        |
-         |                       |                             |                                                    |
-         |                       |                             | .. note:: The number masking is set according to   |
-         |                       |                             |      an agreement with the PService Provider.      |
-         |                       |                             |                                                    |
-         |                       |                             | This parameter in some cases duplicates the        |
-         |                       |                             | **clientId** parameter and is additional one.      |
-         +-----------------------+-----------------------------+----------------------------------------------------+
-         | **sum_sms**           | integer                     | Number of the incoming message segments.           |
-         |                       |                             | The Partner can use it to keep its own billing     |
-         |                       |                             | statistics.                                        |
-         +-----------------------+-----------------------------+----------------------------------------------------+
-         | hash                  | string                      | Encoded signature (hash). It gives the Partner     |
-         |                       |                             | the ability to verify the request was actually sent|
-         |                       |                             | by the Service Provider.                           |
-         |                       |                             |                                                    |
-         |                       |                             | The value is calculated by a string assembled from |
-         |                       |                             | *clientId*, *message* and *messageId* parameters   |
-         |                       |                             | put together in a row in the specified order.      |
-         |                       |                             | The string is formed by taking the initial (row)   | 
-         |                       |                             | parameters of the request – the full phone number, |
-         |                       |                             | the original message and its identifier.           |
-         |                       |                             |                                                    |
-         |                       |                             | The hash parameter is calculated using the         |
-         |                       |                             | HMACSHA256 algorithm, then the resulting binary    |
-         |                       |                             | data is encoded into a Base64 string, which is     |
-         |                       |                             | processed like a common URL parameter.             |
-         |                       |                             |                                                    |
-         |                       |                             | The key for hash generation is given to the Partner|
-         |                       |                             | by the Service Provider. All string conversions use|
-         |                       |                             | UTF-8 encoding.                                    |
-         |                       |                             |                                                    |
-         |                       |                             | .. note:: This feature is not available by default.|
-         |                       |                             |         To enable it please contact your           |
-         |                       |                             |         supervising manager.                       |
-         +-----------------------+-----------------------------+----------------------------------------------------+
-         | timestamp             | long                        | The number of seconds elapsed since the epoch      |
-         |                       |                             | 1970-01-01T00: 00: 00Z. The value is used to       |
-         |                       |                             | calculate the *token* parameter and comes with it. |
-         +-----------------------+-----------------------------+----------------------------------------------------+
-         | token                 | string                      | A token calculated from the *timestamp*, *clientId*|
-         |                       |                             | and secret parameter *salt*, using the MD5         |
-         |                       |                             | algorithm.                                         |
-         |                       |                             |                                                    |
-         |                       |                             | It can be used to verify the validity of a request.| 
-         |                       |                             |                                                    |
-         |                       |                             | .. note:: This feature is not available by default.|
-         |                       |                             |         To enable it please contact your           |
-         |                       |                             |         supervising manager.                       |
-         +-----------------------+-----------------------------+----------------------------------------------------+
+         +-----------------------+---------+-----------------------------+-----------------------------------------------------------------+
+         | Parameter             |Required | Type                        | Description                                                     |
+         +=======================+=========+=============================+=================================================================+
+         | clientId              | yes     | string                      | Subscriber phone number.                                        |
+         +-----------------------+---------+-----------------------------+-----------------------------------------------------------------+
+         | message               | yes     | string                      | Text that was sent by the subscriber, encoded in UTF-8.         | 
+         |                       |         |                             |                                                                 |
+         |                       |         |                             | .. raw:: html                                                   |
+         |                       |         |                             |                                                                 |
+         |                       |         |                             |     <details>                                                   |
+         |                       |         |                             |         <summary>More details</summary>                         |                                       
+         |                       |         |                             |         <p>                                                     |
+         |                       |         |                             |          The service prefix (a template), to which the message  |                                        
+         |                       |         |                             |          refers, can be preliminary deleted from the text.      |                                         
+         |                       |         |                             |         </p>                                                    |
+         |                       |         |                             |     </details>                                                  |
+         +-----------------------+---------+-----------------------------+-----------------------------------------------------------------+
+         | connectorId           | yes     | integer                     | Code of the operator, through whose SMS center the              |
+         |                       |         |                             | message was received from the subscriber.                       |
+         +-----------------------+---------+-----------------------------+-----------------------------------------------------------------+
+         | serviceId             | yes     | string                      | Identifier of the Partner's service, for which                  | 
+         |                       |         |                             | the message is addressed.                                       |
+         +-----------------------+---------+-----------------------------+-----------------------------------------------------------------+
+         | receivedDate          | yes     | string                      | Date and time the message was received by the                   |
+         |                       |         |                             | Service Provider.                                               |
+         |                       |         |                             |                                                                 |
+         |                       |         |                             | .. raw:: html                                                   |
+         |                       |         |                             |                                                                 |
+         |                       |         |                             |     <details>                                                   |
+         |                       |         |                             |         <summary>More details</summary>                         |                                       
+         |                       |         |                             |         <p>                                                     |
+         |                       |         |                             |          Format: <code>YYYY-MM-DD HH:MM:SS</code>.              |                                                                               
+         |                       |         |                             |         </p>                                                    |
+         |                       |         |                             |     </details>                                                  |
+         +-----------------------+---------+-----------------------------+-----------------------------------------------------------------+
+         | shortNumber           | yes     | string                      | Service name, to which the subscriber sent the                  |
+         |                       |         |                             | message.                                                        |
+         +-----------------------+---------+-----------------------------+-----------------------------------------------------------------+
+         | mtSent                | yes     | integer                     | The value of the parameter is the number of                     |
+         |                       |         |                             | messages accumulated in the “Delayed“ queue while               |
+         |                       |         |                             | the Partner's service was unavailable                           |
+         |                       |         |                             | (see :ref:`Message Reprocessing.                                |
+         |                       |         |                             | <MO engПовторная обработка сообщений>`)                         |
+         +-----------------------+---------+-----------------------------+-----------------------------------------------------------------+
+         | messageId             | yes     | string                      | Unique identifier of the message.                               |
+         +-----------------------+---------+-----------------------------+-----------------------------------------------------------------+
+         | clientPhone           | yes     | string                      | Subscriber's phone number.                                      |
+         |                       |         |                             |                                                                 |
+         |                       |         |                             | .. raw:: html                                                   |
+         |                       |         |                             |                                                                 |
+         |                       |         |                             |     <details>                                                   |
+         |                       |         |                             |         <summary>More details</summary>                         |                                       
+         |                       |         |                             |         <p>                                                     |
+         |                       |         |                             |          Can be masked, i.e. not all number digits will be      |        
+         |                       |         |                             |          sent, but last 4.                                      |                                                                               
+         |                       |         |                             |         </p>                                                    |
+         |                       |         |                             |     <div class="admonition note">                               |
+         |                       |         |                             |         <p class="admonition-title">Note</p>                    |
+         |                       |         |                             |         <p> The number masking is set according to              |
+         |                       |         |                             |             an agreement with the Service Provider.</p>         |
+         |                       |         |                             |     </div>                                                      |
+         |                       |         |                             |         <p>                                                     |
+         |                       |         |                             |          This parameter in some cases duplicates the            |
+         |                       |         |                             |          <code>clientId</code> parameter and is additional one. |
+         |                       |         |                             |         </p>                                                    |
+         |                       |         |                             |     </details>                                                  |
+         +-----------------------+---------+-----------------------------+-----------------------------------------------------------------+
+         | sum_sms               | yes     | integer                     | Number of the incoming message segments.                        |
+         |                       |         |                             |                                                                 |
+         |                       |         |                             | .. raw:: html                                                   |
+         |                       |         |                             |                                                                 |
+         |                       |         |                             |     <details>                                                   |
+         |                       |         |                             |         <summary>More details</summary>                         |                                       
+         |                       |         |                             |         <p>                                                     |
+         |                       |         |                             |          The Partner can use it to keep its own billing         |        
+         |                       |         |                             |          statistics.                                            |                                                                               
+         |                       |         |                             |         </p>                                                    |
+         |                       |         |                             |     </details>                                                  |
+         +-----------------------+---------+-----------------------------+-----------------------------------------------------------------+
+         | hash                  | no      | string                      | Encoded signature (hash).                                       |
+         |                       |         |                             |                                                                 |
+         |                       |         |                             | .. raw:: html                                                   |
+         |                       |         |                             |                                                                 |
+         |                       |         |                             |     <details>                                                   |
+         |                       |         |                             |         <summary>More details</summary>                         |                                       
+         |                       |         |                             |         <p>                                                     |
+         |                       |         |                             |          It gives the Partner the ability to verify that        |        
+         |                       |         |                             |          the request was actually sent by the Service Provider. |                                                                               
+         |                       |         |                             |         </p>                                                    |
+         |                       |         |                             |         <p>                                                     |
+         |                       |         |                             |          The value is calculated by a string assembled from the |        
+         |                       |         |                             |          <code>clientId</code>, <code>message</code>            |       
+         |                       |         |                             |          and <code>messageId</code> parameters put together in  |
+         |                       |         |                             |          a row in the specified order.                          |                                                                        
+         |                       |         |                             |         </p>                                                    |
+         |                       |         |                             |         <p>                                                     |
+         |                       |         |                             |          The string is formed by taking the initial (row)       | 
+         |                       |         |                             |          parameters of the request — the full phone number,     |
+         |                       |         |                             |          the original message and its identifier.               |                                                                     
+         |                       |         |                             |         </p>                                                    |
+         |                       |         |                             |         <p>                                                     |
+         |                       |         |                             |          The hash parameter is calculated using the             |
+         |                       |         |                             |          HMACSHA256 algorithm, then the resulting binary        |
+         |                       |         |                             |          data is encoded into a Base64 string, which is         |
+         |                       |         |                             |          processed like a common URL parameter.                 |                                                                   
+         |                       |         |                             |         </p>                                                    |
+         |                       |         |                             |         <p>                                                     |
+         |                       |         |                             |          The key for hash generation is given to the Partner    |
+         |                       |         |                             |          by the Service Provider. All string conversions use    |
+         |                       |         |                             |          UTF-8 encoding.                                        |                                                                  
+         |                       |         |                             |         </p>                                                    |
+         |                       |         |                             |     <div class="admonition note">                               |
+         |                       |         |                             |         <p class="admonition-title">Note</p>                    |
+         |                       |         |                             |         <p> This feature is not available by default.           |
+         |                       |         |                             |             To enable it please contact your                    |
+         |                       |         |                             |             supervising manager.</p>                            |
+         |                       |         |                             |     </div>                                                      |
+         |                       |         |                             |     </details>                                                  |
+         +-----------------------+---------+-----------------------------+-----------------------------------------------------------------+
+         | timestamp             | no      | long                        | Number of seconds elapsed since the epoch                       |
+         |                       |         |                             | 1970-01-01T00: 00:00Z.                                          |
+         |                       |         |                             |                                                                 |
+         |                       |         |                             | .. raw:: html                                                   |
+         |                       |         |                             |                                                                 |
+         |                       |         |                             |     <details>                                                   |
+         |                       |         |                             |         <summary>More details</summary>                         |                                       
+         |                       |         |                             |         <p>                                                     |
+         |                       |         |                             |          The value is used to calculate the                     |                                        
+         |                       |         |                             |          <code>token</code> parameter and comes with it.        |                                         
+         |                       |         |                             |         </p>                                                    |
+         |                       |         |                             |     </details>                                                  |
+         +-----------------------+---------+-----------------------------+-----------------------------------------------------------------+
+         | token                 | no      | string                      | Token calculated from the ``timestamp``, ``clientId``           |
+         |                       |         |                             | parameters and a secret ``salt`` parameter ``salt``, using the  |
+         |                       |         |                             | MD5 algorithm.                                                  |
+         |                       |         |                             |                                                                 |
+         |                       |         |                             | .. raw:: html                                                   |
+         |                       |         |                             |                                                                 |
+         |                       |         |                             |     <details>                                                   |
+         |                       |         |                             |         <summary>More details</summary>                         |                                       
+         |                       |         |                             |         <p>                                                     |
+         |                       |         |                             |          It can be used to verify the validity of a request.    |        
+         |                       |         |                             |         </p>                                                    |
+         |                       |         |                             |     <div class="admonition note">                               |
+         |                       |         |                             |         <p class="admonition-title">Note</p>                    |
+         |                       |         |                             |         <p>This feature is not available by default.            |
+         |                       |         |                             |            To enable it please contact your supervising         |
+         |                       |         |                             |            manager.</p>                                         |
+         |                       |         |                             |     </div>                                                      |
+         |                       |         |                             |     </details>                                                  |
+         +-----------------------+---------+-----------------------------+-----------------------------------------------------------------+
 
 
 .. _MO engОтвет на запрос:
@@ -261,9 +329,9 @@ Messages Reprocessing
 If the Partner's service does not respond to the requests from the Service Provider (см. :ref:`Interaction with the platform <engMO Взаимодействие с платформой>`):
 
 * all messages destined for this service are moved to the delayed messages queue;
-* the service is marked as «down» and a period of time is set for it, within all messages received by the Service Provider and destined for this service are moved to the delayed messages queue. The period of time for which the service will be marked as «down» can be set individually for each service and equals to 20 seconds by default;
+* the service is marked as “down“ and a period of time is set for it, within all messages received by the Service Provider and destined for this service are moved to the delayed messages queue. The period of time for which the service will be marked as “down“ can be set individually for each service and equals to 20 seconds by default;
 * all subscribers who have applied to a non-working service are sent a message about the unavailability of the service and a delay in the provision of services (only if this option is set for the service);
-* when the period is over, the Service Provider attempts to send messages from the delayed messages queue to the Partner's service. If the service is not available again, it is marked as «down» again;
+* when the period is over, the Service Provider attempts to send messages from the delayed messages queue to the Partner's service. If the service is not available again, it is marked as “down“ again;
 * maximum of 200 attempts to send are made for each message, after which the message will be removed from the queue.
 
 
@@ -290,12 +358,12 @@ The active session time expires if the subscriber has not sent any messages to t
 To make the features of the sessions enabled, the Partner has to additionally provide the manager with the following data:
 
 * a keyword with synonyms (regular expression) to open the session;
-* an indication of whether the Service Provider should respond to the subscriber's keyword when opening a session. If «yes», the Partner needs to provide the text of the message sent to the subscriber when the session is opened;
+* an indication of whether the Service Provider should respond to the subscriber's keyword when opening a session. If “yes“, the Partner needs to provide the text of the message sent to the subscriber when the session is opened;
 * a keyword with synonyms (regular expression) to close the session. The session closing keyword may be absent or similar for all Partner services;
-* an indication of whether the Service Provider should respond to the subscriber's keyword when closing a session. If «yes», the Partner needs to provide the text of the message sent to the subscriber when the session is closed;
+* an indication of whether the Service Provider should respond to the subscriber's keyword when closing a session. If “yes“, the Partner needs to provide the text of the message sent to the subscriber when the session is closed;
 * the time interval during which the session will be active;
 * the text of the message sent to the subscriber if the Partner's server is unavailable;
 * URL of the Partner's service, where the interaction protocol is implemented to receive incoming messages from the Service Provider;
-* time out value – the period of time during which the Partner needs to return a response according to the exchange protocol.
+* time out value — the period of time during which the Partner needs to return a response according to the exchange protocol.
 
 

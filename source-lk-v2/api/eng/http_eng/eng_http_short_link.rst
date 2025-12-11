@@ -58,7 +58,7 @@ If :doc:`cascading messages <eng_http_cascade>` are configured for the HTTP clie
 
 Possible options for sendig the *shorten_list* parameter:
 
-* the parameter is not sent in the request – links in all types of messages will be shortened by default;
-* the parameter is sent with an empty value – link shortening is canceled for all types of messages;
-* the parameter is sent in the request and the value is not empty – links are shortened only in those types of messages that are specified in the parameter value.
+* the parameter is not sent in the request — links in all types of messages will be shortened by default;
+* the parameter is sent with an empty value — link shortening is canceled for all types of messages;
+* the parameter is sent in the request and the value is not empty — links are shortened only in those types of messages that are specified in the parameter value.
 

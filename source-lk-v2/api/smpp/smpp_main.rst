@@ -30,11 +30,12 @@ SMPP API
 
 При интеграции по SMPP API поддерживается передача следующих типов сообщений:
 
-- :term:`FlashingCall` (:term:`VoiceCode`);
-- Push;
-- SMS;
-- Viber;
-- :abbr:`VK (ВКонтакте)`.
+- :doc:`FLASHINGCALL (VOICECODE) <smpp_flashcall>`;
+- :doc:`PUSH <smpp_push>`;
+- :doc:`SMS <smpp_sms>`;
+- :doc:`VIBER <smpp_viber>`;
+- :doc:`VK <smpp_vk>`;
+- :doc:`TGCODE <smpp_tg_auth_codes>`.
 
 
 Функциональные возможности

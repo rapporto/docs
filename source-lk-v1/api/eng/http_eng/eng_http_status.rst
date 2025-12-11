@@ -23,7 +23,7 @@ The way of interaction:
 
 1. The Partner sends to the Service Provider a request to send a message.
 2. The Service Provider processes the request, returns the message identifier to the Partner.
-3. The Service Provider processes the message – sends the message to the Operator for sending to the subscriber.
+3. The Service Provider processes the message — sends the message to the Operator for sending to the subscriber.
 4. The Operator sends a message to the subscriber and returns the delivery status to the Service Provider.
 5. The Service Provider sends a request to the Partner containing information about the message delivery status.
 
@@ -45,53 +45,103 @@ GET Request
 
     .. tab:: Parameters of GET request
 
-      The **mandatory** parameters are highlighted **in bold**.
-
-      +---------------------+----------+---------------------------------------------------------------------------------+
-      | Parameter           | Type     | Description                                                                     |
-      +=====================+==========+=================================================================================+
-      | msgType             | string   | | Message type.                                                                 |
-      |                     |          | | Possible values:                                                              |
-      |                     |          |                                                                                 |
-      |                     |          | * VIBER;                                                                        |
-      |                     |          | * SMS;                                                                          |
-      |                     |          | * VK;                                                                           |
-      |                     |          | * WHATSAPP;                                                                     |
-      |                     |          | * PUSH;                                                                         |
-      |                     |          | * FLASHINGCALL.                                                                 |
-      +---------------------+----------+---------------------------------------------------------------------------------+
-      | **transactionId**   | long     | The message identifier in the Service Provider data base, which was sent to     |
-      |                     |          | the Partner in the response body for request for message sending.               |
-      |                     |          |                                                                                 |
-      |                     |          | It is a 64-bit positive integer.                                                |
-      +---------------------+----------+---------------------------------------------------------------------------------+
-      | ptag                | string   | Message identifier in the Partner's system, which was passed to the Service     |
-      |                     |          | Provider in the request to send a message in the *ptag* parameter.              |
-      |                     |          |                                                                                 |
-      |                     |          | | Maximum length: from 1 to 50 characters.                                      |
-      |                     |          | | Valid characters: 0...9a...zA...Z-                                            |  
-      +---------------------+----------+---------------------------------------------------------------------------------+
-      | **status**          | integer  | Message delivery status. Possible values:                                       |
-      |                     |          |                                                                                 |
-      |                     |          | * 0 – the message was sent to the Operator, the final status is not known yet;  |
-      |                     |          | * 2 – the message is delivered;                                                 |
-      |                     |          | * 5 – the message is not delivered;                                             |
-      |                     |          | * 9 – the message was read (for VK, Viber, WhatsApp, PUSH).                     |
-      |                     |          |                                                                                 |
-      |                     |          | .. warning:: For SMS messages sent to subscribers of the Megafon operator,      |
-      |                     |          |      the transmission of the statuses "Delivered" and "Undelivered" has been    |
-      |                     |          |      discontinued since 01.03.2023.                                             |
-      +---------------------+----------+---------------------------------------------------------------------------------+
-      | partnerMsgId        | string   | The unique identifier of the message in the Partner's system, which was passed  |
-      |                     |          | to the Service Provider in the request to send the message in the               |
-      |                     |          | *partnerMsgId* parameter.                                                       |
-      |                     |          |                                                                                 |
-      |                     |          | The length of the parameter: no more than 50 characters.                        |
-      +---------------------+----------+---------------------------------------------------------------------------------+
-      | unifiedExtStatus    | string   | Unified extended message delivery status.                                       |
-      |                     |          |                                                                                 |
-      |                     |          | The error codes are described :ref:`below <engErrCodeDescr>`.                   |
-      +---------------------+----------+---------------------------------------------------------------------------------+
+      +---------------------+----------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+      | Parameter           | Required | Type     | Description                                                                                                                 |
+      +=====================+==========+==========+=============================================================================================================================+
+      | msgType             | no       | string   | Message type.                                                                                                               |
+      |                     |          |          |                                                                                                                             |
+      |                     |          |          | .. raw:: html                                                                                                               |
+      |                     |          |          |                                                                                                                             |
+      |                     |          |          |     <details>                                                                                                               |
+      |                     |          |          |         <summary>More details</summary>                                                                                     |
+      |                     |          |          |         <p>                                                                                                                 |
+      |                     |          |          |             Possible values:                                                                                                |
+      |                     |          |          |         </p>                                                                                                                |
+      |                     |          |          |         <ul>                                                                                                                |
+      |                     |          |          |             <li><code>VIBER</code>;</li>                                                                                    |           
+      |                     |          |          |             <li><code>SMS</code>;</li>                                                                                      |
+      |                     |          |          |             <li><code>VK</code>;</li>                                                                                       |
+      |                     |          |          |             <li><code>WHATSAPP</code>;</li>                                                                                 |           
+      |                     |          |          |             <li><code>PUSH</code>;</li>                                                                                     |
+      |                     |          |          |             <li><code>FLASHINGCALL</code>.</li>                                                                             |
+      |                     |          |          |         </ul>                                                                                                               |
+      |                     |          |          |     </details>                                                                                                              |
+      +---------------------+----------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+      | transactionId       | yes      | long     | Message identifier in the Service Provider database, which was sent to the Partner in the response body for request         |
+      |                     |          |          | for message sending.                                                                                                        |
+      |                     |          |          |                                                                                                                             |
+      |                     |          |          | .. raw:: html                                                                                                               |
+      |                     |          |          |                                                                                                                             |
+      |                     |          |          |     <details>                                                                                                               |
+      |                     |          |          |         <summary>More details</summary>                                                                                     |
+      |                     |          |          |         <p>                                                                                                                 |
+      |                     |          |          |             It is a 64-bit positive integer.                                                                                |
+      |                     |          |          |         </p>                                                                                                                |
+      |                     |          |          |     </details>                                                                                                              |
+      +---------------------+----------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+      | ptag                | no       | string   | Message identifier in the Partner's system, which was passed to the Service Provider in the request to send                 |
+      |                     |          |          | a message in the ``ptag`` parameter.                                                                                        |
+      |                     |          |          |                                                                                                                             |
+      |                     |          |          | .. raw:: html                                                                                                               |
+      |                     |          |          |                                                                                                                             |
+      |                     |          |          |     <details>                                                                                                               |
+      |                     |          |          |         <summary>More details</summary>                                                                                     |
+      |                     |          |          |         <p>                                                                                                                 |
+      |                     |          |          |             Allowed length: from 1 to 50 characters.                                                                        |
+      |                     |          |          |         </p>                                                                                                                |
+      |                     |          |          |         <p>                                                                                                                 |
+      |                     |          |          |             Valid characters: 0...9a...zA...Z-                                                                              |
+      |                     |          |          |         </p>                                                                                                                |
+      |                     |          |          |     </details>                                                                                                              | 
+      +---------------------+----------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+      | status              | yes      | integer  | Message delivery status. Possible values:                                                                                   |
+      |                     |          |          |                                                                                                                             |
+      |                     |          |          | .. raw:: html                                                                                                               |
+      |                     |          |          |                                                                                                                             |
+      |                     |          |          |     <details>                                                                                                               |
+      |                     |          |          |         <summary>More details</summary>                                                                                     |
+      |                     |          |          |         <p>                                                                                                                 |
+      |                     |          |          |             Possible values:                                                                                                |
+      |                     |          |          |         </p>                                                                                                                |
+      |                     |          |          |         <ul>                                                                                                                |
+      |                     |          |          |             <li><code>0</code> — the message was sent to the Operator, the final status is not known yet;</li>              |  
+      |                     |          |          |             <li><code>2</code> — the message is delivered;</li>                                                             |
+      |                     |          |          |             <li><code>5</code> — the message is not delivered; </li>                                                        |
+      |                     |          |          |             <li><code>9</code> — the message was read (for VK, Viber, WhatsApp, PUSH).</li>                                 |  
+      |                     |          |          |         </ul>                                                                                                               |
+      |                     |          |          |     <div class="admonition warning">                                                                                        |
+      |                     |          |          |         <p class="admonition-title">Warning</p>                                                                             |
+      |                     |          |          |         <p>For SMS messages sent to subscribers of the Megafon operator, the transmission of the statuses "Delivered"       |
+      |                     |          |          |            and "Undelivered" has been discontinued since 01.03.2023.                                                        |
+      |                     |          |          |            </p>                                                                                                             |
+      |                     |          |          |     </div>                                                                                                                  |
+      |                     |          |          |     </details>                                                                                                              |
+      +---------------------+----------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+      | partnerMsgId        | no       | string   | Unique identifier of the message in the Partner's system, which was passed to the Service Provider in                       |
+      |                     |          |          | the request to send the message in the ``partnerMsgId`` parameter.                                                          |
+      |                     |          |          |                                                                                                                             |
+      |                     |          |          | .. raw:: html                                                                                                               |
+      |                     |          |          |                                                                                                                             |
+      |                     |          |          |     <details>                                                                                                               |
+      |                     |          |          |         <summary>More details</summary>                                                                                     |
+      |                     |          |          |         <p>                                                                                                                 |
+      |                     |          |          |             Maximum length: 50 characters.                                                                                  |
+      |                     |          |          |         </p>                                                                                                                |
+      |                     |          |          |     </details>                                                                                                              | 
+      +---------------------+----------+----------+-----------------------------------------------------------------------------------------------------------------------------+
+      | unifiedExtStatus    | no       | string   | Unified extended message delivery status.                                                                                   |
+      |                     |          |          |                                                                                                                             |
+      |                     |          |          | .. raw:: html                                                                                                               |
+      |                     |          |          |                                                                                                                             |
+      |                     |          |          |     <details>                                                                                                               |
+      |                     |          |          |         <summary>More details</summary>                                                                                     |
+      |                     |          |          |         <p>                                                                                                                 |
+      |                     |          |          |             The error codes are described                                                                                   |
+      |                     |          |          |             <a href="https://docs.rapporto.ru/api/eng/http_eng/eng_http_status.html#error-codes-parameter-unifiedextstatus">|
+      |                     |          |          |             below</a>.                                                                                                      |
+      |                     |          |          |         </p>                                                                                                                |
+      |                     |          |          |     </details>                                                                                                              | 
+      +---------------------+----------+----------+-----------------------------------------------------------------------------------------------------------------------------+
 
 Response 
 --------------
@@ -284,7 +334,7 @@ This section describes the reasons for non-delivery of various types of messages
             | 20                         | No card found with the transmitted subscriber phone number.                     |
             +----------------------------+---------------------------------------------------------------------------------+
             | 21                         | The device is not primary. If sending was performed to the primary device       |
-            |                            | (primaryOn=true).                                                               |
+            |                            | (primaryOn = true).                                                             |
             +----------------------------+---------------------------------------------------------------------------------+
             | 22                         | No active installations of the mobile application were found on the user’s      |
             |                            | device.                                                                         |

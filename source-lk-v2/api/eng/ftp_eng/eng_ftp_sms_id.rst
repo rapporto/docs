@@ -29,10 +29,14 @@ When creating an SMS mass messaging with identifiers it is necessary to take int
             identifier 2;number 2;message text 2
             ...
             identifier n;number n;text n
-
-        .. note::
-   
-            In the file, an empty line should separate parameters and the list of numbers with message texts.
+            
+        .. raw:: html
+    
+          <div class="admonition note">
+              <p class="admonition-title">Note</p>
+              <p>In the file, an empty line should separate parameters and the list of numbers with message texts.</p>
+          </div>                                                                           
+           
        
     .. tab:: File example
 
@@ -49,37 +53,84 @@ When creating an SMS mass messaging with identifiers it is necessary to take int
 
     .. tab:: Parameters description
 
-        The **mandatory** parameters are highlighted **in bold**.
-
-        +-------------------------+----------------------------------------------------------------------------------------------------------+
-        | Parameter               | Description                                                                                              |
-        +=========================+==========================================================================================================+
-        | **name**                | The name of the messaging must be unique.                                                                |
-        +-------------------------+----------------------------------------------------------------------------------------------------------+
-        | **service_number**      | Sender's name.                                                                                           |
-        +-------------------------+----------------------------------------------------------------------------------------------------------+
-        | date_start              | | The start date of the messaging in YYYY-MM-DD format.                                                  |
-        |                         | | Optional parameter.                                                                                    |
-        |                         | | If the start date is not specified, the messaging will start on the current date.                      |  
-        +-------------------------+----------------------------------------------------------------------------------------------------------+
-        | auto_start              | Automatic start of the mass messaging.                                                                   |
-        |                         | Possble values are:                                                                                      |
-        |                         |                                                                                                          |          
-        |                         | - Y - yes;                                                                                               |
-        |                         | - N - no.                                                                                                |
-        |                         |                                                                                                          |
-        |                         | Using of this function is agreed separately.                                                             |
-        +-------------------------+----------------------------------------------------------------------------------------------------------+
-        | time_begin              | The lower bound of the time interval in which the delivery will be carried out in the hh:mm format.      |
-        +-------------------------+----------------------------------------------------------------------------------------------------------+
-        | time_end                | The upper bound of the time interval in which the delivery will be carried out in hh:mm format.          |
-        +-------------------------+----------------------------------------------------------------------------------------------------------+
-        | use_timediff            | Delivery according to the subscriber's time zone.                                                        |
-        |                         | Possible values are:                                                                                     |
-        |                         |                                                                                                          |          
-        |                         | - Y - yes;                                                                                               |
-        |                         | - N - no.                                                                                                |
-        +-------------------------+----------------------------------------------------------------------------------------------------------+ 
-
+        +-------------------------+----------+----------------------------------------------------------------------------------------------------------+
+        | Parameter               | Required | Description                                                                                              |
+        +=========================+==========+==========================================================================================================+
+        | name                    | yes      | Name of the messaging (must be unique).                                                                  |
+        +-------------------------+----------+----------------------------------------------------------------------------------------------------------+
+        | service_number          | yes      | Sender's name.                                                                                           |
+        +-------------------------+----------+----------------------------------------------------------------------------------------------------------+
+        | date_start              | no       | Start date of the messaging.                                                                             |
+        |                         |          |                                                                                                          |
+        |                         |          | .. raw:: html                                                                                            |
+        |                         |          |                                                                                                          |
+        |                         |          |     <details>                                                                                            |
+        |                         |          |         <summary>More details</summary>                                                                  |                                       
+        |                         |          |         <p>                                                                                              |
+        |                         |          |          Format: <code>YYYY-MM-DD</code>.                                                                |        
+        |                         |          |         </p>                                                                                             |
+        |                         |          |         <p>                                                                                              |
+        |                         |          |          Optional parameter.                                                                             |        
+        |                         |          |         </p>                                                                                             |
+        |                         |          |         <p>                                                                                              |
+        |                         |          |          If the start date is not specified, the messaging will start on the current date.               |        
+        |                         |          |         </p>                                                                                             |
+        |                         |          |     </details>                                                                                           |
+        +-------------------------+----------+----------------------------------------------------------------------------------------------------------+
+        | auto_start              | no       | Automatic start of the mass messaging.                                                                   |
+        |                         |          |                                                                                                          |
+        |                         |          | .. raw:: html                                                                                            |
+        |                         |          |                                                                                                          |
+        |                         |          |     <details>                                                                                            |
+        |                         |          |         <summary>More details</summary>                                                                  |
+        |                         |          |         <p>                                                                                              |
+        |                         |          |             Possble values are:                                                                          |
+        |                         |          |         </p>                                                                                             |
+        |                         |          |         <ul>                                                                                             |
+        |                         |          |             <li><code>Y</code> — yes;</li>                                                               |           
+        |                         |          |             <li><code>N</code> — no.</li>                                                                |
+        |                         |          |         </ul>                                                                                            |
+        |                         |          |         <p>                                                                                              |
+        |                         |          |             Using of this function is agreed separately.                                                 |
+        |                         |          |         </p>                                                                                             |
+        |                         |          |     </details>                                                                                           |
+        +-------------------------+----------+----------------------------------------------------------------------------------------------------------+
+        | time_begin              | no       | Lower bound of the time interval in which the delivery will be carried out.                              |
+        |                         |          |                                                                                                          |
+        |                         |          | .. raw:: html                                                                                            |
+        |                         |          |                                                                                                          |
+        |                         |          |     <details>                                                                                            |
+        |                         |          |         <summary>More details</summary>                                                                  |                                       
+        |                         |          |         <p>                                                                                              |
+        |                         |          |          Format: <code>hh:mm</code>.                                                                     |        
+        |                         |          |         </p>                                                                                             |
+        |                         |          |     </details>                                                                                           |
+        +-------------------------+----------+----------------------------------------------------------------------------------------------------------+
+        | time_end                | no       | Upper bound of the time interval in which the delivery will be carried out.                              |
+        |                         |          |                                                                                                          |
+        |                         |          | .. raw:: html                                                                                            |
+        |                         |          |                                                                                                          |
+        |                         |          |     <details>                                                                                            |
+        |                         |          |         <summary>More details</summary>                                                                  |                                       
+        |                         |          |         <p>                                                                                              |
+        |                         |          |          Format: <code>hh:mm</code>.                                                                     |        
+        |                         |          |         </p>                                                                                             |
+        |                         |          |     </details>                                                                                           |
+        +-------------------------+----------+----------------------------------------------------------------------------------------------------------+
+        | use_timediff            | no       | Delivery according to the subscriber's time zone.                                                        |
+        |                         |          |                                                                                                          |
+        |                         |          | .. raw:: html                                                                                            |
+        |                         |          |                                                                                                          |
+        |                         |          |     <details>                                                                                            |
+        |                         |          |         <summary>More details</summary>                                                                  |
+        |                         |          |         <p>                                                                                              |
+        |                         |          |             Possble values are:                                                                          |
+        |                         |          |         </p>                                                                                             |
+        |                         |          |         <ul>                                                                                             |
+        |                         |          |             <li><code>Y</code> — yes;</li>                                                               |           
+        |                         |          |             <li><code>N</code> — no.</li>                                                                |
+        |                         |          |         </ul>                                                                                            |
+        |                         |          |     </details>                                                                                           |
+        +-------------------------+----------+----------------------------------------------------------------------------------------------------------+ 
    
 

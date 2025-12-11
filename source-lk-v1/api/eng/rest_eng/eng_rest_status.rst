@@ -41,80 +41,212 @@ Delivery Report
             }
 
     .. tab:: Parameters of delivery report
-
-        +-------------+---------+--------------------------------------------+
-        | id          | string  | Partner-side unique ID.                    |
-        |             |         | If not sent by the Partner, then the       |
-        |             |         | value is empty.                            |
-        +-------------+---------+--------------------------------------------+
-        | mtNum       | string  | Sending chain identifier assigned          |
-        |             |         | by the Service Provider platform.          |
-        +-------------+---------+--------------------------------------------+
-        | status      | integer | Delivery status. It returns the following  |
-        |             |         | values:                                    |
-        |             |         |                                            |
-        |             |         | * 0 -- sent to the Operator,               |
-        |             |         |   the final status is not known yet;       |
-        |             |         | * 2 -- delivered;                          |
-        |             |         | * 5 -- undelivered. The reason of          |
-        |             |         |   non-delivery is specified in errorCode;  |
-        |             |         | * 9 -- read (except for FlashingCall, SMS).|
-        +-------------+---------+--------------------------------------------+
-        | type        | string  | Type of message: SMS, VIBER, VK, PUSH,     |
-        |             |         | WHATSAPP, TELEGRAM, FLASHINGCALL.          |
-        +-------------+---------+--------------------------------------------+
-        | doneDate    | date    | Date/time of delivery. If undelivered,     |
-        |             |         | then the value is empty.                   |
-        +-------------+---------+--------------------------------------------+
-        | submitDate  | date    | Date/time of message sending.              |
-        +-------------+---------+--------------------------------------------+
-        | destAddr    | string  | Subscriber's number.                       |
-        +-------------+---------+--------------------------------------------+
-        | sourceAddr  | string  | Service number where the message was       |
-        |             |         | sent from.                                 |
-        +-------------+---------+--------------------------------------------+
-        | text        | string  | Message text.                              |
-        +-------------+---------+--------------------------------------------+
-        | partCount   | string  | Amount of message parts.                   |
-        +-------------+---------+--------------------------------------------+
-        | errorCode   | string  | Error code.                                |
-        |             |         |                                            |
-        |             |         | If sending is successful, the errorCode    |
-        |             |         | parameter is 0.                            |
-        |             |         | If status = 5 it returns the error code.   |
-        |             |         | The set of codes depends on the type of    |
-        |             |         | message. The codes are described below.    |
-        +-------------+---------+--------------------------------------------+
-        | mccMnc      | string  | MCC and MNC codes. Parameter contains an   |
-        |             |         | MCC code which usually consists of 3 digits|
-        |             |         | and an MNC code of 2 digits.               |
-        |             |         | It is transmitted optionally.              |
-        +-------------+---------+--------------------------------------------+
-        | trafficType | integer | Type of traffic. It returns the following  |
-        |             |         | type of traffic:                           |
-        |             |         |                                            |
-        |             |         | -  0 – promotional;                        |
-        |             |         | -  1 – transactional;                      |
-        |             |         | -  2 – service;                            |
-        |             |         | -  5 – informational;                      |
-        |             |         | -  6 – authorization;                      |
-        |             |         | -  7 – promotional templated.              |
-        +-------------+---------+--------------------------------------------+
-
+        +-------------+---------+----------------------------------------------------------------------------------------------------+
+        | Parameter   | Type    | Description                                                                                        |
+        +=============+=========+====================================================================================================+
+        | id          | string  | Partner-side unique ID.                                                                            |
+        |             |         |                                                                                                    |
+        |             |         | .. raw:: html                                                                                      |
+        |             |         |                                                                                                    |
+        |             |         |     <details>                                                                                      |
+        |             |         |         <summary>More details</summary>                                                            |
+        |             |         |         <p>                                                                                        |
+        |             |         |             If not sent by the Partner, then the value is empty.                                   |
+        |             |         |         </p>                                                                                       |
+        |             |         |     </details>                                                                                     |
+        +-------------+---------+----------------------------------------------------------------------------------------------------+
+        | mtNum       | string  | Sending chain identifier assigned by the Service Provider platform.                                |
+        +-------------+---------+----------------------------------------------------------------------------------------------------+
+        | status      | integer | Delivery status.                                                                                   |
+        |             |         |                                                                                                    |
+        |             |         | .. raw:: html                                                                                      |
+        |             |         |                                                                                                    |
+        |             |         |     <details>                                                                                      |
+        |             |         |         <summary>More details</summary>                                                            |
+        |             |         |         <p>                                                                                        |
+        |             |         |             It returns the following values:                                                       |
+        |             |         |         </p>                                                                                       |
+        |             |         |         <ul>                                                                                       |
+        |             |         |             <li><code>0</code> — sent to the Operator, the final status is not known yet;</li>     |
+        |             |         |             <li><code>2</code> — delivered;</li>                                                   |
+        |             |         |             <li><code>5</code> — undelivered. The reason of non-delivery is specified in           |
+        |             |         |             <code>errorCode</code></li>                                                            |
+        |             |         |             <li><code>9</code> — read (except for <code>FLASHINGCALL</code> and                    |
+        |             |         |             <code>SMS</code>)</li>                                                                 |
+        |             |         |         </ul>                                                                                      |
+        |             |         |     </details>                                                                                     |
+        +-------------+---------+----------------------------------------------------------------------------------------------------+
+        | type        | string  | Type of message.                                                                                   |
+        |             |         |                                                                                                    |
+        |             |         | .. raw:: html                                                                                      |
+        |             |         |                                                                                                    |
+        |             |         |     <details>                                                                                      |
+        |             |         |         <summary>More details</summary>                                                            |
+        |             |         |         <p>                                                                                        |
+        |             |         |             Possible values:                                                                       |
+        |             |         |         </p>                                                                                       |
+        |             |         |         <ul>                                                                                       |
+        |             |         |             <li><code>SMS</code>;</li>                                                             |
+        |             |         |             <li><code>PUSH</code>;</li>                                                            |
+        |             |         |             <li><code>MAX</code>;</li>                                                             |
+        |             |         |             <li><code>VK</code>;</li>                                                              |
+        |             |         |             <li><code>WHATSAPP</code>;</li>                                                        |
+        |             |         |             <li><code>TELEGRAM</code>;</li>                                                        | 
+        |             |         |             <li><code>TGCODE</code>;</li>                                                          |                 
+        |             |         |             <li><code>FLASHINGCALL</code>;</li>                                                    |
+        |             |         |             <li><code>VIBER</code>;</li>                                                           |
+        |             |         |             <li><code>CARDSMOBILE</code>.</li>                                                     |       
+        |             |         |         </ul>                                                                                      |
+        |             |         |     </details>                                                                                     |
+        +-------------+---------+----------------------------------------------------------------------------------------------------+
+        | doneDate    | date    | Date/time of delivery.                                                                             |
+        |             |         |                                                                                                    |
+        |             |         | .. raw:: html                                                                                      |
+        |             |         |                                                                                                    |
+        |             |         |     <details>                                                                                      |
+        |             |         |         <summary>More details</summary>                                                            |
+        |             |         |         <p>                                                                                        |
+        |             |         |             If undelivered, then the value is empty.                                               |
+        |             |         |         </p>                                                                                       |
+        |             |         |     </details>                                                                                     |
+        +-------------+---------+----------------------------------------------------------------------------------------------------+
+        | submitDate  | date    | Date/time of message sending.                                                                      |
+        +-------------+---------+----------------------------------------------------------------------------------------------------+
+        | destAddr    | string  | Subscriber's number.                                                                               |
+        +-------------+---------+----------------------------------------------------------------------------------------------------+
+        | sourceAddr  | string  | Service number where the message was sent from.                                                    |
+        +-------------+---------+----------------------------------------------------------------------------------------------------+
+        | text        | string  | Message text.                                                                                      |
+        +-------------+---------+----------------------------------------------------------------------------------------------------+
+        | partCount   | string  | Amount of message parts.                                                                           |
+        +-------------+---------+----------------------------------------------------------------------------------------------------+
+        | errorCode   | string  | Error code.                                                                                        |
+        |             |         |                                                                                                    |
+        |             |         | .. raw:: html                                                                                      |
+        |             |         |                                                                                                    |
+        |             |         |     <details>                                                                                      |
+        |             |         |         <summary>More details</summary>                                                            |
+        |             |         |         <p>                                                                                        |
+        |             |         |             If sending is successful, the <code>errorCode</code> parameter is <code>0</code>.      |                         
+        |             |         |         </p>                                                                                       |
+        |             |         |         <p>                                                                                        |
+        |             |         |             If <code>status = 5</code>, it returns the error code.                                 |                         
+        |             |         |         </p>                                                                                       |
+        |             |         |         <p>                                                                                        |
+        |             |         |             The set of codes depends on the type of message, see                                   |
+        |             |         |             <a href="#description-of-error-codes-parameter-status-5"                               |
+        |             |         |             >Description of Error Codes (parameter status=5)</a>.                                  |
+        |             |         |         </p>                                                                                       |
+        |             |         |     </details>                                                                                     |
+        +-------------+---------+----------------------------------------------------------------------------------------------------+
+        | mccMnc      | string  | MCC and MNC codes.                                                                                 |
+        |             |         |                                                                                                    |
+        |             |         | .. raw:: html                                                                                      |
+        |             |         |                                                                                                    |
+        |             |         |     <details>                                                                                      |
+        |             |         |         <summary>More details</summary>                                                            |
+        |             |         |         <p>                                                                                        |
+        |             |         |             Parameter contains an MCC code which usually consists of 3 digits                      |        
+        |             |         |             and an MNC code of 2 digits.                                                           |
+        |             |         |         </p>                                                                                       |
+        |             |         |         <p>                                                                                        |
+        |             |         |             It is transmitted optionally.                                                          |                         
+        |             |         |         </p>                                                                                       |
+        |             |         |     </details>                                                                                     |
+        +-------------+---------+----------------------------------------------------------------------------------------------------+
+        | trafficType | integer | Type of traffic.                                                                                   |
+        |             |         |                                                                                                    |
+        |             |         | .. raw:: html                                                                                      |
+        |             |         |                                                                                                    |
+        |             |         |     <details>                                                                                      |
+        |             |         |         <summary>More details</summary>                                                            |
+        |             |         |         <p>                                                                                        |
+        |             |         |             It returns the following type of traffic:                                              |
+        |             |         |         </p>                                                                                       |
+        |             |         |         <ul>                                                                                       |
+        |             |         |             <li><code>0</code> — promotional;</li>                                                 |
+        |             |         |             <li><code>1</code> — transactional; </li>                                              |
+        |             |         |             <li><code>2</code> — service;</li>                                                     |
+        |             |         |             <li><code>5</code> — informational;</li>                                               |
+        |             |         |             <li><code>6</code> — authorization;</li>                                               |
+        |             |         |             <li><code>7</code> — promotional templated.</li>                                       |                 
+        |             |         |         </ul>                                                                                      |
+        |             |         |     </details>                                                                                     |
+        +-------------+---------+----------------------------------------------------------------------------------------------------+
+        | segmentPrice| double  | Price per a message segment.                                                                       |
+        |             |         |                                                                                                    |
+        |             |         | .. raw:: html                                                                                      |
+        |             |         |                                                                                                    |
+        |             |         |     <details>                                                                                      |
+        |             |         |         <summary>More details</summary>                                                            |
+        |             |         |         <p>                                                                                        |
+        |             |         |             Optional parameter.                                                                    |
+        |             |         |         </p>                                                                                       |
+        |             |         |         <p>                                                                                        |
+        |             |         |             The parameter value can be passed for the following message types:                     |                                                 
+        |             |         |         </p>                                                                                       |
+        |             |         |         <ul>                                                                                       |
+        |             |         |             <li><code>SMS</code>;</li>                                                             |
+        |             |         |             <li><code>VIBER</code>; </li>                                                          |
+        |             |         |             <li><code>VK</code>;</li>                                                              |
+        |             |         |             <li><code>PUSH</code>;</li>                                                            |
+        |             |         |             <li><code>FLASHINGCALL</code>;</li>                                                    |
+        |             |         |         </ul>                                                                                      |
+        |             |         |         <p>                                                                                        |
+        |             |         |              The option is disabled by default.  To enable it, please contact the                  | 
+        |             |         |             <a href="https://doc.rapporto.ru/api/eng/eng_support.html#technical-support-service"   | 
+        |             |         |             >Technical Support Service</a>.                                                        |
+        |             |         |         </p>                                                                                       |
+        |             |         |     </details>                                                                                     |
+        +-------------+---------+----------------------------------------------------------------------------------------------------+
+        | messagePrice| double  | Price per a message.                                                                               |
+        |             |         |                                                                                                    |
+        |             |         | .. raw:: html                                                                                      |
+        |             |         |                                                                                                    |
+        |             |         |     <details>                                                                                      |
+        |             |         |         <summary>More details</summary>                                                            |
+        |             |         |         <p>                                                                                        |
+        |             |         |             Optional parameter.                                                                    |
+        |             |         |         </p>                                                                                       |
+        |             |         |         <p>                                                                                        |
+        |             |         |             The parameter value can be passed for the following message types:                     |                                                 
+        |             |         |         </p>                                                                                       |
+        |             |         |         <ul>                                                                                       |
+        |             |         |             <li><code>SMS</code>;</li>                                                             |
+        |             |         |             <li><code>VIBER</code>; </li>                                                          |
+        |             |         |             <li><code>VK</code>;</li>                                                              |
+        |             |         |             <li><code>PUSH</code>;</li>                                                            |
+        |             |         |             <li><code>FLASHINGCALL</code>;</li>                                                    |
+        |             |         |         </ul>                                                                                      |
+        |             |         |         <p>                                                                                        |
+        |             |         |              The option is disabled by default.  To enable it, please contact the                  | 
+        |             |         |             <a href="https://doc.rapporto.ru/api/eng/eng_support.html#technical-support-service"   | 
+        |             |         |             >Technical Support Service</a>.                                                        |
+        |             |         |         </p>                                                                                       |
+        |             |         |     </details>                                                                                     |                                              
+        +-------------+---------+----------------------------------------------------------------------------------------------------+
 
 Delivery Statuses
 -------------------
 
-.. csv-table:: 
-    :header: "Code", "Delivery status", "Description"
-    :widths: 7, 15, 30
-    :class: my-table
 
-     0, "SEND", "Sent to the operator, the final status is not known yet."
-     2, "DELIVERED", "Delivered to the operator, after delivery it is possible to wait for the status of reading by the subscriber."
-     5, "UNDELIVERED, REJECTED", "Rejected by the operator/undelivered to the operator. The reason of non-delivery is specified in the *errorCode* parameter. It is the final status, no further statuses are expected."
-     9, "READ", "Status indicating the message is read by a subscriber. *For all messages except FlashingCall and SMS*. It is the final status, no further statuses are expected."
++------------+--------------------------------------+--------------------------------------------------------------------------------------+
+| Код        | Delivery status                      | Description                                                                          |
++============+======================================+======================================================================================+
+| 0          | SEND                                 | Sent to the operator, the final status is not known yet.                             |
++------------+--------------------------------------+--------------------------------------------------------------------------------------+
+| 2          | DELIVERED                            | Delivered to the operator, after delivery it is possible to wait for the status of   |
+|            |                                      | reading by the subscriber.                                                           |
++------------+--------------------------------------+--------------------------------------------------------------------------------------+
+| 5          | UNDELIVERED, REJECTED                | Rejected by the operator/undelivered to the operator. The reason of non-delivery is  |
+|            |                                      | specified in the ``errorCode`` parameter. It is the final status, no further         |
+|            |                                      | statuses are expected.                                                               |
++------------+--------------------------------------+--------------------------------------------------------------------------------------+
+| 9          | READ                                 | Status indicating the message is read by a subscriber. *For all messages except      |
+|            |                                      | FlashingCall and SMS*. It is the final status, no further statuses are expected.     |
++------------+--------------------------------------+--------------------------------------------------------------------------------------+
 
+.. _REST-ErrCodeDescr-eng:
 
 Description of Error Codes (parameter *status=5*)
 --------------------------------------------------
@@ -152,7 +284,7 @@ The section provides a description of the reasons for the non-delivery of messag
       |         |                            | messages was activated.     |
       +---------+----------------------------+-----------------------------+
       | 11      | unrouted                   | Routing error at the        |
-      |         |                            | platform configurationы.    |
+      |         |                            | platform configuration.     |
       +---------+----------------------------+-----------------------------+
       | 13      | oper-invsrcaddr            | Message sending from a      |
       |         |                            | sender's name that is not   |
@@ -175,7 +307,7 @@ The section provides a description of the reasons for the non-delivery of messag
       |         |                            | primary one. In case the    |
       |         |                            | sending was made to the     |
       |         |                            | primary device              |
-      |         |                            | (primaryOn=true).           |      
+      |         |                            | (primaryOn = true).         |      
       +---------+----------------------------+-----------------------------+
       | 22      | no-active-installations    | No active mobile application|
       |         |                            | installations were found on |
@@ -405,7 +537,7 @@ The section provides a description of the reasons for the non-delivery of messag
       | 21      | no-primary-devices         | The device is not primary. |
       |         |                            | In case, when a message    |
       |         |                            | was sent to the primary    |
-      |         |                            | device (primaryOn=true).   |
+      |         |                            | device (primaryOn = true). |
       +---------+----------------------------+----------------------------+
       | 22      | no-active-installations    | No active installations    |
       |         |                            | of the mobile application  |

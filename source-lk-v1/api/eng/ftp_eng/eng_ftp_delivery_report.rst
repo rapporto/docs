@@ -35,11 +35,16 @@ Parameters Description
 +-------------------------+------------------------------------------------------------------------------------------+
 | Delivery_status         | It takes one of the values:                                                              |
 |                         |                                                                                          |
-|                         | - 0 - sending error;                                                                     |
-|                         | - 1 - undelivered;                                                                       |
-|                         | - 2 - dispatched, delivery status unknown;                                               |
-|                         | - 3 - delivered.                                                                         |
+|                         | * ``0`` — sending error;                                                                 |
+|                         | * ``1`` — undelivered;                                                                   |
+|                         | * ``2`` — dispatched, delivery status unknown;                                           |
+|                         | * ``3`` — delivered.                                                                     |
 +-------------------------+------------------------------------------------------------------------------------------+
 
 
-.. important:: For SMS messages sent to subscribers of the Megafon operator, from the 1-st of March 2023 the transmission of the "DELIVERED" and "UNDELIVERED" statuses is stopped.
+.. raw:: html
+
+  <div class="admonition important">
+      <p class="admonition-title">Important</p>
+      <p>For SMS messages sent to subscribers of the Megafon operator, from the 1-st of March 2023 the transmission of the "DELIVERED" and "UNDELIVERED" statuses is stopped.</p>
+  </div>                                                                           
