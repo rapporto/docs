@@ -3,7 +3,7 @@
 Telegram Gateway Authorization Codes
 ======================================
 
-This section describes the specifics of transmitting authorization codes via the SMPP protocol to the Telegram Gateway.
+This section describes the specifics of transmitting authorization codes via the SMPP protocol to Telegram Gateway.
 
 .. raw:: html
 
@@ -25,7 +25,7 @@ This section describes the specifics of transmitting authorization codes via the
              Currently, the service supports:
          </p>
          <ul>
-             <li>sending messages with authorization codes to Telegram;</li>
+             <li>sending messages with authorization codes via Telegram;</li>
              <li>receiving message delivery statuses;</li>
          </ul>  
      </details>
@@ -303,8 +303,8 @@ TLV parameters for sending messages from the Partner to the Service Provider.
 +---------------------------+---------------------+-------------------+-------------------+--------------------------------------------------------------------------------------+
 
 
-Response to Request  
----------------------
+Response 
+-----------
 
 In response to the ``submit_sm`` packet, the Service Provider's server replies with the ``submit_sm_resp`` packet containing the ``command_status`` field.
 
@@ -315,8 +315,8 @@ Subsequently, the ``message_id`` value is used by the Partner to receive and ana
 
 Possible values for the ``command_status`` field are provided in the tables below.
 
-Successful Send Response
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Successful Sending
+~~~~~~~~~~~~~~~~~~~~
 
 In case of successful sending, the ``0x00`` response code (HEX) is returned.
           
@@ -328,8 +328,8 @@ In case of successful sending, the ``0x00`` response code (HEX) is returned.
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 
 
-Send Errors  
-----------------------
+Sending Errors  
+----------------
 
 For invalid results, the response code (HEX) will be different from ``0x00``. 
 
@@ -570,7 +570,7 @@ For invalid results, the response code (HEX) will be different from ``0x00``.
         <a href="https://doc.rapporto.ru/api/eng/smpp_eng/eng_smpp_request.html#eng-reprocessing">Message Reprocessing</a> is performed.</p>
     </div>                                                                           
 
-Telegram  Delivery Statuses
+Delivery Statuses
 ----------------------------
 
 To receive message statuses, you need to configure the :doc:`eng_smpp_status`.

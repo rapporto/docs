@@ -534,7 +534,7 @@ When sending an incorrect request, a short text error message may be transmitted
         |               |                                                           |         <summary>Troubleshooting</summary>                                         |
         |               |                                                           |         <p>                                                                        |
         |               |                                                           |             To resume sending messages, the Partner needs to make an advance       |
-        |               |                                                           |             payment and contact your supervising manager.                          |
+        |               |                                                           |             payment and contact the supervising manager.                           |
         |               |                                                           |         </p>                                                                       |
         |               |                                                           |         <p>                                                                        |
         |               |                                                           |             The Partner shouldn't repeat the request.                              |
@@ -763,7 +763,7 @@ Response Examples
 Viber Delivery Statuses
 --------------------------
 
-To receive Viber message statuses, you need to set up the :doc:`eng_http_status`.
+To receive statuses of push notifications, you need to set up the :doc:`eng_http_status`.
 
 Delivery Error Codes
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -829,5 +829,11 @@ Billing of Viber Sessions
 | A subscription fee is charged for using the session functionality. Please check the session size with the supervising manager when creating a business account.
 | All sessions are paid for a fixed (identical) price. Messages within sessions are not charged.
 | Messages outside the session are charged as usual.
+
+
+
+
+
+
 
 

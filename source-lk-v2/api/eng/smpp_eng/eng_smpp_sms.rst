@@ -309,8 +309,8 @@ TLV parameters for sending messages from the Partner to the Service Provider.
 
 
 
-Response to Request 
-========================
+Response 
+===========
 
 In response to the ``submit_sm`` packet, the Service Provider's server replies with the ``submit_sm_resp`` packet containing the ``command_status`` field.
 
@@ -321,8 +321,8 @@ Subsequently, the ``message_id`` value is used by the Partner to receive and ana
 
 Possible values for the ``command_status`` field are provided in the tables below.
 
-Successful Send Response
-----------------------------
+Successful Sending
+---------------------
 
 In case of successful sending, the ``0x00`` response code (HEX) is returned.
           
@@ -334,7 +334,7 @@ In case of successful sending, the ``0x00`` response code (HEX) is returned.
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 
 
-Send Errors 
+Sending Errors 
 ----------------------
 
 For invalid results, the response code (HEX) will be different from ``0x00``. 
@@ -614,4 +614,6 @@ To enable the SMS session functionality, the Partner must additionally provide t
 4. Whether the Service Provider should reply to the subscriber's keyword upon closing the session. If “yes”, it is necessary to provide the text of the message sent to the subscriber when the session is closed.
 5. The time interval during which the session will be active.
 6. The text of the message sent to the subscriber if the Partner's server is unavailable.
+
+
 

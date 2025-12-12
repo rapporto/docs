@@ -447,7 +447,7 @@ When sending an incorrect request, a short text error message may be transmitted
         |               |                                                           |         <summary>Troubleshooting</summary>                                         |
         |               |                                                           |         <p>                                                                        |
         |               |                                                           |             To resume sending messages, the Partner needs to make an advance       |
-        |               |                                                           |             payment and contact your supervising manager.                          |
+        |               |                                                           |             payment and contact the supervising manager.                           |
         |               |                                                           |         </p>                                                                       |
         |               |                                                           |         <p>                                                                        |
         |               |                                                           |             The Partner shouldn't repeat the request.                              |
@@ -675,10 +675,17 @@ Response Examples
 WhatsApp Messages Delivery Statuses
 --------------------------------------------
 
-To receive WhatsApp message statuses, you need to set up the :doc:`eng_http_status`.
+To receive statuses of push notifications, you need to set up the :doc:`eng_http_status`.
 
 Delivery Error Codes
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Delivery error codes for each message type are provided in the corresponding tab of the :ref:`engErrCodeDescr` section.
 
+
+
+
+
+
+
+  
