@@ -419,12 +419,12 @@ Request examples to send push notifications.
                           "type":"PUSH",
                           "data":{
                              "externalUserId":"Subscriber's_ID",
-                    	 "title":"Header",
+                             "title":"Header",
                              "text":"Text",
                              "serviceNumber":"SENDER'S_NAME",
                              "ttl":30,
                              "ttlUnit":"SECONDS",
-                             "Options":[
+                             "extraOptions":[
                                 {
                                    "param_name":"LIVE_ACTIVITY",
                                    "param_value":{
@@ -461,12 +461,12 @@ Request examples to send push notifications.
                           "data":{
                              "primaryOn":false,
                              "externalUserId":"Subscriber's_ID",
-                    	 "title": "Code to receive %data%",
+                             "title": "Code to receive %data%",
                              "text":"%name%, your card with number %card% is ready for issue",
                              "serviceNumber":"SENDER'S_NAME",
                              "ttl":30,
                              "ttlUnit":"SECONDS",
-                             "Options":[
+                             "extraOptions":[
                                 {
                                    "param_name":"SECURE",
                                    "param_value":{
@@ -502,7 +502,7 @@ Request examples to send push notifications.
                              "title":"Message_header",
                              "ttl":24,
                              "ttlUnit":"HOURS",
-                             "Options":[
+                             "extraOptions":[
                                 {
                                    "param_name":"SENDING_PLATFORMS",
                                    "param_value":[
@@ -534,7 +534,7 @@ Request Parameters
 |                       |          |              |                                                                                |
 |                       |          |              | * ``param1`` and ``param2`` -- parameter names;                                |
 |                       |          |              | * ``value1`` and ``value2`` -- values.                                         |
-|                       |          |              |                                                                                |                              
+|                       |          |              |                                                                                |
 |                       |          |              | .. raw:: html                                                                  |
 |                       |          |              |                                                                                |
 |                       |          |              |     <details>                                                                  |
@@ -549,7 +549,7 @@ Request Parameters
 |                       |          |              |     </details>                                                                 |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | _`useTimeDiff`        | no       | boolean      | Taking into account the time zone when starting messaging.                     |
-|                       |          |              |                                                                                |                              
+|                       |          |              |                                                                                |
 |                       |          |              | .. raw:: html                                                                  |
 |                       |          |              |                                                                                |
 |                       |          |              |     <details>                                                                  |
@@ -569,7 +569,7 @@ Request Parameters
 |                       |          |              |     </details>                                                                 |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | _`scheduleInfo`       | no       | object       | Messaging schedule.                                                            |
-|                       |          |              |                                                                                |                              
+|                       |          |              |                                                                                |
 |                       |          |              | .. raw:: html                                                                  |
 |                       |          |              |                                                                                |
 |                       |          |              |     <details>                                                                  |
@@ -581,7 +581,7 @@ Request Parameters
 |                       |          |              |     </details>                                                                 |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | scheduleInfo/timeBegin| no       | string       | Start time.                                                                    |
-|                       |          |              |                                                                                |                              
+|                       |          |              |                                                                                |
 |                       |          |              | .. raw:: html                                                                  |
 |                       |          |              |                                                                                |
 |                       |          |              |     <details>                                                                  |
@@ -592,7 +592,7 @@ Request Parameters
 |                       |          |              |     </details>                                                                 |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | scheduleInfo/timeEnd  | no       | string       | End time.                                                                      |
-|                       |          |              |                                                                                |                              
+|                       |          |              |                                                                                |
 |                       |          |              | .. raw:: html                                                                  |
 |                       |          |              |                                                                                |
 |                       |          |              |     <details>                                                                  |
@@ -613,13 +613,13 @@ Request Parameters
 |                       |          |              |             (Sunday), for example, <code>12345</code>.                         |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |         <p>                                                                    |
-|                       |          |              |             If there are no restrictions on days of the week, this parameter   |   
+|                       |          |              |             If there are no restrictions on days of the week, this parameter   |
 |                       |          |              |             can be empty or not delivered in the request.                      |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |     </details>                                                                 |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | scheduleInfo/deadline | no       | string       | End date of the messaging.                                                     |
-|                       |          |              |                                                                                |                              
+|                       |          |              |                                                                                |
 |                       |          |              | .. raw:: html                                                                  |
 |                       |          |              |                                                                                |
 |                       |          |              |     <details>                                                                  |
@@ -630,7 +630,7 @@ Request Parameters
 |                       |          |              |     </details>                                                                 |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | _`id`                 | no       | string       | Partner-side unique ID.                                                        |
-|                       |          |              |                                                                                |                              
+|                       |          |              |                                                                                |
 |                       |          |              | .. raw:: html                                                                  |
 |                       |          |              |                                                                                |
 |                       |          |              |     <details>                                                                  |
@@ -646,12 +646,12 @@ Request Parameters
 |                       |          |              |             (upon the first request).                                          |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |         <p>                                                                    |
-|                       |          |              |             In response to requests, the Service Provider will return the      |       
+|                       |          |              |             In response to requests, the Service Provider will return the      |
 |                       |          |              |             same message ID in the Service Provider's system to the Partner    |
-|                       |          |              |             (the same as for the first request).                               |                     
+|                       |          |              |             (the same as for the first request).                               |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |         <p>                                                                    |
-|                       |          |              |             The Service Provider optionally returns this ID to the Partner,    |       
+|                       |          |              |             The Service Provider optionally returns this ID to the Partner,    |
 |                       |          |              |             if available in the message delivery report.                       |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |     </details>                                                                 |
@@ -666,7 +666,7 @@ Request Parameters
 |                       |          |              |             Possible values are:                                               |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |         <ul>                                                                   |
-|                       |          |              |             <li><code>true</code> — to shorten links (by default);</li>        |           
+|                       |          |              |             <li><code>true</code> — to shorten links (by default);</li>        |
 |                       |          |              |             <li><code>false</code> — shortening link is not required.</li>     |
 |                       |          |              |         </ul>                                                                  |
 |                       |          |              |         <p>                                                                    |
@@ -677,17 +677,17 @@ Request Parameters
 |                       |          |              |         <p>                                                                    |
 |                       |          |              |             For more details:                                                  |
 |                       |          |              |             <a href="https://doc.rapporto.ru/api/eng/rest_eng/                 |
-|                       |          |              |             eng_rest_short_link.html">Link Shortening Service</a>.             |                               
+|                       |          |              |             eng_rest_short_link.html">Link Shortening Service</a>.             |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |     <div class="admonition note">                                              |
 |                       |          |              |         <p class="admonition-title">Note</p>                                   |
 |                       |          |              |         <p>The ability to use this service is previously agreed with and       |
 |                       |          |              |            configured by the Service Provider.</p>                             |
-|                       |          |              |     </div>                                                                     |  
+|                       |          |              |     </div>                                                                     |
 |                       |          |              |     </details>                                                                 |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | _`destAddr`           | no       | string       | Subscriber's phone number.                                                     |
-|                       |          |              |                                                                                |                              
+|                       |          |              |                                                                                |
 |                       |          |              | .. raw:: html                                                                  |
 |                       |          |              |                                                                                |
 |                       |          |              |     <details>                                                                  |
@@ -720,7 +720,7 @@ Request Parameters
 | | externalUserId      |          |              |                                                                                |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | message/data/ttl      | no       | integer      | Message lifetime. Acceptable range in seconds: from 30 to 86400.               |
-|                       |          |              |                                                                                |                              
+|                       |          |              |                                                                                |
 |                       |          |              | .. raw:: html                                                                  |
 |                       |          |              |                                                                                |
 |                       |          |              |     <details>                                                                  |
@@ -735,7 +735,7 @@ Request Parameters
 |                       |          |              |            which is set during the integration setup separately for            |
 |                       |          |              |            each client.</p>                                                    |
 |                       |          |              |         <p>If <code>ttl</code> is not specified in these places the request    |
-|                       |          |              |            will be rejected by the system and an error will be displayed.</p>  |                                                                                   
+|                       |          |              |            will be rejected by the system and an error will be displayed.</p>  |
 |                       |          |              |         <p>                                                                    |
 |                       |          |              |     </div>                                                                     |
 |                       |          |              |     </details>                                                                 |
@@ -753,7 +753,7 @@ Request Parameters
 |                       |          |              |             Possible values are:                                               |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |         <ul>                                                                   |
-|                       |          |              |             <li><code>SECONDS</code>;</li>                                     |           
+|                       |          |              |             <li><code>SECONDS</code>;</li>                                     |
 |                       |          |              |             <li><code>MINUTES</code>;</li>                                     |
 |                       |          |              |             <li><code>HOURS</code>.</li>                                       |
 |                       |          |              |         </ul>                                                                  |
@@ -763,7 +763,7 @@ Request Parameters
 | | serviceNumber       |          |              |                                                                                |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | message/data/text     | yes      | string       | Message text.                                                                  |
-|                       |          |              |                                                                                |                              
+|                       |          |              |                                                                                |
 |                       |          |              | .. raw:: html                                                                  |
 |                       |          |              |                                                                                |
 |                       |          |              |     <details>                                                                  |
@@ -776,7 +776,7 @@ Request Parameters
 | *Request with a header*  _`title`                                                                                                |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | message/data/title    | no       | string       | Header of the text message.                                                    |
-|                       |          |              |                                                                                |                              
+|                       |          |              |                                                                                |
 |                       |          |              | .. raw:: html                                                                  |
 |                       |          |              |                                                                                |
 |                       |          |              |     <details>                                                                  |
@@ -789,7 +789,7 @@ Request Parameters
 | *Request with the primary application attribute* (_`primaryOn`)                                                                  |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | | message/data/       | no       | boolean      | Indication of the primary application installed on the subscriber's device.    |
-| | primaryOn           |          |              |                                                                                |                              
+| | primaryOn           |          |              |                                                                                |
 |                       |          |              | .. raw:: html                                                                  |
 |                       |          |              |                                                                                |
 |                       |          |              |     <details>                                                                  |
@@ -808,7 +808,7 @@ Request Parameters
 |                       |          |              |     </details>                                                                 |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | registeredDelivery    | no       | integer      | Requirement of delivery reports.                                               |
-|                       |          |              |                                                                                |                            
+|                       |          |              |                                                                                |
 |                       |          |              | .. raw:: html                                                                  |
 |                       |          |              |                                                                                |
 |                       |          |              |     <details>                                                                  |
@@ -817,7 +817,7 @@ Request Parameters
 |                       |          |              |             Possible values are:                                               |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |         <ul>                                                                   |
-|                       |          |              |             <li><code>0</code> — statuses are not required;</li>               |           
+|                       |          |              |             <li><code>0</code> — statuses are not required;</li>               |
 |                       |          |              |             <li><code>1</code> — statuses are required (by default);</li>      |
 |                       |          |              |             <li><code>2</code> — only "Undelivered" status is required. </li>  |
 |                       |          |              |         </ul>                                                                  |
@@ -825,7 +825,7 @@ Request Parameters
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | notifyUrl             | no       | string       | Hostname of the incoming API to obtain the delivery report (see                |
 |                       |          |              | :doc:`eng_rest_status`).                                                       |
-|                       |          |              |                                                                                |                   
+|                       |          |              |                                                                                |
 |                       |          |              | .. raw:: html                                                                  |
 |                       |          |              |                                                                                |
 |                       |          |              |     <details>                                                                  |
@@ -835,7 +835,7 @@ Request Parameters
 |                       |          |              |             you need to consider the following:                                |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |         <ul>                                                                   |
-|                       |          |              |             <li>if the parameter is specified, it cannot be empty;</li>        |           
+|                       |          |              |             <li>if the parameter is specified, it cannot be empty;</li>        |
 |                       |          |              |             <li>the <code>notifyUrl</code> string must be no more than 2048    |
 |                       |          |              |             characters long.</li>                                              |
 |                       |          |              |         </ul>                                                                  |
@@ -859,11 +859,11 @@ Request Parameters
 |                       |          |              |             Possible values are:                                               |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |         <ul>                                                                   |
-|                       |          |              |             <li><code>IMAGE</code> - to send in the <code>contentUrl</code>    | 
+|                       |          |              |             <li><code>IMAGE</code> - to send in the <code>contentUrl</code>    |
 |                       |          |              |                 link to the image;</li>                                        |
 |                       |          |              |             <li><code>HTML</code> - to send in <code>contentUrl</code> link    |
 |                       |          |              |                 to go to. After opening push message the transmitted link      |
-|                       |          |              |                 will open in the webView. </li>                                |                          
+|                       |          |              |                 will open in the webView. </li>                                |
 |                       |          |              |         </ul>                                                                  |
 |                       |          |              |     </details>                                                                 |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
@@ -880,7 +880,7 @@ Request Parameters
 |                       |          |              |             Image requirements to <code>contentCategory = IMAGE</code>:        |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |         <ul>                                                                   |
-|                       |          |              |             <li>image formats:JPEG, PNG, GIF, BMP;</li>                        | 
+|                       |          |              |             <li>image formats:JPEG, PNG, GIF, BMP;</li>                        |
 |                       |          |              |             <li>image size: no more than 1 Mb;</li>                            |
 |                       |          |              |             <li>proportion: 2:1.</li>                                          |
 |                       |          |              |         </ul>                                                                  |
@@ -889,7 +889,7 @@ Request Parameters
 | *Request to display buttons* (_`actions`)                                                                                        |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | | message/data/       | no       | array        | | Array containing buttons.                                                    |
-| | content/actions     |          |              | | The description of the button attributes is given in the tabLe below.        |                                             
+| | content/actions     |          |              | | The description of the button attributes is given in the tabLe below.        |
 |                       |          |              |                                                                                |
 |                       |          |              | .. raw:: html                                                                  |
 |                       |          |              |                                                                                |
@@ -899,7 +899,7 @@ Request Parameters
 |                       |          |              |             The buttons allow to:                                              |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |         <ul>                                                                   |
-|                       |          |              |             <li>open a message;</li>                                           | 
+|                       |          |              |             <li>open a message;</li>                                           |
 |                       |          |              |             <li>follow the specified link.</li>                                |
 |                       |          |              |         </ul>                                                                  |
 |                       |          |              |     </details>                                                                 |
@@ -935,7 +935,7 @@ Request Parameters
 |                       |          |              |             Possible values are:                                               |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |         <ul>                                                                   |
-|                       |          |              |             <li><code>open-app</code> (open the application);</li>             | 
+|                       |          |              |             <li><code>open-app</code> (open the application);</li>             |
 |                       |          |              |             <li><code>link</code> (follow the specified link).</li>            |
 |                       |          |              |         </ul>                                                                  |
 |                       |          |              |     </details>                                                                 |
@@ -949,7 +949,7 @@ Request Parameters
 |                       |          |              |         <p>                                                                    |
 |                       |          |              |             The set depends on the OS and is determined by the developer       |
 |                       |          |              |             of the mobile application. The parameter is configured in the      |
-|                       |          |              |             mobile application.                                                |                                
+|                       |          |              |             mobile application.                                                |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |         <p>                                                                    |
 |                       |          |              |             Number of characters: no more than 300.                            |
@@ -983,7 +983,7 @@ Request Parameters
 |                       |          |              |             in statistical data is possible, if necessary.                     |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |     </details>                                                                 |
-+-----------------------+----------+--------------+--------------------------------------------------------------------------------+ 
++-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | *Request with enriched data*  (_`extraOptions`)                                                                                  |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | | message/data/       | no       | array        | Array of additional data objects from the partner.                             |
@@ -997,7 +997,7 @@ Request Parameters
 |                       |          |              |             <code>param_value</code>.                                          |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |     </details>                                                                 |
-+-----------------------+----------+--------------+--------------------------------------------------------------------------------+ 
++-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | | message/data/       | yes      | string       | Transmission of the message attribute.                                         |
 | | extraOptions/       |          |              |                                                                                |
 | | param_name          |          |              | .. raw:: html                                                                  |
@@ -1008,13 +1008,13 @@ Request Parameters
 |                       |          |              |             Possible values are:                                               |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |         <ul>                                                                   |
-|                       |          |              |             <li><code>RICH</code> — data for an alternative sending data with  | 
+|                       |          |              |             <li><code>RICH</code> — data for an alternative sending data with  |
 |                       |          |              |              content for a mobile application;</li>                            |
 |                       |          |              |             <li><code>LIVE_ACTIVITY</code> — data for updating the             |
 |                       |          |              |              Live Activity widget on iOS devices;</li>                         |
 |                       |          |              |             <li><code>SECURE</code> — parameters for transmitting sensitive    |
 |                       |          |              |              data in a push notification;</li>                                 |
-|                       |          |              |             <li><code>SENDING_PLATFORMS</code> — parameters for sending        |         
+|                       |          |              |             <li><code>SENDING_PLATFORMS</code> — parameters for sending        |
 |                       |          |              |              push notifications to certain types of platforms (APNS, FCM, HMS, |
 |                       |          |              |              RuStore).</li>                                                    |
 |                       |          |              |         </ul>                                                                  |
@@ -1082,7 +1082,7 @@ Request Parameters
 |                       |          |              |     <details>                                                                  |
 |                       |          |              |         <summary>More details</summary>                                        |
 |                       |          |              |         <p>                                                                    |
-|                       |          |              |            If they are sent, the previously sent data are replaced             | 
+|                       |          |              |            If they are sent, the previously sent data are replaced             |
 |                       |          |              |            or new data are set if they were not sent earlier.                  |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |     </details>                                                                 |
@@ -1103,7 +1103,7 @@ Request Parameters
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | | message/data/       | no       | timestamp    | *timestamp* in ISO 860 format — date and time when Live Activity is considered |
 | | extraOptions/       |          |              | obsolete.                                                                      |
-| | param_value/aps/    |          |              |                                                                                |    
+| | param_value/aps/    |          |              |                                                                                |
 | | stale_date          |          |              |                                                                                |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | | message/data/       | no       | timestamp    | *timestamp* in ISO 8601 format — date and time when Live Activity closes on    |
@@ -1136,7 +1136,7 @@ Request Parameters
 |                       |          |              |             This parameter can take the following values:                      |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |         <ul>                                                                   |
-|                       |          |              |             <li><code>update</code>;</li>                                      | 
+|                       |          |              |             <li><code>update</code>;</li>                                      |
 |                       |          |              |             <li><code>end</code>.</li>                                         |
 |                       |          |              |         </ul>                                                                  |
 |                       |          |              |     </details>                                                                 |
@@ -1152,7 +1152,7 @@ Request Parameters
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |         <p>                                                                    |
 |                       |          |              |             This block is not validated.                                       |
-|                       |          |              |         </p>                                                                   |                                                
+|                       |          |              |         </p>                                                                   |
 |                       |          |              |             The following data is realized in demo application:                |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |         <ul>                                                                   |
@@ -1170,7 +1170,7 @@ Request Parameters
 |                       |          |              |            time;</li>                                                          |
 |                       |          |              |           <li><strong>alert</strong> — contains data to be displayed in the    |
 |                       |          |              |            widget (implemented on the mobile application side).</li>           |
-|                       |          |              |         </ul>                                                                  | 
+|                       |          |              |         </ul>                                                                  |
 |                       |          |              |     </details>                                                                 |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | *param_name=SECURE*                                                                                                              |
@@ -1183,25 +1183,25 @@ Request Parameters
 |                       |          |              |     <details>                                                                  |
 |                       |          |              |         <summary>More details</summary>                                        |
 |                       |          |              |         <p>                                                                    |
-|                       |          |              |             When sending via cloud providers, sensitive data transmitted       | 
+|                       |          |              |             When sending via cloud providers, sensitive data transmitted       |
 |                       |          |              |             in a push notification is masked using templates (substitutions in |
 |                       |          |              |             the text and in the title of the notification).                    |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |         <p>                                                                    |
-|                       |          |              |             Requirements for naming parameters with data for substitution:     | 
+|                       |          |              |             Requirements for naming parameters with data for substitution:     |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |         <ul>                                                                   |
-|                       |          |              |             <li>the text must be in Latin;</li>                                |  
+|                       |          |              |             <li>the text must be in Latin;</li>                                |
 |                       |          |              |             <li>the use of special characters is unacceptable.</li>            |
 |                       |          |              |         </ul>                                                                  |
 |                       |          |              |         <p>                                                                    |
-|                       |          |              |             In the example above (a request with enriched <code>SECURE</code>  |     
+|                       |          |              |             In the example above (a request with enriched <code>SECURE</code>  |
 |                       |          |              |             data) the variables %name%, %card% and %data% are specified        |
 |                       |          |              |             in the text and in the header of the message.                      |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |         <p>                                                                    |
-|                       |          |              |             These values must be passed in <code>param_value</code>            |  
-|                       |          |              |             for further substitution.                                          |    
+|                       |          |              |             These values must be passed in <code>param_value</code>            |
+|                       |          |              |             for further substitution.                                          |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |     </details>                                                                 |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
@@ -1217,9 +1217,9 @@ Request Parameters
 |                       |          |              |             Possible values are:                                               |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |         <ul>                                                                   |
-|                       |          |              |             <li><code>Android</code>;</li>                                     | 
+|                       |          |              |             <li><code>Android</code>;</li>                                     |
 |                       |          |              |             <li><code>IOS</code>;</li>                                         |
-|                       |          |              |             <li><code>Huawei</code>;</li>                                      | 
+|                       |          |              |             <li><code>Huawei</code>;</li>                                      |
 |                       |          |              |             <li><code>RuStore</code>;</li>                                     |
 |                       |          |              |             <li><code>Pwa</code> (for sending web push notifications).</li>    |
 |                       |          |              |         </ul>                                                                  |
@@ -1254,11 +1254,11 @@ Successful Sending
       +-----------------------+--------------+--------------------------------------------------------------------+
       | Parameter             | Data type    | Description                                                        |
       +=======================+==============+====================================================================+
-      | mtNum                 | string       | Sending chain identifier assigned by the Service Provider platform.| 
+      | mtNum                 | string       | Sending chain identifier assigned by the Service Provider platform.|
       +-----------------------+--------------+--------------------------------------------------------------------+
       | id                    | string       | Partner-side unique ID. Available, if it was included when sending.|
       +-----------------------+--------------+--------------------------------------------------------------------+
-                    
+
 
 
 Sending Errors  
@@ -1287,11 +1287,11 @@ For results with errors, a response HTTP code will differ from ``200`` (see :ref
       +-----------------------+--------------+--------------------------------------------------------------------+
       | Parameter             | Data type    | Description                                                        |
       +=======================+==============+====================================================================+
-      | error                 | object       | Error information.                                                 | 
+      | error                 | object       | Error information.                                                 |
       +-----------------------+--------------+--------------------------------------------------------------------+
       | error/code            | int          | Error code.                                                        |
       +-----------------------+--------------+--------------------------------------------------------------------+
-      | error/description     | string       | A brief description of the error.                                  | 
+      | error/description     | string       | A brief description of the error.                                  |
       +-----------------------+--------------+--------------------------------------------------------------------+
       | extendedDescription   | string       | Detailed description of the error (optional parameter).            |
       +-----------------------+--------------+--------------------------------------------------------------------+
@@ -1328,7 +1328,7 @@ Error Codes
 | 11         | Invalid TTL                    | 406            |
 +------------+--------------------------------+----------------+
 | 100        | 100                            | 500            |
-+------------+--------------------------------+----------------+        
++------------+--------------------------------+----------------+
 
 
 Push Notification Delivery Statuses
