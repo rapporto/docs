@@ -459,7 +459,7 @@ When sending an incorrect request, a short text error message may be transmitted
         |               |                                                           |         <summary>Troubleshooting</summary>                                         |
         |               |                                                           |         <p>                                                                        |
         |               |                                                           |             To resume sending messages, the Partner needs to make an advance       |
-        |               |                                                           |             payment and contact your supervising manager.                          |
+        |               |                                                           |             payment and contact the supervising manager.                           |
         |               |                                                           |         </p>                                                                       |
         |               |                                                           |         <p>                                                                        |
         |               |                                                           |             The Partner shouldn't repeat the request.                              |
@@ -687,7 +687,7 @@ Response Examples
 VK message Delivery Statuses
 --------------------------------------------
 
-To receive VK message statuses, you need to set up the :doc:`eng_http_status`.
+To receive statuses of push notifications, you need to set up the :doc:`eng_http_status`.
 
 Delivery Error Codes
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -719,3 +719,4 @@ When moderating text, the following rules apply:
 5. Message templates should contain information, which is strictly related to the interaction between the user and the owner of official group, on behalf of which the message is sent.
 6. Message templates should contain information concerning only orders and/or actions of users, which were performed immediately prior to the information message sending.
 7. Templates might contain URL to WEB pages and sites only after individual approval.
+

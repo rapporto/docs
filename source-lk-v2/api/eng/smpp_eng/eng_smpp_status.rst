@@ -362,3 +362,6 @@ This section describes errors that may occur when sending different message type
       | 16      | The subscriber’s number is busy.                                                                                                               |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
 
+
+
+

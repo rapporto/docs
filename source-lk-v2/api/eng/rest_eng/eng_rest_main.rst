@@ -1,5 +1,3 @@
-
-
 REST API
 =========
 
@@ -14,10 +12,10 @@ When integrating via REST API, the transmission of the following types of messag
 
 - :doc:`CARDSMOBILE <eng_rest_cardsmobile>`;
 - :doc:`FLASHINGCALL (VOICECODE) <eng_rest_flashcall>`;
-- :doc:`MAX <eng_rest_max>`;
 - :doc:`PUSH <eng_rest_push>`;
 - :doc:`SMS <eng_rest_sms>`;
-- :doc:`TELEGRAM <eng_rest_telegram>`;
+- :doc:`TELEGRAM <eng_rest_tg/eng_rest_telegram>`;
+- :doc:`TGCODE <eng_rest_tg/eng_rest_tg_auth_codes>`;
 - :doc:`VIBER <eng_rest_viber>`;
 - :doc:`VK <eng_rest_vk>`;
 - :doc:`WHATSAPP <eng_rest_whatsapp>`.
@@ -29,9 +27,8 @@ When integrating via REST API, the transmission of the following types of messag
    eng_rest_auth
    eng_rest_request
    eng_rest_sms
-   eng_rest_max
    eng_rest_viber
-   eng_rest_telegram
+   eng_rest_tg/eng_index_tg
    eng_rest_push
    eng_rest_vk
    eng_rest_whatsapp

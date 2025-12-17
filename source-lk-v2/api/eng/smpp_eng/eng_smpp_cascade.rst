@@ -1,7 +1,7 @@
-Cascade Message Sending
-========================
+Cascading Message Sending
+===========================
 
-Cascade message sending is not available by default. To enable it, the Partner should contact their supervising manager.
+Cascading message sending is not available by default. To enable it, the Partner should contact their supervising manager.
 
 The service supports the following types of cascading message:
 
@@ -328,3 +328,6 @@ Request TLV Parameters
         |                           |                     |                   |                   |     </details>                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
 
+
+
+        

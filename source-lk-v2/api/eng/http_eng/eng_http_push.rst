@@ -446,7 +446,7 @@ When sending an incorrect request a short text error message may be transmitted 
         |               |                                                           |         <summary>Troubleshooting</summary>                                         |
         |               |                                                           |         <p>                                                                        |
         |               |                                                           |             To resume sending messages, the Partner needs to make an advance       |
-        |               |                                                           |             payment and contact your supervising manager.                          |
+        |               |                                                           |             payment and contact the supervising manager.                           |
         |               |                                                           |         </p>                                                                       |
         |               |                                                           |         <p>                                                                        |
         |               |                                                           |             The Partner shouldn't repeat the request.                              |
