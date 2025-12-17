@@ -12,7 +12,6 @@ REST API
 
 - :doc:`CARDSMOBILE <rest_cardsmobile>`;
 - :doc:`FLASHINGCALL (VOICECODE) <rest_flashcall>`;
-- :doc:`MAX <rest_max>`;
 - :doc:`PUSH <rest_push>`;
 - :doc:`SMS <rest_sms>`;
 - :doc:`TELEGRAM <rest_tg/rest_telegram>`;
@@ -30,7 +29,6 @@ REST API
    rest_auth
    rest_request
    rest_sms
-   rest_max
    rest_push
    rest_tg/index_tg
    rest_vk
