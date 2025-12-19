@@ -11,7 +11,6 @@ The message is resent in case of receiving a status indicating that the message 
 The service supports the following types of cascading message:
 
 * FLASHINGCALL (VOICECODE);
-* MAX;
 * PUSH;
 * SMS;
 * TELEGRAM;
