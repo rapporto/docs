@@ -1,54 +1,13 @@
-Viber
-==========
+Telegram Message Sending
+==========================
 
-The following Viber messages are supported:
+The following types of Telegram messages are supported:
 
 *  text only;
-*  image only;
-*  text + button to follow the link;
-*  text + image + button to follow the link.
+*  text + link to follow.
 
-Request to Send Viber Messages 
--------------------------------
-
-Request Examples
-~~~~~~~~~~~~~~~~~
-
-.. raw:: html
-
-   <p style="line-height: 24px;">To generate a test request with your parameters, please 
-       <a href="https://doc.rapporto.ru/generator/" target="_blank" class="button">
-           <img src="../../../_static/link-external-01.svg" class="bttn-icon" alt="Внешняя ссылка"> open the request generator.
-       </a>
-   </p>
-   <style>
-       .bttn-icon {
-           width: 18px;
-           height: 18px;
-           vertical-align: middle;  /* Центрирует иконку по вертикали */
-           border: 0;
-           margin-right: 4px;
-       }       
-       .button {
-           border: 0;
-           height: 36px;
-           text-decoration: none; /* Убирает подчеркивание */
-           color: #000; /* Цвет текста */
-           background-color: transparent; /* Цвет фона кнопки */
-           padding: 4px 4px; /* Отступы */
-           border-radius: 4px; /* Закругленные углы */
-           display: inline-flex; /* Позволяет выровнять текст и иконку по центру */
-           align-items: center; /* Центрирует содержимое кнопки */
-           line-height: 1; /* Убирает лишние отступы */
-       }
-       .button:hover {
-           background-color: #f8f7ff; /* Цвет фона при наведении */
-           text-decoration: none; /* Убирает подчеркивание */
-       }
-   </style>
-
-
-
+Request Examples 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. tabs::
 
@@ -56,123 +15,73 @@ Request Examples
 
       .. code-block:: json
          :linenos:
-         :emphasize-lines: 20-24
+         :emphasize-lines: 18
 
          {
-            "login":"YOUR_LOGIN",
-            "password":"YOUR_PASSWORD",
-            "useTimeDiff":false,
-            "id":"8770100",
-            "scheduleInfo":
+            "login": "Login",
+            "password": "Password",
+            "useTimeDiff": true,
+            "id": "superId",
+            "scheduleInfo": 
             {
-               "timeBegin":"10:00",
-               "timeEnd":"20:00",
-               "weekdaysSchedule":"12345"
+               "timeBegin": "10:00",
+               "timeEnd": "12:00",
+               "weekdaysSchedule": "123"
             },
-            "destAddr":"Subscriber's_Number",
-            "message":
+            "destAddr": "79211234567",
+            "message": 
             {
-               "type":"VIBER",
-               "data":
+               "type": "TELEGRAM",
+               "data": 
                {
-                  "instantContent":
-                  {
-                     "type":"TEXT",
-                     "data":
-                     {
-                        "text":"VIBERMESS"
-                     }
-                  },
-                  "serviceNumber":"SENDER'S_NAME",
-                  "ttl":1
+                  "text": "Hello, world!",
+                  "serviceNumber": "0000",
+                  "ttl": 3600,
+                  "ttlUnit": "SECONDS"
                }
             }
          }
+         
 
 
-   .. tab:: Image
 
-      .. code-block:: json
-         :linenos:
-         :emphasize-lines: 19-23
+   .. tab:: Text + link
 
-         {
-            "login":"YOUR_LOGIN",
-            "password":"YOUR_PASSWORD",
-            "id":"8770100",
-            "scheduleInfo":
+       .. code-block:: json
+          :linenos:
+          :emphasize-lines: 18,19
+
             {
-               "timeBegin":"10:00",
-               "timeEnd":"20:00",
-               "weekdaysSchedule":"12345"
-            },
-            "destAddr":"Subscriber's_Number",
-            "message":
-            {
-               "type":"VIBER",
-               "data":
+               "login": "Login",
+               "password": "Password",
+               "useTimeDiff": true,
+               "id": "superId",
+               "scheduleInfo": 
                {
-                  "instantContent":
+                  "timeBegin": "10:00",
+                  "timeEnd": "12:00",
+                  "weekdaysSchedule": "123"
+               },
+               "destAddr": "79211234567",
+               "message": 
+               {
+                  "type": "TELEGRAM",
+                  "data": 
                   {
-                     "type":"IMAGE_URL",
-                     "data":
-                     {
-                        "imageURL":"https://example.ru/image"
-                     }
-                  },
-                  "serviceNumber":"SENDER'S_NAME",
-                  "ttl":1
+                     "text": "Hello, world!",
+                     "link": "https://docs.rapporto.ru/",
+                     "serviceNumber": "0000",
+                     "ttl": 3600,
+                     "ttlUnit": "SECONDS"
+                  }
                }
             }
-         }
-
-   .. tab:: Text + image + button
-
-      .. code-block:: json
-         :linenos:
-         :emphasize-lines: 20-27
-
-         {
-            "login":"YOUR_LOGIN",
-            "password":"YOUR_PASSWORD",
-            "useTimeDiff":false,
-            "id":"8770100",
-            "scheduleInfo":
-            {
-               "timeBegin":"10:00",
-               "timeEnd":"20:00",
-               "weekdaysSchedule":"12345"
-            },
-            "destAddr":"Subscriber's_Number",
-            "message":
-            {
-               "type":"VIBER",
-               "data":
-               {
-                  "instantContent":
-                  {
-                     "type":"BUTTON",
-                     "data":
-                     {
-                        "text":"VIBERMESS",
-                        "imageURL":"https://example.ru/image",
-                        "caption":"GO_TO",
-                        "action":"https:// example.ru/image"
-                     }
-                  },
-                  "serviceNumber":"SENDER'S_NAME",
-                  "ttl":1
-               }
-            }
-         }
-           
-
-.. _eng-Rest-Viber-параметры-запроса:
 
 
+  
 
-Parameters
-~~~~~~~~~~~~~
+Request Parameters
+~~~~~~~~~~~~~~~~~~~~
 
 +-----------------------+----------+-------------+---------------------------------------------------------------------------------+
 | Parameter             | Required | Data type   | Description                                                                     |
@@ -180,6 +89,25 @@ Parameters
 | login                 | yes      | string      | Partner's name.                                                                 |
 +-----------------------+----------+-------------+---------------------------------------------------------------------------------+
 | password              | yes      | string      | Partner's password for sending messages.                                        |
++-----------------------+----------+-------------+---------------------------------------------------------------------------------+
+| destAddr              | yes      | string      | Subscriber's phone number.                                                      |
+|                       |          |             |                                                                                 |
+|                       |          |             | .. raw:: html                                                                   |
+|                       |          |             |                                                                                 |
+|                       |          |             |     <details>                                                                   |
+|                       |          |             |         <summary>More details</summary>                                         |
+|                       |          |             |         <p>                                                                     |
+|                       |          |             |             It contains the country code, operator code and phone number.       |
+|                       |          |             |         </p>                                                                    |
+|                       |          |             |         <p>                                                                     |
+|                       |          |             |             For the Russian Federation, the code can be <code>8</code>,         |
+|                       |          |             |             <code>7</code> or <code>+7</code>.                                  |
+|                       |          |             |         </p>                                                                    |
+|                       |          |             |         <p>                                                                     |
+|                       |          |             |             Examples: <code>72101234567</code>, <code>+72101234567</code>,      |   
+|                       |          |             |             <code>8-210-123-45-67</code>, <code>82101234567</code>.             |                   
+|                       |          |             |         </p>                                                                    |
+|                       |          |             |     </details>                                                                  |
 +-----------------------+----------+-------------+---------------------------------------------------------------------------------+
 | useTimeDiff           | no       | boolean     | Taking into account the time zone when starting messaging.                      |
 |                       |          |             |                                                                                 |
@@ -208,11 +136,10 @@ Parameters
 |                       |          |             |     <details>                                                                   |
 |                       |          |             |         <summary>More details</summary>                                         |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |             This parameter is necessary                                         |
-|                       |          |             |             for controlling repeated submissions and duplication (the control   |
-|                       |          |             |             service is activated separately). The Partner can call the Service  |
-|                       |          |             |             Provider (request to send a message) multiple times with the same   |
-|                       |          |             |             ID.                                                                 |
+|                       |          |             |             This parameter is necessary for controlling repeated submissions    |
+|                       |          |             |             and duplication (the control service is activated separately). The  |
+|                       |          |             |             Partner can call the Service Provider (request to send a message)   |
+|                       |          |             |             multiple times with the same ID.                                    |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |         <p>                                                                     |
 |                       |          |             |             In this case, the message will be sent to the subscriber only once  |
@@ -224,80 +151,55 @@ Parameters
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     </details>                                                                  |
 +-----------------------+----------+-------------+---------------------------------------------------------------------------------+
-| shortenLinks          | no       | boolean     | Parameter controls the automatic shortening of long links in the message.       |
-|                       |          |             |                                                                                 |
-|                       |          |             | .. raw:: html                                                                   |
-|                       |          |             |                                                                                 |
-|                       |          |             |     <details>                                                                   |
-|                       |          |             |         <summary>More details</summary>                                         |
-|                       |          |             |         <p>                                                                     |
-|                       |          |             |             Possible values are:                                                |
-|                       |          |             |         </p>                                                                    |
-|                       |          |             |         <ul>                                                                    |
-|                       |          |             |             <li><code>true</code> — to shorten links (by default);</li>         |           
-|                       |          |             |             <li><code>false</code> — shortening link is not required.</li>      |
-|                       |          |             |         </ul>                                                                   |
-|                       |          |             |         <p>                                                                     |
-|                       |          |             |             If the parameter is not included in the request, but the service    |
-|                       |          |             |             is available to the Partner, the links will be shortened            |
-|                       |          |             |             by default.                                                         |
-|                       |          |             |         </p>                                                                    |
-|                       |          |             |         <p>                                                                     |
-|                       |          |             |             The ability to use this service is discussed and configured         |
-|                       |          |             |             in advance by the Service Provider.                                 |
-|                       |          |             |         </p>                                                                    |
-|                       |          |             |         <p>                                                                     |
-|                       |          |             |         For more details:                                                       |
-|                       |          |             |         <a href="https://doc.rapporto.ru/api/eng/rest_eng/                      |
-|                       |          |             |         eng_rest_short_link.html">Link Shortening Service</a>.                  |
-|                       |          |             |         </p>                                                                    |  
-+-----------------------+----------+-------------+---------------------------------------------------------------------------------+
 | scheduleInfo          | no       | object      | Messaging schedule.                                                             |
-|                       |          |             |                                                                                 |                              
+|                       |          |             |                                                                                 |
 |                       |          |             | .. raw:: html                                                                   |
 |                       |          |             |                                                                                 |
 |                       |          |             |     <details>                                                                   |
 |                       |          |             |         <summary>More details</summary>                                         |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |             If it is not specified, it is sent immediately upon                 |
-|                       |          |             |             receipt of the request.                                             |
+|                       |          |             |             If not specified, it is sent immediately upon receipt of the        |
+|                       |          |             |             request.                                                            |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     </details>                                                                  |
-+-----------------------+----------+-------------+---------------------------------------------------------------------------------+         
++-----------------------+----------+-------------+---------------------------------------------------------------------------------+
 | | scheduleInfo/       | no       | string      | Start time.                                                                     |
-| | timeBegin           |          |             |                                                                                 |                              
+| | timeBegin           |          |             |                                                                                 |
 |                       |          |             | .. raw:: html                                                                   |
 |                       |          |             |                                                                                 |
 |                       |          |             |     <details>                                                                   |
 |                       |          |             |         <summary>More details</summary>                                         |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |             Example: <code>10:00</code>.                                        |
+|                       |          |             |             For example: <code>10:00</code>.                                    |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     </details>                                                                  |
-+-----------------------+----------+-------------+---------------------------------------------------------------------------------+
++-----------------------+----------+-------------+---------------------------------------------------------------------------------+ 
 | | scheduleInfo/       | no       | string      | End time.                                                                       |
-| | timeEnd             |          |             |                                                                                 |                              
+| | timeEnd             |          |             |                                                                                 |
 |                       |          |             | .. raw:: html                                                                   |
 |                       |          |             |                                                                                 |
 |                       |          |             |     <details>                                                                   |
 |                       |          |             |         <summary>More details</summary>                                         |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |             Example: <code>21:00</code>.                                        |
+|                       |          |             |             For example: <code>21:00</code>.                                    |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     </details>                                                                  |
-+-----------------------+----------+-------------+---------------------------------------------------------------------------------+
++-----------------------+----------+-------------+---------------------------------------------------------------------------------+   
 | | scheduleInfo/       | no       | string      | Messaging days.                                                                 |
-| | weekdaysSchedule    |          |             |                                                                                 |                                                                                                
+| | weekdaysSchedule    |          |             |                                                                                 |
 |                       |          |             | .. raw:: html                                                                   |
 |                       |          |             |                                                                                 |
 |                       |          |             |     <details>                                                                   |
 |                       |          |             |         <summary>More details</summary>                                         |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |             Specified by numbers from <code>1</code> (Monday) to <code>7</code> |
-|                       |          |             |             (Sunday), for example, <code>12345</code>.                          |
+|                       |          |             |             Specified by numbers from <code>1</code> (Monday)                   |
+|                       |          |             |             to <code>7</code> (Sunday).                                         |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |             If there are no restrictions on days of the week, this parameter    |   
+|                       |          |             |             For example: <code>12345</code>.                                    |
+|                       |          |             |         </p>                                                                    |
+|                       |          |             |         <p>                                                                     |
+|                       |          |             |             If there are no restrictions on days of the week, this parameter    |
 |                       |          |             |             can be empty or not delivered in the request.                       |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     </details>                                                                  |
@@ -309,31 +211,24 @@ Parameters
 |                       |          |             |     <details>                                                                   |
 |                       |          |             |         <summary>More details</summary>                                         |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |             Example: <code>2024-05-10T16:29:30+0300</code>.                     |
+|                       |          |             |             Specify the end date for message sending.                           |
+|                       |          |             |         </p>                                                                    |
+|                       |          |             |         <p>                                                                     |
+|                       |          |             |             For example: <code>2024-05-10T16:29:30+0300</code>.                 |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     </details>                                                                  |
 +-----------------------+----------+-------------+---------------------------------------------------------------------------------+
-| destAddr              | yes      | string      | Subscriber's phone number.                                                      |
+| message               | yes      | object      | Parameters of a message being sent.                                             |
 |                       |          |             |                                                                                 |
 |                       |          |             | .. raw:: html                                                                   |
 |                       |          |             |                                                                                 |
 |                       |          |             |     <details>                                                                   |
 |                       |          |             |         <summary>More details</summary>                                         |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |             It contains the country code, operator code and phone number.       |
-|                       |          |             |         </p>                                                                    |
-|                       |          |             |         <p>                                                                     |
-|                       |          |             |             For the Russian Federation, the code can be <code>8</code>,         |
-|                       |          |             |             <code>7</code> or <code>+7</code>.                                  |
-|                       |          |             |         </p>                                                                    |
-|                       |          |             |         <p>                                                                     |
-|                       |          |             |             Examples: <code>72101234567</code>, <code>+72101234567</code>,      |   
-|                       |          |             |             <code>8-210-123-45-67</code>, <code>82101234567</code>.             |                   
+|                       |          |             |            It contains information about the message type and its content.      |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     </details>                                                                  |
-+-----------------------+----------+-------------+---------------------------------------------------------------------------------+    
-| message               | yes      | object      | Parameters of a message being sent.                                             |
-+-----------------------+----------+-------------+---------------------------------------------------------------------------------+ 
++-----------------------+----------+-------------+---------------------------------------------------------------------------------+
 | message/type          | yes      | enum        | Message type.                                                                   |
 |                       |          |             |                                                                                 |
 |                       |          |             | .. raw:: html                                                                   |
@@ -341,128 +236,86 @@ Parameters
 |                       |          |             |     <details>                                                                   |
 |                       |          |             |         <summary>More details</summary>                                         |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |             The value of <code>VIBER</code> is transmitted.                     |
+|                       |          |             |             Specify the <code>TELEGRAM</code> value.                            |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     </details>                                                                  |
-+-----------------------+----------+-------------+---------------------------------------------------------------------------------+ 
++-----------------------+----------+-------------+---------------------------------------------------------------------------------+
 | message/data          | yes      | object      | Parameters of the data being sent.                                              |
+|                       |          |             |                                                                                 |
+|                       |          |             | .. raw:: html                                                                   |
+|                       |          |             |                                                                                 |
+|                       |          |             |     <details>                                                                   |
+|                       |          |             |         <summary>More details</summary>                                         |
+|                       |          |             |         <p>                                                                     |
+|                       |          |             |             To send a text only, specify the <code>text</code> attribute.       |
+|                       |          |             |         </p>                                                                    |
+|                       |          |             |             To send a text and a link specify the <code>text</code> and         |
+|                       |          |             |             <code>link</code> attributes.                                       |
+|                       |          |             |         </p>                                                                    |
+|                       |          |             |     </details>                                                                  |
 +-----------------------+----------+-------------+---------------------------------------------------------------------------------+
-| | message/data/       | yes      | object      | Parameters of the Viber message being sent (images, buttons).                   |
-| | instantContent      |          |             |                                                                                 |
+| | message/data/       | yes      | string      | Message text.                                                                   | 
+| | text                |          |             |                                                                                 |
+|                       |          |             | .. raw:: html                                                                   |
+|                       |          |             |                                                                                 |
+|                       |          |             |     <details>                                                                   |
+|                       |          |             |         <summary>More details</summary>                                         |
+|                       |          |             |         <p>                                                                     |
+|                       |          |             |            Character limit: no more than 1000.                                  |
+|                       |          |             |         </p>                                                                    |
+|                       |          |             |         <p>                                                                     |
+|                       |          |             |            The text of the message can be in Cyrillic or Latin, and may contain |
+|                       |          |             |            emojis.                                                              |
+|                       |          |             |         </p>                                                                    |
+|                       |          |             |     </details>                                                                  |
 +-----------------------+----------+-------------+---------------------------------------------------------------------------------+
-| | instantContent/     | yes      | enum        | Type of a message parameter.                                                    |
-| | type                |          |             |                                                                                 |
+| | message/data/       | no       | string      | Random URL, passed in the text of a Telegram message.                           | 
+| | link                |          |             |                                                                                 |
 |                       |          |             | .. raw:: html                                                                   |
 |                       |          |             |                                                                                 |
 |                       |          |             |     <details>                                                                   |
 |                       |          |             |         <summary>More details</summary>                                         |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |             Possible values are:                                                |
-|                       |          |             |         </p>                                                                    |
-|                       |          |             |         <ul>                                                                    |
-|                       |          |             |             <li><code>TEXT</code> (to transmit text only);</li>                 |
-|                       |          |             |             <li><code>IMAGE_URL</code> (image only);</li>                       |
-|                       |          |             |             <li><code>BUTTON</code> (text of the message, the URL of the image, |
-|                       |          |             |              the button name and the URL to follow by clicking on the button,   |
-|                       |          |             |              see <i>instantContent/data</i>)</li>                               |
-|                       |          |             |         </ul>                                                                   |
-|                       |          |             |     <div class="admonition important">                                          |
-|                       |          |             |         <p class="admonition-title">Important</p>                               |
-|                       |          |             |         <p>For business accounts that support the functionality of Viber        |
-|                       |          |             |            sessions, messages with the type <code>TEXT</code> or sessions,      |
-|                       |          |             |            messages with the type <code>TEXT</code> or <code>IMAGE_URL</code>.  |
-|                       |          |             |            Messages with a different type return the 400 "Invalid request"      |
-|                       |          |             |            error.</p>                                                           |
-|                       |          |             |     </div>                                                                      |
-|                       |          |             |     </div>                                                                      |
-|                       |          |             |     </details>                                                                  |
-+-----------------------+----------+-------------+---------------------------------------------------------------------------------+     
-| | instantContent/     | yes      | object      | Parameters of the data being sent when selecting the ``BUTTON`` value           |
-| | data                |          |             | in *instantContent/type*.                                                       |
-|                       |          |             |                                                                                 |
-|                       |          |             | .. raw:: html                                                                   |
-|                       |          |             |                                                                                 |
-|                       |          |             |     <details>                                                                   |
-|                       |          |             |         <summary>More details</summary>                                         |
-|                       |          |             |         <p>                                                                     |
-|                       |          |             |             Possible values are:                                                |
-|                       |          |             |         </p>                                                                    |
-|                       |          |             |         <ul>                                                                    |
-|                       |          |             |             <li><code>text</code> (message text);</li>                          |
-|                       |          |             |             <li><code>imageURL</code> (URL of the image);</li>                  |
-|                       |          |             |             <li><code>caption</code> (button name);</li>                        |
-|                       |          |             |             <li><code>action</code> (URL to follow by clicking on               |
-|                       |          |             |              the button).</li>                                                  |
-|                       |          |             |         </ul>                                                                   |
-|                       |          |             |     </details>                                                                  |
-+-----------------------+----------+-------------+---------------------------------------------------------------------------------+     
-| | instantContent/     | yes      | string      | Message text.                                                                   |
-| | data/text           |          |             |                                                                                 |
-|                       |          |             | .. raw:: html                                                                   |
-|                       |          |             |                                                                                 |
-|                       |          |             |     <details>                                                                   |
-|                       |          |             |         <summary>More details</summary>                                         |
-|                       |          |             |         <p>                                                                     |
-|                       |          |             |              Character limit: 1000.                                             |
-|                       |          |             |         </p>                                                                    |
-|                       |          |             |     </details>                                                                  |
-+-----------------------+----------+-------------+---------------------------------------------------------------------------------+     
-| | instantContent/     | yes      | string      | URL of an image to be transmitted.                                              |
-| | data/imageURL       |          |             |                                                                                 |
-|                       |          |             | .. raw:: html                                                                   |
-|                       |          |             |                                                                                 |
-|                       |          |             |     <details>                                                                   |
-|                       |          |             |         <summary>More details</summary>                                         |
-|                       |          |             |         <p>                                                                     |
-|                       |          |             |              400x400px image with JPG or PNG extension is recommended           |
-|                       |          |             |              to be used.                                                        |     
-|                       |          |             |         </p>                                                                    |
-|                       |          |             |     </details>                                                                  |
-+-----------------------+----------+-------------+---------------------------------------------------------------------------------+    
-| | instantContent/     | yes      | string      | Button text in Viber message.                                                   |
-| | data/caption        |          |             |                                                                                 |
-|                       |          |             | .. raw:: html                                                                   |
-|                       |          |             |                                                                                 |
-|                       |          |             |     <details>                                                                   |
-|                       |          |             |         <summary>More details</summary>                                         |
-|                       |          |             |         <p>                                                                     |
-|                       |          |             |              Character limit: 30.                                               |
-|                       |          |             |         </p>                                                                    |
-|                       |          |             |     </details>                                                                  |
-+-----------------------+----------+-------------+---------------------------------------------------------------------------------+    
-| | instantContent/     | yes      | string      | Button link in Viber message.                                                   |
-| | data/action         |          |             |                                                                                 |
-|                       |          |             | .. raw:: html                                                                   |
-|                       |          |             |                                                                                 |
-|                       |          |             |     <details>                                                                   |
-|                       |          |             |         <summary>More details</summary>                                         |
-|                       |          |             |         <p>                                                                     |
-|                       |          |             |              Character limit: 2048.                                             |
+|                       |          |             |             Number of characters: no more than 256.                             |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |              URL for the link shall begin with "http://", "https://",           |
-|                       |          |             |              "viber://", "mailto:", "tel:".                                     |
+|                       |          |             |            If the link length exceeds the specified value, the message          |
+|                       |          |             |            will be rejected with an error. The error text: "The value limit of  |
+|                       |          |             |            the <code>link</code> parameter is exceeded in the message".         |
+|                       |          |             |         </p>                                                                    |
+|                       |          |             |         <p>                                                                     |
+|                       |          |             |             If an empty parameter is passed, the message will be rejected with  |
+|                       |          |             |             an error. The error text: "The message is missing a value for the   |
+|                       |          |             |             <code>link</code> parameter".                                       |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     </details>                                                                  |
-+-----------------------+----------+-------------+---------------------------------------------------------------------------------+        
++-----------------------+----------+-------------+---------------------------------------------------------------------------------+
 | | message/data/       | no       | string      | Sender's name from which the message is being sent.                             |
 | | serviceNumber       |          |             |                                                                                 |
-+-----------------------+----------+-------------+---------------------------------------------------------------------------------+ 
-| | message/data/ttl    | no       | integer     | Message lifetime.                                                               |
-|                       |          |             |                                                                                 |
 |                       |          |             | .. raw:: html                                                                   |
 |                       |          |             |                                                                                 |
 |                       |          |             |     <details>                                                                   |
 |                       |          |             |         <summary>More details</summary>                                         |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |             Acceptable range in minutes: from 30 to 86400.                      |
+|                       |          |             |            To send the message successfully, please double-check that the       |
+|                       |          |             |            service name is correct.                                             |
+|                       |          |             |         </p>                                                                    |
+|                       |          |             |     </details>                                                                  |
++-----------------------+----------+-------------+---------------------------------------------------------------------------------+
+| | message/data/       | no       | integer     | Message lifetime.                                                               |
+| | ttl                 |          |             |                                                                                 |
+|                       |          |             | .. raw:: html                                                                   |
+|                       |          |             |                                                                                 |
+|                       |          |             |     <details>                                                                   |
+|                       |          |             |         <summary>More details</summary>                                         |
+|                       |          |             |         <p>                                                                     |
+|                       |          |             |             Acceptable range in seconds: from 30 to 86400.                      |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     <div class="admonition note">                                               |
 |                       |          |             |         <p class="admonition-title">Note</p>                                    |
-|                       |          |             |         <p>When <code>ttl = 0</code> or the parameter is absent                 |
-|                       |          |             |            in the request, the value from the default settings is used,         |
-|                       |          |             |            which is set during the integration setup separately for             |
-|                       |          |             |            each client.</p>                                                     |
+|                       |          |             |         <p>When <code>ttl = 0</code> or the parameter is absent in              | 
+|                       |          |             |            the request, the value from the default settings is used, which is   |
+|                       |          |             |            set during the integration setup separately for each client.</p>     |
 |                       |          |             |     </div>                                                                      |
 |                       |          |             |     </details>                                                                  |
 +-----------------------+----------+-------------+---------------------------------------------------------------------------------+
@@ -476,29 +329,41 @@ Parameters
 |                       |          |             |             It is transmitted only with <code>ttl</code>.                       |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |             Possible values are: <code>SECONDS</code>; <code>MINUTES</code>     |   
-|                       |          |             |             (by default); <code>HOURS</code>.                                   |
+|                       |          |             |             Possible values are:                                                |
 |                       |          |             |         </p>                                                                    |
+|                       |          |             |         <ul>                                                                    |
+|                       |          |             |             <li><code>SECONDS</code>;</li>                                      |
+|                       |          |             |             <li><code>MINUTES</code> (by default);</li>                         |
+|                       |          |             |             <li><code>HOURS</code>.</li>                                        |
+|                       |          |             |         </ul>                                                                   |
 |                       |          |             |     </details>                                                                  |
 +-----------------------+----------+-------------+---------------------------------------------------------------------------------+
-| extraParam            | no       | string      | Additional parameters passed as ``param1=value1,param2=value2``,                |
-|                       |          |             | where ``param1`` and ``param2`` — parameter names, ``value1`` and ``value2`` —  |
-|                       |          |             | values.                                                                         |
+| extraParam            | no       | string      | Additional parameters passed in the message.                                    |
 |                       |          |             |                                                                                 |
 |                       |          |             | .. raw:: html                                                                   |
-|                       |          |             |                                                                                 |                              
 |                       |          |             |                                                                                 |
 |                       |          |             |     <details>                                                                   |
 |                       |          |             |         <summary>More details</summary>                                         |
 |                       |          |             |         <p>                                                                     |
+|                       |          |             |             Parameters are passed as <code>param1=value1,param2=value2</code>,  |
+|                       |          |             |             where <code>param1</code> and <code>param2</code> — parameter names,|
+|                       |          |             |             <code>value1</code> and <code>value2</code> — values.               |
+|                       |          |             |                                                                                 |
+|                       |          |             |         </p>                                                                    |
+|                       |          |             |         <p>                                                                     |
+|                       |          |             |             Example: the string                                                 |
+|                       |          |             |             <code>place=abzakovo,name=guest house-3</code>                      |
+|                       |          |             |         </p>                                                                    |
+|                       |          |             |         <p>                                                                     |
 |                       |          |             |            The comma character cannot be included in the parameter name, but it |
 |                       |          |             |            can be included in its value — in this case it must be doubled.      |
-|                       |          |             |            Example: the string                                                  | 
-|                       |          |             |            <code>place=abzakovo,name=guest house-2,coordinates=53.8085896,,     |
-|                       |          |             |            58.6362112,from=23.02.09,to=05.03.09</code>.                         |
+|                       |          |             |         </p>                                                                    |
+|                       |          |             |         <p>                                                                     |
+|                       |          |             |            Example:                                                             | 
+|                       |          |             |            <code>coordinates=53.8085896,,58.6362112</code>                      |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     </details>                                                                  |
-+-----------------------+----------+-------------+---------------------------------------------------------------------------------+   
++-----------------------+----------+-------------+---------------------------------------------------------------------------------+
 | registeredDelivery    | no       | integer     | Requirement of delivery reports.                                                |
 |                       |          |             |                                                                                 |
 |                       |          |             | .. raw:: html                                                                   |
@@ -506,32 +371,36 @@ Parameters
 |                       |          |             |     <details>                                                                   |
 |                       |          |             |         <summary>More details</summary>                                         |
 |                       |          |             |         <p>                                                                     |
+|                       |          |             |             Specify whether delivery reports are required to track statuses.    |
+|                       |          |             |         </p>                                                                    |
+|                       |          |             |         <p>                                                                     |
 |                       |          |             |             Possible values are:                                                |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |         <ul>                                                                    |
 |                       |          |             |             <li><code>0</code> — statuses are not required;</li>                |
 |                       |          |             |             <li><code>1</code> — statuses are required (by default);</li>       |
-|                       |          |             |             <li><code>2</code> — only "Undelivered" status is required.</li>    |
+|                       |          |             |             <li><code>2</code> — only the <code>Undelivered</code>              |
+|                       |          |             |                 status is required. </li>                                       |
 |                       |          |             |         </ul>                                                                   |
 |                       |          |             |     </details>                                                                  |
 +-----------------------+----------+-------------+---------------------------------------------------------------------------------+
-| notifyUrl             | no       | string      | Hostname of the incoming API to receive the delivery report.                    |
+| notifyUrl             | no       | string      | Hostname of the incoming API to obtain the delivery report.                     |
 |                       |          |             |                                                                                 |
 |                       |          |             | .. raw:: html                                                                   |
 |                       |          |             |                                                                                 |
 |                       |          |             |     <details>                                                                   |
 |                       |          |             |         <summary>More details</summary>                                         |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |             This parameter is optional in the request, but if sent you          |
-|                       |          |             |             should consider the following: if the parameter is specified,       |
-|                       |          |             |             it cannot be empty.                                                 |
+|                       |          |             |             This parameter is optional in the request, but when sending you     |
+|                       |          |             |             need to consider the following:                                     |
 |                       |          |             |         </p>                                                                    |
+|                       |          |             |         <ul>                                                                    |
+|                       |          |             |             <li>if the parameter is specified, it cannot be empty;</li>         |
+|                       |          |             |             <li>the <code>notifyUrl</code> string must be no more than 2048     |
+|                       |          |             |             characters.</li>                                                    |
+|                       |          |             |         </ul>                                                                   |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |             The <code>notifyUrl</code> string must be no more than 2048         |   
-|                       |          |             |             characters long.                                                    |
-|                       |          |             |         </p>                                                                    |
-|                       |          |             |         <p>                                                                     |
-|                       |          |             |             If any of the specified conditions are not met, an error will be    |   
+|                       |          |             |             If any of the specified conditions are not met, an error will be    |
 |                       |          |             |             generated and the request will not be executed.                     |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     </details>                                                                  |
@@ -543,21 +412,23 @@ Parameters
 |                       |          |             |     <details>                                                                   |
 |                       |          |             |         <summary>More details</summary>                                         |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |             See <a href="https://doc.rapporto.ru/api/rest/rest_cascade.html">   |                 
-|                       |          |             |             Cascading Message Sending</a>.                                      |
+|                       |          |             |        See                                                                      |
+|                       |          |             |        <a href="https://doc.rapporto.ru/api/eng/rest_eng/eng_rest_cascade.html">|                 
+|                       |          |             |        Cascading Message Sending</a>.                                           |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     </details>                                                                  |
-+-----------------------+----------+-------------+---------------------------------------------------------------------------------+   
++-----------------------+----------+-------------+---------------------------------------------------------------------------------+ 
 
 
 Response 
----------------
+--------------------
 
-After sending the message, the Service Provider synchronously returns a response. In case of a successful submission, HTTP code ``200 OK`` is returned.
+After sending a message the Service Provider returns a response synchronously. 
 
+Successful Telegram Sending
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Successful Viber Sending
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In case of successful sending the Service Provider returns the ``200 OK`` HTTP-code.
 
 .. tabs::
 
@@ -577,37 +448,33 @@ Successful Viber Sending
          +-----------------------+--------------+--------------------------------------------------------------------+
          | Parameter             | Data type    | Description                                                        |
          +=======================+==============+====================================================================+
-         | mtNum                 | string       | Identifier of the sending chain assigned by the Service Provider   | 
-         |                       |              | platform.                                                          |
+         | mtNum                 | string       | Sending chain identifier assigned by the Service Provider platform.| 
          +-----------------------+--------------+--------------------------------------------------------------------+
-         | id                    | string       | Unique identifier on the Partner's side. It is present if it       |
-         |                       |              | provided when sending.                                             |
+         | id                    | string       | Partner-side unique ID. Available, if it was included when sending.|
          +-----------------------+--------------+--------------------------------------------------------------------+
 
 
+Telegram Sending Errors
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Viber Sending Errors 
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-For error responses, the HTTP response code will be different from ``200`` (see :ref:`eng-Коды-ошибок-отправки-Viber`).
+For results with errors, a response HTTP code will differ from ``200`` (see :ref:`eng-Коды-ошибок-отправки-Telegram`).
 
 .. tabs::
 
     .. tab:: Response example
 
-
        .. code-block:: json
-         :linenos:
-         
-           { 
-               "error": { 
-                  "code": 4, 
-                  "description": "Invalid request" 
-               }, 
-               "extendedDescription": "Capture is absent or length longer 30 characters" 
-            }
-        
-       In this example *capture* parameter is missing in the BUTTON type of a Viber message or its length exceeds 30 characters.
+          :linenos:
+
+           {
+               "error": {
+                   "code": 4,
+                   "description": "Invalid request"
+               },
+               "extendedDescription": "Telegram message is absent"
+           }
+
+       In this example, there is no text in the Telegram message, but only a link is transmitted, which is an error.
 
 
     .. tab:: Response parameters
@@ -623,11 +490,13 @@ For error responses, the HTTP response code will be different from ``200`` (see 
       +-----------------------+--------------+--------------------------------------------------------------------+
       | extendedDescription   | string       | Detailed description of the error (optional parameter).            |
       +-----------------------+--------------+--------------------------------------------------------------------+
-  
-.. _eng-Коды-ошибок-отправки-Viber:      
+
+
+
+.. _eng-Коды-ошибок-отправки-Telegram:      
 
 Error Codes  
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 +------------+--------------------------------+----------------+
 | Code       | Description                    | HTTP-code      |
@@ -658,70 +527,99 @@ Error Codes
 +------------+--------------------------------+----------------+
 
 
-Viber Delivery Statuses
------------------------------------
+Telegram Delivery Statuses
+--------------------------------------
 
-To receive Viber message statuses, you need to set up the :doc:`eng_rest_status`.
+To receive Telegram message statuses, you need to set up the :doc:`../eng_rest_status`.
 
-Delivery Error codes
+Request Example
+~~~~~~~~~~~~~~~~~~
+
+Description of parameters is given in the paragraph :ref:`eng-REST-Статус-параметры`.
+
+
+.. code-block:: json
+   :linenos:
+
+      {
+         "mtNum": "107930572",
+         "status": 9,
+         "type": "TELEGRAM",
+         "doneDate": "2024-05-05T10:20:35+0300",
+         "submitDate": "2024-05-05T10:19:55+0300",
+         "sourceAddr": "TG_NAME",
+         "destAddr": "72101234567",
+         "text": "Hello!",
+         "partCount": "001",
+         "errorCode": "0",
+         "mccMnc": "25012",
+         "trafficType": 0
+      }
+
+Delivery Error Codes
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Delivery error codes for each message type are provided in the corresponding tab of the :ref:`REST-ErrCodeDescr-eng` section.
 
-Viber Session
-===============
+Event Notification
+~~~~~~~~~~~~~~~~~~~
 
-| Viber session is a feature that allows the Partner to communicate with subscribers within specific time frames for a fixed price per session.
-| The reason for the inquiry can be anything: a question, a message about a problem, a booking confirmation, or a delivery status check — the user will receive a response in real time. 
+Additional parameters are intended for transmitting accurate statistics in Telegram messages.
 
-.. raw:: html
+.. tabs::
 
-   <div class="admonition note">
-       <p class="admonition-title">Note</p>
-       <p>The functionality of Viber sessions is not available by default. To enable it, you should contact your account manager.</p>
-   </div>                                                                           
+    .. tab:: Request example
 
-Viber Session Setup
--------------------------------
+      .. code-block:: json
+         :linenos:
+         :emphasize-lines: 14-17
 
-| Using sessions implies the presence of a special Viber business account.
-| You can create a new Viber business account with the sessions functionality enabled.
-| If you already have a valid business account and would like to enable sessions, please contact your account manager.
-
-.. raw:: html
-
-  <div class="admonition important">
-       <p class="admonition-title">Important</p>
-       <p>For business accounts that support Viber sessions, messages with the type “text only“ or “image only“ are available (the value of InstantContent.type parameter must be <code>TEXT</code> or <code>IMAGE_URL</code>).</p>
-  </div>                                                                           
-
-Features of the Sessions
---------------------------
-
-Start of the session:
-
-* only subscriber can initiate a session;
-* the session starts when the subscriber sends the first message to the Partner;
-* the session cannot be initiated by an image;
-* if only one sender is present in the correspondence (it doesn’t matter whether it’s a subscriber or a Partner), this is not considered a session, messages will be charged in the usual way.
-
-Session limits:
-
-* session duration is 24 hours by default;
-* the Partner can send up to 60 messages (a new session starts automatically after exceeding this limit);
-* the Partner can send up to 10 messages without a subscriber’s response (the session is automatically closed after exceeding this limit);
-* the Partner can send messages with the type “text“ or “image“ only.
-
-The session ends in the following cases:
-
-* after 24 hours;
-* after reaching the limit of 60 messages (a new session starts automatically);
-* after reaching the limit of 10 unanswered messages from the Partner.
+          {
+               "mtNum": "107930572",
+               "status": 9,
+               "type": "TELEGRAM",
+               "doneDate": "2024-05-05T10:20:35+0300",
+               "submitDate": "2024-05-05T10:19:55+0300",
+               "sourceAddr": "TG_NAME",
+               "destAddr": "72101234567",
+               "text": "Hello!",
+               "partCount": "001",
+               "errorCode": "0",
+               "mccMnc": "25012",
+               "trafficType": 0,
+               "eventType": "view",
+               "eventDate": "2024-05-05T10:30:35+0300",
+               "viewsCount": 2,
+               "clicksCount": 0
+          }
 
 
-Billing for Viber Sessions
-----------------------------
 
-| A subscription fee is charged for using the session functionality. Please check the session size with the account manager when creating a business account.
-| All sessions are paid for a fixed (identical) price. Messages within sessions are not charged.
-| Messages outside the session are charged as usual.
+    .. tab:: Description of the parameters 
+
+         +-----------------+----------+-------------------------+----------------------------------------------------------------------------------+
+         | Parameter       | Required | Type                    | Description                                                                      |
+         +=================+==========+=========================+==================================================================================+
+         | eventType       | yes      | string                  | Event type.                                                                      |
+         |                 |          |                         |                                                                                  |
+         |                 |          |                         | .. raw:: html                                                                    |
+         |                 |          |                         |                                                                                  |
+         |                 |          |                         |     <details>                                                                    |
+         |                 |          |                         |         <summary>More details</summary>                                          |
+         |                 |          |                         |         <p>                                                                      |
+         |                 |          |                         |             Possible values are:                                                 |
+         |                 |          |                         |         </p>                                                                     |
+         |                 |          |                         |         <ul>                                                                     |
+         |                 |          |                         |             <li><code>view</code> — display notification;</li>                   |
+         |                 |          |                         |             <li><code>click</code> — clicking notification;</li>                 |
+         |                 |          |                         |             <li><code>subscribe</code> — subscription notification.</li>         |
+         |                 |          |                         |         </ul>                                                                    |
+         |                 |          |                         |     </details>                                                                   |
+         +-----------------+----------+-------------------------+----------------------------------------------------------------------------------+
+         | eventDate       | yes      | string                  | Date and time of the event in ``YYYY-MM-DDThh:mm:ss+TMZN`` format.               |
+         +-----------------+----------+-------------------------+----------------------------------------------------------------------------------+
+         | viewsCount      | yes      | integer                 | Total number of displays for the message, including the current display.         |
+         +-----------------+----------+-------------------------+----------------------------------------------------------------------------------+
+         | clicksCount     | yes      | integer                 | Total number of clicking for the message, including the current click.           |
+         +-----------------+----------+-------------------------+----------------------------------------------------------------------------------+
+

@@ -186,7 +186,7 @@ The parameters are applicable for POST and GET requests.
 |                    |         |              |            </p>                                                                                                      |
 |                    |         |              |     </div>                                                                                                           |
 |                    |         |              |         <p>                                                                                                          |
-|                    |         |              |             The time zone of the subscriber is determined <b>not</b> by actual location of the subscriber.           |
+|                    |         |              |             The time zone of the subscriber is determined <i>not</i> by actual location of the subscriber.           |
 |                    |         |              |         </p>                                                                                                         |
 |                    |         |              |         <p>                                                                                                          |
 |                    |         |              |             If the Partner doesn't send the <code>time_zone</code> parameter, the time zone of the subscriber        |
@@ -372,10 +372,8 @@ In case of successful processing of the request Service Provider returns to the 
 
         .. code-block:: 
 
-            {
                OK
                4095284974
-            }
 
 
     .. tab:: Response parameters
@@ -390,7 +388,7 @@ In case of successful processing of the request Service Provider returns to the 
         +---------------+-----------------------------------------------------------+-----------------------------------------------------------+
 
 
-
+.. _pКод-ош-при-отпр-запроса:
 
 Sending Errors
 ~~~~~~~~~~~~~~~~~~~
@@ -401,15 +399,12 @@ When sending an incorrect request a short text error message may be transmitted 
 
     .. tab:: Response example
 
-        An example of an error response -- invalid *serviceId/pass* combination:
+        An example of an error response -- invalid ``serviceId/pass`` combination:
 
         .. code-block::
 
-            {
                 Invalid password
-            }
 
-    .. _pКод-ош-при-отпр-запроса:
 
     .. tab:: Error codes when sending the request
 
@@ -446,7 +441,7 @@ When sending an incorrect request a short text error message may be transmitted 
         |               |                                                           |         <summary>Troubleshooting</summary>                                         |
         |               |                                                           |         <p>                                                                        |
         |               |                                                           |             To resume sending messages, the Partner needs to make an advance       |
-        |               |                                                           |             payment and contact your supervising manager.                          |
+        |               |                                                           |             payment and contact the supervising manager.                           |
         |               |                                                           |         </p>                                                                       |
         |               |                                                           |         <p>                                                                        |
         |               |                                                           |             The Partner shouldn't repeat the request.                              |
@@ -601,7 +596,6 @@ Response Examples
 
         .. code-block::
 
-            {
                 <?xml version="1.0" encoding="utf-8"?>
                 <response>
                     <code>200</code>
@@ -610,7 +604,6 @@ Response Examples
                         <id>4095284976</id>
                     </payload>
                 </response>
-            }
 
 
 
@@ -620,13 +613,11 @@ Response Examples
 
         .. code-block::
 
-            {
                 <?xml version="1.0" encoding="utf-8"?>
                 <response>
                     <code>401</code>
                     <text>Invalid password</text>
                 </response>
-            }
 
         When receiving the status ``500`` or when the timeout of waiting for a response expires, the Partner needs to wait for at least 1 minute. 
         After the pause, the Partner can repeat the request.

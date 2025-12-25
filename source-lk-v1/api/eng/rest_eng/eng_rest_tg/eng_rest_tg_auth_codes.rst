@@ -1,53 +1,53 @@
-.. _tg-codes:
+.. _tg-codes-eng:
 
-Коды авторизации Telegram Gateway
-==================================
+Telegram Gateway Authorization Codes
+======================================
 
-В данном разделе приведено описание особенностей передачи авторизационных кодов через платформу в Telegram Gateway.
+This section describes the specifics of transmitting authorization codes through the platform to Telegram Gateway. 
 
-Для отправки кода необходимо передать запрос, содержащий соответствующий код. Указанный код (без сопутствующего текста) будет передан оператору, который вставит его в текст шаблона сообщения.
+To transmit a code, send a request including the corresponding code. The code (without any additional text) will be passed to the operator, who will insert it into the message template.
 
 .. raw:: html
 
      <details>
-         <summary>Подробнее</summary>
+         <summary>More details</summary>
          <p>
-             Сервис Telegram Gateway предназначен для доставки пользователям мессенджера Telegram авторизационных и верификационных цифровых кодов.
+             The Telegram Gateway service is designed to deliver authorization and verification digital codes to Telegram Messenger users.
          </p>
          <p>
-             Отправка кодов происходит от имени официального канала Verification Codes.
+             Codes are sent from the Verification Codes official channel.
          </p>
          <p>
-             Если пользователь скрывает свой номер телефона в настройках Telegram, это не влияет на доставку сообщения.
-             Также на доставку кодов не влияет наличие или отсутствие у пользователя подписки Telegram Premium.
+             Hiding one's phone number in Telegram settings does not affect message delivery. 
+             The delivery of codes is also unaffected by whether the user has a Telegram Premium subscription or not.
          </p>
          <p>
-             На данный момент сервис поддерживает:
+             Currently, the service supports:
          </p>
          <ul>
-             <li>отправку сообщений с кодами авторизации через Telegram;</li>
-             <li>получение статусов доставки сообщений;</li>
-             <li>каскадную передачу сообщений на альтернативные каналы в случае недоставки в Telegram (при необходимости).</li>
+             <li>sending authorization code messages via Telegram;</li>
+             <li>receiving message delivery statuses;</li>
+             <li>cascading message sending to alternative channels in case of non-delivery to Telegram (if necessary).</li>
          </ul>  
      </details>
 
 
 
-.. _tg-sms-cascade:
+.. _tg-sms-cascade-eng:
 
-Запрос на отправку 
+Sending Request
 ------------------------
 
 .. tabs::
 
-    .. tab:: Пример запроса
+    .. tab:: Request Example 
 
         .. code-block:: json
            :linenos:
 
             {
-              "login": "ВАШ_ЛОГИН",
-              "password": "ВАШ_ПАРОЛЬ",
+              "login": "YOUR_LOGIN",
+              "password": "YOUR_PASSWORD",
               "useTimeDiff": true,
               "id": "superId",
               "shortenLinks": false,
@@ -56,12 +56,12 @@
                 "timeEnd": "12:00",
                 "weekdaysSchedule": "123"
               },
-              "destAddr": "НОМЕР_АБОНЕНТА",
+              "destAddr": "SUBSCRIBER'S_PHONE_NUMBER",
               "message": {
                 "type": "TGCODE",
                 "data": {
                   "text": "12345",
-                  "serviceNumber": "ИМЯ_ОТПРАВИТЕЛЯ",
+                  "serviceNumber": "SENDER'S_NAME",
                   "ttl": 120,
                   "ttlUnit": "SECONDS"
                 }
@@ -70,229 +70,232 @@
 
 
 
-    .. tab:: Параметры запроса
+    .. tab:: Request Parameters
         
         +--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
-        | Параметр                       | Обязат.  | Тип          | Описание                                                                         |
+        | Parameter                      | Required | Data type    | Description                                                                      |
         +================================+==========+==============+==================================================================================+
-        | login                          | да       | string       | Имя Партнёра.                                                                    |
+        | login                          | yes      | string       | Partner's name.                                                                  |
         +--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
-        | password                       | да       | string       | Пароль Партнёра.                                                                 |
+        | password                       | yes      | string       | Partner's password for sending messages.                                         |
         +--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
-        | destAddr                       | да       | string       | Номер телефона абонента.                                                         |
+        | destAddr                       | yes      | string       | Subscriber's phone number.                                                       |
         |                                |          |              |                                                                                  |
         |                                |          |              | .. raw:: html                                                                    |
         |                                |          |              |                                                                                  |
         |                                |          |              |     <details>                                                                    |
-        |                                |          |              |         <summary>Подробнее</summary>                                             |
+        |                                |          |              |         <summary>More details</summary>                                          |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |             Содержит код страны, код оператора и номер телефона.                 |
+        |                                |          |              |             It contains the country code, operator code and phone number.        |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |             Для РФ код может быть <code>8</code>, <code>7</code>                 |
-        |                                |          |              |             или <code>+7</code>.                                                 |
+        |                                |          |              |             For the Russian Federation, the code can be <code>8</code>,          |
+        |                                |          |              |             <code>7</code> or <code>+7</code>.                                   |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |             Примеры: <code>72101234567</code>, <code>+72101234567</code>,        |
-        |                                |          |              |             <code>8-210-123-45-67</code>, <code>82101234567</code>.              |
+        |                                |          |              |             Examples: <code>72101234567</code>, <code>+72101234567</code>,       |   
+        |                                |          |              |             <code>8-210-123-45-67</code>, <code>82101234567</code>.              |                   
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |     </details>                                                                   |
         +--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
-        | id                             | нет      | string       | Уникальный идентификатор на стороне Партнёра.                                    |
+        | id                             | no       | string       | Unique identifier on the Partner's side.                                         |
+        |                                |          |              |                                                                                  |
         |                                |          |              |                                                                                  |
         |                                |          |              | .. raw:: html                                                                    |
         |                                |          |              |                                                                                  |
         |                                |          |              |     <details>                                                                    |
-        |                                |          |              |         <summary>Подробнее</summary>                                             |
+        |                                |          |              |         <summary>More details</summary>                                          |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |             Данный параметр нужен для контроля повторных отправок и              |
-        |                                |          |              |             дублирования (сервис контроля включается отдельно).                  |
-        |                                |          |              |             Партнёр может вызывать Сервис-провайдера (запрос на отправку         |
-        |                                |          |              |             сообщения) с одним и тем же id несколько раз.                        |
+        |                                |          |              |             This parameter is necessary for controlling repeated submissions     |
+        |                                |          |              |             and duplication (the control service is activated separately). The   |
+        |                                |          |              |             Partner can call the Service Provider (request to send a message)    |
+        |                                |          |              |             multiple times with the same ID.                                     |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |             При этом: отправка сообщения абоненту будет выполнена только один    |
-        |                                |          |              |             раз (по первому запросу). В ответах на запросы Сервис-провайдер      |
-        |                                |          |              |             вернет Партнёру один и тот же идентификатор сообщения в системе      |
-        |                                |          |              |             Сервис-провайдера (тот же, что на первый запрос). Сервис-провайдер   |
-        |                                |          |              |             опционально возвращает Партнёру данный идентификатор при его         |
-        |                                |          |              |             наличии в отчёте о доставке сообщения.                               |
+        |                                |          |              |             In this case, the message will be sent to the subscriber only once   |
+        |                                |          |              |             (on the first request). In response to the requests, the Service     |
+        |                                |          |              |             Provider will return the same message identifier in the Service      |
+        |                                |          |              |             Provider's system to the Partner (the same as for the first          |
+        |                                |          |              |             request). The Service Provider optionally returns this identifier    |
+        |                                |          |              |             to the Partner in the message delivery report if it is available.    |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |     </details>                                                                   |
         +--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
-        | message                        | да       | object       | Параметры отправляемого сообщения.                                               |
+        | message                        | yes      | object       | Parameters of a message being sent.                                              |
         |                                |          |              |                                                                                  |
         |                                |          |              | .. raw:: html                                                                    |
         |                                |          |              |                                                                                  |
         |                                |          |              |     <details>                                                                    |
-        |                                |          |              |         <summary>Подробнее</summary>                                             |
+        |                                |          |              |         <summary>More details</summary>                                          |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |             Содержит информацию о типе сообщения и его содержимом.               |
+        |                                |          |              |            It contains information about the message type and its content.       |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |     </details>                                                                   |
         +--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
-        | | {message}                    | да       | enum         | Тип сообщения.                                                                   |
+        | | {message}                    | yes      | enum         | Message type.                                                                    |
         | | type                         |          |              |                                                                                  |
         |                                |          |              | .. raw:: html                                                                    |
         |                                |          |              |                                                                                  |
         |                                |          |              |     <details>                                                                    |
-        |                                |          |              |         <summary>Подробнее</summary>                                             |
+        |                                |          |              |         <summary>More details</summary>                                          |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |             Указать значение <code>TGCODE</code>.                                |
+        |                                |          |              |             Specify the <code>TGCODE</code> value.                               |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |     </details>                                                                   |
         +--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
-        | | {message}                    | да       | object       | Параметры отправляемых данных.                                                   |
+        | | {message}                    | yes      | object       | Parameters of the data being sent.                                               |
         | | data                         |          |              |                                                                                  |
         +--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
-        | | {message/data}               | да       | string       | Текст отправляемого сообщения.                                                   |
+        | | {message/data}               | yes      | string       | Message text.                                                                    |
         | | text                         |          |              |                                                                                  |
         |                                |          |              | .. raw:: html                                                                    |
         |                                |          |              |                                                                                  |
         |                                |          |              |     <details>                                                                    |
-        |                                |          |              |         <summary>Подробнее</summary>                                             |
+        |                                |          |              |         <summary>More details</summary>                                          |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |            Сообщение должно содержать код от четырёх до восьми цифр.             |
+        |                                |          |              |            The message must contain a code consisting of four to eight digits.   |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |            Сообщения без цифровых кодов доставлены не будут.                     |
+        |                                |          |              |            Messages without digit codes will not be delivered.                   |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |            Количество символов: не более 2000.                                   |
+        |                                |          |              |            Character limit: no more than 2000.                                   |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |            Если в сообщении несколько кодов, будет передан только первый.        |
+        |                                |          |              |            If the message contains multiple codes, only the first one will       |
+        |                                |          |              |            be transmitted.                                                       |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |            Любой сопутствующий текст на кириллице или латинице (включая эмоджи)  |
-        |                                |          |              |            будет проигнорирован и заменен на стандартный шаблон Telegram в       |
-        |                                |          |              |            зависимости от языка пользовательского интерфейса: <br />             |
+        |                                |          |              |            Any accompanying text in Cyrillic or Latin (including emojis)         |
+        |                                |          |              |            is ignored and replaced with a default Telegram template based        |
+        |                                |          |              |            on the user interface language: <br />                                |
         |                                |          |              |            "Ваш код: <code>text</code>" / "Your code is <code>text</code>".      |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |     </details>                                                                   |
         +--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
-        | | {message/data}               | да       | string       | Сервисное имя, от которого осуществляется отправка сообщения.                    |
+        | | {message/data}               | yes      | string       | Sender's name from which the message is being sent.                              |
         | | serviceNumber                |          |              |                                                                                  |
         +--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
-        | | {message/data}               | да       | integer      | Срок жизни сообщения.                                                            |
+        | | {message/data}               | yes      | integer      | Message lifetime.                                                                |
         | | ttl                          |          |              |                                                                                  |
         |                                |          |              | .. raw:: html                                                                    |
         |                                |          |              |                                                                                  |
         |                                |          |              |     <details>                                                                    |
-        |                                |          |              |         <summary>Подробнее</summary>                                             |
+        |                                |          |              |         <summary>More details</summary>                                          |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |             Допустимый диапазон, сек: от 31 до 3600.                             |
+        |                                |          |              |             Acceptable range in seconds: from 31 to 86400.                       |
         |                                |          |              |         </p>                                                                     |
-        |                                |          |              |         <p>                                                                      |
-        |                                |          |              |             Примечание. При <code>ttl = 0</code> или отсутствии параметра в      |
-        |                                |          |              |             запросе берётся значение из настроек по умолчанию, которые задаются  |
-        |                                |          |              |             при настройке интеграции отдельно для каждого клиента.               |
-        |                                |          |              |         </p>                                                                     |
+        |                                |          |              |     <div class="admonition note">                                                |
+        |                                |          |              |         <p class="admonition-title">Note</p>                                     |
+        |                                |          |              |         <p>When <code>ttl = 0</code> or the parameter is absent in               | 
+        |                                |          |              |            the request, the value from the default settings is used, which is    |
+        |                                |          |              |            set during the integration setup separately for each client.</p>      |
+        |                                |          |              |     </div>                                                                       |
         |                                |          |              |     </details>                                                                   |
         +--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
-        | | {message/data}               | да       | enum         | Единица измерения периода доставки сообщения.                                    |
+        | | {message/data}               | yes      | enum         | Unit of measurement of the message delivery period.                              |
         | | ttlUnit                      |          |              |                                                                                  |
         |                                |          |              | .. raw:: html                                                                    |
         |                                |          |              |                                                                                  |
         |                                |          |              |     <details>                                                                    |
-        |                                |          |              |         <summary>Подробнее</summary>                                             |
+        |                                |          |              |         <summary>More details</summary>                                          |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |             Передается только вместе с <code>ttl</code>.                         |
+        |                                |          |              |             It is transmitted only with <code>ttl</code>.                        |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |             Допустимые значения:                                                 |
+        |                                |          |              |             Possible values are:                                                 |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |         <ul>                                                                     |
         |                                |          |              |             <li><code>SECONDS</code>;</li>                                       |
-        |                                |          |              |             <li><code>MINUTES</code> (значение по умолчанию);</li>               |
-        |                                |          |              |             <li><code>HOURS<code>.</li>                                          |
+        |                                |          |              |             <li><code>MINUTES</code> (by default);</li>                          |
+        |                                |          |              |             <li><code>HOURS</code>.</li>                                         |
         |                                |          |              |         </ul>                                                                    |
         |                                |          |              |     </details>                                                                   |
         +--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
-        | extraParam                     | нет      | string       | Дополнительные параметры, передаваемые в сообщении.                              |
+        | extraParam                     | no       | string       | Additional parameters passed in the message.                                     |
         |                                |          |              |                                                                                  |
         |                                |          |              | .. raw:: html                                                                    |
         |                                |          |              |                                                                                  |
         |                                |          |              |     <details>                                                                    |
-        |                                |          |              |         <summary>Подробнее</summary>                                             |
+        |                                |          |              |         <summary>More details</summary>                                          |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |             Передаются в виде  <code>param1=value1,param2=value2</code>,         |
-        |                                |          |              |             где <code>param1</code> и <code>param2</code> — названия параметров, |
-        |                                |          |              |             <code>value1</code> и <code>value2</code> — значения.                |
+        |                                |          |              |             Parameters are passed as <code>param1=value1,param2=value2</code>,   |
+        |                                |          |              |             where <code>param1</code> and <code>param2</code> — parameter names, |
+        |                                |          |              |             <code>value1</code> and <code>value2</code> — values.                |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |             Пример: <code>место=турбаза,название=гостевой дом 3</code>           |
+        |                                |          |              |             Example: <code>place=abzakovo,name=guest house-3</code>              |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |             Символ запятой в название параметра входить не может, но может       |
-        |                                |          |              |             входить в его значение. В этом случае он должен удваиваться.         |
+        |                                |          |              |             The comma character cannot be included in the parameter name, but it |
+        |                                |          |              |             can be included in its value — in this case it must be doubled.      |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |             Пример: <code>координаты=53.8085896,,58.6362112</code>               |
+        |                                |          |              |             Example: <code>coordinates=53.8085896,,58.6362112</code>             |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |     </details>                                                                   |
         +--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
-        | registeredDelivery             | нет      | integer      | Необходимость отчётов о доставке.                                                |
+        | registeredDelivery             | no       | integer      | Requirement of delivery reports.                                                 |
         |                                |          |              |                                                                                  |
         |                                |          |              | .. raw:: html                                                                    |
         |                                |          |              |                                                                                  |
         |                                |          |              |     <details>                                                                    |
-        |                                |          |              |         <summary>Подробнее</summary>                                             |
+        |                                |          |              |         <summary>More details</summary>                                          |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |             Укажите, нужны ли отчёты о доставке для отслеживания статусов.       |
+        |                                |          |              |             Specify whether delivery reports are required to track statuses.     |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |             Допустимые значения:                                                 |
+        |                                |          |              |             Possible values are:                                                 |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |         <ul>                                                                     |
-        |                                |          |              |             <li><code>0</code> — статусы не нужны;</li>                          |
-        |                                |          |              |             <li><code>1</code> — статусы нужны (значение по умолчанию);</li>     |
-        |                                |          |              |             <li><code>2</code> — нужны только статусы                            |
-        |                                |          |              |             <code>НЕ ДОСТАВЛЕНО</code>.</li>                                     |
+        |                                |          |              |             <li><code>0</code> — statuses are not required;</li>                 |
+        |                                |          |              |             <li><code>1</code> — statuses are required (by default);</li>        |
+        |                                |          |              |             <li><code>2</code> — only the <code>Undelivered</code> status is     |
+        |                                |          |              |                 required.</li>                                                   |
         |                                |          |              |         </ul>                                                                    |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |             При отправке каскадной цепочки сообщений, для получения отчётов      |
-        |                                |          |              |             по всем типам сообщений необходимо указать значение <code>1</code>.  |
+        |                                |          |              |             For cascading message sending specify the <code>1</code> value to get|
+        |                                |          |              |             reports on all message types.                                        |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |     </details>                                                                   |
         +--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
-        | notifyUrl                      | нет      | string       | Имя хоста входящего API для получения отчета о доставке.                         |
+        | notifyUrl                      | no       | string       | Hostname of the incoming API to obtain the delivery report.                      |
         |                                |          |              |                                                                                  |
         |                                |          |              | .. raw:: html                                                                    |
         |                                |          |              |                                                                                  |
         |                                |          |              |     <details>                                                                    |
-        |                                |          |              |         <summary>Подробнее</summary>                                             |
+        |                                |          |              |         <summary>More details</summary>                                          |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |             Этот параметр в запросе необязательный, но при его отправке нужно    |
-        |                                |          |              |             учесть следующее:                                                    |
+        |                                |          |              |             This parameter is optional in the request, but when sending you      |
+        |                                |          |              |             need to consider the following:                                      |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |         <ul>                                                                     |
-        |                                |          |              |             <li>если параметр указан, он не может быть пустым;</li>              |
-        |                                |          |              |             <li>длина строки <code>notifyUrl</code> не должна превышать          |
-        |                                |          |              |             2048 символов.</li>                                                  |
+        |                                |          |              |             <li>if the parameter is specified, it cannot be empty;</li>          |
+        |                                |          |              |             <li>the <code>notifyUrl</code> string must be no more than 2048      |
+        |                                |          |              |             characters.</li>                                                     |
         |                                |          |              |         </ul>                                                                    |
         |                                |          |              |         <p>                                                                      |
-        |                                |          |              |             При невыполнении любого из указанных условий будет сгенерирована     |
-        |                                |          |              |             ошибка, запрос не будет выполнен.                                    |
+        |                                |          |              |             If any of the specified conditions are not met, an error will be     |
+        |                                |          |              |             generated and the request will not be executed.                      |
         |                                |          |              |         </p>                                                                     |
         |                                |          |              |     </details>                                                                   |
         +--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
 
 
 
-Ответ на запрос 
------------------
+Response 
+--------------------
 
-После отправки сообщения Сервис-провайдер синхронно возвращает ответ. 
+After sending a message the Service Provider returns a response synchronously. 
 
-Ответ при успешной отправке 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Successful Sending
+~~~~~~~~~~~~~~~~~~~~~~
 
-В случае успешной отправки возвращается HTTP-код ``200 OK``.
+In case of successful sending the Service Provider returns the ``200 OK`` HTTP-code.
 
 .. tabs::
 
-    .. tab:: Пример ответа
+    .. tab:: Response example
 
       .. code-block:: json
          :linenos:
@@ -303,27 +306,25 @@
            }
 
 
-    .. tab:: Параметры ответа
+    .. tab:: Response parameters
 
       +-----------------------+--------------+--------------------------------------------------------------------+
-      | Параметр              | Тип данных   | Описание                                                           |
+      | Parameter             | Data type    | Description                                                        |
       +=======================+==============+====================================================================+
-      | mtNum                 | string       | Идентификатор цепочки отправки, присваиваемый платформой           | 
-      |                       |              | Сервис-провайдера.                                                 |
+      | mtNum                 | string       | Sending chain identifier assigned by the Service Provider platform.| 
       +-----------------------+--------------+--------------------------------------------------------------------+
-      | id                    | string       | Уникальный идентификатор на стороне Партнёра. Присутствует, если   |
-      |                       |              | был передан при отправке.                                          |
+      | id                    | string       | Partner-side unique ID. Available, if it was included when sending.|
       +-----------------------+--------------+--------------------------------------------------------------------+
 
 
-Ошибки при отправке  
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Sending Errors 
+~~~~~~~~~~~~~~~~~~~~
 
-Для ошибочных результатов HTTP-код ответа будет отличный от ``200 OK`` (см. :ref:`Коды-ошибок-отправки-tg`).
+For results with errors, a response HTTP code will differ from ``200`` (see :ref:`eng-Коды-ошибок-отправки-Telegram`).
 
 .. tabs::
 
-    .. tab:: Пример ответа
+    .. tab:: Response example
 
        .. code-block:: json
           :linenos:
@@ -336,31 +337,32 @@
                "extendedDescription": "В сообщении отсутствует код"
            }
 
-       В данном примере в Telegram-сообщении отсутствует цифровой авторизационный код.
+       In this example, the Telegram message does not contain a digital authorization code.
 
 
-    .. tab:: Параметры ответа
+    .. tab:: Response parameters
 
       +-----------------------+--------------+--------------------------------------------------------------------+
-      | Параметр              | Тип данных   | Описание                                                           |
+      | Parameter             | Data type    | Description                                                        |
       +=======================+==============+====================================================================+
-      | error                 | object       | Информация об ошибке.                                              | 
+      | error                 | object       | Error information.                                                 | 
       +-----------------------+--------------+--------------------------------------------------------------------+
-      | error/code            | int          | Код ошибки.                                                        |
+      | error/code            | int          | Error code.                                                        |
       +-----------------------+--------------+--------------------------------------------------------------------+
-      | error/description     | string       | Краткое описание ошибки.                                           | 
+      | error/description     | string       | A brief description of the error.                                  | 
       +-----------------------+--------------+--------------------------------------------------------------------+
-      | extendedDescription   | string       | Подробное описание ошибки (необязательный параметр).               |
+      | extendedDescription   | string       | Detailed description of the error (optional parameter).            |
       +-----------------------+--------------+--------------------------------------------------------------------+
 
 
-.. _Коды-ошибок-отправки-tg:          
 
-Коды ошибок отправки  
+.. _Коды-ошибок-отправки-tg-eng:          
+
+Error Codes  
 `````````````````````
 
 +------------+--------------------------------+----------------+
-| Код        | Описание                       | HTTP-код       |
+| Code       | Description                    | HTTP-code      |
 +============+================================+================+
 | 1          | Service is unavailable         | 503            |
 +------------+--------------------------------+----------------+
@@ -387,13 +389,12 @@
 | 100        | 100                            | 500            |
 +------------+--------------------------------+----------------+
 
+Delivery Statuses
+--------------------
 
-Статусы доставки сообщений
--------------------------------
+To receive message statuses, you need to set up the :doc:`../eng_rest_status`.
 
-Для получения статусов необходимо настроить :doc:`../rest_status`.
-
-Коды ошибок доставки
+Delivery Error Codes
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Коды ошибок доставки, в зависимости от типа сообщения, приведены в соответствующей вкладке в разделе :ref:`REST-ErrCodeDescr`.
+Delivery error codes for each message type are provided in the corresponding tab of the :ref:`REST-ErrCodeDescr-eng` section.

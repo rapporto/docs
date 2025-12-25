@@ -146,7 +146,7 @@ Delivery Report
         |             |         |     <details>                                                                                      |
         |             |         |         <summary>More details</summary>                                                            |
         |             |         |         <p>                                                                                        |
-        |             |         |             Parameter contains an MCC code which usually consists of 3 digits                      |        
+        |             |         |             The parameter contains an MCC code which usually consists of 3 digits                  |        
         |             |         |             and an MNC code of 2 digits.                                                           |
         |             |         |         </p>                                                                                       |
         |             |         |         <p>                                                                                        |
@@ -242,113 +242,20 @@ Delivery Statuses
 |            |                                      | specified in the ``errorCode`` parameter. It is the final status, no further         |
 |            |                                      | statuses are expected.                                                               |
 +------------+--------------------------------------+--------------------------------------------------------------------------------------+
-| 9          | READ                                 | Status indicating the message is read by a subscriber. *For all messages except      |
-|            |                                      | FlashingCall and SMS*. It is the final status, no further statuses are expected.     |
+| 9          | READ                                 | Status indicating the message is read by a subscriber. For all messages except       |
+|            |                                      | ``FLASHINGCALL`` and ``SMS``. It is the final status, no further statuses are        |
+|            |                                      | expected.                                                                            |
 +------------+--------------------------------------+--------------------------------------------------------------------------------------+
 
 .. _REST-ErrCodeDescr-eng:
 
-Description of Error Codes (parameter *status=5*)
---------------------------------------------------
+Description of Error Codes 
+------------------------------
 
-The section provides a description of the reasons for the non-delivery of messages of various types.
+The section provides a description of the reasons for the non-delivery of messages of various types (parameter *status=5*).
 
 .. tabs::
 
-
-    .. tab:: Push
-
-      +---------+----------------------------+-----------------------------+
-      | Code    | Error message              | Error description           |
-      +=========+============================+=============================+
-      | 1       | unknown                    | An error unknown to the     |
-      |         |                            | platform occurred during    |
-      |         |                            | the message delivery process|
-      |         |                            | or the operator did not     |
-      |         |                            | provide an error in the     |
-      |         |                            | delivery report.            |
-      +---------+----------------------------+-----------------------------+
-      | 7       | timeout                    | The switching equipment on  |
-      |         |                            | which the subscriber is     |
-      |         |                            | registered isn't responding.|
-      +---------+----------------------------+-----------------------------+
-      | 8       | unknown-subscriber         | The subscriber's phone      |
-      |         |                            | number is incorrect, or the |
-      |         |                            | subscriber's phone has been |
-      |         |                            | switched off for a very     |
-      |         |                            | long time.                  |
-      +---------+----------------------------+-----------------------------+
-      | 9       | duplicated                 | A message was discarded by  |
-      |         |                            | the platform as the function|
-      |         |                            | of cutting duplicate        |
-      |         |                            | messages was activated.     |
-      +---------+----------------------------+-----------------------------+
-      | 11      | unrouted                   | Routing error at the        |
-      |         |                            | platform configuration.     |
-      +---------+----------------------------+-----------------------------+
-      | 13      | oper-invsrcaddr            | Message sending from a      |
-      |         |                            | sender's name that is not   |
-      |         |                            | registered by the operator. |
-      +---------+----------------------------+-----------------------------+
-      | 18      | bad-params                 | Invalid request parameters  |
-      |         |                            | were specified or required  |
-      |         |                            | parameters were not         |
-      |         |                            | specified.                  |
-      +---------+----------------------------+-----------------------------+
-      | 19      | consumer-id-not-found      | The card with the subscriber|
-      |         |                            | ID being sent was not found.|
-      +---------+----------------------------+-----------------------------+
-      | 20      | consumer-phone-not-found   | The card with the           |
-      |         |                            | subscriber's telephone      |
-      |         |                            | number being sent was not   |
-      |         |                            | found.                      |
-      +---------+----------------------------+-----------------------------+
-      | 21      | no-primary-devices         | The device is not the       |
-      |         |                            | primary one. In case the    |
-      |         |                            | sending was made to the     |
-      |         |                            | primary device              |
-      |         |                            | (primaryOn = true).         |      
-      +---------+----------------------------+-----------------------------+
-      | 22      | no-active-installations    | No active mobile application|
-      |         |                            | installations were found on |
-      |         |                            | the user's device.          |
-      +---------+----------------------------+-----------------------------+
-      | 23      | push-disabled              | The mobile application user |
-      |         |                            | has a ban on receiving push |
-      |         |                            | notifications at the        |
-      |         |                            | application level.          |
-      +---------+----------------------------+-----------------------------+
-      | 24      | push-os-disabled           | The user's mobile           |
-      |         |                            | application has a ban on    |
-      |         |                            | receiving push notifications|
-      |         |                            | at the operating system     |
-      |         |                            | level.                      |
-      +---------+----------------------------+-----------------------------+
-      | 25      | subscription-failed        | When sending the message    |
-      |         |                            | subscriptions were specified|
-      |         |                            | that were not configured    |
-      |         |                            | on the user's mobile        |
-      |         |                            | application installation.   |
-      +---------+----------------------------+-----------------------------+
-      | 26      | no-application             | No installation of the      |
-      |         |                            | mobile application on the   |
-      |         |                            | user's device was found.    |
-      +---------+----------------------------+-----------------------------+
-      | 27      | below-min-version          | The application version is  |
-      |         |                            | less than the minimum       |
-      |         |                            | acceptable version. In the  |
-      |         |                            | current implementation it is|
-      |         |                            | relevant for IOS only.      |
-      +---------+----------------------------+-----------------------------+
-      | 28      | provider-error             | APNS, FCM or HMS returned   |
-      |         |                            | an error.                   |
-      +---------+----------------------------+-----------------------------+
-      | 31      | platform-not-found         | No installation was found   |
-      |         |                            | for the specified platform  |
-      |         |                            | (provider).                 |
-      +---------+----------------------------+-----------------------------+ 
-
-  
     .. tab:: SMS
 
       +---------+----------------------------+----------------------------+
@@ -447,7 +354,104 @@ The section provides a description of the reasons for the non-delivery of messag
       +---------+----------------------------+----------------------------+
 
 
-    .. tab:: Telegram
+
+
+    .. tab:: PUSH
+
+      +---------+----------------------------+-----------------------------+
+      | Code    | Error message              | Error description           |
+      +=========+============================+=============================+
+      | 1       | unknown                    | An error unknown to the     |
+      |         |                            | platform occurred during    |
+      |         |                            | the message delivery process|
+      |         |                            | or the operator did not     |
+      |         |                            | provide an error in the     |
+      |         |                            | delivery report.            |
+      +---------+----------------------------+-----------------------------+
+      | 7       | timeout                    | The switching equipment on  |
+      |         |                            | which the subscriber is     |
+      |         |                            | registered isn't responding.|
+      +---------+----------------------------+-----------------------------+
+      | 8       | unknown-subscriber         | The subscriber's phone      |
+      |         |                            | number is incorrect, or the |
+      |         |                            | subscriber's phone has been |
+      |         |                            | switched off for a very     |
+      |         |                            | long time.                  |
+      +---------+----------------------------+-----------------------------+
+      | 9       | duplicated                 | A message was discarded by  |
+      |         |                            | the platform as the function|
+      |         |                            | of cutting duplicate        |
+      |         |                            | messages was activated.     |
+      +---------+----------------------------+-----------------------------+
+      | 11      | unrouted                   | Routing error at the        |
+      |         |                            | platform configuration.     |
+      +---------+----------------------------+-----------------------------+
+      | 13      | oper-invsrcaddr            | Message sending from a      |
+      |         |                            | sender's name that is not   |
+      |         |                            | registered by the operator. |
+      +---------+----------------------------+-----------------------------+
+      | 18      | bad-params                 | Invalid request parameters  |
+      |         |                            | were specified or required  |
+      |         |                            | parameters were not         |
+      |         |                            | specified.                  |
+      +---------+----------------------------+-----------------------------+
+      | 19      | consumer-id-not-found      | The card with the subscriber|
+      |         |                            | ID being sent was not found.|
+      +---------+----------------------------+-----------------------------+
+      | 20      | consumer-phone-not-found   | The card with the           |
+      |         |                            | subscriber's telephone      |
+      |         |                            | number being sent was not   |
+      |         |                            | found.                      |
+      +---------+----------------------------+-----------------------------+
+      | 21      | no-primary-devices         | The device is not the       |
+      |         |                            | primary one. In case the    |
+      |         |                            | sending was made to the     |
+      |         |                            | primary device              |
+      |         |                            | (primaryOn = true).         |      
+      +---------+----------------------------+-----------------------------+
+      | 22      | no-active-installations    | No active mobile application|
+      |         |                            | installations were found on |
+      |         |                            | the user's device.          |
+      +---------+----------------------------+-----------------------------+
+      | 23      | push-disabled              | The mobile application user |
+      |         |                            | has a ban on receiving push |
+      |         |                            | notifications at the        |
+      |         |                            | application level.          |
+      +---------+----------------------------+-----------------------------+
+      | 24      | push-os-disabled           | The user's mobile           |
+      |         |                            | application has a ban on    |
+      |         |                            | receiving push notifications|
+      |         |                            | at the operating system     |
+      |         |                            | level.                      |
+      +---------+----------------------------+-----------------------------+
+      | 25      | subscription-failed        | When sending the message    |
+      |         |                            | subscriptions were specified|
+      |         |                            | that were not configured    |
+      |         |                            | on the user's mobile        |
+      |         |                            | application installation.   |
+      +---------+----------------------------+-----------------------------+
+      | 26      | no-application             | No installation of the      |
+      |         |                            | mobile application on the   |
+      |         |                            | user's device was found.    |
+      +---------+----------------------------+-----------------------------+
+      | 27      | below-min-version          | The application version is  |
+      |         |                            | less than the minimum       |
+      |         |                            | acceptable version. In the  |
+      |         |                            | current implementation it is|
+      |         |                            | relevant for IOS only.      |
+      +---------+----------------------------+-----------------------------+
+      | 28      | provider-error             | APNS, FCM or HMS returned   |
+      |         |                            | an error.                   |
+      +---------+----------------------------+-----------------------------+
+      | 31      | platform-not-found         | No installation was found   |
+      |         |                            | for the specified platform  |
+      |         |                            | (provider).                 |
+      +---------+----------------------------+-----------------------------+ 
+
+  
+    
+
+    .. tab:: TELEGRAM
 
       +---------+----------------------------+----------------------------+
       | Code    | Error message              | Error description          |
@@ -470,7 +474,7 @@ The section provides a description of the reasons for the non-delivery of messag
       |         |                            | subscriber has a           |
       |         |                            | restriction on receiving   |
       |         |                            | messages, or the subscriber|
-      |         |                            | is roaming with a          |
+      |         |                            | is in roaming with a       |
       |         |                            | restriction on receiving   |
       |         |                            | messages while roaming.    |
       +---------+----------------------------+----------------------------+
@@ -560,7 +564,42 @@ The section provides a description of the reasons for the non-delivery of messag
       +---------+----------------------------+----------------------------+
 
 
-    .. tab:: Viber
+
+
+    .. tab:: TGCODE
+
+      +---------+----------------------------+----------------------------+
+      | Code    | Error message              | Error description          |
+      +=========+============================+============================+
+      | 1       | unknown                    | An error unknown to the    |
+      |         |                            | platform occurred during   |
+      |         |                            | the message delivery       |
+      |         |                            | process, or the operator   |
+      |         |                            | did not provide an error   |
+      |         |                            | in the delivery report.    |
+      +---------+----------------------------+----------------------------+
+      | 3       | call-barred                | The subscriber's device    |
+      |         |                            | is blocked, or the         |
+      |         |                            | subscriber has a           |
+      |         |                            | restriction on receiving   |
+      |         |                            | messages, or the subscriber|
+      |         |                            | is in roaming with a       |
+      |         |                            | restriction on receiving   |
+      |         |                            | messages while roaming.    |
+      +---------+----------------------------+----------------------------+
+      | 7       | timeout                    | The switching equipment    |
+      |         |                            | where the subscriber is    |
+      |         |                            | registered is not          |
+      |         |                            | responding.                |
+      +---------+----------------------------+----------------------------+
+      | 11      | unrouted                   | Routing error in the       |
+      |         |                            | platform configuration.    |
+      +---------+----------------------------+----------------------------+ 
+
+
+
+
+    .. tab::  VIBER
 
       +---------+------------------------------+----------------------------+
       | Code    | Error message                | Error description          |
@@ -610,6 +649,8 @@ The section provides a description of the reasons for the non-delivery of messag
       +---------+------------------------------+----------------------------+
 
 
+
+
     .. tab:: VK
 
       +---------+-----------------------------+----------------------------+
@@ -646,7 +687,9 @@ The section provides a description of the reasons for the non-delivery of messag
       +---------+-----------------------------+----------------------------+
 
 
-    .. tab:: WhatsApp
+
+
+    .. tab:: WHATSAPP
 
       +---------+------------------------------+----------------------------+
       | Code    | Error message                | Error description          |
@@ -678,7 +721,8 @@ The section provides a description of the reasons for the non-delivery of messag
 
 
 
-    .. tab:: FlashingCall (VoiceCode)
+
+    .. tab:: FLASHINGCALL (VOICECODE)
 
       +---------+------------------------------+----------------------------+
       | Code    | Error message                | Error description          |
@@ -705,7 +749,8 @@ The section provides a description of the reasons for the non-delivery of messag
 
 
 
-    .. tab:: CardsMobile
+
+    .. tab:: CARDSMOBILE
 
       +---------+----------------------------+----------------------------+
       | Code    | Error message              | Error description          |

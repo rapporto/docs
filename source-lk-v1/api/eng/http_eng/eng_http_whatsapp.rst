@@ -16,71 +16,27 @@ Request Examples
 
 .. tabs::
 
-    .. tab:: POST requests
+    .. tab:: Text format
 
-        .. tabs::
+        GET request with a message in Latin “test“ in a simple text format.
 
-            .. tab:: Text format
+        .. code-block::
 
-                POST request with a message in Latin “test“ in a simple text format.
+            http://partner.ru/login?clientId=79161234567&message=test&pass=123&serviceId=login
 
-                .. code-block::
+    .. tab:: Text in URL format
 
-                    {
-                        POST /login HTTP/1.1
-                        Host: 10.10.10.10:9080
-                        Content-Type: application/x-www-form-urlencoded;charset=utf-8
-                        Content-Length: 58
-                        serviceId=login&pass=123&clientId=79161234567&message=test
-                    }
+        GET request with the text of the message in Cyrillic “тест“ in URL format.
 
-            .. tab:: Text in URL format
+        .. code-block::
 
-                POST request with the text of the message in Cyrillic “тест“ in URL format.
-
-                .. code-block::
-
-                    {
-                        POST /login HTTP/1.1
-                        Host: 10.241.0.194:9080
-                        Content-Type: application/x-www-form-urlencoded;charset=utf-8
-                        Content-Length: 78
-                        serviceId=login&pass=123&clientId=79161234567&message=%D1%82%D0%B5%D1%81%D1%82
-                    }
-
-
-    .. tab:: GET requests
-
-        .. tabs::
-
-            .. tab:: Text format
-
-                GET request with a message in Latin “test“ in a simple text format.
-
-                .. code-block::
-
-                    {
-                        http://partner.ru/login?clientId=79161234567&message=test&pass=123&serviceId=login
-                    }
-
-            .. tab:: Text in URL format
-
-                GET request with the text of the message in Cyrillic “тест“ in URL format.
-
-                .. code-block::
-
-                    {
-                        http://partner.ru/login?clientId=79161234567&message=%D1%82%D0%B5%D1%81%D1%82&pass=123&serviceId=login
-                    }
-
+            http://partner.ru/login?clientId=79161234567&message=%D1%82%D0%B5%D1%81%D1%82&pass=123&serviceId=login
 
 
 .. _engHTTP-WA-параметры-запроса:
 
 Request Parameters
 ~~~~~~~~~~~~~~~~~~~~~~
-
-The parameters are applicable for POST and GET requests.
 
 +--------------------+---------+--------------+----------------------------------------------------------------------------------------------------------------------+
 | Parameter          |Required | Type         | Description                                                                                                          |
@@ -186,7 +142,7 @@ The parameters are applicable for POST and GET requests.
 |                    |         |              |            </p>                                                                                                      |
 |                    |         |              |     </div>                                                                                                           |
 |                    |         |              |         <p>                                                                                                          |
-|                    |         |              |             The time zone of the subscriber is determined <b>not</b> by actual location of the subscriber.           |
+|                    |         |              |             The time zone of the subscriber is determined <i>not</i> by actual location of the subscriber.           |
 |                    |         |              |         </p>                                                                                                         |
 |                    |         |              |         <p>                                                                                                          |
 |                    |         |              |             If the Partner doesn't send the <code>time_zone</code> parameter, the time zone of the subscriber        |
@@ -373,10 +329,8 @@ In case of successful processing of the request, the Service Provider returns to
 
         .. code-block:: 
 
-            {
                OK
                4095284974
-            }
 
 
     .. tab:: Response parameters
@@ -391,7 +345,7 @@ In case of successful processing of the request, the Service Provider returns to
         +---------------+-----------------------------------------------------------+-----------------------------------------------------------+
 
 
-
+.. _Коды-ошб-при-отпр-запроса-eng:
 
 Sending Errors 
 ^^^^^^^^^^^^^^^^^^^
@@ -406,9 +360,7 @@ When sending an incorrect request, a short text error message may be transmitted
 
         .. code-block::
 
-            {
                 Invalid password
-            }
 
     .. _wКоды-ошб-при-отпр-запрос:
 
@@ -447,7 +399,7 @@ When sending an incorrect request, a short text error message may be transmitted
         |               |                                                           |         <summary>Troubleshooting</summary>                                         |
         |               |                                                           |         <p>                                                                        |
         |               |                                                           |             To resume sending messages, the Partner needs to make an advance       |
-        |               |                                                           |             payment and contact your supervising manager.                          |
+        |               |                                                           |             payment and contact the supervising manager.                           |
         |               |                                                           |         </p>                                                                       |
         |               |                                                           |         <p>                                                                        |
         |               |                                                           |             The Partner shouldn't repeat the request.                              |
@@ -603,7 +555,6 @@ Response Examples
 
         .. code-block::
 
-            {
                 <?xml version="1.0" encoding="utf-8"?>
                 <response>
                     <code>200</code>
@@ -612,23 +563,20 @@ Response Examples
                         <id>4095284976</id>
                     </payload>
                 </response>
-            }
 
 
 
     .. tab:: Error sending
 
-        Response example in XML format in case of error request sending: invalid combination of serviceId/pass.
+        Response example in XML format in case of error request sending: invalid combination of ``serviceId/pass``.
 
         .. code-block::
 
-            {
                 <?xml version="1.0" encoding="utf-8"?>
                 <response>
                     <code>401</code>
                     <text>Invalid password</text>
                 </response>
-            }
 
 
         When receiving the status ``500`` or when the timeout of waiting for a response expires, the Partner needs to wait for at least 1 minute. 
@@ -646,39 +594,46 @@ Response Examples
 
     .. tab:: Description of XML elements
 
-        +-----------------+---------+--------------------------------------------------+------------------------------------------+
-        | Name            |Required | Description                                      | Note                                     |
-        +=================+=========+==================================================+==========================================+
-        | xml version     | yes     | Number of XML version.                           | It is contained in the prologue of the   |
-        |                 |         |                                                  | XML document.                            |
-        +-----------------+---------+--------------------------------------------------+------------------------------------------+
-        | encoding        | no      | Encoding.                                        | It is contained in the prologue of the   |
-        |                 |         |                                                  | XML document.                            |
-        +-----------------+---------+--------------------------------------------------+------------------------------------------+
-        | response        | yes     | A root element. It contains the                  |                                          |
-        |                 |         | ``code``, ``text``, ``payload`` elements.        |                                          |
-        +-----------------+---------+--------------------------------------------------+------------------------------------------+
-        | code            | yes     | A response code (values correspond to HTTP codes | For more details see                     |
-        |                 |         | for responses of type text/plain).               | :ref:`above. <wКоды-ошб-при-отпр-запрос>`|
-        +-----------------+---------+--------------------------------------------------+------------------------------------------+
-        |  text           | no      | Additional brief textual information about       | It may contain an error information.     |
-        |                 |         | the response.                                    |                                          |
-        +-----------------+---------+--------------------------------------------------+------------------------------------------+
-        | payload         | no      | Information about the message, contains the      | Would be sent only if the request is     |
-        |                 |         | ``id`` element.                                  | performed successfully                   |
-        +-----------------+---------+--------------------------------------------------+ (when ``code = 200``).                   |
-        | id              | no      | The identifier assigned to the message           |                                          |
-        |                 |         | by the Service Provider.                         |                                          |
-        |                 |         | The identifier is a 64-bit positive integer.     |                                          |
-        +-----------------+---------+--------------------------------------------------+------------------------------------------+
+        +-----------------+---------+--------------------------------------------------+-----------------------------------------------+
+        | Name            |Required | Description                                      | Note                                          |
+        +=================+=========+==================================================+===============================================+
+        | xml version     | yes     | Number of XML version.                           | It is contained in the prologue of the        |
+        |                 |         |                                                  | XML document.                                 |
+        +-----------------+---------+--------------------------------------------------+-----------------------------------------------+
+        | encoding        | no      | Encoding.                                        | It is contained in the prologue of the        |
+        |                 |         |                                                  | XML document.                                 |
+        +-----------------+---------+--------------------------------------------------+-----------------------------------------------+
+        | response        | yes     | A root element. It contains the                  |                                               |
+        |                 |         | ``code``, ``text``, ``payload`` elements.        |                                               |
+        +-----------------+---------+--------------------------------------------------+-----------------------------------------------+
+        | code            | yes     | A response code (values correspond to HTTP codes | For more details see                          |
+        |                 |         | for responses of type text/plain).               | :ref:`above. <Коды-ошб-при-отпр-запроса-eng>` |
+        +-----------------+---------+--------------------------------------------------+-----------------------------------------------+
+        |  text           | no      | Additional brief textual information about       | It may contain an error information.          |
+        |                 |         | the response.                                    |                                               |
+        +-----------------+---------+--------------------------------------------------+-----------------------------------------------+
+        | payload         | no      | Information about the message, contains the      | Would be sent only if the request is          |
+        |                 |         | ``id`` element.                                  | performed successfully                        |
+        +-----------------+---------+--------------------------------------------------+ (when ``code = 200``).                        |
+        | id              | no      | The identifier assigned to the message           |                                               |
+        |                 |         | by the Service Provider.                         |                                               |
+        |                 |         | The identifier is a 64-bit positive integer.     |                                               |
+        +-----------------+---------+--------------------------------------------------+-----------------------------------------------+
 
 WhatsApp Messages Delivery Statuses
 --------------------------------------------
 
-To receive WhatsApp message statuses, you need to set up the :doc:`eng_http_status`.
+To receive statuses of push notifications, you need to set up the :doc:`eng_http_status`.
 
 Delivery Error Codes
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Delivery error codes for each message type are provided in the corresponding tab of the :ref:`engErrCodeDescr` section.
 
+
+
+
+
+
+
+  

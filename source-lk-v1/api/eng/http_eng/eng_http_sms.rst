@@ -12,70 +12,29 @@ Acceptable data types when sending a request:
 Sending Request 
 --------------------
 
-POST and GET requests are allowed in the HTTP API.
+HTTP method: GET.
 
 Request Examples
 ~~~~~~~~~~~~~~~~~~~~
 
 .. tabs::
 
-    .. tab:: POST requests
+    .. tab:: Text format
 
-        .. tabs::
+        GET request with a message in Latin “test“ in a simple text format.
 
-            .. tab:: Text format
+        .. code-block::
 
-                POST request with a message in Latin “test“ in a simple text format.
+            http://partner.ru/login?clientId=79161234567&message=test&pass=123&serviceId=login
 
-                .. code-block::
+    .. tab:: Text in URL format
 
-                    {
-                        POST /login HTTP/1.1
-                        Host: 10.10.10.10:9080
-                        Content-Type: application/x-www-form-urlencoded;charset=utf-8
-                        Content-Length: 58
-                        serviceId=login&pass=123&clientId=79161234567&message=test
-                    }
+        GET request with the text of the message in Cyrillic “тест“ in URL format.
 
-            .. tab:: Text in URL format
+        .. code-block::
 
-                POST request with the text of the message in Cyrillic “тест“ in URL format.
-
-                .. code-block::
-
-                    {
-                        POST /login HTTP/1.1
-                        Host: 10.241.0.194:9080
-                        Content-Type: application/x-www-form-urlencoded;charset=utf-8
-                        Content-Length: 78
-                        serviceId=login&pass=123&clientId=79161234567&message=%D1%82%D0%B5%D1%81%D1%82
-                    }
-
-
-    .. tab:: GET requests
-
-        .. tabs::
-
-            .. tab:: Text format
-
-                GET request with a message in Latin “test“ in a simple text format.
-
-                .. code-block::
-
-                    {
-                        http://partner.ru/login?clientId=79161234567&message=test&pass=123&serviceId=login
-                    }
-
-            .. tab:: Text in URL format
-
-                GET request with the text of the message in Cyrillic “тест“ in URL format.
-
-                .. code-block::
-
-                    {
-                        http://partner.ru/login?clientId=79161234567&message=%D1%82%D0%B5%D1%81%D1%82&pass=123&serviceId=login
-                    }
-
+            http://partner.ru/login?clientId=79161234567&message=%D1%82%D0%B5%D1%81%D1%82&pass=123&serviceId=login
+                    
 
 .. _engHTTP-SMS-параметры-запроса:
 
@@ -106,23 +65,11 @@ The parameters are applicable for POST and GET requests.
 |                           |         |                         |     <details>                                                                                      |
 |                           |         |                         |         <summary>More details</summary>                                                            |
 |                           |         |                         |         <p>                                                                                        |
-|                           |         |                         |             To send in this parameter:                                                             |
+|                           |         |                         |              The text must be encoded in UTF-8.                                                    |
 |                           |         |                         |         </p>                                                                                       |
-|                           |         |                         |         <ul>                                                                                       |
-|                           |         |                         |             <li>for the <code>GET</code> method, the text must be encoded in UTF-8 while sending   |
-|                           |         |                         |                  a text message;</li>                                                              |
-|                           |         |                         |             <li>for the <code>POST</code> method, the text must be encoded in UTF-8, which         |
-|                           |         |                         |                 is specified in the request header.</li>                                           |
-|                           |         |                         |         </ul>                                                                                      |
 |                           |         |                         |         <p>                                                                                        |
 |                           |         |                         |             Maximum allowed message length for SMS: 2000 characters.                               |
 |                           |         |                         |         </p>                                                                                       |
-|                           |         |                         |     <div class="admonition important">                                                             |
-|                           |         |                         |         <p class="admonition-title">Important</p>                                                  |
-|                           |         |                         |         <p>When sending SMS messages with the <code>flash</code> attribute set the message length  |
-|                           |         |                         |            should not be more than 70 characters (for Cyrillic text) or 140 characters             |
-|                           |         |                         |             (for Unicode text).</p>                                                                |
-|                           |         |                         |     </div>                                                                                         |
 |                           |         |                         |     </details>                                                                                     |
 +---------------------------+---------+-------------------------+----------------------------------------------------------------------------------------------------+
 | serviceId                 | yes     | string                  | ID of the Partner’s service (login), which is used to send a message.                              |
@@ -206,7 +153,7 @@ The parameters are applicable for POST and GET requests.
 |                           |         |                         |            </p>                                                                                    |
 |                           |         |                         |     </div>                                                                                         |
 |                           |         |                         |         <p>                                                                                        |
-|                           |         |                         |             The time zone of the subscriber is determined <b>not</b> by actual                     |
+|                           |         |                         |             The time zone of the subscriber is determined <i>not</i> by actual                     |
 |                           |         |                         |             location of the subscriber.                                                            | 
 |                           |         |                         |         </p>                                                                                       |
 |                           |         |                         |         <p>                                                                                        |
@@ -301,12 +248,10 @@ The parameters are applicable for POST and GET requests.
 |                           |         |                         |     <div class="admonition important">                                                             |
 |                           |         |                         |         <p class="admonition-title">Important</p>                                                  |
 |                           |         |                         |         <p>This parameter is not available for the Partner by default.                             |
-|                           |         |                         |            This feature can be activated only after approval by the Service Provider.</p>          |
+|                           |         |                         |            This feature can be activated only after approval by the Service Provider.              |
+|                           |         |                         |            In this case, the list of allowed sender names is set for the Partner's service         |
+|                           |         |                         |            or the dynamic signature feature is activated.</p>                                      |
 |                           |         |                         |     </div>                                                                                         |
-|                           |         |                         |         <p>                                                                                        |
-|                           |         |                         |             In this case, the list of allowed sender names is set for the Partner's service        |
-|                           |         |                         |             or the dynamic signature feature is activated.                                         |
-|                           |         |                         |         </p>                                                                                       |
 |                           |         |                         |     </details>                                                                                     |
 +---------------------------+---------+-------------------------+----------------------------------------------------------------------------------------------------+
 | output                    | no      | string                  | Request response format.                                                                           |
@@ -422,39 +367,20 @@ Requests with Binary Data
 
 When transmitting binary data, a sequence of bytes in the hexadecimal number system is transmitted in the message text.
 
-To send binary data in a POST or GET request, you need to indicate additional parameters specified in the table below.
+To send binary data, you need to indicate additional parameters specified in the table below.
+
+Method: GET.
 
 Request Examples
 ~~~~~~~~~~~~~~~~~~~
 
-.. tabs::
+.. code-block::
 
-    .. tab:: POST request
-
-        .. code-block::
-
-            {
-                POST /login HTTP/1.1
-                Host: 10.241.0.194:9080
-                Content-Type: application/x-www-form-urlencoded;charset=utf-8
-                Content-Length: 208
-                serviceId=login&pass=123&clientId=79161234567&message=0605040b8423f0dc0601ae02056a0045c60b03687474703a2f2f7761702e7A616772757A6B612e636F6D0001035A616772757A6B6155524C000101&smpp_encoding=245&smpp_esm_class=64
-            }
+    http://partner.ru/login?clientId=79161234567&message=0605040b8423f0dc0601ae02056a0045c60b03687474703a2f2f7761702e7A616772757A6B612e636F6D0001035A616772757A6B6155524C000101&serviceId=login&pass=123&smpp_encoding=245&smpp_esm_class=64
 
 
-    .. tab:: GET request
-
-        .. code-block::
-
-            {
-                http://partner.ru/login?clientId=79161234567&message=0605040b8423f0dc0601ae02056a0045c60b03687474703a2f2f7761702e7A616772757A6B612e636F6D0001035A616772757A6B6155524C000101&serviceId=login&pass=123&smpp_encoding=245&smpp_esm_class=64
-            }
-
-
-Parameters for Binary Data 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Parameters for binary data sending in a request.
+Parameters for binary data sending in a request 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +------------------+---------+-------------------------+----------------------------------------------------------------------------------+
 | Parameter        |Required |         Type            | Description                                                                      |
@@ -498,8 +424,7 @@ Parameters for binary data sending in a request.
 |                  |         |                         |         </p>                                                                     |
 |                  |         |                         |         <p>                                                                      |
 |                  |         |                         |             Many of the values for these parameters are specified by SMPP version|
-|                  |         |                         |             3.4 in sections for the <code>smpp_encoding</code> and               |
-|                  |         |                         |             <code>smpp_esm_class</code> parameters.                              |
+|                  |         |                         |             3.4.                                                                 |
 |                  |         |                         |         </p>                                                                     |
 |                  |         |                         |         <p>                                                                      |
 |                  |         |                         |             When sending a binary message to a subscriber, the specified values  |
@@ -531,6 +456,8 @@ Response
        <p>The Service Provider sends messages to subscribers only if the request is successfully processed.</p>
    </div>                                                                           
 
+.. _sms-Ответ-на-запрос-text-eng:
+
 Response in the Text Format
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -548,10 +475,8 @@ In case of successful processing of the request the Service Provider returns to 
 
       .. code-block:: 
 
-          {
-               OK
-               4095284974
-          }
+          OK
+          4095284974
 
 
     .. tab:: Response parameters
@@ -577,13 +502,11 @@ When sending an incorrect request, a short text error message may be transmitted
 
     .. tab:: Response example
 
-        An example of an error response -- invalid *serviceId/pass* combination:
+        An example of an error response -- invalid ``serviceId/pass`` combination:
 
         .. code-block::
 
-            {
-                Invalid password
-            }
+            Invalid password
 
 
     .. tab:: Error codes when sending the request
@@ -621,7 +544,7 @@ When sending an incorrect request, a short text error message may be transmitted
         |               |                                                           |         <summary>Troubleshooting</summary>                                         |
         |               |                                                           |         <p>                                                                        |
         |               |                                                           |             To resume sending messages, the Partner needs to make an advance       |
-        |               |                                                           |             payment and contact your supervising manager.                          |
+        |               |                                                           |             payment and contact the supervising manager.                           |
         |               |                                                           |         </p>                                                                       |
         |               |                                                           |         <p>                                                                        |
         |               |                                                           |             The Partner shouldn't repeat the request.                              |
@@ -682,12 +605,12 @@ When sending an incorrect request, a short text error message may be transmitted
         |               |       <p class="admonition-title">Note</p>                |         <p>                                                                        |
         |               |          <p>The duplicate blocking feature is activated   |             If it is necessary to send a duplicate                                 |
         |               |             for the Partner's service. During 24 hours    |             message, the Partner can contact the                                   |
-        |               |             the Partner sent 3 requests to send the       |             <a href="https://doc.rapporto.ru/api/eng/eng_support.html#eng-support">|
-        |               |             message with the same text to the same number.|             Technical Support Service</a> and provide it                           |
-        |               |             The first request will be processed           |             with the most complete information about the                           |
-        |               |             successfully and the message will be sent to  |             conditions for this situation.                                         |
-        |               |             the subscriber. In response to the last 2     |         </p>                                                                       |
-        |               |             requests the Service Provider will return the |      </details>                                                                    |
+        |               |             the Partner sent 3 requests to send the       |             the technical support service of the Service Provider                  |
+        |               |             message with the same text to the same number.|             and provide it with the most complete information about                |
+        |               |             The first request will be processed           |             the conditions for this situation.                                     |
+        |               |             successfully and the message will be sent to  |         </p>                                                                       |
+        |               |             the subscriber. In response to the last 2     |      </details>                                                                    |
+        |               |             requests the Service Provider will return the |                                                                                    |
         |               |             <code>409</code> status and won't send these  |                                                                                    |
         |               |             2 messages to the subscriber. </p>            |                                                                                    |
         |               |     </div>                                                |                                                                                    |
@@ -777,7 +700,6 @@ Response Examples
 
         .. code-block::
 
-            {
                 <?xml version="1.0" encoding="utf-8"?>
                 <response>
                     <code>200</code>
@@ -786,7 +708,6 @@ Response Examples
                         <id>4095284976</id>
                     </payload>
                 </response>
-            }
 
 
 
@@ -796,13 +717,11 @@ Response Examples
 
         .. code-block::
 
-            {
                 <?xml version="1.0" encoding="utf-8"?>
                 <response>
                     <code>401</code>
                     <text>Invalid password</text>
                 </response>
-            }
 
         When receiving the ``500`` status or when the timeout of waiting for a response expires, the Partner needs to wait for at least 1 minute. 
         After the pause, the Partner can repeat the request.
@@ -832,7 +751,8 @@ Response Examples
         |                 |         | ``code``, ``text``, ``payload`` elements.        |                                          |
         +-----------------+---------+--------------------------------------------------+------------------------------------------+
         | code            | yes     | A response code (values correspond to HTTP codes | For more details see section             |
-        |                 |         | for responses of type text/plain).               | *“Response to the request“*.             |
+        |                 |         | for responses of type *text/plain*).             | :ref:`Response in the Text Format        |
+        |                 |         |                                                  | <sms-Ответ-на-запрос-text-eng>`.         |
         +-----------------+---------+--------------------------------------------------+------------------------------------------+
         | text            | no      | Additional brief textual information about       | It may contain an error information.     |
         |                 |         | the response.                                    |                                          |
@@ -849,7 +769,7 @@ Response Examples
 SMS Delivery Statuses
 --------------------------
 
-To receive statuses of messages, you need to set up the :doc:`eng_http_status`.
+To receive statuses of push notifications, you need to set up the :doc:`eng_http_status`.
 
 Delivery Error Codes
 ~~~~~~~~~~~~~~~~~~~~~~~

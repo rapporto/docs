@@ -66,7 +66,6 @@
               }
             }
 
-
     .. tab:: VIBER > SMS
 
        .. code-block:: json

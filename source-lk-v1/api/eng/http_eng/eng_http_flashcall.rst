@@ -208,7 +208,7 @@ The parameters are applicable for POST and GET requests.
 |                    |         |              |            </p>                                                                                                       |
 |                    |         |              |     </div>                                                                                                            |
 |                    |         |              |         <p>                                                                                                           |
-|                    |         |              |             The time zone of the subscriber is determined <b>not</b> by actual location of the subscriber.            |
+|                    |         |              |             The time zone of the subscriber is determined <i>not</i> by actual location of the subscriber.            |
 |                    |         |              |         </p>                                                                                                          |
 |                    |         |              |         <p>                                                                                                           |
 |                    |         |              |             If the Partner doesn't send the <code>time_zone</code> parameter, the time zone of the subscriber         |
@@ -364,10 +364,8 @@ In case of successful processing of the request Service Provider returns to the 
 
       .. code-block:: 
 
-          {
                OK
                4095284974
-          }
 
 
     .. tab:: Response parameters
@@ -382,7 +380,7 @@ In case of successful processing of the request Service Provider returns to the 
         +---------------+-----------------------------------------------------------+-----------------------------------------------------------+
 
 
-
+.. _fКод-ош-при-отпр-запроса-eng:
 
 Sending Errors
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -397,9 +395,7 @@ When sending an incorrect request a short text error message may be transmitted 
 
         .. code-block::
 
-            {
                 Invalid password
-            }
 
 
     .. tab:: Error codes when sending the request
@@ -437,7 +433,7 @@ When sending an incorrect request a short text error message may be transmitted 
         |               |                                                           |         <summary>Troubleshooting</summary>                                         |
         |               |                                                           |         <p>                                                                        |
         |               |                                                           |             To resume sending messages, the Partner needs to make an advance       |
-        |               |                                                           |             payment and contact your supervising manager.                          |
+        |               |                                                           |             payment and contact the supervising manager.                           |
         |               |                                                           |         </p>                                                                       |
         |               |                                                           |         <p>                                                                        |
         |               |                                                           |             The Partner shouldn't repeat the request.                              |
@@ -592,7 +588,6 @@ Response Examples
 
         .. code-block::
 
-            {
                 <?xml version="1.0" encoding="utf-8"?>
                 <response>
                     <code>200</code>
@@ -601,7 +596,6 @@ Response Examples
                         <id>4095284976</id>
                     </payload>
                 </response>
-            }
 
 
 
@@ -611,13 +605,11 @@ Response Examples
 
         .. code-block::
 
-            {
                 <?xml version="1.0" encoding="utf-8"?>
                 <response>
                     <code>401</code>
                     <text>Invalid password</text>
                 </response>
-            }
 
         When receiving the status ``500`` or when the timeout of waiting for a response expires, the Partner needs to wait for at least 1 minute. 
         After the pause, the Partner can repeat the request.
@@ -635,39 +627,41 @@ Response Examples
     .. tab:: Description of XML elements
 
 
-        +-----------------+---------+--------------------------------------------------+------------------------------------------+
-        | Name            | Required|         Description                              | Note                                     |
-        +=================+=========+==================================================+==========================================+
-        | xml version     | yes     | Number of XML version.                           | It is contained in the prologue of the   |
-        |                 |         |                                                  | XML document.                            |
-        +-----------------+---------+--------------------------------------------------+------------------------------------------+
-        | encoding        | no      | Encoding.                                        | It is contained in the prologue of the   |
-        |                 |         |                                                  | XML document.                            |
-        +-----------------+---------+--------------------------------------------------+------------------------------------------+
-        | response        | yes     | A root element. It contains the                  |                                          |
-        |                 |         | ``code``, ``text``, ``payload`` elements.        |                                          |
-        +-----------------+---------+--------------------------------------------------+------------------------------------------+
-        | code            | yes     | A response code (values correspond to HTTP codes | For more details see                     |
-        |                 |         | for responses of type text/plain).               | :ref:`above. <vКод-ош-при-отпр-запроса>` |
-        +-----------------+---------+--------------------------------------------------+------------------------------------------+
-        | text            | no      | Additional brief textual information about       | It may contain an error information.     |
-        |                 |         | the response.                                    |                                          |
-        +-----------------+---------+--------------------------------------------------+------------------------------------------+
-        | payload         | no      | Information about the message, contains the      | Would be sent only if the request is     |
-        |                 |         | ``id`` element.                                  | performed successfully (when             |
-        +-----------------+---------+--------------------------------------------------+ ``code = 200``).                         |
-        | id              | no      | The identifier assigned to the message           |                                          |
-        |                 |         | by the Service Provider.                         |                                          |
-        |                 |         | The identifier is a 64-bit positive integer.     |                                          |
-        +-----------------+---------+--------------------------------------------------+------------------------------------------+
+        +-----------------+---------+--------------------------------------------------+---------------------------------------------+
+        | Name            | Required|         Description                              | Note                                        |
+        +=================+=========+==================================================+=============================================+
+        | xml version     | yes     | Number of XML version.                           | It is contained in the prologue of the      |
+        |                 |         |                                                  | XML document.                               |
+        +-----------------+---------+--------------------------------------------------+---------------------------------------------+
+        | encoding        | no      | Encoding.                                        | It is contained in the prologue of the      |
+        |                 |         |                                                  | XML document.                               |
+        +-----------------+---------+--------------------------------------------------+---------------------------------------------+
+        | response        | yes     | A root element. It contains the                  |                                             |
+        |                 |         | ``code``, ``text``, ``payload`` elements.        |                                             |
+        +-----------------+---------+--------------------------------------------------+---------------------------------------------+
+        | code            | yes     | A response code (values correspond to HTTP codes | For more details see                        |
+        |                 |         | for responses of type text/plain).               | :ref:`above. <fКод-ош-при-отпр-запроса-eng>`|
+        +-----------------+---------+--------------------------------------------------+---------------------------------------------+
+        | text            | no      | Additional brief textual information about       | It may contain an error information.        |
+        |                 |         | the response.                                    |                                             |
+        +-----------------+---------+--------------------------------------------------+---------------------------------------------+
+        | payload         | no      | Information about the message, contains the      | Would be sent only if the request is        |
+        |                 |         | ``id`` element.                                  | performed successfully (when                |
+        +-----------------+---------+--------------------------------------------------+ ``code = 200``).                            |
+        | id              | no      | The identifier assigned to the message           |                                             |
+        |                 |         | by the Service Provider.                         |                                             |
+        |                 |         | The identifier is a 64-bit positive integer.     |                                             |
+        +-----------------+---------+--------------------------------------------------+---------------------------------------------+
 
 FlashingCall (VoiceCode) Delivery Statuses
 --------------------------------------------
 
-To receive FlashingCall (VoiceCode) message statuses, you need to set up the :doc:`eng_http_status`.
+To receive statuses of push notifications, you need to set up the :doc:`eng_http_status`.
 
 Delivery Error Codes
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 Delivery error codes for each message type are provided in the corresponding tab of the :ref:`engErrCodeDescr` section.
+
+
 

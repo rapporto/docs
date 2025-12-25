@@ -158,6 +158,14 @@ Main Request Parameters
 |                           |                          |     <details>                                                                                              |
 |                           |                          |         <summary>More details</summary>                                                                    |
 |                           |                          |         <p>                                                                                                |
+|                           |                          |             The Service Provider's platform has a restriction, namely, the scheduled date and time         |          
+|                           |                          |             cannot be later than a specified period from the current moment.                               |
+|                           |                          |         </p>                                                                                               |
+|                           |                          |         <p>                                                                                                |
+|                           |                          |             The exact limits of this restriction should be clarified with the Service Provider's           |      
+|                           |                          |             support team.                                                                                  |
+|                           |                          |         </p>                                                                                               |
+|                           |                          |         <p>                                                                                                |
 |                           |                          |             The <code>schedule_delivery_time</code> field can be set in either relative or absolute format.|          
 |                           |                          |         </p>                                                                                               |
 |                           |                          |         <p>                                                                                                |
@@ -189,14 +197,6 @@ Main Request Parameters
 |                           |                          |                 interval has already ended on the current day, its start is moved to the next day.</li>    |
 |                           |                          |             </ul>                                                                                          |
 |                           |                          |         </ul>                                                                                              |
-|                           |                          |         <p>                                                                                                |
-|                           |                          |             The Service Provider's platform has a restriction, namely, the scheduled date and time         |          
-|                           |                          |             cannot be later than a specified period from the current moment.                               |
-|                           |                          |         </p>                                                                                               |
-|                           |                          |         <p>                                                                                                |
-|                           |                          |             The exact limits of this restriction should be clarified with the Service Provider's           |      
-|                           |                          |             support team.                                                                                  |
-|                           |                          |         </p>                                                                                               |
 |                           |                          |     </details>                                                                                             |  
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | validity_period           | string                   | Message lifetime.                                                                                          |
@@ -341,12 +341,8 @@ TLV parameters for sending messages from the Partner to the Service Provider.
 |                 |         |                  |              |         <p>                                                                          |
 |                 |         |                  |              |             Example: <code>0x68,0x74,0x74,0x70,0x3A,0x2F,0x2F,                       |  
 |                 |         |                  |              |             0x77,0x77,0x77, 0x2E,0x62,0x75,0x74,0x74,0x6F,0x6E,                      |
-|                 |         |                  |              |             0x2E,0x72,0x75,0x00</code> — corresponds to the                          |
-|                 |         |                  |              |             <code>http://www.button.ru/</code> string.                               |
+|                 |         |                  |              |             0x2E,0x72,0x75,0x00.                                                     |
 |                 |         |                  |              |         </p>                                                                         | 
-|                 |         |                  |              |         <p>                                                                          |
-|                 |         |                  |              |             The use of NULL characters at the end of the string value is optional.   |  
-|                 |         |                  |              |         </p>                                                                         |    
 |                 |         |                  |              |     </details>                                                                       |
 +-----------------+---------+------------------+--------------+--------------------------------------------------------------------------------------+
 | caption         | Tag     | 2                | Integer      | id = 0x1434                                                                          |
@@ -410,8 +406,8 @@ TLV parameters for sending messages from the Partner to the Service Provider.
 +-----------------+---------+------------------+--------------+--------------------------------------------------------------------------------------+
 
 
-Response to Request 
-====================
+Response 
+===========
 
 In response to the ``submit_sm`` packet, the Service Provider's server replies with the ``submit_sm_resp`` packet containing the ``command_status`` field.
 
@@ -423,8 +419,8 @@ Subsequently, the ``message_id`` value is used by the Partner to receive and ana
 Possible values for the ``command_status`` field are provided in the tables below.
 
 
-Successful Send Response
-----------------------------
+Successful Sending
+--------------------
 
 In case of successful sending, the ``0x00`` response code (HEX) is returned.
           
@@ -436,8 +432,8 @@ In case of successful sending, the ``0x00`` response code (HEX) is returned.
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 
 
-Send Errors  
-----------------------
+Sending Errors  
+-------------------
 
 For invalid results, the response code (HEX) will be different from ``0x00``. 
 

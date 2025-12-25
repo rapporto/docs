@@ -3,7 +3,7 @@
 Telegram Gateway Authorization Codes
 ======================================
 
-This section describes the specifics of transmitting authorization codes via the SMPP protocol to the Telegram Gateway.
+This section describes the specifics of transmitting authorization codes via the SMPP protocol to Telegram Gateway.
 
 .. raw:: html
 
@@ -25,7 +25,7 @@ This section describes the specifics of transmitting authorization codes via the
              Currently, the service supports:
          </p>
          <ul>
-             <li>sending messages with authorization codes to Telegram;</li>
+             <li>sending messages with authorization codes via Telegram;</li>
              <li>receiving message delivery statuses;</li>
          </ul>  
      </details>
@@ -115,7 +115,9 @@ Main Request Parameters
 |                           |                          |         </p>                                                                                               |
 |                           |                          |         <p>                                                                                                |
 |                           |                          |             Text messages longer than 254 octets are recommended to be sent in a single PDU in the TLV     |  
-|                           |                          |             parameter <code>message_payload</code>, <code>id = 0x0424</code>.                              |
+|                           |                          |             parameter <code>message_payload</code>, <code>id = 0x0424</code>.  Message data                |
+|                           |                          |             should be inserted either into the <code>short_message</code> field or into the                |
+|                           |                          |             <code>message_payload</code> field.                                                            |
 |                           |                          |         </p>                                                                                               |
 |                           |                          |     <div class="admonition warning">                                                                       |
 |                           |                          |         <p class="admonition-title">Warning</p>                                                            |
@@ -123,6 +125,15 @@ Main Request Parameters
 |                           |                          |            <code>message_payload</code> parameter, the value of the <code>short_message</code>             |
 |                           |                          |            parameter should not be specified.</p>                                                          |
 |                           |                          |     </div>                                                                                                 |
+|                           |                          |         <p>                                                                                                |
+|                           |                          |            The Service Provider's SMPP server supports the reassembly of multipart messages using one      |  
+|                           |                          |            of the following methods:                                                                       |
+|                           |                          |         </p>                                                                                               |
+|                           |                          |         <ul>                                                                                               |
+|                           |                          |             <li>UDH-8;</li>                                                                                |
+|                           |                          |             <li>UDH-16;</li>                                                                               |
+|                           |                          |             <li>Using TLV parameters.</li>                                                                 |
+|                           |                          |         </ul>                                                                                              |
 |                           |                          |     </details>                                                                                             |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | data_coding               | integer                  | Encoding scheme/type of the message text.                                                                  |
@@ -262,6 +273,9 @@ TLV parameters for sending messages from the Partner to the Service Provider.
 |                           |                     |                   |                   |             Both fields should not be used simultaneously.                           |
 |                           |                     |                   |                   |         </p>                                                                         |
 |                           |                     |                   |                   |         <p>                                                                          |
+|                           |                     |                   |                   |             Both fields should not be used simultaneously.                           |
+|                           |                     |                   |                   |         </p>                                                                         |
+|                           |                     |                   |                   |         <p>                                                                          |
 |                           |                     |                   |                   |             The <code>short_message</code> field should be set to zero if using the  |  
 |                           |                     |                   |                   |             <code>message_payload</code> field.                                      | 
 |                           |                     |                   |                   |         </p>                                                                         |
@@ -303,8 +317,8 @@ TLV parameters for sending messages from the Partner to the Service Provider.
 +---------------------------+---------------------+-------------------+-------------------+--------------------------------------------------------------------------------------+
 
 
-Response to Request  
----------------------
+Response 
+-----------
 
 In response to the ``submit_sm`` packet, the Service Provider's server replies with the ``submit_sm_resp`` packet containing the ``command_status`` field.
 
@@ -315,8 +329,8 @@ Subsequently, the ``message_id`` value is used by the Partner to receive and ana
 
 Possible values for the ``command_status`` field are provided in the tables below.
 
-Successful Send Response
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Successful Sending
+~~~~~~~~~~~~~~~~~~~~
 
 In case of successful sending, the ``0x00`` response code (HEX) is returned.
           
@@ -328,8 +342,8 @@ In case of successful sending, the ``0x00`` response code (HEX) is returned.
 +---------------------+-----------------------------------------------------+---------------------------------------------------------+
 
 
-Send Errors  
-----------------------
+Sending Errors  
+----------------
 
 For invalid results, the response code (HEX) will be different from ``0x00``. 
 
@@ -570,7 +584,7 @@ For invalid results, the response code (HEX) will be different from ``0x00``.
         <a href="https://doc.rapporto.ru/api/eng/smpp_eng/eng_smpp_request.html#eng-reprocessing">Message Reprocessing</a> is performed.</p>
     </div>                                                                           
 
-Telegram  Delivery Statuses
+Delivery Statuses
 ----------------------------
 
 To receive message statuses, you need to configure the :doc:`eng_smpp_status`.
@@ -583,4 +597,4 @@ Delivery error codes for each message type are provided in the corresponding tab
 Cascading Message Sending
 --------------------------
 
-Cascade message sending for transmitting authorization codes via the SMPP protocol is not available.
+Cascade message sending for transmitting authorization codes via the SMPP protocol is not available (see :ref:`Типы-сообщений-в-каскаде-eng`).

@@ -18,6 +18,7 @@ For optimal performance of message delivery from the Partner to the Service Prov
 * use two-socket SMPP (transmitter/receiver);
 * use multiple parallel connections with the same login. While this is allowed, take into account that the SMPP server treats them as equivalent connections;
 * note that the delivery report may be sent to a different physical socket than the one from which the original ``submit_sm`` PDU was transmitted to the server;
+* include the full message content within a single PDU using ``message_payload`` when sending long messages;
 * send messages asynchronously with a limited transmission buffer:
     
   - send the next ``submit_sm`` PDU to the socket without waiting for the ``submit_sm_resp`` for the previous ``submit_sm`` PDU;
