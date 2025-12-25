@@ -1,4 +1,4 @@
-Delivery Status  Service
+Delivery Status Service
 ============================
 
 Service Setup 
@@ -7,6 +7,18 @@ Service Setup
 The Service Provider sends a message delivery report to the Partner's URL configured to send delivery statuses. 
 
 The URL for statuses is set in the integration settings when enabling the service.
+
+The message delivery status is returned in the ``status`` parameter.
+
+.. raw:: html
+    
+    <div class="admonition important">
+        <p class="admonition-title">Important</p>
+        <p>
+        For SMS messages sent to subscribers of the MegaFon operator, the reporting of statuses 2 (delivered) and 5 (undelivered) has been discontinued since March 1, 2023.
+        </p>
+    </div>                                                                           
+
 
 Extended statuses of sent messages are available optionally. To receive extended statuses you need to contact the :ref:`the Technical Support <eng-support>`.
 
@@ -94,7 +106,7 @@ GET Request
       |                     |          |          |         </p>                                                                                                                |
       |                     |          |          |     </details>                                                                                                              | 
       +---------------------+----------+----------+-----------------------------------------------------------------------------------------------------------------------------+
-      | status              | yes      | integer  | Message delivery status. Possible values:                                                                                   |
+      | status              | yes      | integer  | Message delivery status.                                                                                                    |
       |                     |          |          |                                                                                                                             |
       |                     |          |          | .. raw:: html                                                                                                               |
       |                     |          |          |                                                                                                                             |
@@ -109,12 +121,6 @@ GET Request
       |                     |          |          |             <li><code>5</code> — the message is not delivered; </li>                                                        |
       |                     |          |          |             <li><code>9</code> — the message was read (for VK, Viber, WhatsApp, PUSH).</li>                                 |  
       |                     |          |          |         </ul>                                                                                                               |
-      |                     |          |          |     <div class="admonition warning">                                                                                        |
-      |                     |          |          |         <p class="admonition-title">Warning</p>                                                                             |
-      |                     |          |          |         <p>For SMS messages sent to subscribers of the Megafon operator, the transmission of the statuses "Delivered"       |
-      |                     |          |          |            and "Undelivered" has been discontinued since 01.03.2023.                                                        |
-      |                     |          |          |            </p>                                                                                                             |
-      |                     |          |          |     </div>                                                                                                                  |
       |                     |          |          |     </details>                                                                                                              |
       +---------------------+----------+----------+-----------------------------------------------------------------------------------------------------------------------------+
       | partnerMsgId        | no       | string   | Unique identifier of the message in the Partner's system, which was passed to the Service Provider in                       |
@@ -252,6 +258,9 @@ This section describes the reasons for non-delivery of various types of messages
             +============================+================================================================================+
             | 1                          | An error unknown to the platform occurred during the the message delivery      |
             |                            | process, or the operator did not provide an error in the delivery report.      |
+            +----------------------------+--------------------------------------------------------------------------------+
+            | 2                          | The subscriber's device was turned off or it was out of network coverage       |
+            |                            | during the entire attempt to deliver the message.                              |
             +----------------------------+--------------------------------------------------------------------------------+
             | 3                          | The subscriber's device is blocked, either the subscriber has the ban on       |
             |                            | receiving messages enabled, or the subscriber is in roaming with the ban on    |

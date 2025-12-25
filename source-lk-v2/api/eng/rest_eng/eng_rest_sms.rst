@@ -138,19 +138,15 @@ Parameters
 |                       |         |              |         <p>                                                                                     |
 |                       |         |              |             This parameter is necessary for controlling repeated submissions                    |
 |                       |         |              |             and duplication (the control service is activated separately).                      |
-|                       |         |              |         </p>                                                                                    |
-|                       |         |              |         <p>                                                                                     |
 |                       |         |              |              The Partner can call the Service Provider (request to send a                       |              
-|                       |         |              |              message) multiple times with the same ID. In this case, the                        |                    
-|                       |         |              |              message will be sent to the subscriber only once (on the                           |
-|                       |         |              |              first request).                                                                    |
+|                       |         |              |              message) multiple times with the same ID.                                          |                    
 |                       |         |              |         </p>                                                                                    |
 |                       |         |              |         <p>                                                                                     |
+|                       |         |              |              In this case, the message will be sent to the subscriber only once                 |                    
+|                       |         |              |              (on the first request).                                                            |
 |                       |         |              |              In response to the requests, the Service Provider will return the                  |                                                                                  
 |                       |         |              |              same message identifier in the Service Provider's system to the                    |
 |                       |         |              |              Partner (the same as for the first request).                                       |          
-|                       |         |              |         </p>                                                                                    |
-|                       |         |              |         <p>                                                                                     |
 |                       |         |              |              The Service Provider optionally returns this identifier to the                     |
 |                       |         |              |              Partner in the message delivery report if it is available.                         |
 |                       |         |              |         </p>                                                                                    |

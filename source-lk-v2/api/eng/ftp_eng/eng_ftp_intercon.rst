@@ -4,13 +4,9 @@ Interaction with the Platform
 Description
 --------------
 
-The file data exchange protocol is designed using access synchronization to files between the transmitting and receiving sides. 
+The file data exchange protocol is designed using access synchronization to files between the transmitting and receiving sides. As a result of processing, the source file is moved to a special directory, and a report file is created next to it.
 
-As a result of processing, the source file is moved to a special directory, and a report file is created next to it.
-
-The file is uploaded by any convenient method that provides sufficient security, for example, via FTPS or FTP through an ipsec tunnel. 
-
-Additionally, it is possible to enable the generation of files with messages delivery reports to subscribers.
+The file is uploaded by any convenient method that provides sufficient security, for example, via FTPS or FTP through an ipsec tunnel. Additionally, it is possible to enable the generation of files with messages delivery reports to subscribers.
 
 .. raw:: html
 

@@ -115,7 +115,9 @@ Main Request Parameters
 |                           |                          |         </p>                                                                                               |
 |                           |                          |         <p>                                                                                                |
 |                           |                          |             Text messages longer than 254 octets are recommended to be sent in a single PDU in the TLV     |  
-|                           |                          |             parameter <code>message_payload</code>, <code>id = 0x0424</code>.                              |
+|                           |                          |             parameter <code>message_payload</code>, <code>id = 0x0424</code>.  Message data                |
+|                           |                          |             should be inserted either into the <code>short_message</code> field or into the                |
+|                           |                          |             <code>message_payload</code> field.                                                            |
 |                           |                          |         </p>                                                                                               |
 |                           |                          |     <div class="admonition warning">                                                                       |
 |                           |                          |         <p class="admonition-title">Warning</p>                                                            |
@@ -123,6 +125,15 @@ Main Request Parameters
 |                           |                          |            <code>message_payload</code> parameter, the value of the <code>short_message</code>             |
 |                           |                          |            parameter should not be specified.</p>                                                          |
 |                           |                          |     </div>                                                                                                 |
+|                           |                          |         <p>                                                                                                |
+|                           |                          |            The Service Provider's SMPP server supports the reassembly of multipart messages using one      |  
+|                           |                          |            of the following methods:                                                                       |
+|                           |                          |         </p>                                                                                               |
+|                           |                          |         <ul>                                                                                               |
+|                           |                          |             <li>UDH-8;</li>                                                                                |
+|                           |                          |             <li>UDH-16;</li>                                                                               |
+|                           |                          |             <li>Using TLV parameters.</li>                                                                 |
+|                           |                          |         </ul>                                                                                              |
 |                           |                          |     </details>                                                                                             |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | data_coding               | integer                  | Encoding scheme/type of the message text.                                                                  |
@@ -259,6 +270,9 @@ TLV parameters for sending messages from the Partner to the Service Provider.
 |                           |                     |                   |                   |         <p>                                                                          |
 |                           |                     |                   |                   |             The short message data should be inserted in either the                  |  
 |                           |                     |                   |                   |             <code>short_message</code> or <code>message_payload</code> fields.       | 
+|                           |                     |                   |                   |             Both fields should not be used simultaneously.                           |
+|                           |                     |                   |                   |         </p>                                                                         |
+|                           |                     |                   |                   |         <p>                                                                          |
 |                           |                     |                   |                   |             Both fields should not be used simultaneously.                           |
 |                           |                     |                   |                   |         </p>                                                                         |
 |                           |                     |                   |                   |         <p>                                                                          |
@@ -583,4 +597,4 @@ Delivery error codes for each message type are provided in the corresponding tab
 Cascading Message Sending
 --------------------------
 
-Cascade message sending for transmitting authorization codes via the SMPP protocol is not available.
+Cascade message sending for transmitting authorization codes via the SMPP protocol is not available (see :ref:`Типы-сообщений-в-каскаде-eng`).

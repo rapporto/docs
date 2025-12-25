@@ -357,6 +357,8 @@ Request Parameters
 |                       |          |             |         <p>                                                                     |
 |                       |          |             |            The comma character cannot be included in the parameter name, but it |
 |                       |          |             |            can be included in its value — in this case it must be doubled.      |
+|                       |          |             |         </p>                                                                    |
+|                       |          |             |         <p>                                                                     |
 |                       |          |             |            Example:                                                             | 
 |                       |          |             |            <code>coordinates=53.8085896,,58.6362112</code>                      |
 |                       |          |             |         </p>                                                                    |

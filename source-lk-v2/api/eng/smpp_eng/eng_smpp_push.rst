@@ -71,7 +71,9 @@ Main Request Parameters
 |                           |                          |         </p>                                                                                               |
 |                           |                          |         <p>                                                                                                |
 |                           |                          |             Text messages longer than 254 octets are recommended to be sent in a single PDU in the TLV     |  
-|                           |                          |             parameter: <code>message_payload</code>, <code>id = 0x0424</code>.                             |
+|                           |                          |             parameter: <code>message_payload</code>, <code>id = 0x0424</code>. Message data should be      |
+|                           |                          |             inserted either into the <code>short_message</code> field or into the                          |
+|                           |                          |             <code>message_payload</code> field.                                                            |
 |                           |                          |         </p>                                                                                               |
 |                           |                          |     <div class="admonition warning">                                                                       |
 |                           |                          |         <p class="admonition-title">Warning</p>                                                            |
@@ -79,6 +81,15 @@ Main Request Parameters
 |                           |                          |            <code>message_payload</code> parameter, the value of the <code>short_message</code>             |
 |                           |                          |            parameter should not be specified.</p>                                                          |
 |                           |                          |     </div>                                                                                                 |
+|                           |                          |         <p>                                                                                                |
+|                           |                          |            The Service Provider's SMPP server supports the reassembly of multipart messages using one      |  
+|                           |                          |            of the following methods:                                                                       |
+|                           |                          |         </p>                                                                                               |
+|                           |                          |         <ul>                                                                                               |
+|                           |                          |             <li>UDH-8;</li>                                                                                |
+|                           |                          |             <li>UDH-16;</li>                                                                               |
+|                           |                          |             <li>Using TLV parameters.</li>                                                                 |
+|                           |                          |         </ul>                                                                                              |
 |                           |                          |     </details>                                                                                             |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | data_coding               | integer                  | Encoding scheme/type of the message text.                                                                  |
@@ -145,6 +156,14 @@ Main Request Parameters
 |                           |                          |     <details>                                                                                              |
 |                           |                          |         <summary>More details</summary>                                                                    |
 |                           |                          |         <p>                                                                                                |
+|                           |                          |             The Service Provider's platform has a restriction, namely, the scheduled date and time         |          
+|                           |                          |             cannot be later than a specified period from the current moment.                               |
+|                           |                          |         </p>                                                                                               |
+|                           |                          |         <p>                                                                                                |
+|                           |                          |             The exact limits of this restriction should be clarified with the Service Provider's           |      
+|                           |                          |             support team.                                                                                  |
+|                           |                          |         </p>                                                                                               |
+|                           |                          |         <p>                                                                                                |
 |                           |                          |             The <code>schedule_delivery_time</code> field can be set in either relative or absolute format.|          
 |                           |                          |         </p>                                                                                               |
 |                           |                          |         <p>                                                                                                |
@@ -176,14 +195,6 @@ Main Request Parameters
 |                           |                          |                 interval has already ended on the current day, its start is moved to the next day.</li>    |
 |                           |                          |             </ul>                                                                                          |
 |                           |                          |         </ul>                                                                                              |
-|                           |                          |         <p>                                                                                                |
-|                           |                          |             The Service Provider's platform has a restriction, namely, the scheduled date and time         |          
-|                           |                          |             cannot be later than a specified period from the current moment.                               |
-|                           |                          |         </p>                                                                                               |
-|                           |                          |         <p>                                                                                                |
-|                           |                          |             The exact limits of this restriction should be clarified with the Service Provider's           |      
-|                           |                          |             support team.                                                                                  |
-|                           |                          |         </p>                                                                                               |
 |                           |                          |     </details>                                                                                             |  
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | validity_period           | string                   | Message lifetime.                                                                                          |
@@ -237,6 +248,9 @@ TLV parameters for sending messages from the Partner to the Service Provider.
 |                           |                     |                   |                   |         <p>                                                                          |
 |                           |                     |                   |                   |             The short message data should be inserted in either the                  |  
 |                           |                     |                   |                   |             <code>short_message</code> or <code>message_payload</code> fields.       | 
+|                           |                     |                   |                   |             Both fields should not be used simultaneously.                           |
+|                           |                     |                   |                   |         </p>                                                                         |
+|                           |                     |                   |                   |         <p>                                                                          |
 |                           |                     |                   |                   |             Both fields should not be used simultaneously.                           |
 |                           |                     |                   |                   |         </p>                                                                         |
 |                           |                     |                   |                   |         <p>                                                                          |

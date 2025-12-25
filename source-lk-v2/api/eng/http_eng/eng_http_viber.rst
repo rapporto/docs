@@ -15,69 +15,29 @@ The following Viber messages are supported:
 Sending Requests 
 ------------------------------------------
 
-POST and GET requests are allowed in the HTTP API.
+HTTP method: GET.
 
 Request Examples
 ~~~~~~~~~~~~~~~~~~~~
 
 .. tabs::
 
-    .. tab:: POST request
+    .. tab:: Text format
 
-        .. tabs::
+        GET request with a message in Latin “test“ in a simple text format.
 
-            .. tab:: Text format
+        .. code-block::
 
-                POST request with a message in Latin “test“ in a simple text format.
+            http://partner.ru/login?clientId=79161234567&message=test&pass=123&serviceId=login
 
-                .. code-block::
+    .. tab:: Text in URL format
 
-                    {
-                        POST /login HTTP/1.1
-                        Host: 10.10.10.10:9080
-                        Content-Type: application/x-www-form-urlencoded;charset=utf-8
-                        Content-Length: 58
-                        serviceId=login&pass=123&clientId=79161234567&message=test
-                    }
+        GET request with the text of the message in Cyrillic “тест“ in URL format.
 
-            .. tab:: Text in URL format
+        .. code-block::
 
-                POST request with the text of the message in Cyrillic “тест“ in URL format.
-
-                .. code-block::
-
-                    {
-                        POST /login HTTP/1.1
-                        Host: 10.241.0.194:9080
-                        Content-Type: application/x-www-form-urlencoded;charset=utf-8
-                        Content-Length: 78
-                        serviceId=login&pass=123&clientId=79161234567&message=%D1%82%D0%B5%D1%81%D1%82
-                    }
-
-
-    .. tab:: GET requests
-
-        .. tabs::
-
-            .. tab:: Image
-
-                GET request to send an image.
-
-                .. code-block::
-
-                    {
-                        http://partner.ru/login?clientId=79161234567&pass=123&serviceId=login&imageUrl=http://image001.jpg
-                    }
-
-            .. tab:: Text + button
-
-                GET request with a message in Latin “test“ in a simple text format and with button named “click“.
-
-                .. code-block::
-
-                    {
-                        http://partner.ru/login?clientId=79161234567&message=test&pass=123&serviceId=login&buttonText=click&buttonLink=http://click
-                    }
+            http://partner.ru/login?clientId=79161234567&message=%D1%82%D0%B5%D1%81%D1%82&pass=123&serviceId=login
+                    
 
 .. _HTTP-engViber-параметры-запроса:
 
@@ -260,7 +220,7 @@ The parameters are applicable for POST and GET requests.
 |                    |         |              |            </p>                                                                                                   |
 |                    |         |              |     </div>                                                                                                        |
 |                    |         |              |         <p>                                                                                                       |
-|                    |         |              |             The time zone of the subscriber is determined <b>not</b> by actual location of the subscriber.        |
+|                    |         |              |             The time zone of the subscriber is determined <i>not</i> by actual location of the subscriber.        |
 |                    |         |              |         </p>                                                                                                      |
 |                    |         |              |         <p>                                                                                                       |
 |                    |         |              |             If the Partner doesn't send the <code>time_zone</code> parameter, the time zone of the subscriber     |
@@ -429,7 +389,7 @@ The parameters are applicable for POST and GET requests.
                                                                                        
 
 
-.. _Vb engОтвет на запрос:
+.. _Vb Ответ на запрос-eng:
 
 Response 
 --------------
@@ -460,10 +420,8 @@ In case of successful processing of the request the Service Provider returns to 
 
         .. code-block:: 
 
-            {
                OK
                4095284974
-            }
 
 
     .. tab:: Response parameters
@@ -489,14 +447,13 @@ When sending an incorrect request, a short text error message may be transmitted
 
     .. tab:: Response example
 
-        An example of an error response -- invalid *serviceId/pass* combination:
+        An example of an error response -- invalid ``serviceId/pass`` combination:
 
         .. code-block::
 
-            {
                 Invalid password
-            }
 
+   
     .. _eКоды-ош-при-отпр-запроса:
 
     .. tab:: Error codes when sending the request
@@ -691,7 +648,6 @@ Response Examples
 
         .. code-block::
 
-            {
                 <?xml version="1.0" encoding="utf-8"?>
                 <response>
                     <code>200</code>
@@ -700,23 +656,20 @@ Response Examples
                         <id>4095284976</id>
                     </payload>
                 </response>
-            }
 
 
 
     .. tab:: Error sending
 
-        Response example in XML format in case of error request sending: invalid combination of serviceId/pass.
+        Response example in XML format in case of error request sending: invalid combination of ``serviceId/pass``.
 
         .. code-block::
 
-            {
                 <?xml version="1.0" encoding="utf-8"?>
                 <response>
                     <code>401</code>
                     <text>Invalid password</text>
                 </response>
-            }
 
         When receiving the status ``500`` or when the timeout of waiting for a response expires, the Partner needs to wait for at least 1 minute. 
         After the pause, the Partner can repeat the request.
@@ -747,7 +700,7 @@ Response Examples
         |                 |         | ``code``, ``text``, ``payload`` elements.        |                                          |
         +-----------------+---------+--------------------------------------------------+------------------------------------------+
         | code            | yes     | A response code (values correspond to HTTP codes | For more details see                     |
-        |                 |         | for responses of type text/plain).               | :ref:`above. <eКоды-ош-при-отпр-запроса>`|
+        |                 |         | for responses of type text/plain).               | :ref:`Response <Vb Ответ на запрос-eng>`.|
         +-----------------+---------+--------------------------------------------------+------------------------------------------+
         | text            | no      | Additional brief textual information about       | It may contain an error information.     |
         |                 |         | the response.                                    |                                          |

@@ -1,9 +1,11 @@
 Mobile Originated Messages
 ==================================
 
-Mobile Originated message (MO message) is a message sent by a subscriber's device to the server.
+Mobile Originated message (MO message) is a message sent by a subscriber’s device to the server.
 
 To get MO messages from subscribers the Partner shall provide the Service Provider with an URL. The URL is set in the integration settings when enabling the service.
+
+To enable message subscribers to reply to a message sending, the Partner should connect the MO message service.
 
 Setup
 ------------
@@ -204,7 +206,7 @@ The service provider transmits a message from the subscriber to the Partner via 
          |                       |         |                             |     </details>                                                  |
          +-----------------------+---------+-----------------------------+-----------------------------------------------------------------+
          | token                 | no      | string                      | Token calculated from the ``timestamp``, ``clientId``           |
-         |                       |         |                             | parameters and a secret ``salt`` parameter ``salt``, using the  |
+         |                       |         |                             | parameters and a secret ``salt`` parameter, using the           |
          |                       |         |                             | MD5 algorithm.                                                  |
          |                       |         |                             |                                                                 |
          |                       |         |                             | .. raw:: html                                                   |
@@ -217,7 +219,7 @@ The service provider transmits a message from the subscriber to the Partner via 
          |                       |         |                             |     <div class="admonition note">                               |
          |                       |         |                             |         <p class="admonition-title">Note</p>                    |
          |                       |         |                             |         <p>This feature is not available by default.            |
-         |                       |         |                             |            To enable it please contact your supervising         |
+         |                       |         |                             |            To enable it, please contact your supervising        |
          |                       |         |                             |            manager.</p>                                         |
          |                       |         |                             |     </div>                                                      |
          |                       |         |                             |     </details>                                                  |
@@ -317,7 +319,7 @@ Sending Errors
 
 If the response was not received from the Partner within the specified timeout, the message on the service unavailability will be sent to the subscriber (it can be set during the service registration). In case of repeated timeouts the Partner's service can be blocked.
 
-When 4хх or 5хх statuses are received, the response from the Partner is saved in the log, but not sent to the subscriber. The subscriber might receive the error message, which was set during the service registration. In case of repeated timeouts the Partner's service can be blocked.
+When ``4хх`` or ``5хх`` statuses are received, the response from the Partner is saved in the log, but not sent to the subscriber. The subscriber might receive the error message, which was set during the service registration. In case of repeated timeouts the Partner's service can be blocked.
 
 
 

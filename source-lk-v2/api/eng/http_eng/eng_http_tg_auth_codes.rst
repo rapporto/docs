@@ -47,7 +47,7 @@ It is recommended to include parameters and values related to the ``SMS`` messag
 
 The message must contain a code consisting of four to eight digits.
 
-Method: GET.
+HTTP method: GET.
 
 Request Examples
 ~~~~~~~~~~~~~~~~~~~~

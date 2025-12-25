@@ -146,7 +146,7 @@ Delivery Report
         |             |         |     <details>                                                                                      |
         |             |         |         <summary>More details</summary>                                                            |
         |             |         |         <p>                                                                                        |
-        |             |         |             Parameter contains an MCC code which usually consists of 3 digits                      |        
+        |             |         |             The parameter contains an MCC code which usually consists of 3 digits                  |        
         |             |         |             and an MNC code of 2 digits.                                                           |
         |             |         |         </p>                                                                                       |
         |             |         |         <p>                                                                                        |
@@ -242,16 +242,17 @@ Delivery Statuses
 |            |                                      | specified in the ``errorCode`` parameter. It is the final status, no further         |
 |            |                                      | statuses are expected.                                                               |
 +------------+--------------------------------------+--------------------------------------------------------------------------------------+
-| 9          | READ                                 | Status indicating the message is read by a subscriber. *For all messages except      |
-|            |                                      | FlashingCall and SMS*. It is the final status, no further statuses are expected.     |
+| 9          | READ                                 | Status indicating the message is read by a subscriber. For all messages except       |
+|            |                                      | ``FLASHINGCALL`` and ``SMS``. It is the final status, no further statuses are        |
+|            |                                      | expected.                                                                            |
 +------------+--------------------------------------+--------------------------------------------------------------------------------------+
 
 .. _REST-ErrCodeDescr-eng:
 
-Description of Error Codes (parameter *status=5*)
---------------------------------------------------
+Description of Error Codes 
+------------------------------
 
-The section provides a description of the reasons for the non-delivery of messages of various types.
+The section provides a description of the reasons for the non-delivery of messages of various types (parameter *status=5*).
 
 .. tabs::
 
@@ -597,41 +598,6 @@ The section provides a description of the reasons for the non-delivery of messag
 
 
 
-
-    .. tab:: MAX
-
-      +---------+----------------------------+----------------------------+
-      | Code    | Error message              | Error description          |
-      +=========+============================+============================+
-      | 1       | unknown                    | An error unknown to the    |
-      |         |                            | platform occurred during   |
-      |         |                            | the message delivery       |
-      |         |                            | process, or the operator   |
-      |         |                            | did not provide an error   |
-      |         |                            | in the delivery report.    |
-      +---------+----------------------------+----------------------------+
-      | 3       | call-barred                | The subscriber is not      |
-      |         |                            | subscribed to the bot      |
-      |         |                            | linked to this service     |
-      |         |                            | name.                      |
-      +---------+----------------------------+----------------------------+
-      | 4       | failure                    | An error occurred during   |
-      |         |                            | the delivery of the message|
-      |         |                            | at the transport layer of  |
-      |         |                            | the signaling network.     |
-      +---------+----------------------------+----------------------------+
-      | 8       | unknown-subscriber         | The subscriber is not found|
-      |         |                            | on the service side        |
-      |         |                            | (user_id is unknown).      |
-      +---------+----------------------------+----------------------------+
-      | 11      | unrouted                   | The service name is not    |
-      |         |                            | found on the service side, |
-      |         |                            | or is not linked to an     |
-      |         |                            | existing bot.              |
-      +---------+----------------------------+----------------------------+
-    
-    
-    
 
     .. tab::  VIBER
 
