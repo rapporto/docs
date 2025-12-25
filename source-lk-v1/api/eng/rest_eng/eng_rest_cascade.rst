@@ -1,12 +1,7 @@
 Cascading Message Sending
 ===============================
 
-Description
-------------------
-
-Cascading message sending is the sequential sending of a message via different channels over the message's lifetime (*ttl* parameter). 
-
-The message is resent in case of receiving a status indicating that the message was not successfully sent (if no “DELIVERED“ or “READ“ statuses of the *state* parameter are received).
+Cascading message sending is not available by default. To enable it, the Partner needs to contact his supervising manager.
 
 The service supports the following types of cascading message:
 
@@ -21,13 +16,20 @@ The service supports the following types of cascading message:
 
 When sending it can be any sequence of message types.
 
-The default message lifetime is set when configuring the integration connection or transmitted in the *ttl* parameter when sending the message. The lifetime for each message from the cascade chain is set separately.
+The message is resent in case of receiving a status indicating that the message was not successfully sent (if no ``DELIVERED`` or ``READ`` statuses of the ``state`` parameter are received).
 
-Resending of the FlashingCall (Voice Code) type message is possible only for the “DELIVERED“ status.
+.. raw:: html
 
-To receive reports on all types of messages when sending a cascading message chain you need to specify the value “1“ in the *registeredDelivery* parameter.
+   <div class="admonition note">
+       <p class="admonition-title">Note</p>
+       <p>The default message lifetime is set when configuring the integration connection or transmitted in the <code>ttl</code> parameter when sending the message.</p>
+       <p>The lifetime for each message from the cascade chain is set separately.</p>
 
-Cascading message sending is not available by default. To enable it the Partner needs to contact his supervising manager.
+   </div>                                                                           
+
+Resending of the ``FLASHINGCALL (VOICECODE)`` type message is possible only for the ``DELIVERED`` status.
+
+To receive reports on all types of messages when sending a cascading message chain you need to specify the value ``1`` in the ``registeredDelivery`` parameter.
 
 Request Examples 
 ------------------
@@ -184,6 +186,98 @@ Request Examples
             }
 
 
+    .. tab:: TELEGRAM > SMS
+
+       A request for cascading message sending in a standard sending.
+
+       .. code-block:: json
+          :linenos:
+          :emphasize-lines: 25-36
+
+            {
+               "login": "YOUR_LOGIN",
+               "password": "YOUR_PASSWORD",
+               "destAddr": "SUBSCRIBER'S_NUMBER",
+               "useTimeDiff": true,
+               "id": "superId",
+               "scheduleInfo": 
+               {
+                  "timeBegin": "10:00",
+                  "timeEnd": "12:00",
+                  "weekdaysSchedule": "123"
+               },
+               "message": 
+               {
+                  "type": "TELEGRAM",
+                  "data": 
+                  {
+                     "text": "Hello, world!",
+                     "link": "https://docs.rapporto.ru/",
+                     "serviceNumber": "SENDER'S_NAME",
+                     "ttl": 3600,
+                     "ttlUnit": "SECONDS"
+                  }
+                },
+                "cascadeChainLink": {
+                  "state": "DELIVERED",
+                  "message": {
+                    "type": "SMS",
+                    "data": {
+                      "text": "Hello, world! Follow link <https://docs.rapporto.ru>",
+                      "serviceNumber": "SENDER'S_NAME",
+                      "ttl": 1,
+                      "ttlUnit": "MINUTES"
+                    }
+                  }
+                }
+              }
+
+
+
+    .. tab:: TGCODE > SMS
+
+       A request to send an authorization code to a subscriber via cascading message sending.     
+
+       .. code-block:: json
+          :linenos:
+          :emphasize-lines: 21-32
+
+            {
+              "login": "YOUR_LOGIN",
+              "password": "YOUR_PASSWORD",
+              "destAddr": "SUBSCRIBER'S_NUMBER",
+              "useTimeDiff": true,
+              "id": "superId",
+              "scheduleInfo": {
+                "timeBegin": "10:00",
+                "timeEnd": "12:00",
+                "weekdaysSchedule": "123"
+              },
+              "message": {
+                "type": "TGCODE",
+                "data": {
+                  "text": "Your code: 12345.",
+                  "serviceNumber": "SENDER'S_NAME",
+                  "ttl": 120,
+                  "ttlUnit": "SECONDS"
+                }
+              },
+              "cascadeChainLink": {
+                "state": "DELIVERED",
+                "message": {
+                  "type": "SMS",
+                  "data": {
+                    "text": "Your code: 12345.",
+                    "serviceNumber": "SENDER'S_NAME",
+                    "ttl": 1,
+                    "ttlUnit": "MINUTES"
+                  }
+                }
+              }
+            }
+
+
+
     .. tab:: VK > Viber > FlashingCall (Voice Code) > SMS
 
        .. code-block:: json
@@ -253,7 +347,7 @@ Request Examples
 Request Parameters 
 --------------------
 
-In order to send the chain of messages of various types, an additional block of *CascadeChainLink* parameters shall be transmitted in the request.
+In order to send the chain of messages of various types, an additional block of ``CascadeChainLink`` parameters shall be transmitted in the request.
  
 +--------------------------------+----------+--------------+----------------------------------------------------------------------------------+
 | Parameter                      | Required | Type         | Description                                                                      |

@@ -155,20 +155,16 @@ Message Sending
          |                       |          |             |         <summary>More details</summary>                                         |
          |                       |          |             |         <p>                                                                     |
          |                       |          |             |             This parameter is required to control re-sending and duplication.   |
-         |                       |          |             |             The control service is enabled separately.                          |
+         |                       |          |             |             The control service is enabled separately. The Partner may recall   |
+         |                       |          |             |             the Service Provider (the request to send a message) with the same  |
+         |                       |          |             |             ID several times.                                                   |
          |                       |          |             |         </p>                                                                    |
          |                       |          |             |         <p>                                                                     |
-         |                       |          |             |             The Partner may recall the Service Provider (the request to send    |
-         |                       |          |             |             a message) with the same ID several times. In this case the         |
-         |                       |          |             |             message will be sent to the subscriber only once                    |
+         |                       |          |             |             In this case the message will be sent to the subscriber only once   |                                                                  
          |                       |          |             |             (upon the first request).                                           |
-         |                       |          |             |         </p>                                                                    |
-         |                       |          |             |         <p>                                                                     |
          |                       |          |             |             In response to requests, the Service Provider will return the       |
          |                       |          |             |             same message ID in the Service Provider’s system to the Partner     |
          |                       |          |             |             (the same as for the first request).                                |
-         |                       |          |             |         </p>                                                                    |
-         |                       |          |             |         <p>                                                                     |
          |                       |          |             |             The Service Provider optionally returns this ID to the Partner,     |
          |                       |          |             |             if available in the message delivery report.                        |
          |                       |          |             |         </p>                                                                    |
@@ -417,10 +413,6 @@ Message Sending
          |                       |          |             |             <li>the <code>notifyUrl</code> string must be no more than 2048     |
          |                       |          |             |              characters long.</li>                                              |
          |                       |          |             |         </ul>                                                                   |
-         |                       |          |             |         <p>                                                                     |
-         |                       |          |             |           If any of the specified conditions are not met, an error will be      |
-         |                       |          |             |            generated and the request will not be executed.                      |
-         |                       |          |             |         </p>                                                                    |
          |                       |          |             |     </details>                                                                  |
          +-----------------------+----------+-------------+---------------------------------------------------------------------------------+
 

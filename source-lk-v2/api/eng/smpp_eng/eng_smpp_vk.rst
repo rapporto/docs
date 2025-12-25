@@ -194,6 +194,14 @@ Main Request Parameters
 |                           |                          |     <details>                                                                                              |
 |                           |                          |         <summary>More details</summary>                                                                    |
 |                           |                          |         <p>                                                                                                |
+|                           |                          |             The Service Provider's platform has a restriction, namely, the scheduled date and time         |          
+|                           |                          |             cannot be later than a specified period from the current moment.                               |
+|                           |                          |         </p>                                                                                               |
+|                           |                          |         <p>                                                                                                |
+|                           |                          |             The exact limits of this restriction should be clarified with the Service Provider's           |      
+|                           |                          |             support team.                                                                                  |
+|                           |                          |         </p>                                                                                               |
+|                           |                          |         <p>                                                                                                |
 |                           |                          |             The <code>schedule_delivery_time</code> field can be set in either relative or absolute format.|          
 |                           |                          |         </p>                                                                                               |
 |                           |                          |         <p>                                                                                                |
@@ -225,14 +233,6 @@ Main Request Parameters
 |                           |                          |                 interval has already ended on the current day, its start is moved to the next day.</li>    |
 |                           |                          |             </ul>                                                                                          |
 |                           |                          |         </ul>                                                                                              |
-|                           |                          |         <p>                                                                                                |
-|                           |                          |             The Service Provider's platform has a restriction, namely, the scheduled date and time         |          
-|                           |                          |             cannot be later than a specified period from the current moment.                               |
-|                           |                          |         </p>                                                                                               |
-|                           |                          |         <p>                                                                                                |
-|                           |                          |             The exact limits of this restriction should be clarified with the Service Provider's           |      
-|                           |                          |             support team.                                                                                  |
-|                           |                          |         </p>                                                                                               |
 |                           |                          |     </details>                                                                                             |  
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | validity_period           | string                   | Message lifetime.                                                                                          |

@@ -122,7 +122,7 @@ FlashingCall Request Result
 VoiceCode Request Result
 ----------------------------
 
-| The result of the :term:`VoiceCode` type message request will be a call to the subscriber's phone. When the subscriber picks up the phone, he will hear a voice message that will contain a 4 digit code.
+| The result of the :term:`VoiceCode` type message request will be a call to the subscriber's phone. When the subscriber picks up the phone, he will hear a voice message that will contain a 4 or 6 digit code.
 | To activate this service, you should contact the Technical Support Service and agree on the text of the voice message template.
 
 

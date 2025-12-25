@@ -12,6 +12,19 @@ When creating an SMS mass messaging with identifiers it is necessary to take int
 
 .. tabs::
 
+    .. tab:: File example 
+
+        .. code-block:: 
+           :linenos:
+
+            name: sendout20240916
+            service_number: YOUR_SERVICE_NUMBER
+            auto_start: Y
+            
+            272344713;79036533935;first message
+            435235262;79037537935;another message
+            ...
+                   
     .. tab:: File format
 
         .. code-block:: 
@@ -29,27 +42,14 @@ When creating an SMS mass messaging with identifiers it is necessary to take int
             identifier 2;number 2;message text 2
             ...
             identifier n;number n;text n
-            
+
         .. raw:: html
     
           <div class="admonition note">
               <p class="admonition-title">Note</p>
               <p>In the file, an empty line should separate parameters and the list of numbers with message texts.</p>
           </div>                                                                           
-           
-       
-    .. tab:: File example
 
-        .. code-block:: 
-           :linenos:
-
-            name: sendout20240916
-            service_number: YOUR_SERVICE_NUMBER
-            auto_start: Y
-            
-            272344713;79036533935;first message
-            435235262;79037537935;another message
-            ...
 
     .. tab:: Parameters description
 

@@ -849,7 +849,7 @@ Request Parameters
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | message/data/content  | no       | object       | Parameters for sending images, HTML links and buttons.                         |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
-| | message/data/       | no       | enum         | Content category by the contentUrl link.                                       |
+| | message/data/       | no       | enum         | Content category by the ``contentUrl`` link.                                   |
 | | content/            |          |              |                                                                                |
 | | contentCategory     |          |              | .. raw:: html                                                                  |
 |                       |          |              |                                                                                |
@@ -1104,12 +1104,12 @@ Request Parameters
 | | message/data/       | no       | timestamp    | *timestamp* in ISO 860 format — date and time when Live Activity is considered |
 | | extraOptions/       |          |              | obsolete.                                                                      |
 | | param_value/aps/    |          |              |                                                                                |
-| | stale_date          |          |              |                                                                                |
+| | stale_date *        |          |              |                                                                                |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | | message/data/       | no       | timestamp    | *timestamp* in ISO 8601 format — date and time when Live Activity closes on    |
 | | extraOptions/       |          |              | the lock screen.                                                               |
 | | param_value/aps/    |          |              |                                                                                |
-| | dismissal_date      |          |              | .. raw:: html                                                                  |
+| | dismissal_date *    |          |              | .. raw:: html                                                                  |
 |                       |          |              |                                                                                |
 |                       |          |              |     <details>                                                                  |
 |                       |          |              |         <summary>More details</summary>                                        |
@@ -1124,27 +1124,27 @@ Request Parameters
 | | message/data/       | yes      | timestamp    | *timestamp* in ISO 8601 format.                                                |
 | | extraOptions/       |          |              |                                                                                |
 | | param_value/aps/    |          |              |                                                                                |
-| | timestamp           |          |              |                                                                                |
+| | timestamp *         |          |              |                                                                                |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | | message/data/       | yes      | string       | Event for updating the Live Activity.                                          |
 | | extraOptions/       |          |              |                                                                                |
 | | param_value/aps/    |          |              | .. raw:: html                                                                  |
-| | event               |          |              |                                                                                |
+| | event *             |          |              |                                                                                |
 |                       |          |              |     <details>                                                                  |
 |                       |          |              |         <summary>More details</summary>                                        |
 |                       |          |              |         <p>                                                                    |
 |                       |          |              |             This parameter can take the following values:                      |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |         <ul>                                                                   |
-|                       |          |              |             <li><code>update</code>;</li>                                      |
-|                       |          |              |             <li><code>end</code>.</li>                                         |
+|                       |          |              |             <li><code>update</code> (for update);</li>                         |
+|                       |          |              |             <li><code>end</code> (for deactivation).</li>                      |
 |                       |          |              |         </ul>                                                                  |
 |                       |          |              |     </details>                                                                 |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | | message/data/       | no       | object       | Data that will be displayed in the Live Activity widget.                       |
 | | extraOptions/       |          |              |                                                                                |
 | | param_value/aps/    |          |              | .. raw:: html                                                                  |
-| | content_state       |          |              |                                                                                |
+| | content_state *     |          |              |                                                                                |
 |                       |          |              |     <details>                                                                  |
 |                       |          |              |         <summary>More details</summary>                                        |
 |                       |          |              |         <p>                                                                    |
@@ -1156,7 +1156,7 @@ Request Parameters
 |                       |          |              |             The following data is realized in demo application:                |
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |         <ul>                                                                   |
-|                       |          |              |          <li><strong>deliveryStatus</strong> — status of the activity:         |
+|                       |          |              |          <li><i>deliveryStatus</i> — status of the activity:                   |
 |                       |          |              |           <ul>                                                                 |
 |                       |          |              |            <li>1 — start of a new activity (the usual push notification will   |
 |                       |          |              |              be sent in the request);</li>                                     |
@@ -1166,9 +1166,9 @@ Request Parameters
 |                       |          |              |                <code>event = end</code>;</li>                                  |
 |                       |          |              |         </ul>                                                                  |
 |                       |          |              |           </li>                                                                |
-|                       |          |              |           <li><strong>deliveryTime</strong> — push notification delivery       |
+|                       |          |              |           <li><i>deliveryTime</i> — push notification delivery                 |
 |                       |          |              |            time;</li>                                                          |
-|                       |          |              |           <li><strong>alert</strong> — contains data to be displayed in the    |
+|                       |          |              |           <li><i>alert</i> — contains data to be displayed in the              |
 |                       |          |              |            widget (implemented on the mobile application side).</li>           |
 |                       |          |              |         </ul>                                                                  |
 |                       |          |              |     </details>                                                                 |

@@ -22,77 +22,34 @@ To enable sending VK messages, the Partner has to additionally provide the Servi
 Sending request 
 ---------------------
 
-POST and GET requests are allowed in the HTTP API.
+HTTP method: GET.
 
 Request Examples
 ~~~~~~~~~~~~~~~~~~~~
 
 .. tabs::
 
-    .. tab:: POST requests
+    .. tab:: Text format
 
-        .. tabs::
+        GET request with a message in Latin “test“ in a simple text format.
 
-            .. tab:: Text format
+        .. code-block::
 
-                POST request with a message in Latin “test“ in a simple text format.
+            http://partner.ru/login?clientId=79161234567&message=test&pass=123&serviceId=login
 
-                .. code-block::
+    .. tab:: Text in URL format
 
-                    {
-                        POST /login HTTP/1.1
-                        Host: 10.10.10.10:9080
-                        Content-Type: application/x-www-form-urlencoded;charset=utf-8
-                        Content-Length: 58
-                        serviceId=login&pass=123&clientId=79161234567&message=test
-                    }
+        GET request with the text of the message in Cyrillic “тест“ in URL format.
 
-            .. tab:: Text in URL format
+        .. code-block::
 
-                POST request with the text of the message in Cyrillic “тест“ in URL format.
-
-                .. code-block::
-
-                    {
-                        POST /login HTTP/1.1
-                        Host: 10.241.0.194:9080
-                        Content-Type: application/x-www-form-urlencoded;charset=utf-8
-                        Content-Length: 78
-                        serviceId=login&pass=123&clientId=79161234567&message=%D1%82%D0%B5%D1%81%D1%82
-                    }
-
-
-    .. tab:: GET requests
-
-        .. tabs::
-
-            .. tab:: Text format
-
-                GET request with a message in Latin “test“ in a simple text format.
-
-                .. code-block::
-
-                    {
-                        http://partner.ru/login?clientId=79161234567&message=test&pass=123&serviceId=login
-                    }
-
-            .. tab:: Text in URL format
-
-                GET request with the text of the message in Cyrillic “тест“ in URL format.
-
-                .. code-block::
-
-                    {
-                        http://partner.ru/login?clientId=79161234567&message=%D1%82%D0%B5%D1%81%D1%82&pass=123&serviceId=login
-                    }
+            http://partner.ru/login?clientId=79161234567&message=%D1%82%D0%B5%D1%81%D1%82&pass=123&serviceId=login
 
 
 .. _engHTTP-VK-параметры-запроса:
 
 Request Parameters
 ~~~~~~~~~~~~~~~~~~~~~~
-
-The parameters are applicable for POST and GET requests.
 
 +--------------------+---------+--------------+-------------------------------------------------------------------------------------------------------------------+
 | Parameter          | Required| Type         | Description                                                                                                       |
@@ -199,7 +156,7 @@ The parameters are applicable for POST and GET requests.
 |                    |         |              |            </p>                                                                                                   |
 |                    |         |              |     </div>                                                                                                        |
 |                    |         |              |         <p>                                                                                                       |
-|                    |         |              |             The time zone of the subscriber is determined <b>not</b> by actual location of the subscriber.        |
+|                    |         |              |             The time zone of the subscriber is determined <i>not</i> by actual location of the subscriber.        |
 |                    |         |              |         </p>                                                                                                      |
 |                    |         |              |         <p>                                                                                                       |
 |                    |         |              |             If the Partner doesn't send the <code>time_zone</code> parameter, the time zone of the subscriber     |
@@ -385,10 +342,8 @@ In case of successful processing of the request the Service Provider returns to 
 
         .. code-block:: 
 
-            {
                OK
                4095284974
-            }
 
 
     .. tab:: Response parameters
@@ -403,7 +358,7 @@ In case of successful processing of the request the Service Provider returns to 
         +---------------+-----------------------------------------------------------+-----------------------------------------------------------+
 
 
-
+.. _vКод-ош-при-отпр-запроса:
 
 Sending Errors
 ~~~~~~~~~~~~~~~~~~
@@ -418,11 +373,8 @@ When sending an incorrect request, a short text error message may be transmitted
 
         .. code-block::
 
-            {
                 Invalid password
-            }
 
-    .. _vКод-ош-при-отпр-запроса:
 
     .. tab:: Error codes when sending the request
 
@@ -616,7 +568,6 @@ Response Examples
 
         .. code-block::
 
-            {
                 <?xml version="1.0" encoding="utf-8"?>
                 <response>
                     <code>200</code>
@@ -625,23 +576,20 @@ Response Examples
                         <id>4095284976</id>
                     </payload>
                 </response>
-            }
 
 
 
     .. tab:: Error sending
 
-        Response example in XML format in case of error request sending: invalid combination of serviceId/pass.
+        Response example in XML format in case of error request sending: invalid combination of ``serviceId/pass``.
 
         .. code-block::
 
-            {
                 <?xml version="1.0" encoding="utf-8"?>
                 <response>
                     <code>401</code>
                     <text>Invalid password</text>
                 </response>
-            }
 
         When receiving the status ``500`` or when the timeout of waiting for a response expires, the Partner needs to wait for at least 1 minute. 
         After the pause, the Partner can repeat the request.

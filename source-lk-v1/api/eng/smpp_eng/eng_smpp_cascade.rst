@@ -1,7 +1,7 @@
-Cascade Message Sending
-========================
+Cascading Message Sending
+===========================
 
-Cascade message sending is not available by default. To enable it, the Partner should contact their supervising manager.
+Cascading message sending is not available by default. To enable it, the Partner should contact their supervising manager.
 
 The service supports the following types of cascading message:
 
@@ -61,9 +61,6 @@ Request TLV Parameters
         |                           |                     |                   |                   |             <li><code>v</code> — VK;</li>                             |
         |                           |                     |                   |                   |             <li><code>f</code> — FlashingCall (VoiceCode).</li>       |
         |                           |                     |                   |                   |         </ul>                                                         |  
-        |                           |                     |                   |                   |         <p>                                                           |
-        |                           |                     |                   |                   |             For example, "V,S" or "V,I,S".                            |  
-        |                           |                     |                   |                   |         </p>                                                          |  
         |                           |                     |                   |                   |     </details>                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
 
@@ -200,7 +197,7 @@ Request TLV Parameters
         |                           |                     |                   |                   |         <summary>More details</summary>                               |
         |                           |                     |                   |                   |         <p>                                                           |
         |                           |                     |                   |                   |             The parameter is being processed only after receiving the |  
-        |                           |                     |                   |                   |             <code>0x1437</code> TLV parameter.                        |      
+        |                           |                     |                   |                   |             <code>0x1454</code> TLV parameter.                        |      
         |                           |                     |                   |                   |         </p>                                                          |   
         |                           |                     |                   |                   |     </details>                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
@@ -328,3 +325,6 @@ Request TLV Parameters
         |                           |                     |                   |                   |     </details>                                                        |
         +---------------------------+---------------------+-------------------+-------------------+-----------------------------------------------------------------------+
 
+
+
+        

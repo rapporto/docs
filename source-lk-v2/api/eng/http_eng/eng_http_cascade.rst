@@ -1,12 +1,11 @@
 Cascading Message Sending
 =============================
 
-Description
-------------------
-
 Cascading message sending is the sequential sending of a message via different channels over the message's lifetime. 
 
 The message is resent in case of receiving a status indicating that the message was not successfully sent.
+
+Cascading message sending is not available by default. To enable it, the Partner must contact their supervising manager.
 
 The service supports the following types of cascading message:
 
@@ -67,7 +66,7 @@ Possible parameters of the HTTP request for cascade message resending.
 |                    |              |     <details>                                                                                      |
 |                    |              |         <summary>More details</summary>                                                            |
 |                    |              |         <p>                                                                                        |
-|                    |              |             Here <type> is a character that defines the type of message (<code>i, s, v, f, p,      |
+|                    |              |             Here &lt;type&gt; is a character that defines the type of message (<code>i, s, v, f, p,|
 |                    |              |             w</code>), for which the settings are applied.                                         |
 |                    |              |         </p>                                                                                       |
 |                    |              |         <p>                                                                                        |
@@ -121,7 +120,7 @@ Possible parameters of the HTTP request for cascade message resending.
 |                    |              |     <details>                                                                                      |
 |                    |              |         <summary>More details</summary>                                                            |
 |                    |              |         <p>                                                                                        |
-|                    |              |             Here <type> is a character that defines the type of message (<code>i, s, v, f, p,      |
+|                    |              |             Here &lt;type&gt is a character that defines the type of message (<code>i, s, v, f, p, |
 |                    |              |             w</code>), for which the settings are applied.                                         |
 |                    |              |         </p>                                                                                       |
 |                    |              |         <p>                                                                                        |
@@ -148,7 +147,7 @@ Possible parameters of the HTTP request for cascade message resending.
 |                    |              |     <details>                                                                                      |
 |                    |              |         <summary>More details</summary>                                                            |
 |                    |              |         <p>                                                                                        |
-|                    |              |             Here <type> is a character that defines the type of message (<code>i, s, v, f, p,      |
+|                    |              |             Here &lt;type&gt is a character that defines the type of message (<code>i, s, v, f, p, |
 |                    |              |             w</code>), for which the settings are applied.                                         |
 |                    |              |         </p>                                                                                       |
 |                    |              |         <p>                                                                                        |
@@ -173,7 +172,7 @@ Possible parameters of the HTTP request for cascade message resending.
 |                    |              |     <details>                                                                                      |
 |                    |              |         <summary>More details</summary>                                                            |
 |                    |              |         <p>                                                                                        |
-|                    |              |             Here <type> is a character that defines the type of message (<code>i, s, v, f, p,      |
+|                    |              |             Here &lt;type&gt is a character that defines the type of message (<code>i, s, v, f, p, |
 |                    |              |             w</code>), for which the settings are applied.                                         |
 |                    |              |         </p>                                                                                       |
 |                    |              |         <p>                                                                                        |
@@ -181,26 +180,6 @@ Possible parameters of the HTTP request for cascade message resending.
 |                    |              |             message to the recipient. If the message lifespan has expired and the message has not  |
 |                    |              |             been delivered, it will no longer be delivered to the recipient.                       |
 |                    |              |         </p>                                                                                       |
-|                    |              |         <p>                                                                                        |
-|                    |              |             The value format for the parameter is: <code>YYMMDDhhmmsstnnp</code>, where:           |
-|                    |              |         </p>                                                                                       |
-|                    |              |         <ul>                                                                                       |
-|                    |              |             <li><code>YYMMDDhhmmss</code> — year, month, day, hours, minutes, seconds;</li>        |
-|                    |              |             <li><code>t</code> — tenths of seconds;</li>                                           |
-|                    |              |             <li><code>nn</code> — quarters of an hour (15 minutes each), for example, for 8 hours  |
-|                    |              |                 the value will be <code>32</code>;</li>                                            |
-|                    |              |             <li><code>p</code> — offset.</li>                                                      |
-|                    |              |         </ul>                                                                                      |
-|                    |              |         <p>                                                                                        |
-|                    |              |             Possible values for <code>p</code>:                                                    |
-|                    |              |         </p>                                                                                       |
-|                    |              |         <ul>                                                                                       |
-|                    |              |             <li><code>+</code> and <code>–</code> specify the time offset from GMT in either       |
-|                    |              |                 direction, i.e., <code>08+</code> corresponds to GMT+2, and <code>04–</code>       |
-|                    |              |                 corresponds to GMT–1;</li>                                                         |
-|                    |              |             <li><code>R</code> — the values of <code>t</code> and <code>nn</code> are ignored,     |
-|                    |              |                 everything else is added to the current local time.</li>                           |
-|                    |              |         </ul>                                                                                      |
 |                    |              |         <p>                                                                                        |
 |                    |              |             Acceptable lifespan ranges for different types of messages:                            |
 |                    |              |         </p>                                                                                       |
@@ -213,6 +192,76 @@ Possible parameters of the HTTP request for cascade message resending.
 |                    |              |             <li>WhatsApp — from 1 to 10080 minutes (on the operator's side, the value is rounded   |
 |                    |              |                 to whole days).</li>                                                               |
 |                    |              |         </ul>                                                                                      |
+|                    |              |         <p>                                                                                        |
+|                    |              |             The value format for the parameter is <code>YYMMDDhhmmsstnnp</code>, where:            |
+|                    |              |         </p>                                                                                       |
+|                    |              |         <ul>                                                                                       |
+|                    |              |             <li><code>YY</code> — last two digits of the year;</li>                                |
+|                    |              |             <li><code>MM</code> — a month (from 01 to 12);</li>                                    |
+|                    |              |             <li><code>DD</code> — a day (from 01 to 31);</li>                                      |
+|                    |              |             <li><code>hh</code> — an hour (from 00 to 23);</li>                                    |
+|                    |              |             <li><code>mm</code> — a minute (from 00 to 59);</li>                                   |
+|                    |              |             <li><code>ss</code> — a second (from 00 to 59);</li>                                   |
+|                    |              |             <li><code>t</code> — a tenth of a second  (from 0 to 9);</li>                          |
+|                    |              |             <li><code>nn</code> — a number of quarter-hours (15-minute intervals) indicating the   |
+|                    |              |                 time difference between local time and UTC time (from 00 to 48). For example,      |
+|                    |              |                 for 8 hours the value is 32;</li>                                                  |
+|                    |              |             <li><code>p</code> — an attribute for scheduling message resending and lifespan        |
+|                    |              |                 expiration (in absolute or relative time formats).</li>                            |
+|                    |              |         </ul>                                                                                      |
+|                    |              |         <p>                                                                                        |
+|                    |              |             <i>Possible values for <code>p</code> in the absolute time format:</i>                 |
+|                    |              |         </p>                                                                                       |
+|                    |              |         <ul>                                                                                       |
+|                    |              |             <li><code>+</code> — a shift of the local time in quarter-hour increments ahead of     |
+|                    |              |                 UTC. For example, <code>08+</code> corresponds to GMT+2;</li>                      |
+|                    |              |             <li><code>–</code> — a shift of the local time in quarter-hour increments behind UTC.  |
+|                    |              |                 For example, <code>04–</code>responds to GMT–1.</li>                               |
+|                    |              |         </ul>                                                                                      |
+|                    |              |         <p>                                                                                        |
+|                    |              |             Example 1. In the absolute time format 29.04.2025 22:00:00 (GMT+3) is encoded as       |
+|                    |              |             <code>250429220000012+</code>.                                                         |
+|                    |              |         </p>                                                                                       |
+|                    |              |         <div class="admonition important">                                                         |
+|                    |              |             <p class="admonition-title">Important</p>                                              |
+|                    |              |             <p>In the absolute format <code>250429220000012+</code> for GMT+ timezones, the final  |
+|                    |              |                plus sign must be appropriately encoded when sent in an HTTP request, i.e. in the   |
+|                    |              |                query string it should appear as <code>250429220000012%2B</code>.</p>               |
+|                    |              |         </div>                                                                                     |
+|                    |              |         <p>                                                                                        |
+|                    |              |             <i>The <code>p</code> attribute in the relative time format:</i>                       |
+|                    |              |         </p>                                                                                       |
+|                    |              |         <p>                                                                                        |
+|                    |              |             <code>R</code> — message lifespan relative to the current time.                        |
+|                    |              |         </p>                                                                                       |
+|                    |              |         <p>                                                                                        |
+|                    |              |             The values for tenths of a second (<code>t</code>) and the UTC offset (<code>nn</code>)|
+|                    |              |             are ignored and must be set to <code>0</code> and <code>00</code>, respectively.       |
+|                    |              |         </p>                                                                                       |
+|                    |              |         <p>                                                                                        |
+|                    |              |             Example 2. For a message lifespan of 3 minutes relative to the current time, the       |
+|                    |              |             format is <code>000000000300000R</code>.                                               |
+|                    |              |         </p>                                                                                       |
+|                    |              |         <p>                                                                                        |
+|                    |              |             <b>Absolute time format</b>                                                            |
+|                    |              |         </p>                                                                                       |
+|                    |              |         <p>                                                                                        |
+|                    |              |             The default format. The scheduled resending time and message lifespan expiration are   |
+|                    |              |             specified in the global UTC format, including a quarter-hour offset and a direction    |
+|                    |              |             symbol (<code>+</code> or <code>–</code>).                                             |
+|                    |              |         </p>                                                                                       |
+|                    |              |         <p>                                                                                        |
+|                    |              |             <b>Relative time format</b>                                                            |
+|                    |              |         </p>                                                                                       |
+|                    |              |         <p>                                                                                        |
+|                    |              |             Relative time can be specified by setting the UTC orientation flag to <code>R</code>   |
+|                    |              |             instead of <code>+</code> or <code>–</code>. In this format, the time is interpreted   |
+|                    |              |             as a number of years, months, days, hours, minutes, and seconds relative to the        |
+|                    |              |             current time.                                                                          |
+|                    |              |             <br>For example, the following time format <code>020610233429000R</code>  will be      |
+|                    |              |             interpreted as a relative period of 2 years, 6 months, 10 days, 23 hours, 34 minutes,  |
+|                    |              |             and 29 seconds from the current time.                                                  |
+|                    |              |         </p>                                                                                       |
 |                    |              |     </details>                                                                                     |
 +--------------------+--------------+----------------------------------------------------------------------------------------------------+
 | shorten_list       | string       | Parameter designed to control the shortening of links in various types of cascaded messages.       |
@@ -262,6 +311,9 @@ Possible parameters of the HTTP request for cascade message resending.
     
     <div class="admonition note">
         <p class="admonition-title">Note</p>
+        <p>
+        Example of the sequence for a configured cascading message sending: VK → Viber → SMS.
+        </p>
         <ol>
             <li>The message will be sent into VK.</li>
             <li>If the message is successfully delivered, the cascading is completed (go to step 6).</li>

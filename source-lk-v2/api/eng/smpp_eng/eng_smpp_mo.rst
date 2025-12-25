@@ -54,8 +54,8 @@ The table below describes the parameters used in the Service Provider's request 
 |                           |                          |             Depending on the content, the text is sent in one of two encodings:                            |         
 |                           |                          |         </p>                                                                                               |
 |                           |                          |         <ul>                                                                                               |
-|                           |                          |             <li>GSM DEFAULT ALPHABET (<code>data_coding</code> = <code>0</code>);</li>                     |
-|                           |                          |             <li>UCS2 (<code>data_coding</code> = <code>8</code>).</li>                                     |
+|                           |                          |             <li>GSM DEFAULT ALPHABET (<code>data_coding = 0</code>);</li>                                  |
+|                           |                          |             <li>UCS2 (<code>data_coding = 8</code>).</li>                                                  |
 |                           |                          |         </ul>                                                                                              |  
 |                           |                          |         <p>                                                                                                |
 |                           |                          |             It is also possible to use the ASCII encoding for <code>data_coding</code> = <code>0</code>    |         

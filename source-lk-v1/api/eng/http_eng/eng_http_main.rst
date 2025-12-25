@@ -19,6 +19,7 @@ When integrating via HTTP API, the transmission of the following types of messag
 - :doc:`VIBER <eng_http_viber>`;
 - :doc:`VK <eng_http_vk>`;
 - :doc:`WHATSAPP <eng_http_whatsapp>`;
+- :doc:`TGCODE <eng_http_tg_auth_codes>`.
 
 .. toctree::
    :maxdepth: 1
@@ -32,8 +33,8 @@ When integrating via HTTP API, the transmission of the following types of messag
    eng_http_vk
    eng_http_push
    eng_http_flashcall
+   eng_http_tg_auth_codes
    eng_http_cascade
    eng_http_mo
    eng_http_status
    eng_http_short_link
-   

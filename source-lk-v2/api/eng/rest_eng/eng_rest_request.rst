@@ -5,7 +5,7 @@ Request Structure
 Interaction with the Platform
 -------------------------------
 
-To interact with the Service Provider platform, the Partner makes requests using the POST method. 
+To interact with the Service Provider platform, the Partner makes standard requests in JSON format.
 
 To send a message to a subscriber, the Partner calls the URL of the Service Provider and sends the subscriber's number, message text and other parameters. 
 

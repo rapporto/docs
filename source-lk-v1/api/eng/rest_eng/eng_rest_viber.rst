@@ -407,7 +407,7 @@ Parameters
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     </details>                                                                  |
 +-----------------------+----------+-------------+---------------------------------------------------------------------------------+     
-| | instantContent/     | yes      | string      | :term:`URL` of an image to be transmitted.                                      |
+| | instantContent/     | yes      | string      | URL of an image to be transmitted.                                              |
 | | data/imageURL       |          |             |                                                                                 |
 |                       |          |             | .. raw:: html                                                                   |
 |                       |          |             |                                                                                 |

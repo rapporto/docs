@@ -53,9 +53,9 @@ The table provides examples for a scenario where the *VK → SMS* sending combin
 Settings for Receiving Statuses
 ---------------------------------
 
-To receive message delivery status notifications, the ``registered_delivery`` = <code>1</code> parameter should be specified when sending the ``submit_sm`` packet.
+To receive message delivery status notifications, the ``registered_delivery`` = 1 parameter should be specified when sending the ``submit_sm`` packet.
 
-The ``deliver_sm`` packet with the ``esm_class`` = <code>0x04</code> parameter is used to send delivery reports from the Service Provider's platform to the Partner's service.
+The ``deliver_sm`` packet with the ``esm_class`` = 0x04 parameter is used to send delivery reports from the Service Provider's platform to the Partner's service.
 The packet format complies with the SMPP 3.4 specification, Appendix B.
 
 The number of logical parts of the message is a calculated value determined internally within the Service Provider's platform. 
@@ -77,12 +77,20 @@ The table below describes parameters of the ``deliver_sm`` packet transmitted fr
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 | dest_addr                 | string                   | Service name.                                                                                              |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
-| short_message             | string                   | | Read report.                                                                                             |
-|                           |                          | | The delivery/read report is generated as a string:                                                       |
-|                           |                          |   ``id: IIIIIIIIII sub: SSS dlvrd: DDD submit date: YYMMDDhhmm                                             |
-|                           |                          |   done date: YYMMDDhhmm stat: DDDDDDD seen date: YYMMDDhhmm err: E text: ...``.                            |
+| short_message             | string                   | Read report.                                                                                               |
+|                           |                          |                                                                                                            |
+|                           |                          | .. raw:: html                                                                                              |
+|                           |                          |                                                                                                            |
+|                           |                          |     <details>                                                                                              |
+|                           |                          |         <summary>Подробнее</summary>                                                                       |
+|                           |                          |         <p>                                                                                                |
+|                           |                          |          The delivery/read report is generated as a string:                                                |
+|                           |                          |          <code>id: IIIIIIIIII sub: SSS dlvrd: DDD submit date: YYMMDDhhmm                                  |
+|                           |                          |           done date: YYMMDDhhmm stat: DDDDDDD seen date: YYMMDDhhmm err: E text: ...</code>.               |
+|                           |                          |         </p>                                                                                               |
+|                           |                          |     </details>                                                                                             |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
-| esm_class                 | string                   | Use ``esm_class`` = ``4`` when sending a delivery status notification.                                     |
+| esm_class                 | string                   | Use ``esm_class`` = 4 when sending a delivery status notification.                                         |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
 
 
@@ -295,7 +303,7 @@ This section describes errors that may occur when sending different message type
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
       | 6       | The subscriber does not have the message receiving service subscribed.                                                                         |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 10       | The message was discarded by the platform because one of the message filters, such as a spam filter, was triggered.                           |
+      | 10      | The message was discarded by the platform because one of the message filters, such as a spam filter, was triggered.                            |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
       | 11      | Routing error in the platform configuration.                                                                                                   |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+

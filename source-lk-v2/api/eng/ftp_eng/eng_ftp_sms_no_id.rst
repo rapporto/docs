@@ -87,6 +87,9 @@ When creating an SMS mass messaging without identifiers it is necessary to take 
         |                         |          |             <li><code>Y</code> — yes;</li>                                                               |           
         |                         |          |             <li><code>N</code> — no.</li>                                                                |
         |                         |          |         </ul>                                                                                            |
+        |                         |          |         <p>                                                                                              |
+        |                         |          |             The use of this function requires a separate agreement.                                      |
+        |                         |          |         </p>                                                                                             |
         |                         |          |     </details>                                                                                           |
         +-------------------------+----------+----------------------------------------------------------------------------------------------------------+
         | time_begin              | no       | Lower bound of the time interval in which the delivery will be carried out.                              |

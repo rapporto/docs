@@ -1,49 +1,13 @@
-Telegram
-==========
+Telegram Message Sending
+==========================
 
 The following types of Telegram messages are supported:
 
 *  text only;
 *  text + link to follow.
 
-Request to Send Telegram Messages
-----------------------------------------------
-
 Request Examples 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. raw:: html
-
-   <p style="line-height: 24px;">To generate a test request with your parameters, please 
-       <a href="https://doc.rapporto.ru/generator/" target="_blank" class="button">
-           <img src="../../../_static/link-external-01.svg" class="bttn-icon" alt="Внешняя ссылка"> open the request generator.
-       </a>
-   </p>
-   <style>
-       .bttn-icon {
-           width: 18px;
-           height: 18px;
-           vertical-align: middle;  /* Центрирует иконку по вертикали */
-           border: 0;
-           margin-right: 4px;
-       }       
-       .button {
-           border: 0;
-           height: 36px;
-           text-decoration: none; /* Убирает подчеркивание */
-           color: #000; /* Цвет текста */
-           background-color: transparent; /* Цвет фона кнопки */
-           padding: 4px 4px; /* Отступы */
-           border-radius: 4px; /* Закругленные углы */
-           display: inline-flex; /* Позволяет выровнять текст и иконку по центру */
-           align-items: center; /* Центрирует содержимое кнопки */
-           line-height: 1; /* Убирает лишние отступы */
-       }
-       .button:hover {
-           background-color: #f8f7ff; /* Цвет фона при наведении */
-           text-decoration: none; /* Убирает подчеркивание */
-       }
-   </style>
 
 .. tabs::
 
@@ -51,7 +15,7 @@ Request Examples
 
       .. code-block:: json
          :linenos:
-         :emphasize-lines: 5,7-11
+         :emphasize-lines: 18
 
          {
             "login": "Login",
@@ -85,6 +49,7 @@ Request Examples
 
        .. code-block:: json
           :linenos:
+          :emphasize-lines: 18,19
 
             {
                "login": "Login",
@@ -115,8 +80,8 @@ Request Examples
 
   
 
-Parameters
-~~~~~~~~~~~~~~
+Request Parameters
+~~~~~~~~~~~~~~~~~~~~
 
 +-----------------------+----------+-------------+---------------------------------------------------------------------------------+
 | Parameter             | Required | Data type   | Description                                                                     |
@@ -124,6 +89,25 @@ Parameters
 | login                 | yes      | string      | Partner's name.                                                                 |
 +-----------------------+----------+-------------+---------------------------------------------------------------------------------+
 | password              | yes      | string      | Partner's password for sending messages.                                        |
++-----------------------+----------+-------------+---------------------------------------------------------------------------------+
+| destAddr              | yes      | string      | Subscriber's phone number.                                                      |
+|                       |          |             |                                                                                 |
+|                       |          |             | .. raw:: html                                                                   |
+|                       |          |             |                                                                                 |
+|                       |          |             |     <details>                                                                   |
+|                       |          |             |         <summary>More details</summary>                                         |
+|                       |          |             |         <p>                                                                     |
+|                       |          |             |             It contains the country code, operator code and phone number.       |
+|                       |          |             |         </p>                                                                    |
+|                       |          |             |         <p>                                                                     |
+|                       |          |             |             For the Russian Federation, the code can be <code>8</code>,         |
+|                       |          |             |             <code>7</code> or <code>+7</code>.                                  |
+|                       |          |             |         </p>                                                                    |
+|                       |          |             |         <p>                                                                     |
+|                       |          |             |             Examples: <code>72101234567</code>, <code>+72101234567</code>,      |   
+|                       |          |             |             <code>8-210-123-45-67</code>, <code>82101234567</code>.             |                   
+|                       |          |             |         </p>                                                                    |
+|                       |          |             |     </details>                                                                  |
 +-----------------------+----------+-------------+---------------------------------------------------------------------------------+
 | useTimeDiff           | no       | boolean     | Taking into account the time zone when starting messaging.                      |
 |                       |          |             |                                                                                 |
@@ -227,28 +211,23 @@ Parameters
 |                       |          |             |     <details>                                                                   |
 |                       |          |             |         <summary>More details</summary>                                         |
 |                       |          |             |         <p>                                                                     |
+|                       |          |             |             Specify the end date for message sending.                           |
+|                       |          |             |         </p>                                                                    |
+|                       |          |             |         <p>                                                                     |
 |                       |          |             |             For example: <code>2024-05-10T16:29:30+0300</code>.                 |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     </details>                                                                  |
 +-----------------------+----------+-------------+---------------------------------------------------------------------------------+
-| destAddr              | yes      | string      | Subscriber's phone number.                                                      |
+| message               | yes      | object      | Parameters of a message being sent.                                             |
 |                       |          |             |                                                                                 |
 |                       |          |             | .. raw:: html                                                                   |
 |                       |          |             |                                                                                 |
 |                       |          |             |     <details>                                                                   |
 |                       |          |             |         <summary>More details</summary>                                         |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |             It contains the country code, operator code and phone number.       |
-|                       |          |             |             For the Russian Federation, the code can be <code>8</code>,         |
-|                       |          |             |             <code>7</code> or <code>+7</code>.                                  |
-|                       |          |             |         </p>                                                                    |
-|                       |          |             |         <p>                                                                     |
-|                       |          |             |             Examples: <code>72101234567</code>, <code>+72101234567</code>,      |
-|                       |          |             |             <code>8-210-123-45-67</code>, <code>82101234567</code>.             |
+|                       |          |             |            It contains information about the message type and its content.      |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     </details>                                                                  |
-+-----------------------+----------+-------------+---------------------------------------------------------------------------------+  
-| message               | yes      | object      | Parameters of a message being sent.                                             |
 +-----------------------+----------+-------------+---------------------------------------------------------------------------------+
 | message/type          | yes      | enum        | Message type.                                                                   |
 |                       |          |             |                                                                                 |
@@ -257,7 +236,7 @@ Parameters
 |                       |          |             |     <details>                                                                   |
 |                       |          |             |         <summary>More details</summary>                                         |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |             The value of <code>TELEGRAM</code> is transmitted.                  |
+|                       |          |             |             Specify the <code>TELEGRAM</code> value.                            |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     </details>                                                                  |
 +-----------------------+----------+-------------+---------------------------------------------------------------------------------+
@@ -268,9 +247,9 @@ Parameters
 |                       |          |             |     <details>                                                                   |
 |                       |          |             |         <summary>More details</summary>                                         |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |             To send only text, specify the <code>text</code> attribute.         |
+|                       |          |             |             To send a text only, specify the <code>text</code> attribute.       |
 |                       |          |             |         </p>                                                                    |
-|                       |          |             |             To send text and link specify the <code>text</code> and             |
+|                       |          |             |             To send a text and a link specify the <code>text</code> and         |
 |                       |          |             |             <code>link</code> attributes.                                       |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     </details>                                                                  |
@@ -285,7 +264,7 @@ Parameters
 |                       |          |             |            Character limit: no more than 1000.                                  |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |            The text of the message can be in Cyrillic or Latin, and contain     |
+|                       |          |             |            The text of the message can be in Cyrillic or Latin, and may contain |
 |                       |          |             |            emojis.                                                              |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     </details>                                                                  |
@@ -297,22 +276,31 @@ Parameters
 |                       |          |             |     <details>                                                                   |
 |                       |          |             |         <summary>More details</summary>                                         |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |             Character limit: no more than 256.                                  |
+|                       |          |             |             Number of characters: no more than 256.                             |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |         <p>                                                                     |
 |                       |          |             |            If the link length exceeds the specified value, the message          |
-|                       |          |             |            will be rejected with an error. Error text: "The value limit of      |
-|                       |          |             |            <code>link</code> parameter is exceeded in the message".             |
+|                       |          |             |            will be rejected with an error. The error text: "The value limit of  |
+|                       |          |             |            the <code>link</code> parameter is exceeded in the message".         |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |         <p>                                                                     |
 |                       |          |             |             If an empty parameter is passed, the message will be rejected with  |
-|                       |          |             |             an error. Error text: "The message is missing a value for the       |
+|                       |          |             |             an error. The error text: "The message is missing a value for the   |
 |                       |          |             |             <code>link</code> parameter".                                       |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     </details>                                                                  |
 +-----------------------+----------+-------------+---------------------------------------------------------------------------------+
 | | message/data/       | no       | string      | Sender's name from which the message is being sent.                             |
 | | serviceNumber       |          |             |                                                                                 |
+|                       |          |             | .. raw:: html                                                                   |
+|                       |          |             |                                                                                 |
+|                       |          |             |     <details>                                                                   |
+|                       |          |             |         <summary>More details</summary>                                         |
+|                       |          |             |         <p>                                                                     |
+|                       |          |             |            To send the message successfully, please double-check that the       |
+|                       |          |             |            service name is correct.                                             |
+|                       |          |             |         </p>                                                                    |
+|                       |          |             |     </details>                                                                  |
 +-----------------------+----------+-------------+---------------------------------------------------------------------------------+
 | | message/data/       | no       | integer     | Message lifetime.                                                               |
 | | ttl                 |          |             |                                                                                 |
@@ -321,7 +309,7 @@ Parameters
 |                       |          |             |     <details>                                                                   |
 |                       |          |             |         <summary>More details</summary>                                         |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |             Acceptable range in seconds: from 31 to 86400.                      |
+|                       |          |             |             Acceptable range in seconds: from 30 to 86400.                      |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     <div class="admonition note">                                               |
 |                       |          |             |         <p class="admonition-title">Note</p>                                    |
@@ -363,11 +351,16 @@ Parameters
 |                       |          |             |                                                                                 |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |            The comma character cannot be included in the parameter name,        |
-|                       |          |             |            but it can be included in its value — in this case it must be doubled|
-|                       |          |             |            Example: the string                                                  | 
-|                       |          |             |            <code>place=abzakovo,name=guest house-2,coordinates=53.8085896,,     |
-|                       |          |             |            58.6362112,from=23.02.09,to=05.03.09</code>.                         |
+|                       |          |             |             Example: the string                                                 |
+|                       |          |             |             <code>place=abzakovo,name=guest house-3</code>                      |
+|                       |          |             |         </p>                                                                    |
+|                       |          |             |         <p>                                                                     |
+|                       |          |             |            The comma character cannot be included in the parameter name, but it |
+|                       |          |             |            can be included in its value — in this case it must be doubled.      |
+|                       |          |             |         </p>                                                                    |
+|                       |          |             |         <p>                                                                     |
+|                       |          |             |            Example:                                                             | 
+|                       |          |             |            <code>coordinates=53.8085896,,58.6362112</code>                      |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     </details>                                                                  |
 +-----------------------+----------+-------------+---------------------------------------------------------------------------------+
@@ -386,7 +379,8 @@ Parameters
 |                       |          |             |         <ul>                                                                    |
 |                       |          |             |             <li><code>0</code> — statuses are not required;</li>                |
 |                       |          |             |             <li><code>1</code> — statuses are required (by default);</li>       |
-|                       |          |             |             <li><code>2</code> — only "Undelivered" status is required.         |
+|                       |          |             |             <li><code>2</code> — only the <code>Undelivered</code>              |
+|                       |          |             |                 status is required. </li>                                       |
 |                       |          |             |         </ul>                                                                   |
 |                       |          |             |     </details>                                                                  |
 +-----------------------+----------+-------------+---------------------------------------------------------------------------------+
@@ -402,7 +396,7 @@ Parameters
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |         <ul>                                                                    |
 |                       |          |             |             <li>if the parameter is specified, it cannot be empty;</li>         |
-|                       |          |             |             <li>the <code>notifyUrl</code> string must be no more 2048          |
+|                       |          |             |             <li>the <code>notifyUrl</code> string must be no more than 2048     |
 |                       |          |             |             characters.</li>                                                    |
 |                       |          |             |         </ul>                                                                   |
 |                       |          |             |         <p>                                                                     |
@@ -418,8 +412,9 @@ Parameters
 |                       |          |             |     <details>                                                                   |
 |                       |          |             |         <summary>More details</summary>                                         |
 |                       |          |             |         <p>                                                                     |
-|                       |          |             |             See <a href="https://doc.rapporto.ru/api/rest/rest_cascade.html">   |                 
-|                       |          |             |             Cascading Message Sending</a>.                                      |
+|                       |          |             |        See                                                                      |
+|                       |          |             |        <a href="https://doc.rapporto.ru/api/eng/rest_eng/eng_rest_cascade.html">|                 
+|                       |          |             |        Cascading Message Sending</a>.                                           |
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     </details>                                                                  |
 +-----------------------+----------+-------------+---------------------------------------------------------------------------------+ 
@@ -428,10 +423,12 @@ Parameters
 Response 
 --------------------
 
-After sending a message the Service Provider returns a response synchronously. In case of successful sending the Service Provider returns the ``200 OK`` HTTP-code.
+After sending a message the Service Provider returns a response synchronously. 
 
 Successful Telegram Sending
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In case of successful sending the Service Provider returns the ``200 OK`` HTTP-code.
 
 .. tabs::
 
@@ -533,7 +530,7 @@ Error Codes
 Telegram Delivery Statuses
 --------------------------------------
 
-To receive Telegram message statuses, you need to set up the :doc:`eng_rest_status`.
+To receive Telegram message statuses, you need to set up the :doc:`../eng_rest_status`.
 
 Request Example
 ~~~~~~~~~~~~~~~~~~
@@ -621,8 +618,8 @@ Additional parameters are intended for transmitting accurate statistics in Teleg
          +-----------------+----------+-------------------------+----------------------------------------------------------------------------------+
          | eventDate       | yes      | string                  | Date and time of the event in ``YYYY-MM-DDThh:mm:ss+TMZN`` format.               |
          +-----------------+----------+-------------------------+----------------------------------------------------------------------------------+
-         | viewsCount      | yes      | integer                 | The total number of displays for the message, including the current display.     |
+         | viewsCount      | yes      | integer                 | Total number of displays for the message, including the current display.         |
          +-----------------+----------+-------------------------+----------------------------------------------------------------------------------+
-         | clicksCount     | yes      | integer                 | The total number of clicking for the message, including the current click.       |
+         | clicksCount     | yes      | integer                 | Total number of clicking for the message, including the current click.           |
          +-----------------+----------+-------------------------+----------------------------------------------------------------------------------+
 
