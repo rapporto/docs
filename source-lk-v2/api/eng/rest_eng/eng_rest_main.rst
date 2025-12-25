@@ -27,10 +27,10 @@ When integrating via REST API, the transmission of the following types of messag
    eng_rest_auth
    eng_rest_request
    eng_rest_sms
-   eng_rest_viber
-   eng_rest_tg/eng_index_tg
    eng_rest_push
+   eng_rest_tg/eng_index_tg
    eng_rest_vk
+   eng_rest_viber
    eng_rest_whatsapp
    eng_rest_flashcall
    eng_rest_cardsmobile
