@@ -16,7 +16,6 @@ SMPP API
    smpp_cascade
    smpp_mo
    smpp_status
-   smpp_short_link
 
 
 
