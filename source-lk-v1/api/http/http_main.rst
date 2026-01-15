@@ -33,4 +33,3 @@ HTTP API
    http_cascade
    http_mo
    http_status
-   http_short_link
