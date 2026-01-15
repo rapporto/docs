@@ -50,7 +50,6 @@
               "password": "ВАШ_ПАРОЛЬ",
               "useTimeDiff": true,
               "id": "superId",
-              "shortenLinks": false,
               "scheduleInfo": {
                 "timeBegin": "10:00",
                 "timeEnd": "12:00",

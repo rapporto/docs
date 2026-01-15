@@ -656,36 +656,6 @@ Request Parameters
 |                       |          |              |         </p>                                                                   |
 |                       |          |              |     </details>                                                                 |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
-| shortenLinks          | no       | boolean      | Parameter enables automatic shortening of URL strings in the message.          |
-|                       |          |              |                                                                                |
-|                       |          |              | .. raw:: html                                                                  |
-|                       |          |              |                                                                                |
-|                       |          |              |     <details>                                                                  |
-|                       |          |              |         <summary>More details</summary>                                        |
-|                       |          |              |         <p>                                                                    |
-|                       |          |              |             Possible values are:                                               |
-|                       |          |              |         </p>                                                                   |
-|                       |          |              |         <ul>                                                                   |
-|                       |          |              |             <li><code>true</code> — to shorten links (by default);</li>        |
-|                       |          |              |             <li><code>false</code> — shortening link is not required.</li>     |
-|                       |          |              |         </ul>                                                                  |
-|                       |          |              |         <p>                                                                    |
-|                       |          |              |             If the parameter is not received in the request, but the service   |
-|                       |          |              |             is available to the Partner, the links will be shortened           |
-|                       |          |              |             by default.                                                        |
-|                       |          |              |         </p>                                                                   |
-|                       |          |              |         <p>                                                                    |
-|                       |          |              |             For more details:                                                  |
-|                       |          |              |             <a href="https://doc.rapporto.ru/api/eng/rest_eng/                 |
-|                       |          |              |             eng_rest_short_link.html">Link Shortening Service</a>.             |
-|                       |          |              |         </p>                                                                   |
-|                       |          |              |     <div class="admonition note">                                              |
-|                       |          |              |         <p class="admonition-title">Note</p>                                   |
-|                       |          |              |         <p>The ability to use this service is previously agreed with and       |
-|                       |          |              |            configured by the Service Provider.</p>                             |
-|                       |          |              |     </div>                                                                     |
-|                       |          |              |     </details>                                                                 |
-+-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | _`destAddr`           | no       | string       | Subscriber's phone number.                                                     |
 |                       |          |              |                                                                                |
 |                       |          |              | .. raw:: html                                                                  |

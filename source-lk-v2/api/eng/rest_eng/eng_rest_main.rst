@@ -37,4 +37,3 @@ When integrating via REST API, the transmission of the following types of messag
    eng_rest_cascade
    eng_rest_mo
    eng_rest_status
-   eng_rest_short_link

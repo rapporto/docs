@@ -7,7 +7,7 @@ Features of :abbr:`VK (VKontakte social network)` Messages
 When sending messages to VKontakte social network, the following features should be considered:
 
 1.	The Partner can only send text messages with a maximum length of 2048 characters.
-2.	Messages may contain links. If necessary, links may be shortened (see :doc:`eng_smpp_short_link`).
+2.	Messages may contain links.
 3.	Messages are sent from a VK group to any VK user via their phone number.
 4.	The Partner can send no more than 50 messages per second from one VK group.
 5.	The Partner can send no more than 5 messages per day to one user from one VK group.
@@ -63,9 +63,8 @@ This packet contains all the necessary message parameters and may also include o
     
     <div class="admonition note">
         <p class="admonition-title">Note</p>
-        <p>If additional functionality is required, specify the values for the corresponding TLV parameters. These parameters are described in the following sections of the website:
-        <li><a href="https://doc.rapporto.ru/api/eng/smpp_eng/eng_smpp_cascade.html">Cascade Message Sending</a> </li> 
-        <li><a href="https://doc.rapporto.ru/api/eng/smpp_eng/eng_smpp_short_link.html">Link Shortening Service</a> </li> 
+        <p>If additional functionality is required, specify the values for the corresponding TLV parameters. These parameters are described in the following section of the website:
+        <a href="https://doc.rapporto.ru/api/eng/smpp_eng/eng_smpp_cascade.html">Cascade Message Sending</a>. 
     </div>                                                                           
 
 Main Request Parameters

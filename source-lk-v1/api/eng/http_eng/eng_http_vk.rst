@@ -281,33 +281,6 @@ Request Parameters
 |                    |         |              |         </p>                                                                                                      |
 |                    |         |              |     </details>                                                                                                    |
 +--------------------+---------+--------------+-------------------------------------------------------------------------------------------------------------------+
-| shortenLinks       | no      | boolean      | Parameter specifies whether to shorten links in the message text.                                                 |
-|                    |         |              |                                                                                                                   |
-|                    |         |              | .. raw:: html                                                                                                     |
-|                    |         |              |                                                                                                                   |
-|                    |         |              |     <details>                                                                                                     |
-|                    |         |              |         <summary>More details</summary>                                                                           |
-|                    |         |              |     <div class="admonition important">                                                                            |    
-|                    |         |              |         <p class="admonition-title">Important</p>                                                                 |
-|                    |         |              |         <p>It is used for single messages only.</p>                                                               |
-|                    |         |              |     </div>                                                                                                        |
-|                    |         |              |         <p>                                                                                                       |
-|                    |         |              |             If cascade resending, you need to use the <code>shorten_list</code> parameter  (see                   |
-|                    |         |              |             <a href="https://doc.rapporto.ru/api/eng/http_eng/eng_http_cascade.html">                             |
-|                    |         |              |             Cascading Message Sending</a>).                                                                       |
-|                    |         |              |         </p>                                                                                                      |
-|                    |         |              |     <div class="admonition important">                                                                            |
-|                    |         |              |         <p class="admonition-title">Important</p>                                                                 |
-|                    |         |              |         <p>This option is not available by default. The activation of this functionality should be agreed with    |
-|                    |         |              |            your manager.</p>                                                                                      |                                                                          
-|                    |         |              |     </div>                                                                                                        |
-|                    |         |              |         <p>                                                                                                       |
-|                    |         |              |             For more details: see                                                                                 |
-|                    |         |              |             <a href="https://doc.rapporto.ru/api/eng/http_eng/eng_http_short_link.html">                          |
-|                    |         |              |             Link Shortening Service</a>.                                                                          |
-|                    |         |              |         </p>                                                                                                      |
-|                    |         |              |     </details>                                                                                                    |
-+--------------------+---------+--------------+-------------------------------------------------------------------------------------------------------------------+
 
 
 
