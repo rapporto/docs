@@ -264,48 +264,6 @@ Possible parameters of the HTTP request for cascade message resending.
 |                    |              |         </p>                                                                                       |
 |                    |              |     </details>                                                                                     |
 +--------------------+--------------+----------------------------------------------------------------------------------------------------+
-| shorten_list       | string       | Parameter designed to control the shortening of links in various types of cascaded messages.       |
-|                    |              |                                                                                                    |
-|                    |              | .. raw:: html                                                                                      |
-|                    |              |                                                                                                    |
-|                    |              |     <details>                                                                                      |
-|                    |              |         <summary>More details</summary>                                                            |
-|                    |              |     <div class="admonition important">                                                             |
-|                    |              |         <p class="admonition-title">Important</p>                                                  |
-|                    |              |         <p>This parameter will only be processed if the <code>order_list</code>                    |
-|                    |              |            parameter is provided.</p>                                                              |
-|                    |              |     </div>                                                                                         |
-|                    |              |         </p>                                                                                       |
-|                    |              |         <p>                                                                                        |
-|                    |              |             The value of the <code>shorten_list</code> parameter may contain:                      |
-|                    |              |         </p>                                                                                       |
-|                    |              |         <ul>                                                                                       |
-|                    |              |             <li>a list of message types (comma-separated) for which links need to be               |
-|                    |              |                 shortened;</li>                                                                    |
-|                    |              |             <li>an empty value (<code>shorten_list = </code>) if link shortening is not required   |
-|                    |              |                 for all message types.</li>                                                        |
-|                    |              |         </ul>                                                                                      |
-|                    |              |         <p>                                                                                        |
-|                    |              |             Possible values (case insensitive):                                                    |
-|                    |              |         </p>                                                                                       |
-|                    |              |         <ul>                                                                                       |
-|                    |              |             <li><code>s</code> — SMS;</li>                                                         |
-|                    |              |             <li><code>p</code> — Push;</li>                                                        |
-|                    |              |             <li><code>v</code> — VK;</li>                                                          |
-|                    |              |             <li><code>i</code> — Viber;</li>                                                       |
-|                    |              |             <li><code>w</code> — WhatsApp.</li>                                                    |
-|                    |              |         </ul>                                                                                      |
-|                    |              |         <p>                                                                                        |
-|                    |              |             Example: <code>shorten_list = S,I</code> means that links will be shortened only       |
-|                    |              |             in SMS and Viber messages of the cascade.                                              |
-|                    |              |         </p>                                                                                       |
-|                    |              |         <p>                                                                                        |
-|                    |              |             By default, the <a href="https://docs.rapporto.ru/api/http/http_short_link.html">Link  |
-|                    |              |             Shortening Service</a> is not available. To enable it, please contact your account     |
-|                    |              |             manager.                                                                               |
-|                    |              |         </p>                                                                                       |
-|                    |              |     </details>                                                                                     |
-+--------------------+--------------+----------------------------------------------------------------------------------------------------+
 
 .. raw:: html
     

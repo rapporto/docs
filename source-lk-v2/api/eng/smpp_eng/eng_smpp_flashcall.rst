@@ -11,9 +11,8 @@ This packet contains all the necessary message parameters (optionally, also :abb
     
     <div class="admonition note">
         <p class="admonition-title">Note</p>
-        <p>If additional functionality is required, specify the values for the corresponding TLV parameters. Their descriptions are provided in the following sections of the website: 
-        <li><a href="https://doc.rapporto.ru/api/eng/smpp_eng/eng_smpp_cascade.html">Cascade Message Sending</a> </li> 
-        <li><a href="https://doc.rapporto.ru/api/eng/smpp_eng/eng_smpp_short_link.html">Link Shortening Service</a> </li> 
+        <p>If additional functionality is required, specify the values for the corresponding TLV parameters. Their descriptions are provided in the following section of the website: 
+        <a href="https://doc.rapporto.ru/api/eng/smpp_eng/eng_smpp_cascade.html">Cascade Message Sending</a>.
     </div>                                                                           
 
 

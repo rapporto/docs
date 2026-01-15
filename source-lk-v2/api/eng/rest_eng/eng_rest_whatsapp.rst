@@ -161,33 +161,6 @@ Request Parameters
 |                       |          |             |         </p>                                                                    |
 |                       |          |             |     </details>                                                                  |
 +-----------------------+----------+-------------+---------------------------------------------------------------------------------+
-| shortenLinks          | no       | boolean     | Parameter controls the automatic shortening of long links in a message.         |
-|                       |          |             |                                                                                 |
-|                       |          |             | .. raw:: html                                                                   |
-|                       |          |             |                                                                                 |
-|                       |          |             |     <details>                                                                   |
-|                       |          |             |         <summary>More details</summary>                                         |
-|                       |          |             |         <p>                                                                     |
-|                       |          |             |             Possible values are:                                                |
-|                       |          |             |         </p>                                                                    |
-|                       |          |             |         <ul>                                                                    |
-|                       |          |             |             <li><code>true</code> — to shorten links (by default);</li>         |           
-|                       |          |             |             <li><code>false</code> — shortening link is not required.</li>      |
-|                       |          |             |         </ul>                                                                   |
-|                       |          |             |         <p>                                                                     |
-|                       |          |             |             If the service is available to the Partner, the URL strings will be |
-|                       |          |             |             shorted by default if the parameter is not received in the request. |
-|                       |          |             |         </p>                                                                    |
-|                       |          |             |         <p>                                                                     |
-|                       |          |             |            The ability to use this service is pre-negotiated and configured     |
-|                       |          |             |            by the Service Provider.                                             |
-|                       |          |             |         </p>                                                                    |
-|                       |          |             |         <p>                                                                     |
-|                       |          |             |         For more details:                                                       |
-|                       |          |             |         <a href="https://doc.rapporto.ru/api/eng/rest_eng/                      |
-|                       |          |             |         eng_rest_short_link.html">Link Shortening Service</a>.                  |
-|                       |          |             |         </p>                                                                    |  
-+-----------------------+----------+-------------+---------------------------------------------------------------------------------+
 | id                    | no       | string      | Partner-side unique ID.                                                         |
 |                       |          |             |                                                                                 |
 |                       |          |             | .. raw:: html                                                                   |

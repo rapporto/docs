@@ -16,7 +16,6 @@ SMPP API
    eng_smpp_cascade
    eng_smpp_mo
    eng_smpp_status
-   eng_smpp_short_link
 
 
 

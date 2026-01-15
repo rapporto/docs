@@ -76,7 +76,6 @@ Request Examples
               "password":"YOUR_PASSWORD",
               "useTimeDiff":true,
               "id":"8770630",
-              "shortenLinks":false,
               "registeredDelivery":"1",
               "notifyUrl":"URL_for_sending_statuses"
               "scheduleInfo":{
@@ -151,34 +150,6 @@ Parameters
 |                       |         |              |              Partner in the message delivery report if it is available.                         |
 |                       |         |              |         </p>                                                                                    |
 |                       |         |              |     </details>                                                                                  |
-+-----------------------+---------+--------------+-------------------------------------------------------------------------------------------------+
-| shortenLinks          | no      | boolean      | Parameter controls the automatic shortening of long links in the message.                       |
-|                       |         |              |                                                                                                 |
-|                       |         |              | .. raw:: html                                                                                   |
-|                       |         |              |                                                                                                 |
-|                       |         |              |     <details>                                                                                   |
-|                       |         |              |         <summary>More details</summary>                                                         |
-|                       |         |              |         <p>                                                                                     |
-|                       |         |              |             Possible values are:                                                                |
-|                       |         |              |         </p>                                                                                    |
-|                       |         |              |         <ul>                                                                                    |
-|                       |         |              |             <li><code>true</code> — to shorten links (by default);</li>                         |           
-|                       |         |              |             <li><code>false</code> — shortening link is not required.</li>                      |
-|                       |         |              |         </ul>                                                                                   |
-|                       |         |              |         <p>                                                                                     |
-|                       |         |              |             If the parameter is not included in the request, but the service                    |
-|                       |         |              |             is available to the Partner, the links will be shortened                            |
-|                       |         |              |             by default.                                                                         |
-|                       |         |              |         </p>                                                                                    |
-|                       |         |              |         <p>                                                                                     |
-|                       |         |              |             The ability to use this service is discussed and configured                         |
-|                       |         |              |             in advance by the Service Provider.                                                 |
-|                       |         |              |         </p>                                                                                    |
-|                       |         |              |         <p>                                                                                     |
-|                       |         |              |         For more details:                                                                       |
-|                       |         |              |         <a href="https://doc.rapporto.ru/api/eng/rest_eng/                                      |
-|                       |         |              |         eng_rest_short_link.html">Link Shortening Service</a>.                                  |
-|                       |         |              |         </p>                                                                                    |  
 +-----------------------+---------+--------------+-------------------------------------------------------------------------------------------------+
 | _`scheduleInfo`       | no      | object       | Messaging schedule.                                                                             |
 |                       |         |              |                                                                                                 |                              
