@@ -13,6 +13,7 @@
                     <ul>
                         <li class="item-nav"><a href="templates_search.html">Поиск шаблонов</a></li>
                         <li class="item-nav"><a href="templates_add.html">Добавление шаблонов</a></li>
+                        <li class="item-nav"><a href="templates_check.html">Проверка текста шаблонов</a></li>
                         <li class="item-nav"><a href="templates_file.html">Создание файла с шаблонами</a></li>
                         <li class="item-nav"><a href="templates_expressions.html">Выражения для подстановок</a></li>
                     </ul>
@@ -30,5 +31,6 @@
 
    templates_search
    templates_add
+   templates_check
    templates_file
    templates_expressions
