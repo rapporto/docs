@@ -233,7 +233,7 @@ Delivery Statuses
 +------------+--------------------------------------+--------------------------------------------------------------------------------------+
 | Код        | Delivery status                      | Description                                                                          |
 +============+======================================+======================================================================================+
-| 0          | SEND                                 | Sent to the operator, the final status is not known yet.                             |
+| 0          | SENT                                 | Sent to the operator, the final status is not known yet.                             |
 +------------+--------------------------------------+--------------------------------------------------------------------------------------+
 | 2          | DELIVERED                            | Delivered to the operator, after delivery it is possible to wait for the status of   |
 |            |                                      | reading by the subscriber.                                                           |
