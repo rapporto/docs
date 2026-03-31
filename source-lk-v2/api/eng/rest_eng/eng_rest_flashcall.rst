@@ -65,28 +65,31 @@ The specified code (without accompanying text) will be passed to the operator, w
 +-----------------------+----------+--------------+----------------------------------------------------------------------------------------------------+ 
 | message/type          | yes      | enum         | Message type.                                                                                      |
 |                       |          |              |                                                                                                    |
-|                       |          |              | .. raw:: html                                                                                      |
-|                       |          |              |                                                                                                    |
-|                       |          |              |     <details>                                                                                      |
-|                       |          |              |         <summary>More details</summary>                                                            |
-|                       |          |              |         <p>                                                                                        |
-|                       |          |              |             The value of <code>FLASHINGCALL</code> is transmitted.                                 |
-|                       |          |              |         </p>                                                                                       |
-|                       |          |              |     </details>                                                                                     |
+|                       |          |              | The value of <code>FLASHINGCALL</code> is transmitted.                                             |
 +-----------------------+----------+--------------+----------------------------------------------------------------------------------------------------+
 | message/data          | yes      | object       | Parameters of the data being sent.                                                                 |
 +-----------------------+----------+--------------+----------------------------------------------------------------------------------------------------+ 
 | message/data/text     | yes      | string       | Message text.                                                                                      |
 |                       |          |              |                                                                                                    |
+|                       |          |              | The message shall contain either a 4-digit or 6-digit numeric code used to call the subscriber.    |
+|                       |          |              |                                                                                                    |
 |                       |          |              | .. raw:: html                                                                                      |
 |                       |          |              |                                                                                                    |
 |                       |          |              |     <details>                                                                                      |
 |                       |          |              |         <summary>More details</summary>                                                            |
 |                       |          |              |         <p>                                                                                        |
-|                       |          |              |             Number of characters: no more than 2000.                                               |
+|                       |          |              |             By default, a four-digit code is set for sending.                                      |
 |                       |          |              |         </p>                                                                                       |
 |                       |          |              |         <p>                                                                                        |
-|                       |          |              |             The text must contain the code used to call the subscriber number.                     |   
+|                       |          |              |             To configure the sending of a six-digit code, you should contact the support           |
+|                       |          |              |             of the Service Provider.                                                               |
+|                       |          |              |         </p>                                                                                       |
+|                       |          |              |         <p>                                                                                        |
+|                       |          |              |             If a message is sent without a code, the request will be rejected with the error       |
+|                       |          |              |             <code>400, Invalid request. Flashing Call text should contain a 4(6)-digit code</code>.|
+|                       |          |              |         </p>                                                                                       |
+|                       |          |              |         <p>                                                                                        |
+|                       |          |              |             Number of characters of the message text: no more than 2000.                           |
 |                       |          |              |         </p>                                                                                       |
 |                       |          |              |     </details>                                                                                     |
 +-----------------------+----------+--------------+----------------------------------------------------------------------------------------------------+ 
@@ -114,7 +117,7 @@ FlashingCall Request Result
 
 | The result of the request execution for :term:`FlashingCall` type message will be a call to the subscriber's phone from a special numbering capacity. 
 | The last digits of the calling number are the code that is sent in the message text. 
-| The sending message code in the text shall consist of 4 or 6 digits. 
+| The sending code in the text shall consist of four or six digits. By default, a four-digit code is set for sending. To configure the sending of a six-digit code, you should contact the support of the Service Provider.
 | Response waiting period (ttl) on the call-making is from 1 to 5 minutes.
 | After sending the message the Service Provider returns a response synchronously.
 

@@ -26,7 +26,7 @@ FlashingCall Request Result
 
 | The result of the request execution for FlashingCall type message will be a call to the subscriber’s phone from a special numbering capacity.
 | The last digits of the calling number are the code that is sent in the message text. 
-| The sending message code in the text shall consist of 4 or 6 digits. 
+| The sending code in the text shall consist of four or six digits. By default, a four-digit code is set for sending. To configure the sending of a six-digit code, you should contact the support of the Service Provider.
 | Response waiting period (ttl) on the call attempt is from 1 to 5 minutes.
 | After sending the message the Service Provider returns a response synchronously.
 
@@ -73,17 +73,30 @@ Main Request Parameters
 |                           |                          |         </p>                                                                                               |
 |                           |                          |     </details>                                                                                             |
 +---------------------------+--------------------------+------------------------------------------------------------------------------------------------------------+
-| short_message             | string                   | Message to be sent to the subscriber.                                                                      |
+| short_message             | string                   | Message text.                                                                                              |
+|                           |                          |                                                                                                            |
+|                           |                          | The message shall contain either a 4-digit or 6-digit numeric code used to call the subscriber.            |
 |                           |                          |                                                                                                            | 
 |                           |                          | .. raw:: html                                                                                              |
 |                           |                          |                                                                                                            |
 |                           |                          |     <details>                                                                                              |
 |                           |                          |         <summary>More details</summary>                                                                    |
 |                           |                          |         <p>                                                                                                |
-|                           |                          |             Maximum FlashingCall message length is 2000 characters.                                        |                                                   
+|                           |                          |             By default, a four-digit code is set for sending.                                              |
 |                           |                          |         </p>                                                                                               |
 |                           |                          |         <p>                                                                                                |
-|                           |                          |             Maximum user data length for the <code>short_message</code> field: 254 octets.                 |                                                   
+|                           |                          |             To configure the sending of a six-digit code, you should contact the support of                |
+|                           |                          |             the Service Provider.                                                                          |
+|                           |                          |         </p>                                                                                               |
+|                           |                          |         <p>                                                                                                |
+|                           |                          |             If a message is sent without a code, the request will be rejected with the error               |
+|                           |                          |             <code>400, Invalid request. Flashing Call text should contain a 4(6)-digit code</code>.        |
+|                           |                          |         </p>                                                                                               |
+|                           |                          |         <p>                                                                                                |
+|                           |                          |             Number of characters of the message text: no more than 2000.                                   |
+|                           |                          |         </p>                                                                                               |
+|                           |                          |         <p>                                                                                                |
+|                           |                          |             Maximum user data length for the <code>short_message</code> field: 254 octets.                 |
 |                           |                          |         </p>                                                                                               |
 |                           |                          |         <p>                                                                                                |
 |                           |                          |             Text messages longer than 254 octets are recommended to be sent in a single PDU in the TLV     |  
@@ -107,10 +120,7 @@ Main Request Parameters
 |                           |                          |             <li>Using TLV parameters.</li>                                                                 |
 |                           |                          |         </ul>                                                                                              |
 |                           |                          |         <p>                                                                                                |
-|                           |                          |             The text for <i>FlashingCall</i> messages must contain a 4-digit code, which is used for the   |   
-|                           |                          |             call to the subscriber. Otherwise, the message will be rejected with the error <code>Flashing  | 
-|                           |                          |             Call text should contain a 4-digit code</code>.                                                |
-|                           |                          |             To send <i>Voice Code</i> , you must specify the message type as <code>FlashingCall</code> and |
+|                           |                          |             To send <i>Voice Code</i>, you must specify the message type as <code>FlashingCall</code> and  |
 |                           |                          |             send a request containing the code.                                                            |
 |                           |                          |         </p>                                                                                               |
 |                           |                          |         <p>                                                                                                |
