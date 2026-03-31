@@ -78,7 +78,7 @@ The specified code (without accompanying text) will be passed to the operator, w
 +-----------------------+----------+--------------+----------------------------------------------------------------------------------------------------+ 
 | message/data/text     | yes      | string       | Message text.                                                                                      |
 |                       |          |              |                                                                                                    |
-|                       |          |              | The message should contain either a 4-digit or 6-digit numeric code used for subscriber calls.     |
+|                       |          |              | The message shall contain either a 4-digit or 6-digit numeric code used to call the subscriber.    |
 |                       |          |              |                                                                                                    |
 |                       |          |              | .. raw:: html                                                                                      |
 |                       |          |              |                                                                                                    |

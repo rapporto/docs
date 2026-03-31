@@ -3,9 +3,9 @@ FlashingCall (Voice Code)
 
 When sending FlashingCall (Voice Code) messages via HTTP API the following restrictions apply to them:
 
-* message text may contain up to 2000 characters;
-* the text should necessarily contain a four-digit or six-digit code used to call the subscriber  By default, a four-digit code is set for sending. To configure the sending of a six-digit code, you should contact the support of the Service Provider;
-* FlashingCall message lifetime is from 1 to 5 minutes.
+* the message text may contain up to 2000 characters;
+* the text shall contain a four-digit or six-digit code used to call the subscriber. By default, a four-digit code is set for sending. To configure the sending of a six-digit code, you should contact the support of the Service Provider;
+* the FlashingCall message lifetime is from 1 to 5 minutes.
 
 To send **Voice Code** you need to specify the type of FlashingCall message and send a request containing the code. The specified code (without accompanying text) will be sent to the supplier, who will insert it into the text of the message template. The result of such a request will be a call to the subscriber's phone. When the subscriber picks up the phone, he will hear a voice message that will contain a 4-digit code. To connect this service please contact the Technical Support Service and agree on the text of the voice message template.
 
@@ -102,7 +102,7 @@ The parameters are applicable for POST and GET requests.
 +--------------------+---------+--------------+-----------------------------------------------------------------------------------------------------------------------+
 | message            | yes     | string       | Message text.                                                                                                         |
 |                    |         |              |                                                                                                                       |
-|                    |         |              | The message should contain either a 4-digit or 6-digit numeric code used for subscriber calls.                        |
+|                    |         |              | The message shall contain either a 4-digit or 6-digit numeric code used to call the subscriber.                       |
 |                    |         |              |                                                                                                                       |
 |                    |         |              | .. raw:: html                                                                                                         |
 |                    |         |              |                                                                                                                       |
