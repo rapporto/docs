@@ -3,9 +3,9 @@ FlashingCall (Voice Code)
 
 When sending FlashingCall (Voice Code) messages via HTTP API the following restrictions apply to them:
 
-* message text may contain up to 2000 characters;
-* the text should necessarily contain a four-digit or six-digit code used to call the subscriber (otherwise the request is returned with an error *400, Invalid request, Flashing Call text should contain a 4(6)-digit code*);
-* FlashingCall message lifetime — from 1 to 5 minutes.
+* the message text may contain up to 2000 characters;
+* the text shall contain a four-digit or six-digit code used to call the subscriber. By default, a four-digit code is set for sending. To configure the sending of a six-digit code, you should contact the support of the Service Provider;
+* the FlashingCall message lifetime is from 1 to 5 minutes.
 
 To send **Voice Code** you need to specify the type of FlashingCall message and send a request containing the code. The specified code (without accompanying text) will be sent to the supplier, who will insert it into the text of the message template. The result of such a request will be a call to the subscriber's phone. When the subscriber picks up the phone, he will hear a voice message that will contain a 4-digit code. To connect this service please contact the Technical Support Service and agree on the text of the voice message template.
 
@@ -100,12 +100,27 @@ The parameters are applicable for POST and GET requests.
 |                    |         |              |         </p>                                                                                                          |
 |                    |         |              |     </details>                                                                                                        |  
 +--------------------+---------+--------------+-----------------------------------------------------------------------------------------------------------------------+
-| message            | yes     | string       | Message to send to the subscriber.                                                                                    |
-|                    |         |              |                                                                                                                       |               
+| message            | yes     | string       | Message text.                                                                                                         |
+|                    |         |              |                                                                                                                       |
+|                    |         |              | The message shall contain either a 4-digit or 6-digit numeric code used to call the subscriber.                       |
+|                    |         |              |                                                                                                                       |
 |                    |         |              | .. raw:: html                                                                                                         |
 |                    |         |              |                                                                                                                       |
 |                    |         |              |     <details>                                                                                                         |
 |                    |         |              |         <summary>More details</summary>                                                                               |
+|                    |         |              |         <p>                                                                                                           |
+|                    |         |              |             By default, a four-digit code is set for sending.                                                         |
+|                    |         |              |         </p>                                                                                                          |
+|                    |         |              |         <p>                                                                                                           |
+|                    |         |              |             To configure the sending of a six-digit code, you should contact the support of the Service Provider.     |
+|                    |         |              |         </p>                                                                                                          |
+|                    |         |              |         <p>                                                                                                           |
+|                    |         |              |             If a message is sent without a code, the request will be rejected with the error                          |
+|                    |         |              |             <code>400, Invalid request. Flashing Call text should contain a 4(6)-digit code</code>.                   |
+|                    |         |              |         </p>                                                                                                          |
+|                    |         |              |         <p>                                                                                                           |
+|                    |         |              |             Number of characters of the message text for FlashingCall (Voice Code): no more than 2000.                |
+|                    |         |              |         </p>                                                                                                          |
 |                    |         |              |         <p>                                                                                                           |
 |                    |         |              |             The partner must send in this parameter:                                                                  |
 |                    |         |              |         </p>                                                                                                          |
@@ -118,16 +133,6 @@ The parameters are applicable for POST and GET requests.
 |                    |         |              |                   header.</p>                                                                                         |
 |                    |         |              |                </li>                                                                                                  |
 |                    |         |              |             </ul>                                                                                                     |
-|                    |         |              |         <p>                                                                                                           |
-|                    |         |              |             Maximum allowed message length for FlashingCall (Voice Code): 2000 characters.                            |          
-|                    |         |              |         </p>                                                                                                          |
-|                    |         |              |     <div class="admonition warning">                                                                                  |
-|                    |         |              |         <p class="admonition-title">Warning</p>                                                                       |
-|                    |         |              |         <p>When sending <i>FlashingCall</i> messages keep in mind that the message text must contain a 4- or          |
-|                    |         |              |            6-digit numeric code that is used to call the subscriber. Otherwise the request is returned with an        |
-|                    |         |              |            error <code>400, Invalid request, Flashing Call text should contain a 4-digit code</code> .                |
-|                    |         |              |            </p>                                                                                                       |
-|                    |         |              |     </div>                                                                                                            |
 |                    |         |              |     </details>                                                                                                        |
 +--------------------+---------+--------------+-----------------------------------------------------------------------------------------------------------------------+
 | serviceId          | yes     | string       | ID of the Partner’s service (login), which is used to send a message.                                                 |
