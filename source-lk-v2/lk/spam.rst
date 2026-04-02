@@ -43,7 +43,7 @@
                         <li class="item-nav"><a href="contact_list.html">Добавление контактов</a></li>
                         <li class="item-nav"><a href="segments.html">Создание сегментов</a></li>
                         <li class="item-nav"><a href="black_list.html">Добавление черного списка</a></li>
-                        <li class="item-nav"><a href="sender.html">Работа с разделом "Рассылки"</a></li>
+                        <li class="item-nav"><a href="sender.html">Работа с разделом «Рассылки»</a></li>
                     </ul>
                     <label class="wrap-btn" for="spam">
                         <span class="wrap">Смотреть все</span>
