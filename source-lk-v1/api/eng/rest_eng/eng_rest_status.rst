@@ -734,6 +734,12 @@ The section provides a description of the reasons for the non-delivery of messag
       |         |                              | did not provide an error   |
       |         |                              | in the delivery report.    |
       +---------+------------------------------+----------------------------+
+      | 2       | absent-subscriber            | The subscriber's device was|
+      |         |                              | turned off or it was out of|
+      |         |                              | network coverage during the|
+      |         |                              | entire attempt to deliver  |
+      |         |                              | the message.               |
+      +---------+------------------------------+----------------------------+
       | 4       | failure                      | An error occurred at the   |
       |         |                              | transport layer of the     |
       |         |                              | signaling network during   |
