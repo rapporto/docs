@@ -17,6 +17,7 @@
 
    lk/start
    lk/spam
+   lk/drafts/drafts_intro
    lk/templates/templates_intro
    lk/analytics
    lk/admin
@@ -112,11 +113,23 @@
                 </section>
 
                 <section class="section">
+                    <h4 class="item-header">Черновики</h4>
+                    <ul>
+                        <li class="item-nav"><a href="lk/drafts/drafts_add.html">Добавление черновиков</a></li>
+                        <li class="item-nav"><a href="lk/templates/draftss_guide.html">Работа с разделом «Черновики»</a></li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="row-table">
+                <section class="section">
                     <h4 class="item-header">Шаблоны</h4>
                     <input type="checkbox" id="templates"/>
                     <ul>
                         <li class="item-nav"><a href="lk/templates/templates_search.html">Поиск шаблонов</a></li>
                         <li class="item-nav"><a href="lk/templates/templates_add.html">Добавление шаблонов</a></li>
+                        <li class="item-nav"><a href="lk/templates/templates_status.html">Статусы шаблонов</a></li>
+                        <li class="item-nav"><a href="lk/templates/check_status.html">Проверка текста шаблона</a></li>
                         <li class="item-nav"><a href="lk/templates/templates_file.html">Создание файла с шаблонами</a></li>
                         <li class="item-nav"><a href="lk/templates/templates_expressions.html">Выражения для подстановок</a></li>  
                     </ul>
@@ -125,9 +138,7 @@
                         <span class="unwrap">Свернуть</span>
                     </label>
                 </section>
-            </div>
 
-            <div class="row-table">
                 <section class="section">
                     <h4 class="item-header">Аналитика</h4>
                     <input type="checkbox" id="analytics"/>
@@ -145,7 +156,9 @@
                         <span class="unwrap">Свернуть</span>
                     </label>
                 </section> 
+            </div>
 
+            <div class="row-table">
                 <section class="section">
                     <h4 class="item-header">Администрирование</h4>
                     <ul>
@@ -154,9 +167,7 @@
                         <li class="item-nav"><a href="lk/teams.html">Что такое команды</a></li>
                     </ul>             
                 </section>
-            </div>
 
-            <div class="row-table">
                 <section class="section">
                     <h4 class="item-header">Интеграции</h4>
                     <input type="checkbox" id="report"/>
@@ -174,7 +185,9 @@
                         <span class="unwrap">Свернуть</span>
                     </label>
                 </section>
+            </div>
 
+            <div class="row-table">
                 <section class="section">
                     <h4 class="item-header">Push-сервис</h4>
                     <ul>
@@ -182,10 +195,7 @@
                         <li class="item-nav"><a href="push_service/sdk/main.html">SDK Rapporto</a></li>
                     </ul>
                 </section>
-            </div>
-        </section>
 
-            <div class="row-table">
                 <section class="section">
                     <h4 class="item-header">Установка платформы On-Premises</h4>
                     <ul>
