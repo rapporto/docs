@@ -116,7 +116,7 @@
                     <h4 class="item-header">Черновики</h4>
                     <ul>
                         <li class="item-nav"><a href="lk/drafts/drafts_add.html">Добавление черновиков</a></li>
-                        <li class="item-nav"><a href="lk/templates/draftss_guide.html">Работа с разделом «Черновики»</a></li>
+                        <li class="item-nav"><a href="lk/drafts/drafts_guide.html">Работа с разделом «Черновики»</a></li>
                     </ul>
                 </section>
             </div>
@@ -129,7 +129,7 @@
                         <li class="item-nav"><a href="lk/templates/templates_search.html">Поиск шаблонов</a></li>
                         <li class="item-nav"><a href="lk/templates/templates_add.html">Добавление шаблонов</a></li>
                         <li class="item-nav"><a href="lk/templates/templates_status.html">Статусы шаблонов</a></li>
-                        <li class="item-nav"><a href="lk/templates/check_status.html">Проверка текста шаблона</a></li>
+                        <li class="item-nav"><a href="lk/templates/templates_check.html">Проверка текста шаблона</a></li>
                         <li class="item-nav"><a href="lk/templates/templates_file.html">Создание файла с шаблонами</a></li>
                         <li class="item-nav"><a href="lk/templates/templates_expressions.html">Выражения для подстановок</a></li>  
                     </ul>
