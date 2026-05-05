@@ -13,6 +13,7 @@
                     <ul>
                         <li class="item-nav"><a href="templates_search.html">Поиск шаблонов</a></li>
                         <li class="item-nav"><a href="templates_add.html">Добавление шаблонов</a></li>
+                        <li class="item-nav"><a href="templates_history.html">История загрузок шаблонов</a></li>
                         <li class="item-nav"><a href="templates_status.html">Статусы шаблонов</a></li>
                         <li class="item-nav"><a href="templates_check.html">Проверка текста шаблонов</a></li>
                         <li class="item-nav"><a href="templates_file.html">Создание файла с шаблонами</a></li>
@@ -32,6 +33,7 @@
 
    templates_search
    templates_add
+   templates_history
    templates_status
    templates_check
    templates_file
