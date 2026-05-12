@@ -342,7 +342,7 @@ Request examples to send push notifications.
 
         .. code-block:: json
            :linenos:
-           :emphasize-lines: 14
+           :emphasize-lines: 16
            
             {
                "login":"YOUR_LOGIN",
@@ -356,10 +356,10 @@ Request examples to send push notifications.
                      "text":"Notification_text",
                      "serviceNumber":"SENDER'S_NAME",
                      "ttl":1,
-                     "ttlUnit":"MINUTES",
-                     "callbackData":"Data_for_statistics"
+                     "ttlUnit":"MINUTES"
                   }
-               }
+               },
+               "callbackData":"Data_for_statistics"
             }
 
 

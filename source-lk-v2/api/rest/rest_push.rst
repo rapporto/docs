@@ -339,7 +339,7 @@ Push
 
         .. code-block:: json
            :linenos:
-           :emphasize-lines: 14
+           :emphasize-lines: 16
            
             {
                "login":"ВАШ_ЛОГИН",
@@ -353,10 +353,10 @@ Push
                      "text":"Текст_сообщения",
                      "serviceNumber":"Номер_отправителя",
                      "ttl":1,
-                     "ttlUnit":"MINUTES",
-                     "callbackData":"Данные_для_статистики"
+                     "ttlUnit":"MINUTES"
                   }
-               }
+               },
+               "callbackData":"Данные_для_статистики"
             }
 
 
