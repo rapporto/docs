@@ -938,20 +938,6 @@ Request Parameters
 | | message/data/       | no       | JSON Object  | Data which are transmitted in its original form for further use                |
 | | customPayload       |          |              | in the mobile application.                                                     |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
-| *Request with data for statistics*  (_`callbackData`)                                                                            |
-+-----------------------+----------+--------------+--------------------------------------------------------------------------------+
-| | message/data/       | no       | string       | Client data for statistics.                                                    |
-| | callbackData        |          |              |                                                                                |
-|                       |          |              | .. raw:: html                                                                  |
-|                       |          |              |                                                                                |
-|                       |          |              |     <details>                                                                  |
-|                       |          |              |         <summary>More details</summary>                                        |
-|                       |          |              |         <p>                                                                    |
-|                       |          |              |             They are saved in the transmitted form upon receipt, an output     |
-|                       |          |              |             in statistical data is possible, if necessary.                     |
-|                       |          |              |         </p>                                                                   |
-|                       |          |              |     </details>                                                                 |
-+-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | *Request with enriched data*  (_`extraOptions`)                                                                                  |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 | | message/data/       | no       | array        | Array of additional data objects from the partner.                             |
@@ -1193,7 +1179,20 @@ Request Parameters
 |                       |          |              |         </ul>                                                                  |
 |                       |          |              |     </details>                                                                 |
 +-----------------------+----------+--------------+--------------------------------------------------------------------------------+
-
+| *Request with data for statistics*                                                                                               |
++-----------------------+----------+--------------+--------------------------------------------------------------------------------+
+| _`callbackData`       | no       | string       | Client data for statistics.                                                    |
+|                       |          |              |                                                                                |
+|                       |          |              | .. raw:: html                                                                  |
+|                       |          |              |                                                                                |
+|                       |          |              |     <details>                                                                  |
+|                       |          |              |         <summary>More details</summary>                                        |
+|                       |          |              |         <p>                                                                    |
+|                       |          |              |             They are saved in the transmitted form upon receipt, an output     |
+|                       |          |              |             in statistical data is possible, if necessary.                     |
+|                       |          |              |         </p>                                                                   |
+|                       |          |              |     </details>                                                                 |
++-----------------------+----------+--------------+--------------------------------------------------------------------------------+
 
 
 Response to the Request 
