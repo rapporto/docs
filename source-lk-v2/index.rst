@@ -1,3 +1,4 @@
+
 Начало работы
 =============
 
@@ -28,7 +29,7 @@
 .. toctree::
    :maxdepth: 1
    :hidden:
-   :caption: Интеграции
+   :caption: Интеграционные подключения
 
    api/introduction
    api/dlr
@@ -190,7 +191,7 @@
                 </section>
 
                 <section class="section">
-                    <h4 class="item-header">Интеграции</h4>
+                    <h4 class="item-header">Интеграционные подключения</h4>
                     <input type="checkbox" id="report"/>
                     <ul>
                         <li class="item-nav"><a href="api/rest/rest_main.html">REST API</a></li>
