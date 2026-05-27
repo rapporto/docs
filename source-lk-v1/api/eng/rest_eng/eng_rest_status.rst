@@ -332,23 +332,23 @@ The section provides a description of the reasons for the non-delivery of messag
       |         |                            | based on the text of the   |
       |         |                            | message.                   |
       +---------+----------------------------+----------------------------+
-      | 16      | busy                       | At the time of SMS message |
+      | 16      | busy                       | At the time of message     |
       |         |                            | delivery, the phone was    |
       |         |                            | busy either receiving or   |
       |         |                            | transmitting another       |
       |         |                            | short message.             |
       +---------+----------------------------+----------------------------+
       | 18      | bad-params                 | When sending a message,    |
-      |         |                            | one or more SMS message    |
+      |         |                            | one or more message        |
       |         |                            | parameters were specified  |
       |         |                            | incorrectly, or mandatory  |
       |         |                            | parameters were not        |
       |         |                            | included.                  |
       +---------+----------------------------+----------------------------+
       | 20      | consumer-phone-not-found   | The subscriber's phone does|
-      |         |                            | not accept SMS messages.   |
+      |         |                            | not accept messages.       |
       +---------+----------------------------+----------------------------+
-      | 28      | provider-error             | The SMS message was sent   |
+      | 28      | provider-error             | The message was sent       |
       |         |                            | to a number belonging to   |
       |         |                            | another mobile operator.   |
       +---------+----------------------------+----------------------------+

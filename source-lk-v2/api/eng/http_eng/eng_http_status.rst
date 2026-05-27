@@ -238,15 +238,15 @@ This section describes the reasons for non-delivery of various types of messages
             | 14                         | On the operator's side, a SPAM filter was activated based on the text of the   |
             |                            | message.                                                                       |
             +----------------------------+--------------------------------------------------------------------------------+
-            | 16                         | At the time of SMS message delivery, the phone was busy either receiving or    |
+            | 16                         | At the time of message delivery, the phone was busy either receiving or        |
             |                            | transmitting another short message.                                            |
             +----------------------------+--------------------------------------------------------------------------------+
-            | 18                         | When sending a message, one or more SMS message parameters were specified      |
+            | 18                         | When sending a message, one or more message parameters were specified          |
             |                            | incorrectly, or mandatory parameters were not included.                        |
             +----------------------------+--------------------------------------------------------------------------------+
-            | 20                         | The subscriber's phone does not accept SMS messages.                           |
+            | 20                         | The subscriber's phone does not accept messages.                               |
             +----------------------------+--------------------------------------------------------------------------------+
-            | 28                         | The SMS message was sent to a number belonging to another mobile operator.     |
+            | 28                         | The message was sent to a number belonging to another mobile operator.         |
             +----------------------------+--------------------------------------------------------------------------------+
 
 

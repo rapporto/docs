@@ -258,13 +258,13 @@ This section describes errors that may occur when sending different message type
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
       | 14      | On the operator’s side, a spam filter was triggered by the message text.                                                                       |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 16      | At the time of SMS message delivery, the subscriber’s device was busy receiving or transmitting another short message.                         |
+      | 16      | At the time of message delivery, the subscriber’s device was busy receiving or transmitting another short message.                             |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 18      | During message transmission, one or more SMS message parameters were specified incorrectly, or mandatory parameters were not specified.        |
+      | 18      | During message transmission, one or more message parameters were specified incorrectly, or mandatory parameters were not specified.            |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 20      | The subscriber’s device does not accept SMS messages.                                                                                          |
+      | 20      | The subscriber’s device does not accept messages.                                                                                              |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
-      | 28      | The SMS message was sent to a number belonging to another mobile operator.                                                                     |
+      | 28      | The message was sent to a number belonging to another mobile operator.                                                                         |
       +---------+------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
