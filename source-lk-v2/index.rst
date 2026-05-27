@@ -1,4 +1,3 @@
-
 Начало работы
 =============
 
@@ -18,7 +17,9 @@
    lk/start
    lk/spam
    lk/drafts/drafts_intro
+   lk/contacts/contacts_intro
    lk/templates/templates_intro
+   lk/integration
    lk/analytics
    lk/admin
    lk/questions
@@ -30,6 +31,7 @@
    :caption: Интеграции
 
    api/introduction
+   api/dlr
    api/rest/rest_main
    api/rest_batch/rest_batch_main
    api/http/http_main
@@ -123,6 +125,15 @@
 
             <div class="row-table">
                 <section class="section">
+                    <h4 class="item-header">Контакты</h4>
+                    <ul>
+                        <li class="item-nav"><a href="lk/contacts/white_list.html">Добавление в белый список</a></li>
+                        <li class="item-nav"><a href="lk/contacts/segments.html">Создание сегментов</a></li>
+                        <li class="item-nav"><a href="lk/contacts/black_list.html">Добавление в черный список</a></li>
+                    </ul>
+                </section>
+
+                <section class="section">
                     <h4 class="item-header">Шаблоны</h4>
                     <input type="checkbox" id="templates"/>
                     <ul>
@@ -138,6 +149,15 @@
                         <span class="wrap">Смотреть все</span>
                         <span class="unwrap">Свернуть</span>
                     </label>
+                </section>
+            </div>
+
+            <div class="row-table">
+                <section class="section">
+                    <h4 class="item-header">Интеграции</h4>
+                    <ul>
+                        <li class="item-nav"><a href="lk/integration_info.html">Информация об интеграциях</a></li>
+                    </ul>
                 </section>
 
                 <section class="section">
@@ -186,7 +206,7 @@
                         <span class="unwrap">Свернуть</span>
                     </label>
                 </section>
-            </div>
+            </div>    
 
             <div class="row-table">
                 <section class="section">
