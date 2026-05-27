@@ -1,228 +1,138 @@
+Что нового
+==========
 
-Начало работы
-=============
+2026
+----
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-   :caption: &euro
+Май
+~~~~~~~~~
 
-   news
+Добавлен раздел :doc:`Интеграции <lk/integration>`, который позволяет получить информацию об интеграционных подключениях. 
 
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-   :caption: Личный кабинет Rapporto
-
-   lk/start
-   lk/spam
-   lk/drafts/drafts_intro
-   lk/contacts/contacts_intro
-   lk/templates/templates_intro
-   lk/integration
-   lk/analytics
-   lk/admin
-   lk/questions
-   
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-   :caption: Интеграционные подключения
-
-   api/introduction
-   api/dlr
-   api/rest/rest_main
-   api/rest_batch/rest_batch_main
-   api/http/http_main
-   api/ftp/ftp_main
-   api/smpp/smpp_main
-   api/hlr/hlr_main
-   api/ivr/ivr_index
-   api/eng/index_eng
+Для удобства работы с шаблонами реализована возможность :doc:`просматривать сведения <lk/templates/templates_history>` о дате, времени и результате каждой загрузки файла с шаблонами.
 
 
+Апрель
+~~~~~~~~~
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-   :caption: Push-сервис
+:doc:`Черновики <lk/drafts/drafts_intro>` — новый функционал личного кабинета, позволяющий сохранять тексты рассылок и использовать их повторно.
 
-   push_service/rpns
-   push_service/sdk/main
+Февраль
+~~~~~~~~~
+
+Добавлен функционал для :doc:`проверки текста шаблона <lk/templates/templates_check>`. 
+
+Реализовано построение финансового отчета с учетом средней цены по уникальным абонентам.
 
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-   :caption: &euro
+2025
+----
+
+Октябрь
+~~~~~~~~~
+
+Добавлен раздел :doc:`Установка платформы On-Premises <installation/main>` с инструкциями по развертыванию платформы в собственной инфраструктуре.
+
+Сентябрь
+~~~~~~~~~
+
+В раздел "Интеграционные подключения" добавлено описание :doc:`SMPP API <api/eng/smpp_eng/eng_smpp_main>` на английском языке.
+
+Август
+~~~~~~~~
+
+:doc:`Шаблоны <lk/templates/templates_intro>` – новый функционал личного кабинета, предоставляющий следующие возможности:
+
+* загрузка пользовательских шаблонов с указанием типа трафика для определенных сообщений;
+* регистрация новых шаблонов у операторов сотовой связи;
+* поиск добавленных шаблонов и отслеживание их статусов.
+
+В раздел "Интеграционные подключения" добавлена страница :ref:`Общая информация <introduction>`, которая содержит сводные таблицы с поддерживаемыми типами сообщений. Страница может помочь при выборе интеграции.
+
+Июнь
+~~~~~~
+
+В REST API добавлен тип сообщения ``TGCODE`` для передачи абонентам в мессенджер Telegram :ref:`авторизационных кодов <tg-codes>`, в том числе в каскадной рассылке.
+
+Май
+~~~~~~~~
+
+Для удобства работы с рассылками в личном кабинете реализована возможность добавлять списки контактов, сегменты и черные списки. Подробнее в статьях:
+
+* :doc:`lk/contact_list`;
+* :doc:`lk/black_list`.
+
+
+Апрель
+~~~~~~~~
+
+В REST API добавлено описание особенностей передачи абонентам :ref:`авторизационных кодов <tg-codes>` через платформу в Telegram Gateway.
+
+
+Март
+~~~~~~~~~
+
+Разработан функционал для отправки веб push-сообщений на устройства пользователей. Более подробно — в статьях :doc:`push_service/rpns` и :doc:`push_service/sdk/web/web_sdk`.
+
+В личный кабинет при создании Telegram рассылки добавлена возможность выбрать готовый макет сообщения — :doc:`lk/telegram_sender`. 
+
+
+Февраль
+~~~~~~~~~
+
+Добавлены следующие страницы:
+
+* с ответами на вопросы, которые могут возникнуть при переходе на новый личный кабинет — :doc:`lk/questions`;
+* с информацией о порядке регистрации и входа в личный кабинет — :doc:`lk/start`.
  
-   installation/main
-   glossary
-   support   
 
-| Создавайте SMS-, Viber- и Telegram-рассылки с индивидуальным контентом и расписанием.
-| Настраивайте и отправляйте каскадные и отложенные рассылки сообщений.
-| Добавляйте шаблоны для разделения исходящего трафика на типы.
-| Просматривайте статистику и отчёты по результатам рассылок.
-| Администрируйте личный кабинет — добавляйте пользователей и назначайте им права.
-| Настраивайте интеграционные подключения по различным протоколам.
+Январь
+~~~~~~~~
 
- 
-.. raw:: html
+В раздел "Интеграционные подключения" добавлено описание SMPP API.
 
-         <section class="content">
-            <div class="news">
-                <div class="block">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path
-                            d="M11 4H7.8C6.11984 4 5.27976 4 4.63803 4.32698C4.07354 4.6146 3.6146 5.07354 3.32698 5.63803C3 6.27976 3 7.11984 3 8.8V16.2C3 17.8802 3 18.7202 3.32698 19.362C3.6146 19.9265 4.07354 20.3854 4.63803 20.673C5.27976 21 6.11984 21 7.8 21H15.2C16.8802 21 17.7202 21 18.362 20.673C18.9265 20.3854 19.3854 19.9265 19.673 19.362C20 18.7202 20 17.8802 20 16.2V13M13 17H7M15 13H7M20.1213 3.87868C21.2929 5.05025 21.2929 6.94975 20.1213 8.12132C18.9497 9.29289 17.0503 9.29289 15.8787 8.12132C14.7071 6.94975 14.7071 5.05025 15.8787 3.87868C17.0503 2.70711 18.9497 2.70711 20.1213 3.87868Z"
-                            stroke="#1D2939"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        />
-                    </svg>
-                    <span>Что нового?</span>
-                </div>
-                <div><a href='news.html' class='view'>Посмотреть</a></div>
-            </div>
+В REST API добавлено :ref:`описание кодов ошибок <REST-ErrCodeDescr>` при недоставке Telegram-сообщений.
 
-            <div class="row-table">
-                <section class="section">
-                    <h4 class="item-header">Рассылки</h4>
-                    <input type="checkbox" id="spam"/>
-                    <ul>
-                        <li class="item-nav"><a href="lk/sms_sender.html">Создание SMS-рассылки</a></li>
-                        <li class="item-nav"><a href="lk/viber_sender.html">Создание Viber-рассылки</a></li>
-                        <li class="item-nav"><a href="lk/telegram_sender.html">Создание Telegram-рассылки</a></li>
-                        <li class="item-nav"><a href="lk/cascade_sender.html">Отправка каскадной рассылки</a></li>
-                        <li class="item-nav"><a href="lk/file_sender.html">Создание файла для рассылки</a></li>
-                        <li class="item-nav"><a href="lk/substitutions.html">Отправка рассылки с подстановками</a></li>
-                        <li class="item-nav"><a href="lk/schedule.html">Добавление расписания рассылки</a></li>
-                        <li class="item-nav"><a href="lk/delayed_sender.html">Отправка отложенной рассылки</a></li>
-                        <li class="item-nav"><a href="lk/date_of_end.html">Указание даты окончания рассылки</a></li>
-                        <li class="item-nav"><a href="lk/messaging_edit-properties.html">Редактирование рассылок</a></li>
-                        <li class="item-nav"><a href="lk/contact_list.html">Добавление контактов</a></li>
-                        <li class="item-nav"><a href="lk/segments.html">Создание сегментов</a></li>
-                        <li class="item-nav"><a href="lk/black_list.html">Добавление черного списка</a></li>
-                        <li class="item-nav"><a href="lk/sender.html">Работа с разделом "Рассылки"</a></li>
-                    </ul>
-                    <label class="wrap-btn" for="spam">
-                        <span class="wrap">Смотреть все</span>
-                        <span class="unwrap">Свернуть</span>
-                    </label>
-                </section>
 
-                <section class="section">
-                    <h4 class="item-header">Черновики</h4>
-                    <ul>
-                        <li class="item-nav"><a href="lk/drafts/drafts_add.html">Добавление черновиков</a></li>
-                        <li class="item-nav"><a href="lk/drafts/drafts_guide.html">Работа с разделом «Черновики»</a></li>
-                    </ul>
-                </section>
-            </div>
+2024
+----
 
-            <div class="row-table">
-                <section class="section">
-                    <h4 class="item-header">Контакты</h4>
-                    <ul>
-                        <li class="item-nav"><a href="lk/contacts/white_list.html">Добавление в белый список</a></li>
-                        <li class="item-nav"><a href="lk/contacts/segments.html">Создание сегментов</a></li>
-                        <li class="item-nav"><a href="lk/contacts/black_list.html">Добавление в черный список</a></li>
-                    </ul>
-                </section>
+Ноябрь
+~~~~~~~~
 
-                <section class="section">
-                    <h4 class="item-header">Шаблоны</h4>
-                    <input type="checkbox" id="templates"/>
-                    <ul>
-                        <li class="item-nav"><a href="lk/templates/templates_search.html">Поиск шаблонов</a></li>
-                        <li class="item-nav"><a href="lk/templates/templates_add.html">Добавление шаблонов</a></li>
-                        <li class="item-nav"><a href="lk/templates/templates_history.html">История загрузок шаблонов</a></li>
-                        <li class="item-nav"><a href="lk/templates/templates_status.html">Статусы шаблонов</a></li>
-                        <li class="item-nav"><a href="lk/templates/templates_check.html">Проверка текста шаблона</a></li>
-                        <li class="item-nav"><a href="lk/templates/templates_file.html">Создание файла с шаблонами</a></li>
-                        <li class="item-nav"><a href="lk/templates/templates_expressions.html">Выражения для подстановок</a></li>  
-                    </ul>
-                    <label class="wrap-btn" for="templates">
-                        <span class="wrap">Смотреть все</span>
-                        <span class="unwrap">Свернуть</span>
-                    </label>
-                </section>
-            </div>
+Добавлены новые возможности личного кабинета:
 
-            <div class="row-table">
-                <section class="section">
-                    <h4 class="item-header">Интеграции</h4>
-                    <ul>
-                        <li class="item-nav"><a href="lk/integration_info.html">Информация об интеграциях</a></li>
-                    </ul>
-                </section>
+* :doc:`lk/chron_report`;
+* :doc:`lk/summary_report`.
 
-                <section class="section">
-                    <h4 class="item-header">Аналитика</h4>
-                    <input type="checkbox" id="analytics"/>
-                    <ul>
-                        <li class="item-nav"><a href="lk/sender_statistics.html">Просмотр статистики рассылки</a></li>
-                        <li class="item-nav"><a href="lk/chron_report.html">Подробный отчет</a></li>
-                        <li class="item-nav"><a href="lk/summary_report.html">Сводный отчет</a></li>
-                        <li class="item-nav"><a href="lk/chron_telegram.html">Подробный отчет Telegram</a></li>
-                        <li class="item-nav"><a href="lk/summary_rep_telegram.html">Сводный отчет Telegram</a></li>
-                        <li class="item-nav"><a href="lk/financial_report.html">Финансовый отчет</a></li>
-                        <li class="item-nav"><a href="lk/searching.html">Поиск сообщений</a></li>
-                    </ul>
-                    <label class="wrap-btn" for="analytics">
-                        <span class="wrap">Смотреть все</span>
-                        <span class="unwrap">Свернуть</span>
-                    </label>
-                </section> 
-            </div>
+Октябрь
+~~~~~~~~
 
-            <div class="row-table">
-                <section class="section">
-                    <h4 class="item-header">Администрирование</h4>
-                    <ul>
-                        <li class="item-nav"><a href="lk/newuser.html">Добавление пользователя</a></li>
-                        <li class="item-nav"><a href="lk/rights.html">Настройка прав пользователя</a></li>
-                        <li class="item-nav"><a href="lk/teams.html">Что такое команды</a></li>
-                    </ul>             
-                </section>
+Добавлен функционал для поиска переписки с клиентом — :doc:`lk/searching`.
 
-                <section class="section">
-                    <h4 class="item-header">Интеграционные подключения</h4>
-                    <input type="checkbox" id="report"/>
-                    <ul>
-                        <li class="item-nav"><a href="api/rest/rest_main.html">REST API</a></li>
-                        <li class="item-nav"><a href="api/rest_batch/rest_batch_main.html">REST_BATCH API</a></li>
-                        <li class="item-nav"><a href="api/http/http_main.html">HTTP API</a></li>
-                        <li class="item-nav"><a href="api/ftp/ftp_main.html">FTP API</a></li>
-                        <li class="item-nav"><a href="api/smpp/smpp_main.html">SMPP API</a></li>
-                        <li class="item-nav"><a href="api/hlr/hlr_main.html">HLR API</a></li>
-                        <li class="item-nav"><a href="api/ivr/ivr_index.html">IVR</a></li>
-                    </ul>
-                    <label class="wrap-btn" for="report">
-                        <span class="wrap">Смотреть все</span>
-                        <span class="unwrap">Свернуть</span>
-                    </label>
-                </section>
-            </div>    
+Сентябрь
+~~~~~~~~
 
-            <div class="row-table">
-                <section class="section">
-                    <h4 class="item-header">Push-сервис</h4>
-                    <ul>
-                        <li class="item-nav"><a href="push_service/rpns.html">Сервис Rapporto Push Notification System</a></li>
-                        <li class="item-nav"><a href="push_service/sdk/main.html">SDK Rapporto</a></li>
-                    </ul>
-                </section>
+Добавлены новые возможности личного кабинета — :doc:`lk/summary_rep_telegram`.
 
-                <section class="section">
-                    <h4 class="item-header">Установка платформы On-Premises</h4>
-                    <ul>
-                        <li class="item-nav"><a href="installation/rcs/inst_rcs.html">Rapporto Communication System</a></li>
-                        <li class="item-nav"><a href="installation/pgw/inst_pgw.html">Rapporto Push Notification System</a></li>
-                    </ul>
-                </section> 
-            </div>    
+Август
+~~~~~~~~
+
+Добавлены новые возможности личного кабинета:
+
+* создание и отправка Telegram-рассылок;
+* просмотр статистики Telegram-рассылки;
+* формирование и выгрузка подробного отчета по Telegram.
+
+Май
+~~~~~~~~
+
+Состоялся запуск нового личного кабинета.
+
+Функциональные возможности личного кабинета:
+
+* создание и отправка SMS-, Viber-рассылок;
+* отправка каскадных рассылок;
+* настройка расписания рассылок;
+* просмотр статистики рассылок;
+* создание пользователей личного кабинета.
