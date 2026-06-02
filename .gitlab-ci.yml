@@ -1,18 +1,24 @@
+default:
+  tags:
+    - kubernetes
+
 stages:
   - build
   - deploy
   - publish
 
 variables:
-  BUILD_DIR1: "build1"
-  BUILD_DIR2: "build2"
-  TARGET_DIR: "/docs/_build/"
+  BUILD_DIR1: build1
+  BUILD_DIR2: build2
+  TARGET_DIR: /docs/_build/
 
 .build:base:
   stage: build
   image: ${HARBOR_PROXY_DOCKER_HUB}/library/python:3.9
   variables:
-    PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+    PIP_CACHE_DIR: $CI_PROJECT_DIR/.cache/pip
+    PIP_DISABLE_PIP_VERSION_CHECK: "1"
+    PIP_ROOT_USER_ACTION: ignore
   cache:
     key:
       files:
@@ -26,17 +32,27 @@ variables:
       echo "machine $NEXUS_HOSTNAME login $NEXUS_USERNAME password $NEXUS_PASSWORD" >"$HOME/.netrc"
       chmod 600 "$HOME/.netrc"
       export PIP_INDEX_URL=${NEXUS_PYPI_GROUP_PUBLIC_SIMPLE}
+    - |
+      # Install requirements
+      pip install -q --log pip_requirements.log --progress-bar off --use-deprecated=legacy-resolver -r requirements.txt || {
+        cat pip_requirements.log 2>/dev/null || true
+        exit 1
+      }
+  script:
+    - |
+      # Build
+      rm -rf $BUILD_DIR
+      sphinx-build -b html $SOURCE_DIR $BUILD_DIR/html
+  artifacts:
+    paths:
+      - $BUILD_DIR/html
 
 build_v1:
   extends:
     - .build:base
-  script:
-    - pip install --use-deprecated=legacy-resolver -r requirements.txt
-    - rm -rf $BUILD_DIR1
-    - sphinx-build -b html source-lk-v1 $BUILD_DIR1/html
-  artifacts:
-    paths:
-      - $BUILD_DIR1/html
+  variables:
+    SOURCE_DIR: source-lk-v1
+    BUILD_DIR: $BUILD_DIR1
   rules:
     - changes:
         - source-lk-v1/**/*
@@ -44,13 +60,9 @@ build_v1:
 build_v2:
   extends:
     - .build:base
-  script:
-    - pip install --use-deprecated=legacy-resolver -r requirements.txt
-    - rm -rf $BUILD_DIR2
-    - sphinx-build -b html source-lk-v2 $BUILD_DIR2/html
-  artifacts:
-    paths:
-      - $BUILD_DIR2/html
+  variables:
+    SOURCE_DIR: source-lk-v2
+    BUILD_DIR: $BUILD_DIR2
   rules:
     - changes:
         - source-lk-v2/**/*
