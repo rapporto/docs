@@ -8,9 +8,28 @@ variables:
   BUILD_DIR2: "build2"
   TARGET_DIR: "/docs/_build/"
 
-build_v1:
+.build:base:
   stage: build
-  image: python:3.9
+  image: ${HARBOR_PROXY_DOCKER_HUB}/library/python:3.9
+  variables:
+    PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  cache:
+    key:
+      files:
+        - requirements.txt
+    paths:
+      - .cache/pip
+  before_script:
+    - |
+      # Create .netrc for Nexus authentication
+      NEXUS_HOSTNAME="${NEXUS_HOST#*://}"
+      echo "machine $NEXUS_HOSTNAME login $NEXUS_USERNAME password $NEXUS_PASSWORD" >"$HOME/.netrc"
+      chmod 600 "$HOME/.netrc"
+      export PIP_INDEX_URL=${NEXUS_PYPI_GROUP_PUBLIC_SIMPLE}
+
+build_v1:
+  extends:
+    - .build:base
   script:
     - pip install --use-deprecated=legacy-resolver -r requirements.txt
     - rm -rf $BUILD_DIR1
@@ -20,11 +39,11 @@ build_v1:
       - $BUILD_DIR1/html
   rules:
     - changes:
-        - source-lk-v1/**/* 
+        - source-lk-v1/**/*
 
 build_v2:
-  stage: build
-  image: python:3.9
+  extends:
+    - .build:base
   script:
     - pip install --use-deprecated=legacy-resolver -r requirements.txt
     - rm -rf $BUILD_DIR2
@@ -49,9 +68,9 @@ deploy_test_v1:
     - apk add --no-cache rsync
     - rsync -avz --delete $BUILD_DIR1/html/ $USER@$TEST_LK_V1_SERVER:$TARGET_DIR
   rules:
-      - if: '$CI_COMMIT_BRANCH == "test"'
-        changes:
-          - source-lk-v1/**/*   
+    - if: '$CI_COMMIT_BRANCH == "test"'
+      changes:
+        - source-lk-v1/**/*
 
 deploy_prod_v1:
   stage: deploy
@@ -66,9 +85,9 @@ deploy_prod_v1:
     - apk add --no-cache rsync
     - rsync -avz --delete $BUILD_DIR1/html/ $USER@$PROD_LK_V1_SERVER:$TARGET_DIR
   rules:
-      - if: '$CI_COMMIT_BRANCH == "main"'
-        changes:
-          - source-lk-v1/**/*   
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      changes:
+        - source-lk-v1/**/*
 
 deploy_test_v2:
   stage: deploy
@@ -83,9 +102,9 @@ deploy_test_v2:
     - apk add --no-cache rsync
     - rsync -avz --delete $BUILD_DIR2/html/ $USER@$TEST_LK_V2_SERVER:$TARGET_DIR
   rules:
-      - if: '$CI_COMMIT_BRANCH == "test"'
-        changes:
-          - source-lk-v2/**/*   
+    - if: '$CI_COMMIT_BRANCH == "test"'
+      changes:
+        - source-lk-v2/**/*
 
 deploy_prod_v2:
   stage: deploy
@@ -100,9 +119,9 @@ deploy_prod_v2:
     - apk add --no-cache rsync
     - rsync -avz --delete $BUILD_DIR2/html/ $USER@$PROD_LK_V2_SERVER:$TARGET_DIR
   rules:
-      - if: '$CI_COMMIT_BRANCH == "main"'
-        changes:
-          - source-lk-v2/**/*   
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      changes:
+        - source-lk-v2/**/*
 
 publish:
   stage: publish
