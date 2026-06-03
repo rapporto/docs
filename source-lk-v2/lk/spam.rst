@@ -37,9 +37,6 @@
                         <li class="item-nav"><a href="delayed_sender.html">Отправка отложенной рассылки</a></li>
                         <li class="item-nav"><a href="date_of_end.html">Указание даты окончания рассылки</a></li>
                         <li class="item-nav"><a href="messaging_edit-properties.html">Редактирование рассылок</a></li>
-                        <li class="item-nav"><a href="contact_list.html">Добавление контактов</a></li>
-                        <li class="item-nav"><a href="segments.html">Создание сегментов</a></li>
-                        <li class="item-nav"><a href="black_list.html">Добавление черного списка</a></li>
                         <li class="item-nav"><a href="sender.html">Работа с разделом «Рассылки»</a></li>
                     </ul>
                     <label class="wrap-btn" for="spam">
