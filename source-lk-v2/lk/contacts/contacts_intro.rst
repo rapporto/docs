@@ -15,7 +15,7 @@
                     <h4 class="item-header"></h4>
                     <ul>
                         <li class="item-nav"><a href="white_list.html">Добавление в белый список</a></li>
-                        <li class="item-nav"><a href="segments">Добавление сегментов</a></li>
+                        <li class="item-nav"><a href="segments.html">Добавление сегментов</a></li>
                         <li class="item-nav"><a href="black_list.html">Добавление в черный список</a></li>
                     </ul>
                 </section>

@@ -15,9 +15,6 @@
    delayed_sender
    date_of_end
    messaging_edit-properties
-   contact_list
-   segments
-   black_list
    sender
 
 Создавайте рассылки с индивидуальным контентом и расписанием.
