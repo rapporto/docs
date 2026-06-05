@@ -32,7 +32,6 @@
    :caption: Интеграционные подключения
 
    api/introduction
-   api/dlr
    api/rest/rest_main
    api/rest_batch/rest_batch_main
    api/http/http_main
@@ -104,9 +103,6 @@
                         <li class="item-nav"><a href="lk/delayed_sender.html">Отправка отложенной рассылки</a></li>
                         <li class="item-nav"><a href="lk/date_of_end.html">Указание даты окончания рассылки</a></li>
                         <li class="item-nav"><a href="lk/messaging_edit-properties.html">Редактирование рассылок</a></li>
-                        <li class="item-nav"><a href="lk/contact_list.html">Добавление контактов</a></li>
-                        <li class="item-nav"><a href="lk/segments.html">Создание сегментов</a></li>
-                        <li class="item-nav"><a href="lk/black_list.html">Добавление черного списка</a></li>
                         <li class="item-nav"><a href="lk/sender.html">Работа с разделом "Рассылки"</a></li>
                     </ul>
                     <label class="wrap-btn" for="spam">
