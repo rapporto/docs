@@ -44,8 +44,6 @@ Rapporto Web Push SDK
 Системные требования
 ---------------------
 
-Информация о минимальных версиях поддерживаемых браузеров доступна по `ссылке <https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API#browser_compatibility>`_.
-
 .. raw:: html
    
    <p style="line-height: 24px;">Информация о минимальных версиях поддерживаемых браузеров доступна по 
