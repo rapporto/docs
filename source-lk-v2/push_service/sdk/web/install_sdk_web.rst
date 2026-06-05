@@ -46,6 +46,41 @@ Rapporto Web Push SDK
 
 Информация о минимальных версиях поддерживаемых браузеров доступна по `ссылке <https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API#browser_compatibility>`_.
 
+.. raw:: html
+   
+   <p style="line-height: 24px;">Информация о минимальных версиях поддерживаемых браузеров доступна по 
+       <a href="https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API#browser_compatibility" target="_blank" class="button">
+           <img src="../../../_static/link-external-01.svg" class="bttn-icon" alt="Внешняя ссылка"> ссылке.
+       </a>
+   </p>
+   <style>
+       .bttn-icon {
+           width: 18px;
+           height: 18px;
+           vertical-align: middle;  /* Центрирует иконку по вертикали */
+           border: 0;
+           margin-right: 4px;
+       }       
+       .button {
+           border: 0;
+           height: 36px;
+           text-decoration: none; /* Убирает подчеркивание */
+           color: #000; /* Цвет текста */
+           background-color: transparent; /* Цвет фона кнопки */
+           padding: 4px 4px; /* Отступы */
+           border-radius: 4px; /* Закругленные углы */
+           display: inline-flex; /* Позволяет выровнять текст и иконку по центру */
+           align-items: center; /* Центрирует содержимое кнопки */
+           line-height: 1; /* Убирает лишние отступы */
+       }
+       .button:hover {
+           background-color: #f8f7ff; /* Цвет фона при наведении */
+           text-decoration: none; /* Убирает подчеркивание */
+       }
+   </style>
+
+
+
 Быстрый старт
 --------------
 
