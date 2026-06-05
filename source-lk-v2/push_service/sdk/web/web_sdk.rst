@@ -23,7 +23,7 @@
    
    <p style="line-height: 24px;">Минимальные версии поддерживаемых браузеров можно посмотреть 
        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API#browser_compatibility" target="_blank" class="button">
-           <img src="../../_static/link-external-01.svg" class="bttn-icon" alt="Внешняя ссылка"> здесь.
+           <img src="../../../_static/link-external-01.svg" class="bttn-icon" alt="Внешняя ссылка"> здесь.
        </a>
    </p>
    <style>
