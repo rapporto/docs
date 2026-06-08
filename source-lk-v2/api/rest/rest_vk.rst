@@ -23,7 +23,7 @@ VK
            border: 0;
            height: 36px;
            text-decoration: none; /* Убирает подчеркивание */
-           color: #000; /* Цвет текста */
+           color: #726CFF; /* Цвет текста */
            background-color: transparent; /* Цвет фона кнопки */
            padding: 4px 4px; /* Отступы */
            border-radius: 4px; /* Закругленные углы */
