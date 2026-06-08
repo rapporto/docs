@@ -17,7 +17,39 @@
 * добавление в веб-приложение/PWA файла конфигурации и библиотеки, скомпилированной в виде npm-пакета;
 * инициализация библиотеки и настройка ее взаимодействия с компонентами приложения.
 
-Минимальные версии поддерживаемых браузеров можно посмотреть `здесь <https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API#browser_compatibility>`_.
+.. raw:: html
+   
+   <p style="line-height: 24px;">Минимальные версии поддерживаемых браузеров можно посмотреть 
+       <a href="https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API#browser_compatibility" target="_blank" class="button">
+           <img src="../../../_static/link-external-01.svg" class="bttn-icon" alt="Внешняя ссылка"> здесь.
+       </a>
+   </p>
+   <style>
+       .bttn-icon {
+           width: 18px;
+           height: 18px;
+           vertical-align: middle;  /* Центрирует иконку по вертикали */
+           border: 0;
+           margin-right: 4px;
+       }       
+       .button {
+           border: 0;
+           height: 36px;
+           text-decoration: none; /* Убирает подчеркивание */
+           color: #726CFF; /* Цвет текста */
+           background-color: transparent; /* Цвет фона кнопки */
+           padding: 4px 4px; /* Отступы */
+           border-radius: 4px; /* Закругленные углы */
+           display: inline-flex; /* Позволяет выровнять текст и иконку по центру */
+           align-items: center; /* Центрирует содержимое кнопки */
+           line-height: 1; /* Убирает лишние отступы */
+       }
+       .button:hover {
+           background-color: #f8f7ff; /* Цвет фона при наведении */
+           text-decoration: none; /* Убирает подчеркивание */
+       }
+   </style>
+
 
 Более подробную информацию можно посмотреть в статье :doc:`install_sdk_web`.
 
