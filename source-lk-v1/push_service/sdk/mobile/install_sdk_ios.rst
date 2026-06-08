@@ -47,7 +47,41 @@ ZGR Messaging SDK (push service)
 Интеграция приложения с APNS
 ------------------------------
 
-Для интеграции приложения с APNS необходимо включить возможность отправки push-нотификаций в настройках проекта, а также в настройках аккаунта разработчика. После этого на старте приложения зарегистрировать его в службе APNS и получить уникальный токен для устройства. Подробно процесс описан по `ссылке <https://developer.apple.com/documentation/usernotifications/registering_your_app_with_apns>`_. 
+Для интеграции приложения с APNS необходимо включить возможность отправки push-нотификаций в настройках проекта, а также в настройках аккаунта разработчика. После этого на старте приложения зарегистрировать его в службе APNS и получить уникальный токен для устройства. 
+
+.. raw:: html
+   
+   <p style="line-height: 24px;">Подробно процесс описан 
+       <a href="https://developer.apple.com/documentation/usernotifications/registering_your_app_with_apns" target="_blank" class="button">
+           <img src="../../../_static/link-external-01.svg" class="bttn-icon" alt="Внешняя ссылка"> здесь.
+       </a>
+   </p>
+   <style>
+       .bttn-icon {
+           width: 18px;
+           height: 18px;
+           vertical-align: middle;  /* Центрирует иконку по вертикали */
+           border: 0;
+           margin-right: 4px;
+       }       
+       .button {
+           border: 0;
+           height: 36px;
+           text-decoration: none; /* Убирает подчеркивание */
+           color: #726CFF; /* Цвет текста */
+           background-color: transparent; /* Цвет фона кнопки */
+           padding: 4px 4px; /* Отступы */
+           border-radius: 4px; /* Закругленные углы */
+           display: inline-flex; /* Позволяет выровнять текст и иконку по центру */
+           align-items: center; /* Центрирует содержимое кнопки */
+           line-height: 1; /* Убирает лишние отступы */
+       }
+       .button:hover {
+           background-color: #f8f7ff; /* Цвет фона при наведении */
+           text-decoration: none; /* Убирает подчеркивание */
+       }
+   </style>
+
 
 Основные шаги интеграции
 ---------------------------
